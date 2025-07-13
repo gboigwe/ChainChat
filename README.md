@@ -155,4 +155,4 @@ cd ChainChat
 
 ---
 
-**Built for Code for Stacks** - Leveraging Stacks' Bitcoin security and ALEX DeFi ecosystem to make sophisticated strategies accessible through natural language.
+**Built for Code for Stacks** - Leveraging Stacks' Bitcoin security and ALEX DeFi ecosystem to make sophisticated strategies accessible through natural language
