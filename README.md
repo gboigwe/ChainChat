@@ -66,36 +66,122 @@ Converts English to strategy actions:
 
 ## 🎮 Getting Started
 
-### 1. Connect Your Wallet
-```javascript
-// Connect Stacks wallet
-const wallet = await connectStacks();
+### 1. Prerequisites
+- Node.js 18+ and npm installed
+- A Reown (WalletConnect) Project ID from [cloud.reown.com](https://cloud.reown.com/)
+- A Stacks wallet (Xverse, Leather, or any WalletConnect-compatible wallet)
+
+### 2. Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/gboigwe/ChainChat.git
+cd ChainChat
+
+# Install dependencies
+npm install
+
+# Setup environment variables
+cp .env.example .env
+# Edit .env and add your VITE_WALLETCONNECT_PROJECT_ID
 ```
 
-### 2. Deposit Funds
-```javascript
-// Deposit STX to strategy vault
-await depositToVault(1000); // 1000 STX
+### 3. Configure Reown (WalletConnect)
+
+Create a `.env` file with your Reown Project ID:
+
+```env
+VITE_WALLETCONNECT_PROJECT_ID=your_project_id_from_reown
+VITE_NETWORK=testnet
 ```
 
-### 3. Start Earning
-```javascript
-// Type command in frontend
-"start safe strategy"
+Get your Project ID:
+1. Visit [https://cloud.reown.com/](https://cloud.reown.com/)
+2. Create a new project
+3. Copy your Project ID
+4. Add it to your `.env` file
+
+### 4. Run the Application
+
+```bash
+# Start the development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-### 4. Monitor Performance
-Check dashboard for:
-- Current yield
-- Active strategies
-- Risk metrics
-- Total returns
+### 5. Connect Your Wallet
+
+The app will open at `http://localhost:3000`. You can connect using:
+- **WalletConnect (Recommended)**: Access 600+ wallets including mobile wallets
+- **Auto-Detect**: Browser extension wallets like Leather (Hiro Wallet)
+
+### 6. Using the Dashboard
+
+Once connected:
+1. **Deposit STX** to the strategy vault
+2. **Select a strategy** command from the dropdown
+3. **Execute commands** like:
+   - "start safe strategy" - Low-risk yield farming
+   - "start growth strategy" - Higher-yield strategies
+   - "exit all positions" - Close all strategies
+4. **Monitor** your active strategies and balance
 
 ## 🛠️ Technical Stack
 - **Smart Contracts**: Clarity (Stacks blockchain)
-- **Frontend**: Vanilla JavaScript + HTML/CSS
+- **Frontend**: React + Vite
+- **Wallet Connection**: Reown (WalletConnect) - 600+ wallets supported
+- **Stacks Integration**: @stacks/connect, @stacks/transactions
 - **Protocol Integration**: ALEX DeFi
 - **AI**: Rule-based command parsing (simple but effective)
+
+## 🔗 Reown (WalletConnect) Integration
+
+ChainChat uses **Reown** (formerly WalletConnect) to provide seamless wallet connectivity:
+
+### Features
+- ✅ **600+ Wallet Support**: Connect from desktop, mobile, and hardware wallets
+- ✅ **Multi-Platform**: Works on web, mobile browsers, and dApps
+- ✅ **Secure**: Industry-standard wallet connection protocol
+- ✅ **User-Friendly**: QR code scanning for mobile wallets
+
+### Supported Wallets
+- **Xverse** (Stacks native, WalletConnect enabled)
+- **Leather** (Hiro Wallet)
+- **Asigna**
+- **600+ more** via WalletConnect protocol
+
+### Integration Details
+
+The integration uses `@stacks/connect` with the `walletConnectProjectId` parameter:
+
+```javascript
+import { showConnect } from '@stacks/connect';
+
+await showConnect({
+  appDetails: {
+    name: 'ChainChat',
+    icon: window.location.origin + '/logo.png',
+  },
+  // Reown (WalletConnect) integration
+  walletConnectProjectId: 'YOUR_PROJECT_ID',
+  onFinish: () => {
+    // Handle successful connection
+  },
+});
+```
+
+### Key Files
+- `src/utils/wallet.js` - Wallet connection utilities with Reown support
+- `src/hooks/useWallet.js` - React hook for wallet state management
+- `src/components/WalletConnect.jsx` - Wallet connection UI
+
+### Announcement
+In November 2025, **WalletConnect and Stacks Foundation announced expanded support** for the Stacks ecosystem, making it easier than ever to integrate wallet connectivity and access Bitcoin DeFi features.
 
 ## 📊 MVP Strategy Options
 
@@ -134,18 +220,38 @@ Check dashboard for:
 - Drives actual usage and TVL growth
 - Demonstrates innovation in DeFi UX
 
-## 🚀 Demo Commands
+## 🚀 Quick Start Commands
+
 ```bash
 # Clone and setup
 git clone https://github.com/gboigwe/ChainChat
 cd ChainChat
 
-# Try it out (after connecting wallet)
-"deposit 100 STX"
-"start safe strategy"
-"show portfolio"
-"exit all positions"
+# Install dependencies
+npm install
+
+# Setup environment
+cp .env.example .env
+# Add your Reown Project ID to .env
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
 ```
+
+## 📱 Available Strategy Commands
+
+Once your wallet is connected via Reown:
+
+1. **Deposit funds** to the vault
+2. **Execute strategy commands**:
+   - "start safe strategy" - 5-8% APY, low risk
+   - "start growth strategy" - 10-15% APY, moderate risk
+   - "exit all positions" - Close all active strategies
+   - "set risk low/medium/high" - Adjust risk tolerance
+3. **Monitor** your portfolio in real-time
 
 ## 📈 Success Metrics
 - **Functionality**: Strategies execute and generate yield
