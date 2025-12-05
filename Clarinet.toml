@@ -5,13 +5,13 @@ authors = []
 telemetry = true
 cache_dir = "./.cache"
 
-[contracts.strategy-vault]
-path = "contracts/strategy-vault.clar"
+[contracts.strategy-vaultx]
+path = "contracts/strategy-vaultx.clar"
 clarity_version = 3
 epoch = 3.0
 
-[contracts.strategy-engine]
-path = "contracts/strategy-engine.clar"
+[contracts.strategy-enginex]
+path = "contracts/strategy-enginex.clar"
 clarity_version = 3
 epoch = 3.0
 
