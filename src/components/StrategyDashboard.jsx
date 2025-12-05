@@ -9,6 +9,9 @@ import {
   callReadOnlyFunction,
   makeContractCall,
   broadcastTransaction,
+  uintCV,
+  principalCV,
+  stringAsciiCV,
 } from '@stacks/transactions';
 import { getNetwork } from '../utils/wallet';
 
@@ -45,7 +48,7 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'get-user-balance',
-        functionArgs: [address],
+        functionArgs: [principalCV(address)],
         network: getNetwork(),
         senderAddress: address,
       });
@@ -66,7 +69,7 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'get-user-strategy',
-        functionArgs: [address],
+        functionArgs: [principalCV(address)],
         network: getNetwork(),
         senderAddress: address,
       });
@@ -102,9 +105,9 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'deposit',
-        functionArgs: [amountInMicroStx],
+        functionArgs: [uintCV(amountInMicroStx)],
         network: getNetwork(),
-        senderKey: address,
+        senderAddress: address,
         onFinish: async (data) => {
           setMessage({ type: 'success', text: `Deposit successful! TX: ${data.txId}` });
           await fetchUserBalance();
@@ -143,9 +146,9 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'execute-command',
-        functionArgs: [command, commandAmount],
+        functionArgs: [stringAsciiCV(command), uintCV(commandAmount)],
         network: getNetwork(),
-        senderKey: address,
+        senderAddress: address,
         onFinish: async (data) => {
           setMessage({ type: 'success', text: `Command executed! TX: ${data.txId}` });
           await fetchActiveStrategy();
