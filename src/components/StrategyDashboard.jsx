@@ -69,7 +69,7 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'get-user-strategy',
-        functionArgs: [address],
+        functionArgs: [principalCV(address)],
         network: getNetwork(),
         senderAddress: address,
       });
