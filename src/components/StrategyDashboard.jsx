@@ -146,9 +146,9 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'execute-command',
-        functionArgs: [command, commandAmount],
+        functionArgs: [stringAsciiCV(command), uintCV(commandAmount)],
         network: getNetwork(),
-        senderKey: address,
+        senderAddress: address,
         onFinish: async (data) => {
           setMessage({ type: 'success', text: `Command executed! TX: ${data.txId}` });
           await fetchActiveStrategy();
