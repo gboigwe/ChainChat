@@ -48,7 +48,7 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'get-user-balance',
-        functionArgs: [address],
+        functionArgs: [principalCV(address)],
         network: getNetwork(),
         senderAddress: address,
       });
