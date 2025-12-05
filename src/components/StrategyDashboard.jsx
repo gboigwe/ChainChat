@@ -9,6 +9,9 @@ import {
   callReadOnlyFunction,
   makeContractCall,
   broadcastTransaction,
+  uintCV,
+  principalCV,
+  stringAsciiCV,
 } from '@stacks/transactions';
 import { getNetwork } from '../utils/wallet';
 
