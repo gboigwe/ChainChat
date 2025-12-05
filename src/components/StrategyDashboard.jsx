@@ -105,9 +105,9 @@ const StrategyDashboard = () => {
         contractAddress,
         contractName,
         functionName: 'deposit',
-        functionArgs: [amountInMicroStx],
+        functionArgs: [uintCV(amountInMicroStx)],
         network: getNetwork(),
-        senderKey: address,
+        senderAddress: address,
         onFinish: async (data) => {
           setMessage({ type: 'success', text: `Deposit successful! TX: ${data.txId}` });
           await fetchUserBalance();
