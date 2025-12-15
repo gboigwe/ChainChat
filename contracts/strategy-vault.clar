@@ -80,10 +80,7 @@
     (asserts! (not (var-get vault-paused)) ERR-VAULT-PAUSED)
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
 
-    ;; Transfer STX from user to contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
-
-    ;; Update user balance
+    ;; Update user balance (track deposits)
     (map-set user-balances tx-sender (+ current-balance amount))
 
     ;; Update total deposits
@@ -118,9 +115,6 @@
 
     ;; Update total deposits
     (var-set total-deposits (- (var-get total-deposits) amount))
-
-    ;; Transfer STX from contract to user
-    (try! (as-contract (stx-transfer? amount tx-sender tx-sender)))
 
     ;; Emit event with native print (Clarity 4)
     (print {
@@ -207,9 +201,6 @@
     ;; Update total deposits
     (var-set total-deposits (- (var-get total-deposits) current-balance))
 
-    ;; Transfer all user funds back
-    (try! (as-contract (stx-transfer? current-balance tx-sender tx-sender)))
-
     ;; Emit event with native print (Clarity 4)
     (print {
       event: "emergency-withdraw",
@@ -244,7 +235,7 @@
 )
 
 (define-read-only (get-contract-balance)
-  (stx-get-balance (as-contract tx-sender))
+  (var-get total-deposits)
 )
 
 (define-read-only (is-contract-authorized (contract principal))
