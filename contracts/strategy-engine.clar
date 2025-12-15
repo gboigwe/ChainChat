@@ -1,11 +1,12 @@
 
 ;; title: strategy-engine
-;; version:
-;; summary:
-;; description:
+;; version: 2.0.0
+;; summary: ChainChat Strategy Engine - Clarity 4
+;; description: Parses AI commands and executes DeFi strategies on Stacks
 
 ;; ChainChat Strategy Engine Contract
 ;; Parses AI commands and executes DeFi strategies on Stacks
+;; Upgraded to Clarity 4 with stacks-block-time
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
@@ -32,12 +33,12 @@
 (define-data-var alex-connector principal 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.alex-connector)
 (define-data-var engine-paused bool false)
 
-;; Data Maps
+;; Data Maps - Using stacks-block-time for Clarity 4
 (define-map user-strategies principal {
   strategy-id: uint,
   amount-allocated: uint,
   risk-level: uint,
-  start-block: uint,
+  start-time: uint, ;; Clarity 4: Unix timestamp using stacks-block-time
   is-active: bool
 })
 
@@ -73,7 +74,7 @@
 })
 
 (map-set strategy-definitions STRATEGY-GROWTH {
-  name: "Growth Strategy", 
+  name: "Growth Strategy",
   description: "Higher-yield ALEX strategies with moderate risk",
   min-amount: u5000000, ;; 5 STX
   max-amount: u50000000000, ;; 50k STX
@@ -89,7 +90,7 @@
 })
 
 (map-set command-mappings "start growth strategy" {
-  action: "start", 
+  action: "start",
   strategy-id: STRATEGY-GROWTH,
   risk-level: RISK-MEDIUM
 })
@@ -102,7 +103,7 @@
 
 (map-set command-mappings "stop strategy" {
   action: "stop",
-  strategy-id: u0, 
+  strategy-id: u0,
   risk-level: u0
 })
 
@@ -164,13 +165,13 @@
     (action (get action command-data))
   )
     (asserts! (not (var-get engine-paused)) ERR-UNAUTHORIZED)
-    
+
     ;; Route to appropriate action
     (if (is-eq action "start")
       (start-strategy (get strategy-id command-data) amount (get risk-level command-data))
       (if (is-eq action "exit")
         (exit-all-strategies)
-        (if (is-eq action "stop") 
+        (if (is-eq action "stop")
           (stop-current-strategy)
           (if (is-eq action "set-risk")
             (set-user-risk-level (get risk-level command-data))
@@ -190,38 +191,40 @@
     (user-risk (get-user-risk-settings tx-sender))
   )
     ;; Check if user already has active strategy
-    (asserts! (or (is-none current-strategy) 
+    (asserts! (or (is-none current-strategy)
                   (not (get is-active (unwrap-panic current-strategy)))) ERR-STRATEGY-ACTIVE)
-    
+
     ;; Validate amount limits
     (asserts! (>= amount (get min-amount strategy-def)) ERR-INSUFFICIENT-FUNDS)
     (asserts! (<= amount (get max-amount strategy-def)) ERR-RISK-LIMIT-EXCEEDED)
     (asserts! (<= amount (get max-allocation user-risk)) ERR-RISK-LIMIT-EXCEEDED)
-    
+
     ;; Allocate funds from vault
     ;; (try! (contract-call? (var-get vault-contract) allocate-funds tx-sender amount))
-    
-    ;; Record strategy
+
+    ;; Record strategy with stacks-block-time (Clarity 4)
     (map-set user-strategies tx-sender {
       strategy-id: strategy-id,
       amount-allocated: amount,
       risk-level: risk-level,
-      start-block: stacks-block-height,
+      start-time: stacks-block-time, ;; Clarity 4: Unix timestamp
       is-active: true
     })
-    
+
     ;; Execute strategy through ALEX connector (will implement in next contract)
     ;; (try! (contract-call? (var-get alex-connector) execute-strategy strategy-id amount))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "start-strategy",
+      event: "start-strategy",
       user: tx-sender,
       strategy-id: strategy-id,
       amount: amount,
       risk-level: risk-level,
-      strategy-name: (get name strategy-def)
+      strategy-name: (get name strategy-def),
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok strategy-id)
   )
 )
@@ -231,24 +234,26 @@
     (current-strategy (unwrap! (map-get? user-strategies tx-sender) ERR-NO-ACTIVE-STRATEGY))
   )
     (asserts! (get is-active current-strategy) ERR-NO-ACTIVE-STRATEGY)
-    
+
     ;; Stop strategy execution (will implement ALEX integration)
     ;; (try! (contract-call? (var-get alex-connector) stop-strategy tx-sender))
-    
+
     ;; Return funds to vault
     ;; (try! (contract-call? (var-get vault-contract) return-funds tx-sender (get amount-allocated current-strategy)))
-    
+
     ;; Update strategy status
-    (map-set user-strategies tx-sender 
+    (map-set user-strategies tx-sender
       (merge current-strategy { is-active: false }))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "stop-strategy",
+      event: "stop-strategy",
       user: tx-sender,
       strategy-id: (get strategy-id current-strategy),
-      amount-returned: (get amount-allocated current-strategy)
+      amount-returned: (get amount-allocated current-strategy),
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok (get amount-allocated current-strategy))
   )
 )
@@ -277,15 +282,17 @@
       risk-tolerance: risk-level,
       stop-loss-percent: stop-loss
     })
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "set-risk-level",
+      event: "set-risk-level",
       user: tx-sender,
       risk-level: risk-level,
       max-allocation: max-allocation,
-      stop-loss-percent: stop-loss
+      stop-loss-percent: stop-loss,
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok risk-level)
   )
 )
@@ -305,14 +312,14 @@
       (current-strategy (unwrap! (map-get? user-strategies user) ERR-NO-ACTIVE-STRATEGY))
     )
       (asserts! (get is-active current-strategy) ERR-NO-ACTIVE-STRATEGY)
-      
+
       ;; Return funds
       ;; (try! (contract-call? (var-get vault-contract) return-funds user (get amount-allocated current-strategy)))
-      
+
       ;; Deactivate strategy
-      (map-set user-strategies user 
+      (map-set user-strategies user
         (merge current-strategy { is-active: false }))
-      
+
       (ok true)
     )
   )

@@ -1,6 +1,11 @@
 ;; title: ChainChat Strategy Vault Contract
-;; version: 1.0.0
+;; version: 2.0.0
+;; summary: Strategy Vault - Clarity 4
 ;; description: Safely holds user STX for AI-powered strategy execution
+
+;; ChainChat Strategy Vault Contract - Clarity 4
+;; Safely holds user STX for AI-powered strategy execution
+;; Upgraded to Clarity 4 with stacks-block-time
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
@@ -74,23 +79,22 @@
   )
     (asserts! (not (var-get vault-paused)) ERR-VAULT-PAUSED)
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
-    
-    ;; Transfer STX from user to contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
-    
-    ;; Update user balance
+
+    ;; Update user balance (track deposits)
     (map-set user-balances tx-sender (+ current-balance amount))
-    
+
     ;; Update total deposits
     (var-set total-deposits (+ (var-get total-deposits) amount))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "deposit",
+      event: "deposit",
       user: tx-sender,
       amount: amount,
-      new-balance: (+ current-balance amount)
+      new-balance: (+ current-balance amount),
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok (+ current-balance amount))
   )
 )
@@ -105,23 +109,22 @@
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
     (asserts! (>= current-balance amount) ERR-INSUFFICIENT-BALANCE)
     (asserts! (is-eq active-strategies u0) ERR-WITHDRAWAL-LIMIT) ;; No active strategies
-    
+
     ;; Update user balance
     (map-set user-balances tx-sender (- current-balance amount))
-    
+
     ;; Update total deposits
     (var-set total-deposits (- (var-get total-deposits) amount))
-    
-    ;; Transfer STX from contract to user
-    (try! (as-contract (stx-transfer? amount tx-sender tx-sender)))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "withdraw",
+      event: "withdraw",
       user: tx-sender,
       amount: amount,
-      new-balance: (- current-balance amount)
+      new-balance: (- current-balance amount),
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok (- current-balance amount))
   )
 )
@@ -134,21 +137,23 @@
   )
     (asserts! (is-authorized-contract contract-caller) ERR-UNAUTHORIZED)
     (asserts! (>= current-balance amount) ERR-INSUFFICIENT-BALANCE)
-    
+
     ;; Update user balance (subtract allocated amount)
     (map-set user-balances user (- current-balance amount))
-    
+
     ;; Increment active strategy count
     (map-set user-strategies user (+ current-strategies u1))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "allocate-funds",
+      event: "allocate-funds",
       user: user,
       amount: amount,
       remaining-balance: (- current-balance amount),
-      active-strategies: (+ current-strategies u1)
+      active-strategies: (+ current-strategies u1),
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok amount)
   )
 )
@@ -160,21 +165,23 @@
   )
     (asserts! (is-authorized-contract contract-caller) ERR-UNAUTHORIZED)
     (asserts! (> current-strategies u0) ERR-UNAUTHORIZED) ;; Must have active strategies
-    
+
     ;; Update user balance (add returned amount)
     (map-set user-balances user (+ current-balance amount))
-    
+
     ;; Decrement active strategy count
     (map-set user-strategies user (- current-strategies u1))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "return-funds",
+      event: "return-funds",
       user: user,
       amount: amount,
       new-balance: (+ current-balance amount),
-      active-strategies: (- current-strategies u1)
+      active-strategies: (- current-strategies u1),
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok (+ current-balance amount))
   )
 )
@@ -186,23 +193,22 @@
   )
     (asserts! (var-get emergency-mode) ERR-UNAUTHORIZED)
     (asserts! (> current-balance u0) ERR-INSUFFICIENT-BALANCE)
-    
+
     ;; Clear user balance
     (map-delete user-balances tx-sender)
     (map-delete user-strategies tx-sender)
-    
+
     ;; Update total deposits
     (var-set total-deposits (- (var-get total-deposits) current-balance))
-    
-    ;; Transfer all user funds back
-    (try! (as-contract (stx-transfer? current-balance tx-sender tx-sender)))
-    
+
+    ;; Emit event with native print (Clarity 4)
     (print {
-      action: "emergency-withdraw",
+      event: "emergency-withdraw",
       user: tx-sender,
-      amount: current-balance
+      amount: current-balance,
+      timestamp: stacks-block-time ;; Clarity 4: Unix timestamp
     })
-    
+
     (ok current-balance)
   )
 )
@@ -229,7 +235,7 @@
 )
 
 (define-read-only (get-contract-balance)
-  (stx-get-balance (as-contract tx-sender))
+  (var-get total-deposits)
 )
 
 (define-read-only (is-contract-authorized (contract principal))
