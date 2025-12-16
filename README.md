@@ -137,6 +137,8 @@ Once connected:
 - **Wallet Connection**: Reown (WalletConnect) - 600+ wallets supported
 - **Stacks Integration**: @stacks/connect, @stacks/transactions
 - **Protocol Integration**: ALEX DeFi
+- **Real-Time Events**: Hiro Chainhooks for blockchain event notifications
+- **Backend**: Express.js webhook server
 - **AI**: Rule-based command parsing (simple but effective)
 
 ## 🔗 Reown (WalletConnect) Integration
@@ -182,6 +184,57 @@ await showConnect({
 
 ### Announcement
 In November 2025, **WalletConnect and Stacks Foundation announced expanded support** for the Stacks ecosystem, making it easier than ever to integrate wallet connectivity and access Bitcoin DeFi features.
+
+## 📡 Real-Time Event System (Chainhooks)
+
+ChainChat integrates **Hiro Chainhooks** for real-time blockchain event notifications, enabling instant updates when strategies are executed or vault transactions occur.
+
+### What are Chainhooks?
+
+Chainhooks are reorg-aware webhook services that monitor blockchain activity and send HTTP POST requests when specific events occur.
+
+**Benefits:**
+- ✅ Real-time event delivery (no polling)
+- ✅ Automatic blockchain reorganization handling
+- ✅ Reduced API calls and rate limiting
+- ✅ Event-driven architecture
+- ✅ Lightweight data indexing
+
+### Monitored Events
+
+The system monitors both smart contracts:
+
+1. **strategy-vault**: Deposit, withdraw, fund allocation, emergency withdrawals
+2. **strategy-engine**: Strategy execution, risk level changes
+
+### Architecture
+
+```
+Blockchain Event → Chainhook → Webhook → Express Server → Frontend (Real-time)
+```
+
+### Setup
+
+1. Add Hiro API key to `.env`:
+```env
+HIRO_API_KEY=your_api_key_here
+CHAINHOOK_WEBHOOK_SECRET=your_secret_here
+PORT=3001
+```
+
+2. Start both servers:
+```bash
+npm run dev:all
+```
+
+3. Register Chainhooks:
+```bash
+node scripts/register-chainhooks.js
+```
+
+4. View live events using the `RealtimeActivityFeed` component
+
+For detailed documentation, see `CHAINHOOKS_README.md`
 
 ## 📊 MVP Strategy Options
 
