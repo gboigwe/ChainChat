@@ -1,0 +1,20 @@
+{
+  "name": "ChainChat Strategy Vault Events",
+  "version": 1,
+  "chain": "stacks",
+  "networks": {
+    "testnet": {
+      "if_this": {
+        "scope": "contract_call",
+        "contract_identifier": "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.strategy-vault"
+      },
+      "then_that": {
+        "http_post": {
+          "url": "http://localhost:3001/api/webhooks/chainhook",
+          "authorization_header": "Bearer chainchat_webhook_secret_2025_xyz"
+        }
+      },
+      "start_block": 0
+    }
+  }
+}
