@@ -25,8 +25,8 @@ const StrategyDashboard = () => {
   const [message, setMessage] = useState(null);
 
   // Contract addresses (update these with your deployed contracts)
-  const VAULT_CONTRACT = import.meta.env.VITE_VAULT_CONTRACT || 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.strategy-vault';
-  const ENGINE_CONTRACT = import.meta.env.VITE_ENGINE_CONTRACT || 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.strategy-engine';
+  const VAULT_CONTRACT = import.meta.env.VITE_VAULT_CONTRACT || 'SPD5ETF2HZ921C8RJG2MHPAN7SSP9AYEYD5GSP84.strategy-vaultx';
+  const ENGINE_CONTRACT = import.meta.env.VITE_ENGINE_CONTRACT || 'SPD5ETF2HZ921C8RJG2MHPAN7SSP9AYEYD5GSP84.strategy-enginex';
 
   // Available commands
   const COMMANDS = [
