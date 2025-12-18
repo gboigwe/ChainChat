@@ -9,6 +9,16 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     emptyOutDir: true,
+    sourcemap: false,
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-stacks': ['@stacks/connect', '@stacks/transactions'],
+          'vendor-react': ['react', 'react-dom'],
+        },
+      },
+    },
   },
   server: {
     port: 3000,
