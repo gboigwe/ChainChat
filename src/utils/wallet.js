@@ -8,7 +8,7 @@ import { StacksMainnet, StacksTestnet } from '@stacks/network';
 
 // IMPORTANT: Replace with your actual Reown (WalletConnect) Project ID
 // Get it from https://cloud.reown.com/
-const WALLETCONNECT_PROJECT_ID = process.env.VITE_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID';
+const WALLETCONNECT_PROJECT_ID = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID';
 
 // App configuration for Stacks authentication
 const appConfig = new AppConfig(['store_write', 'publish_data']);
