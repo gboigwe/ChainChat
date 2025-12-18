@@ -7,10 +7,13 @@ export const RealtimeActivityFeed = ({
   className = '',
   serverUrl = 'http://localhost:3001',
 }) => {
-  const { events, isLoading, error, latestEvent } = useChainhookEvents({
+  const { events: eventData, isLoading, error, latestEvent } = useChainhookEvents({
     limit,
     serverUrl,
   });
+
+  // Ensure events is always an array
+  const events = Array.isArray(eventData) ? eventData : [];
   const [lastSeenEvent, setLastSeenEvent] = useState(null);
   const [showToast, setShowToast] = useState(false);
 
