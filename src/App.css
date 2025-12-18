@@ -166,12 +166,12 @@
 
 .btn-outline {
   background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #5546FF;
+  border: 2px solid #5546FF;
 }
 
 .btn-outline:hover:not(:disabled) {
-  background: #667eea;
+  background: #5546FF;
   color: white;
 }
 
