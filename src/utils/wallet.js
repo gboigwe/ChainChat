@@ -15,7 +15,7 @@ const appConfig = new AppConfig(['store_write', 'publish_data']);
 export const userSession = new UserSession({ appConfig });
 
 // Network configuration (use testnet for development, mainnet for production)
-const NETWORK = process.env.VITE_NETWORK === 'mainnet'
+const NETWORK = import.meta.env.VITE_NETWORK === 'mainnet'
   ? new StacksMainnet()
   : new StacksTestnet();
 
