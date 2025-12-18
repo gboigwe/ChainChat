@@ -4,7 +4,7 @@
  */
 
 import { AppConfig, UserSession, showConnect } from '@stacks/connect';
-import { StacksMainnet, StacksTestnet } from '@stacks/network';
+import { StacksMainnet, StacksTestnet } from '@stacks/transactions';
 
 // IMPORTANT: Replace with your actual Reown (WalletConnect) Project ID
 // Get it from https://cloud.reown.com/
