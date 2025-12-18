@@ -130,7 +130,7 @@ export const getNetwork = () => {
  * Get current network name
  */
 export const getNetworkName = () => {
-  return process.env.VITE_NETWORK === 'mainnet' ? 'Mainnet' : 'Testnet';
+  return import.meta.env.VITE_NETWORK === 'mainnet' ? 'Mainnet' : 'Testnet';
 };
 
 /**
