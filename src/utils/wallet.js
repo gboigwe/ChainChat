@@ -4,7 +4,7 @@
  */
 
 import { AppConfig, UserSession, showConnect } from '@stacks/connect';
-import * as StacksNetwork from '@stacks/network';
+import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
 
 // IMPORTANT: Replace with your actual Reown (WalletConnect) Project ID
 // Get it from https://cloud.reown.com/
@@ -16,8 +16,8 @@ export const userSession = new UserSession({ appConfig });
 
 // Network configuration (use testnet for development, mainnet for production)
 const NETWORK = import.meta.env.VITE_NETWORK === 'mainnet'
-  ? new StacksNetwork.StacksMainnet()
-  : new StacksNetwork.StacksTestnet();
+  ? STACKS_MAINNET
+  : STACKS_TESTNET;
 
 /**
  * Connect wallet using Reown (WalletConnect)

@@ -48,6 +48,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
+    "terser": "^5.44.1",
     "util": "^0.12.5"
   }
 }
