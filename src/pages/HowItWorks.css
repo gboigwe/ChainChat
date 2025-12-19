@@ -1,0 +1,470 @@
+/**
+ * How It Works Page Styles
+ * Step-by-step visual guide
+ */
+
+.how-it-works-page {
+  width: 100%;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Hero Section */
+.hiw-hero {
+  padding: 8rem 2rem 6rem;
+  background: linear-gradient(135deg, #5546FF 0%, #4A3FD8 50%, #FF8500 100%);
+  text-align: center;
+}
+
+.hiw-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hiw-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: white;
+  margin: 0 0 1.5rem 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hiw-lead {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+/* Steps Section */
+.steps-section {
+  padding: 6rem 0;
+  background: white;
+}
+
+.steps-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step-card {
+  display: grid;
+  grid-template-columns: 80px 1fr 300px;
+  gap: 3rem;
+  align-items: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.step-reverse {
+  grid-template-columns: 80px 300px 1fr;
+}
+
+.step-reverse .step-visual {
+  order: 2;
+}
+
+.step-reverse .step-content {
+  order: 3;
+}
+
+.step-number {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #5546FF 0%, #FF8500 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(85, 70, 255, 0.4);
+  position: relative;
+  z-index: 2;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+}
+
+.step-content {
+  padding: 2rem 0;
+}
+
+.step-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+.step-description {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0 0 1.5rem 0;
+}
+
+.step-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #5546FF 0%, #FF8500 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.step-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-box {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(85, 70, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  min-width: 250px;
+}
+
+.wallet-visual {
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+}
+
+.wallet-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.wallet-text {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1976D2;
+}
+
+.deposit-visual {
+  background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+}
+
+.deposit-icon {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+.deposit-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F57C00;
+  margin-bottom: 0.5rem;
+}
+
+.deposit-arrow {
+  font-size: 2rem;
+  color: #FB8C00;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.strategy-visual {
+  background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+}
+
+.strategy-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.strategy-text {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7B1FA2;
+  margin-bottom: 0.8rem;
+  font-style: italic;
+}
+
+.strategy-result {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6A1B9A;
+}
+
+.earn-visual {
+  background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+  padding: 2.5rem;
+}
+
+.earn-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.8rem;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.chart-bar {
+  width: 30px;
+  background: linear-gradient(180deg, #4CAF50 0%, #66BB6A 100%);
+  border-radius: 5px 5px 0 0;
+  animation: growBar 1.5s ease-out forwards;
+}
+
+.earn-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2E7D32;
+}
+
+.step-connector {
+  width: 3px;
+  height: 60px;
+  background: linear-gradient(180deg, #5546FF 0%, #FF8500 100%);
+  margin: -2rem auto -2rem 40px;
+  opacity: 0.3;
+}
+
+/* Features Deep Dive */
+.features-deep-dive {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+}
+
+.deep-dive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.dive-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dive-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 50px rgba(85, 70, 255, 0.2);
+  border-color: rgba(85, 70, 255, 0.3);
+}
+
+.dive-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.dive-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1rem 0;
+}
+
+.dive-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+}
+
+/* CTA Section */
+.hiw-cta {
+  padding: 6rem 0;
+  background: white;
+}
+
+.cta-box {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem;
+  background: linear-gradient(135deg, #5546FF 0%, #FF8500 100%);
+  border-radius: 30px;
+  box-shadow: 0 20px 60px rgba(85, 70, 255, 0.4);
+}
+
+.cta-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: white;
+  margin: 0 0 1rem 0;
+}
+
+.cta-description {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 2.5rem 0;
+}
+
+.btn-cta {
+  padding: 1.3rem 3rem;
+  background: white;
+  color: #5546FF;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.btn-arrow {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-cta:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.cta-note {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes growBar {
+  from {
+    height: 0;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .step-card,
+  .step-reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .step-reverse .step-visual,
+  .step-reverse .step-content {
+    order: unset;
+  }
+
+  .step-visual {
+    justify-content: flex-start;
+  }
+
+  .step-connector {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hiw-title {
+    font-size: 2.2rem;
+  }
+
+  .hiw-lead {
+    font-size: 1.1rem;
+  }
+
+  .section-title,
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .step-title {
+    font-size: 1.5rem;
+  }
+
+  .visual-box {
+    min-width: 200px;
+    padding: 1.5rem;
+  }
+
+  .deep-dive-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-box {
+    padding: 3rem 2rem;
+  }
+
+  .step-number {
+    width: 60px;
+    height: 60px;
+  }
+
+  .number {
+    font-size: 1.5rem;
+  }
+}
