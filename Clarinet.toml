@@ -10,8 +10,18 @@ path = 'contracts/access-control.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.alex-connector]
+path = 'contracts/alex-connector.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.analytics-tracker]
 path = 'contracts/analytics-tracker.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.arkadiko-connector]
+path = 'contracts/arkadiko-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -22,6 +32,11 @@ epoch = 'latest'
 
 [contracts.credit-scoring]
 path = 'contracts/credit-scoring.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.cross-chain-bridge]
+path = 'contracts/cross-chain-bridge.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -62,6 +77,11 @@ epoch = 'latest'
 
 [contracts.liquidation-engine]
 path = 'contracts/liquidation-engine.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.liquidity-aggregator]
+path = 'contracts/liquidity-aggregator.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -127,6 +147,11 @@ epoch = 'latest'
 
 [contracts.risk-parameters]
 path = 'contracts/risk-parameters.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.stackswap-connector]
+path = 'contracts/stackswap-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -210,6 +235,11 @@ path = 'contracts/strategy-yield-farming.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.swap-router]
+path = 'contracts/swap-router.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.token-distribution]
 path = 'contracts/token-distribution.clar'
 clarity_version = 4
@@ -280,6 +310,11 @@ path = 'contracts/vault-treasury.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.velar-connector]
+path = 'contracts/velar-connector.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.volatility-tracker]
 path = 'contracts/volatility-tracker.clar'
 clarity_version = 4
@@ -292,6 +327,11 @@ epoch = 'latest'
 
 [contracts.whitelist-manager]
 path = 'contracts/whitelist-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.wrapped-token-manager]
+path = 'contracts/wrapped-token-manager.clar'
 clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
