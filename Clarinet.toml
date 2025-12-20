@@ -10,6 +10,11 @@ path = 'contracts/access-control.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.analytics-tracker]
+path = 'contracts/analytics-tracker.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.collateral-manager]
 path = 'contracts/collateral-manager.clar'
 clarity_version = 4
@@ -17,6 +22,16 @@ epoch = 'latest'
 
 [contracts.credit-scoring]
 path = 'contracts/credit-scoring.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.event-emitter]
+path = 'contracts/event-emitter.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.fee-tracker]
+path = 'contracts/fee-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -55,6 +70,11 @@ path = 'contracts/ltv-calculator.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.metrics-aggregator]
+path = 'contracts/metrics-aggregator.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.multi-sig]
 path = 'contracts/multi-sig.clar'
 clarity_version = 4
@@ -62,6 +82,11 @@ epoch = 'latest'
 
 [contracts.oracle-security]
 path = 'contracts/oracle-security.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.performance-tracker]
+path = 'contracts/performance-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -87,6 +112,11 @@ epoch = 'latest'
 
 [contracts.proposal-executor]
 path = 'contracts/proposal-executor.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.reporting-engine]
+path = 'contracts/reporting-engine.clar'
 clarity_version = 4
 epoch = 'latest'
 
