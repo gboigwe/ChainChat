@@ -9,8 +9,14 @@ requirements = []
 path = 'contracts/strategy-engine.clar'
 clarity_version = 4
 epoch = 'latest'
+
 [contracts.strategy-vault]
 path = 'contracts/strategy-vault.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-factory]
+path = 'contracts/vault-factory.clar'
 clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
