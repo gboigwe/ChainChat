@@ -130,3 +130,34 @@
 (define-read-only (get-strategy-metrics (strategy principal))
   (map-get? strategy-metrics strategy)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate strategy principals
+(define-read-only (validate-strategy (strategy principal))
+  (principal-destruct? strategy)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format performance metrics
+(define-read-only (format-win-rate (strategy principal))
+  (match (map-get? strategy-metrics strategy)
+    metrics (ok (int-to-ascii (get win-rate metrics)))
+    (err u404)
+  )
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse performance values
+(define-read-only (parse-performance-value (value-str (string-ascii 20)))
+  (match (string-to-uint? value-str)
+    value (ok value)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track performance metrics
+(define-read-only (get-performance-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
