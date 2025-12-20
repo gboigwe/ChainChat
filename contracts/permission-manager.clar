@@ -119,3 +119,31 @@
     false
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate user principals
+(define-read-only (validate-user-principal (user principal))
+  (principal-destruct? user)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format permission levels
+(define-read-only (format-permission-level (level uint))
+  (ok (int-to-ascii level))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse permission values
+(define-read-only (parse-permission-string (perm-str (string-ascii 10)))
+  (match (string-to-uint? perm-str)
+    perm (ok perm)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track permission changes
+(define-read-only (get-permission-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
