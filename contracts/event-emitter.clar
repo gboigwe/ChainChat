@@ -101,3 +101,30 @@
 (define-read-only (get-total-events)
   (var-get total-events-emitted)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate emitter principals
+(define-read-only (validate-emitter (em principal))
+  (principal-destruct? em)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format event count
+(define-read-only (format-event-count)
+  (ok (int-to-ascii (var-get total-events-emitted)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse event ID from string
+(define-read-only (parse-event-id (e-str (string-ascii 20)))
+  (match (string-to-uint? e-str)
+    e (ok e)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track event timestamps
+(define-read-only (get-ee-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
