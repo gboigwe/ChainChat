@@ -25,8 +25,18 @@ path = 'contracts/arkadiko-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.array-utils]
+path = 'contracts/array-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.collateral-manager]
 path = 'contracts/collateral-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.conversion-utils]
+path = 'contracts/conversion-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -37,6 +47,11 @@ epoch = 'latest'
 
 [contracts.cross-chain-bridge]
 path = 'contracts/cross-chain-bridge.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.encoding-utils]
+path = 'contracts/encoding-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -87,6 +102,11 @@ epoch = 'latest'
 
 [contracts.ltv-calculator]
 path = 'contracts/ltv-calculator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.math-library]
+path = 'contracts/math-library.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -147,6 +167,11 @@ epoch = 'latest'
 
 [contracts.risk-parameters]
 path = 'contracts/risk-parameters.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.signature-verifier]
+path = 'contracts/signature-verifier.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -235,8 +260,18 @@ path = 'contracts/strategy-yield-farming.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.string-utils]
+path = 'contracts/string-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.swap-router]
 path = 'contracts/swap-router.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.time-utils]
+path = 'contracts/time-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -257,6 +292,11 @@ epoch = 'latest'
 
 [contracts.user-registry]
 path = 'contracts/user-registry.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.validation-utils]
+path = 'contracts/validation-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
