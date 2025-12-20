@@ -132,3 +132,31 @@
 (define-read-only (get-required-signatures)
   (var-get required-signatures)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate signer principals
+(define-read-only (validate-signer-principal (signer principal))
+  (principal-destruct? signer)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format signature counts
+(define-read-only (format-required-sigs)
+  (ok (int-to-ascii (var-get required-signatures)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse transaction IDs
+(define-read-only (parse-tx-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str)
+    tx-id (ok tx-id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track multi-sig transactions
+(define-read-only (get-multisig-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
