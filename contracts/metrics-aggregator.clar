@@ -128,3 +128,35 @@
 (define-read-only (get-total-users)
   (var-get total-users)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: int-to-ascii - Format metrics for display
+(define-read-only (format-total-users)
+  (ok (int-to-ascii (var-get total-users)))
+)
+
+(define-read-only (format-total-transactions)
+  (ok (int-to-ascii (var-get total-transactions)))
+)
+
+;; 2. Clarity 4: string-to-uint? - Parse metric values
+(define-read-only (parse-metric-value (value-str (string-ascii 30)))
+  (match (string-to-uint? value-str)
+    value (ok value)
+    (err u998)
+  )
+)
+
+;; 3. Clarity 4: buff-to-uint-le - Decode metrics from buffers
+(define-read-only (decode-metric-buffer (metric-buff (buff 16)))
+  (ok (buff-to-uint-le metric-buff))
+)
+
+;; 4. Clarity 4: burn-block-height - Track metrics aggregation
+(define-read-only (get-metrics-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
