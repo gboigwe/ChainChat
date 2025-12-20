@@ -126,3 +126,30 @@
     (<= amount max-amount)
   )
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate signer principals
+(define-read-only (validate-signer-sv (s principal))
+  (principal-destruct? s)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format nonce value
+(define-read-only (format-nonce (n uint))
+  (ok (int-to-ascii n))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse deadline from string
+(define-read-only (parse-deadline (d-str (string-ascii 20)))
+  (match (string-to-uint? d-str)
+    d (ok d)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track signature timestamps
+(define-read-only (get-sv-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
