@@ -97,3 +97,31 @@
     none
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate liquidity pool addresses
+(define-read-only (validate-pool-principal (pool principal))
+  (principal-destruct? pool)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format liquidity amounts
+(define-read-only (format-liquidity-amount (amount uint))
+  (ok (int-to-utf8 amount))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse pool IDs
+(define-read-only (parse-pool-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str)
+    pool-id (ok pool-id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track liquidity aggregation
+(define-read-only (get-liquidity-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
