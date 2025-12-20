@@ -125,3 +125,30 @@
 (define-read-only (is-faucet-active)
   (var-get is-active)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate recipient principals
+(define-read-only (validate-recipient (r principal))
+  (principal-destruct? r)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format total distributed amount
+(define-read-only (format-total-distributed)
+  (ok (int-to-utf8 (var-get total-distributed)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse amount from string
+(define-read-only (parse-amount-str (a-str (string-ascii 20)))
+  (match (string-to-uint? a-str)
+    a (ok a)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track faucet timestamps
+(define-read-only (get-faucet-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
