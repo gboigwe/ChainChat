@@ -256,3 +256,40 @@
     (err ERR-INSUFFICIENT-COLLATERAL)
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate and decompose collateral asset principals
+(define-read-only (validate-asset-principal (asset principal))
+  (principal-destruct? asset)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format collateral values for display
+(define-read-only (format-collateral-value (user principal) (asset principal))
+  (match (map-get? user-collateral {user: user, asset: asset})
+    collateral (ok (int-to-utf8 (get amount collateral)))
+    (err ERR-INSUFFICIENT-COLLATERAL)
+  )
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse price inputs from string
+(define-read-only (parse-price-string (price-str (string-ascii 20)))
+  (match (string-to-uint? price-str)
+    price (ok price)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: buff-to-uint-le - Convert buffer to collateral amount
+(define-read-only (buffer-to-amount (amount-buff (buff 16)))
+  (ok (buff-to-uint-le amount-buff))
+)
+
+;; 5. Clarity 4: burn-block-height - Get Bitcoin timestamp for collateral tracking
+(define-read-only (get-collateral-burn-time)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height,
+    time-diff: (- stacks-block-time burn-block-height)
+  })
+)
