@@ -142,3 +142,41 @@
 (define-read-only (get-delegation-amount (delegator principal))
   (default-to u0 (map-get? delegation-amounts delegator))
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate token holder addresses
+(define-read-only (validate-token-holder (holder principal))
+  (principal-destruct? holder)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format token amounts for display
+(define-read-only (format-balance (holder principal))
+  (ok (int-to-utf8 (ft-get-balance chainchat-token holder)))
+)
+
+(define-read-only (format-total-supply)
+  (ok (int-to-utf8 (ft-get-supply chainchat-token)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse token amounts from strings
+(define-read-only (parse-token-amount (amount-str (string-ascii 30)))
+  (match (string-to-uint? amount-str)
+    amount (ok amount)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: buff-to-uint-be - Decode token amount from buffer (big-endian)
+(define-read-only (decode-amount-buffer (amount-buff (buff 16)))
+  (ok (buff-to-uint-be amount-buff))
+)
+
+;; 5. Clarity 4: burn-block-height - Track delegation with Bitcoin time
+(define-read-only (get-token-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height,
+    timestamp-diff: (- stacks-block-time burn-block-height)
+  })
+)
