@@ -5,6 +5,11 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
+[contracts.access-control]
+path = 'contracts/access-control.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.collateral-manager]
 path = 'contracts/collateral-manager.clar'
 clarity_version = 4
@@ -30,6 +35,11 @@ path = 'contracts/health-factor-monitor.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.kyc-registry]
+path = 'contracts/kyc-registry.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.liquidation-bot]
 path = 'contracts/liquidation-bot.clar'
 clarity_version = 4
@@ -45,8 +55,18 @@ path = 'contracts/ltv-calculator.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.multi-sig]
+path = 'contracts/multi-sig.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.oracle-security]
 path = 'contracts/oracle-security.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.permission-manager]
+path = 'contracts/permission-manager.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -175,6 +195,11 @@ path = 'contracts/token-vesting.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.user-registry]
+path = 'contracts/user-registry.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.vault-emergency]
 path = 'contracts/vault-emergency.clar'
 clarity_version = 4
@@ -232,6 +257,11 @@ epoch = 'latest'
 
 [contracts.voting-escrow]
 path = 'contracts/voting-escrow.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.whitelist-manager]
+path = 'contracts/whitelist-manager.clar'
 clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
