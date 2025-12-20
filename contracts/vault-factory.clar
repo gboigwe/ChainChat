@@ -224,3 +224,44 @@
 (define-read-only (get-total-vaults)
   (- (var-get next-vault-id) u1)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate and decompose principal addresses
+(define-read-only (validate-vault-owner (owner principal))
+  (principal-destruct? owner)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format vault ID and fees for display
+(define-read-only (format-vault-id (vault-id uint))
+  (ok (int-to-ascii vault-id))
+)
+
+(define-read-only (format-deployment-fee)
+  (ok (int-to-ascii (var-get deployment-fee)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse string input to vault ID
+(define-read-only (parse-vault-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str)
+    parsed-id (ok parsed-id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: buff-to-int-le - Convert buffer to vault identifier
+(define-read-only (buffer-to-vault-id (vault-buff (buff 16)))
+  (ok (buff-to-uint-le vault-buff))
+)
+
+;; Clarity 4: Combine features - Get vault owner info
+(define-read-only (get-vault-owner-info (vault-id uint))
+  (match (map-get? vaults vault-id)
+    vault-data (ok {
+      vault-id-str: (int-to-ascii vault-id),
+      owner: (get owner vault-data),
+      created-timestamp: (get created-at vault-data)
+    })
+    (err ERR-VAULT-NOT-FOUND)
+  )
+)
