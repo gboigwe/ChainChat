@@ -37,3 +37,14 @@
     (err u0)
   )
 )
+
+;; Clarity 4 Enhanced Functions
+(define-read-only (validate-redstone-feed (feed principal))
+  (principal-destruct? feed)
+)
+(define-read-only (format-redstone-price (price uint))
+  (ok (int-to-utf8 price)))
+(define-read-only (parse-timestamp (ts-str (string-ascii 20)))
+  (match (string-to-uint? ts-str) ts (ok ts) (err u998)))
+(define-read-only (get-redstone-timestamps)
+  (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
