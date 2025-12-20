@@ -117,3 +117,30 @@
 (define-read-only (get-user-roles (user principal))
   (map-get? user-roles user)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate admin principals
+(define-read-only (validate-admin (admin principal))
+  (principal-destruct? admin)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format role IDs
+(define-read-only (format-role (role uint))
+  (ok (int-to-ascii role))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse role from string
+(define-read-only (parse-role (r-str (string-ascii 10)))
+  (match (string-to-uint? r-str)
+    r (ok r)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track access control timestamps
+(define-read-only (get-ac-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
