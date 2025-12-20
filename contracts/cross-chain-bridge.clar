@@ -10,10 +10,10 @@
 (define-constant ERR-INVALID-CHAIN (err u6502))
 
 ;; Supported chains
-(define-constant CHAIN-ETHEREUM u1)
-(define-constant CHAIN-BSC u2)
-(define-constant CHAIN-POLYGON u3)
-(define-constant CHAIN-AVALANCHE u4)
+(define-constant NETWORK-ETHEREUM u1)
+(define-constant NETWORK-BSC u2)
+(define-constant NETWORK-POLYGON u3)
+(define-constant NETWORK-AVALANCHE u4)
 
 ;; Bridge status
 (define-constant STATUS-PENDING u1)
@@ -122,7 +122,7 @@
 )
 
 (define-public (configure-chain
-  (chain-id uint)
+  (target-chain-id uint)
   (is-active bool)
   (min-amount uint)
   (max-amount uint)
@@ -130,7 +130,7 @@
   (begin
     (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
 
-    (map-set chain-configs chain-id {
+    (map-set chain-configs target-chain-id {
       is-active: is-active,
       min-amount: min-amount,
       max-amount: max-amount,
@@ -156,8 +156,8 @@
   (map-get? bridge-transactions bridge-id)
 )
 
-(define-read-only (get-chain-config (chain-id uint))
-  (map-get? chain-configs chain-id)
+(define-read-only (get-chain-config (target-chain-id uint))
+  (map-get? chain-configs target-chain-id)
 )
 
 (define-read-only (get-user-stats (user principal))

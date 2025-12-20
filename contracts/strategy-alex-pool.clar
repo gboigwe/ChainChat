@@ -94,8 +94,8 @@
     (asserts! (>= lp-tokens min-lp-tokens) ERR-SLIPPAGE-EXCEEDED)
 
     ;; Transfer tokens to contract (simplified - would need actual token transfers)
-    ;; (try! (contract-call? pool-token-a transfer amount-a tx-sender (as-contract tx-sender) none))
-    ;; (try! (contract-call? pool-token-b transfer amount-b tx-sender (as-contract tx-sender) none))
+    ;; (try! (contract-call? pool-token-a transfer amount-a tx-sender tx-sender none))
+    ;; (try! (contract-call? pool-token-b transfer amount-b tx-sender tx-sender none))
 
     ;; Record position
     (map-set liquidity-positions position-id {
@@ -143,8 +143,8 @@
     (asserts! (<= lp-tokens-to-burn total-lp-tokens) ERR-INSUFFICIENT-LIQUIDITY)
 
     ;; Transfer tokens back (simplified)
-    ;; (try! (as-contract (contract-call? pool-token-a transfer amount-a-to-return tx-sender (get provider position) none)))
-    ;; (try! (as-contract (contract-call? pool-token-b transfer amount-b-to-return tx-sender (get provider position) none)))
+    ;; (try! (begin (contract-call? pool-token-a transfer amount-a-to-return tx-sender (get provider position) none)))
+    ;; (try! (begin (contract-call? pool-token-b transfer amount-b-to-return tx-sender (get provider position) none)))
 
     ;; Update or delete position
     (if (is-eq remaining-lp u0)
@@ -221,7 +221,7 @@
     (asserts! (> fees u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer fees (simplified)
-    ;; (try! (as-contract (stx-transfer? fees tx-sender (get provider position))))
+    ;; (try! (begin (stx-transfer? fees tx-sender (get provider position))))
 
     ;; Update position
     (map-set liquidity-positions position-id

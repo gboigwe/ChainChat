@@ -67,19 +67,22 @@
 
 (define-read-only (scale-amount (amount uint) (from-decimals uint) (to-decimals uint))
   ;; Scale amount from one decimal precision to another
-  (if (> from-decimals to-decimals)
-    (ok (/ amount (pow u10 (- from-decimals to-decimals))))
-    (ok (* amount (pow u10 (- to-decimals from-decimals))))
+  (if (is-eq from-decimals to-decimals)
+    (ok amount)
+    (if (> from-decimals to-decimals)
+      (ok (/ amount (power-of-10 (- from-decimals to-decimals))))
+      (ok (* amount (power-of-10 (- to-decimals from-decimals))))
+    )
   )
 )
 
 (define-read-only (normalize-to-6-decimals (amount uint) (current-decimals uint))
   ;; Normalize any amount to 6 decimals
-  (if (> current-decimals u6)
-    (ok (/ amount (pow u10 (- current-decimals u6))))
-    (if (< current-decimals u6)
-      (ok (* amount (pow u10 (- u6 current-decimals))))
-      (ok amount)
+  (if (is-eq current-decimals u6)
+    (ok amount)
+    (if (> current-decimals u6)
+      (ok (/ amount (power-of-10 (- current-decimals u6))))
+      (ok (* amount (power-of-10 (- u6 current-decimals))))
     )
   )
 )
@@ -102,13 +105,20 @@
   (ok (/ seconds u86400))
 )
 
-;; Private helper
-(define-private (pow (base uint) (exponent uint))
-  (if (is-eq exponent u0)
-    u1
-    (if (is-eq exponent u1)
-      base
-      (* base (pow base (- exponent u1)))
-    )
-  )
+;; Private helper - non-recursive power of 10
+(define-private (power-of-10 (exponent uint))
+  (if (is-eq exponent u0) u1
+  (if (is-eq exponent u1) u10
+  (if (is-eq exponent u2) u100
+  (if (is-eq exponent u3) u1000
+  (if (is-eq exponent u4) u10000
+  (if (is-eq exponent u5) u100000
+  (if (is-eq exponent u6) u1000000
+  (if (is-eq exponent u7) u10000000
+  (if (is-eq exponent u8) u100000000
+  (if (is-eq exponent u9) u1000000000
+  (if (is-eq exponent u10) u10000000000
+  (if (is-eq exponent u11) u100000000000
+  (if (is-eq exponent u12) u1000000000000
+  u1)))))))))))))
 )

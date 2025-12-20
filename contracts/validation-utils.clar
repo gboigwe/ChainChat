@@ -31,7 +31,7 @@
 (define-read-only (is-non-zero-principal (address principal))
   ;; In Clarity, we can't directly check if principal is "zero address"
   ;; but we can verify it's not the contract itself in some cases
-  (not (is-eq address (as-contract tx-sender)))
+  (not (is-eq address tx-sender))
 )
 
 (define-read-only (is-valid-ltv (ltv uint))

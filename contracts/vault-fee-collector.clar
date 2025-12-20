@@ -56,7 +56,7 @@
     (asserts! (> amount u0) ERR-NO-FEES-COLLECTED)
 
     ;; Transfer fees to this contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
 
     ;; Update vault fees
     (map-set vault-fees vault {
@@ -93,14 +93,14 @@
 (define-public (distribute-fees (recipient principal) (amount uint))
   (let (
     (recipient-data (unwrap! (map-get? fee-recipients recipient) ERR-UNAUTHORIZED))
-    (contract-balance (stx-get-balance (as-contract tx-sender)))
+    (contract-balance (stx-get-balance tx-sender))
   )
     (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
     (asserts! (get is-active recipient-data) ERR-UNAUTHORIZED)
     (asserts! (<= amount contract-balance) ERR-INSUFFICIENT-BALANCE)
 
     ;; Transfer fees
-    (try! (as-contract (stx-transfer? amount tx-sender recipient)))
+    (try! (begin (stx-transfer? amount tx-sender recipient)))
 
     ;; Update recipient data
     (map-set fee-recipients recipient
@@ -225,7 +225,7 @@
 )
 
 (define-read-only (get-contract-balance)
-  (stx-get-balance (as-contract tx-sender))
+  (stx-get-balance tx-sender)
 )
 
 (define-read-only (is-collection-paused)

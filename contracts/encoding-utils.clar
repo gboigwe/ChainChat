@@ -13,11 +13,11 @@
 )
 
 (define-read-only (hash-string (str (string-ascii 200)))
-  (ok (keccak256 str))
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? str))))
 )
 
 (define-read-only (hash-principal (address principal))
-  (ok (keccak256 address))
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? address))))
 )
 
 (define-read-only (hash-two-uints (a uint) (b uint))
@@ -28,7 +28,7 @@
 )
 
 (define-read-only (hash-tuple (data { amount: uint, recipient: principal }))
-  (ok (keccak256 data))
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? data))))
 )
 
 (define-read-only (create-message-hash
@@ -36,12 +36,12 @@
   (recipient principal)
   (amount uint)
   (nonce uint))
-  (ok (keccak256 {
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? {
     sender: sender,
     recipient: recipient,
     amount: amount,
     nonce: nonce
-  }))
+  }))))
 )
 
 (define-read-only (sha256-uint (value uint))
@@ -49,7 +49,7 @@
 )
 
 (define-read-only (sha256-string (str (string-ascii 200)))
-  (ok (sha256 str))
+  (ok (sha256 (unwrap-panic (to-consensus-buff? str))))
 )
 
 (define-read-only (sha512-uint (value uint))
@@ -57,7 +57,7 @@
 )
 
 (define-read-only (sha512-string (str (string-ascii 200)))
-  (ok (sha512 str))
+  (ok (sha512 (unwrap-panic (to-consensus-buff? str))))
 )
 
 (define-read-only (sha512-256-uint (value uint))
@@ -65,7 +65,7 @@
 )
 
 (define-read-only (hash-list (items (list 10 uint)))
-  (ok (keccak256 items))
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? items))))
 )
 
 (define-read-only (create-commitment (secret uint))

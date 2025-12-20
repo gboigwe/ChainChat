@@ -256,7 +256,7 @@
     (asserts! (> pending u0) ERR-NO-REWARDS)
 
     ;; Transfer rewards (would need actual token transfer implementation)
-    ;; (try! (contract-call? reward-token transfer pending (as-contract tx-sender) tx-sender none))
+    ;; (try! (contract-call? reward-token transfer pending tx-sender tx-sender none))
 
     ;; Update user data
     (map-set user-rewards { pool-id: pool-id, user: tx-sender }

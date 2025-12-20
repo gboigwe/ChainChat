@@ -137,7 +137,7 @@
     ) ERR-INVALID-LOCK-PERIOD)
 
     ;; Transfer tokens to contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
 
     ;; Update stake
     (map-set stakes tx-sender {
@@ -204,7 +204,7 @@
     )
 
     ;; Transfer tokens back (minus penalty if locked)
-    (try! (as-contract (stx-transfer? withdraw-amount tx-sender tx-sender)))
+    (try! (begin (stx-transfer? withdraw-amount tx-sender tx-sender)))
 
     ;; Add penalty to pool if applicable
     (if (> penalty-amount u0)
@@ -333,7 +333,7 @@
 
 (define-read-only (get-voting-power (user principal))
   (match (map-get? stakes user)
-    stake (ok (get voting-power stake))
+    stake-info (ok (get voting-power stake-info))
     (ok u0)
   )
 )
@@ -352,7 +352,7 @@
 
 (define-read-only (is-locked (user principal))
   (match (map-get? stakes user)
-    stake (> (get locked-until stake) stacks-block-time)
+    stake-data (> (get locked-until stake-data) stacks-block-time)
     false
   )
 )

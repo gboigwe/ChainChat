@@ -44,7 +44,7 @@
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer STX and mint stSTX (simplified)
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
 
     (map-set stake-positions stake-id {
       staker: tx-sender,
@@ -111,7 +111,7 @@
     (asserts! cooldown-elapsed ERR-COOLDOWN-ACTIVE)
 
     ;; Transfer STX back (simplified)
-    (try! (as-contract (stx-transfer? (get stx-amount position) tx-sender (get staker position))))
+    (try! (begin (stx-transfer? (get stx-amount position) tx-sender (get staker position))))
 
     (map-set stake-positions stake-id
       (merge position { is-active: false }))

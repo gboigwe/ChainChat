@@ -113,7 +113,7 @@
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer funds to contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
 
     (var-set total-insurance-pool (+ (var-get total-insurance-pool) amount))
 
@@ -169,7 +169,7 @@
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer premium to contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
 
     ;; Update coverage data
     (map-set vault-coverage vault
@@ -285,7 +285,7 @@
     (asserts! (<= claimed-amount (var-get total-insurance-pool)) ERR-INSUFFICIENT-FUNDS)
 
     ;; Transfer insurance payout
-    (try! (as-contract (stx-transfer? claimed-amount tx-sender (get claimant claim-data))))
+    (try! (begin (stx-transfer? claimed-amount tx-sender (get claimant claim-data))))
 
     ;; Update claim
     (map-set insurance-claims claim-id

@@ -66,7 +66,7 @@
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer tokens to contract (simplified)
-    ;; (try! (contract-call? arkadiko-token transfer amount tx-sender (as-contract tx-sender) none))
+    ;; (try! (contract-call? arkadiko-token transfer amount tx-sender tx-sender none))
 
     ;; Create stake position
     (map-set stake-positions stake-id {
@@ -106,7 +106,7 @@
     (asserts! (get is-active stake) ERR-NO-STAKE)
 
     ;; Transfer tokens back (simplified)
-    ;; (try! (as-contract (contract-call? arkadiko-token transfer total-return tx-sender (get staker stake) none)))
+    ;; (try! (begin (contract-call? arkadiko-token transfer total-return tx-sender (get staker stake) none)))
 
     ;; Update stake
     (map-set stake-positions stake-id
@@ -187,7 +187,7 @@
     (asserts! (> total-rewards u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer rewards (simplified)
-    ;; (try! (as-contract (contract-call? arkadiko-token transfer total-rewards tx-sender (get staker stake) none)))
+    ;; (try! (begin (contract-call? arkadiko-token transfer total-rewards tx-sender (get staker stake) none)))
 
     ;; Update stake
     (map-set stake-positions stake-id

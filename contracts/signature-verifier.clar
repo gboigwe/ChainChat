@@ -35,7 +35,7 @@
         })
         (ok true)
       )
-      (err ERR-INVALID-SIGNATURE)
+      error-val (err ERR-INVALID-SIGNATURE)
     )
   )
 )
@@ -67,12 +67,12 @@
   (recipient principal)
   (amount uint)
   (nonce uint))
-  (ok (keccak256 {
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? {
     sender: sender,
     recipient: recipient,
     amount: amount,
     nonce: nonce
-  }))
+  }))))
 )
 
 (define-read-only (create-permit-message
@@ -81,12 +81,12 @@
   (nonce uint)
   (deadline uint))
   (if (<= stacks-block-time deadline)
-    (ok (keccak256 {
+    (ok (keccak256 (unwrap-panic (to-consensus-buff? {
       spender: spender,
       value: value,
       nonce: nonce,
       deadline: deadline
-    }))
+    }))))
     (err ERR-SIGNATURE-EXPIRED)
   )
 )
@@ -107,14 +107,14 @@
 (define-read-only (create-domain-separator
   (name (string-ascii 50))
   (version (string-ascii 10))
-  (chain-id uint)
+  (network-id uint)
   (verifying-contract principal))
-  (ok (keccak256 {
+  (ok (keccak256 (unwrap-panic (to-consensus-buff? {
     name: name,
     version: version,
-    chain-id: chain-id,
+    network-id: network-id,
     verifying-contract: verifying-contract
-  }))
+  }))))
 )
 
 (define-read-only (verify-signed-amount

@@ -26,7 +26,7 @@
 
 (define-public (deposit-to-treasury (amount uint))
   (begin
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
     (var-set treasury-balance (+ (var-get treasury-balance) amount))
 
     (print {
@@ -47,7 +47,7 @@
     (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
     (asserts! (<= amount (var-get treasury-balance)) ERR-INSUFFICIENT-FUNDS)
 
-    (try! (as-contract (stx-transfer? amount tx-sender recipient)))
+    (try! (begin (stx-transfer? amount tx-sender recipient)))
 
     (map-set spending-records spending-id {
       recipient: recipient,
@@ -78,7 +78,7 @@
 )
 
 (define-read-only (get-total-spent)
-  (var-set total-spent)
+  (var-get total-spent)
 )
 
 (define-read-only (get-spending-record (spending-id uint))

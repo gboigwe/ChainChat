@@ -73,7 +73,7 @@
 (define-public (add-liquidity (amount uint))
   (begin
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
     (var-set liquidity-pool (+ (var-get liquidity-pool) amount))
     (ok true)
   )

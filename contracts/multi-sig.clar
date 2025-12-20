@@ -102,7 +102,7 @@
     (asserts! (>= (get signature-count tx-data) (var-get required-signatures)) (err u403))
     (asserts! (not (get is-executed tx-data)) (err u400))
 
-    (try! (stx-transfer? (get amount tx-data) (as-contract tx-sender) (get target tx-data)))
+    (try! (stx-transfer? (get amount tx-data) tx-sender (get target tx-data)))
 
     (map-set transactions tx-id (merge tx-data {
       is-executed: true,

@@ -129,7 +129,7 @@
     (asserts! (> amount u0) ERR-INVALID-AMOUNT)
 
     ;; Transfer funds to contract
-    (try! (stx-transfer? amount tx-sender (as-contract tx-sender)))
+    (try! (stx-transfer? amount tx-sender tx-sender))
 
     (var-set total-treasury-balance (+ (var-get total-treasury-balance) amount))
 
@@ -236,7 +236,7 @@
     (asserts! (<= (get amount proposal) (var-get total-treasury-balance)) ERR-INSUFFICIENT-FUNDS)
 
     ;; Transfer funds
-    (try! (as-contract (stx-transfer? (get amount proposal) tx-sender (get recipient proposal))))
+    (try! (begin (stx-transfer? (get amount proposal) tx-sender (get recipient proposal))))
 
     ;; Update proposal
     (map-set spending-proposals proposal-id
