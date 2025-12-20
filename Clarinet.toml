@@ -5,407 +5,407 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
-[contracts.access-control]
+[contracts.access-control-v2]
 path = 'contracts/access-control.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.alex-connector]
+[contracts.alex-connector-v2]
 path = 'contracts/alex-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.analytics-tracker]
+[contracts.analytics-tracker-v2]
 path = 'contracts/analytics-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.arkadiko-connector]
+[contracts.arkadiko-connector-v2]
 path = 'contracts/arkadiko-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.array-utils]
+[contracts.array-utils-v2]
 path = 'contracts/array-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.collateral-manager]
+[contracts.collateral-manager-v2]
 path = 'contracts/collateral-manager.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.conversion-utils]
+[contracts.conversion-utils-v2]
 path = 'contracts/conversion-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.credit-scoring]
+[contracts.credit-scoring-v2]
 path = 'contracts/credit-scoring.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.cross-chain-bridge]
+[contracts.cross-chain-bridge-v2]
 path = 'contracts/cross-chain-bridge.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.encoding-utils]
+[contracts.encoding-utils-v2]
 path = 'contracts/encoding-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.event-emitter]
+[contracts.event-emitter-v2]
 path = 'contracts/event-emitter.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.faucet]
+[contracts.faucet-v2]
 path = 'contracts/faucet.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.fee-tracker]
+[contracts.fee-tracker-v2]
 path = 'contracts/fee-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.governance-token]
+[contracts.governance-token-v2]
 path = 'contracts/governance-token.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.governance-treasury]
+[contracts.governance-treasury-v2]
 path = 'contracts/governance-treasury.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.health-factor-monitor]
+[contracts.health-factor-monitor-v2]
 path = 'contracts/health-factor-monitor.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.kyc-registry]
+[contracts.kyc-registry-v2]
 path = 'contracts/kyc-registry.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.liquidation-bot]
+[contracts.liquidation-bot-v2]
 path = 'contracts/liquidation-bot.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.liquidation-engine]
+[contracts.liquidation-engine-v2]
 path = 'contracts/liquidation-engine.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.liquidity-aggregator]
+[contracts.liquidity-aggregator-v2]
 path = 'contracts/liquidity-aggregator.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.ltv-calculator]
+[contracts.ltv-calculator-v2]
 path = 'contracts/ltv-calculator.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.math-library]
+[contracts.math-library-v2]
 path = 'contracts/math-library.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.metrics-aggregator]
+[contracts.metrics-aggregator-v2]
 path = 'contracts/metrics-aggregator.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.mock-dex]
+[contracts.mock-dex-v2]
 path = 'contracts/mock-dex.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.mock-oracle]
+[contracts.mock-oracle-v2]
 path = 'contracts/mock-oracle.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.mock-token]
+[contracts.mock-token-v2]
 path = 'contracts/mock-token.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.multi-sig]
+[contracts.multi-sig-v2]
 path = 'contracts/multi-sig.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.oracle-security]
+[contracts.oracle-security-v2]
 path = 'contracts/oracle-security.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.performance-tracker]
+[contracts.performance-tracker-v2]
 path = 'contracts/performance-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.permission-manager]
+[contracts.permission-manager-v2]
 path = 'contracts/permission-manager.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.price-feed-aggregator]
+[contracts.price-feed-aggregator-v2]
 path = 'contracts/price-feed-aggregator.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.price-oracle-pyth]
+[contracts.price-oracle-pyth-v2]
 path = 'contracts/price-oracle-pyth.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.price-oracle-redstone]
+[contracts.price-oracle-redstone-v2]
 path = 'contracts/price-oracle-redstone.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.proposal-executor]
+[contracts.proposal-executor-v2]
 path = 'contracts/proposal-executor.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.reporting-engine]
+[contracts.reporting-engine-v2]
 path = 'contracts/reporting-engine.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.risk-assessment]
+[contracts.risk-assessment-v2]
 path = 'contracts/risk-assessment.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.risk-parameters]
+[contracts.risk-parameters-v2]
 path = 'contracts/risk-parameters.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.signature-verifier]
+[contracts.signature-verifier-v2]
 path = 'contracts/signature-verifier.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.stackswap-connector]
+[contracts.stackswap-connector-v2]
 path = 'contracts/stackswap-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-alex-pool]
+[contracts.strategy-alex-pool-v2]
 path = 'contracts/strategy-alex-pool.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-arbitrage]
+[contracts.strategy-arbitrage-v2]
 path = 'contracts/strategy-arbitrage.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-arkadiko-stake]
+[contracts.strategy-arkadiko-stake-v2]
 path = 'contracts/strategy-arkadiko-stake.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-basis-trading]
+[contracts.strategy-basis-trading-v2]
 path = 'contracts/strategy-basis-trading.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-borrowing]
+[contracts.strategy-borrowing-v2]
 path = 'contracts/strategy-borrowing.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-delta-neutral]
+[contracts.strategy-delta-neutral-v2]
 path = 'contracts/strategy-delta-neutral.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-flash-loans]
+[contracts.strategy-flash-loans-v2]
 path = 'contracts/strategy-flash-loans.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-hedging]
+[contracts.strategy-hedging-v2]
 path = 'contracts/strategy-hedging.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-lending]
+[contracts.strategy-lending-v2]
 path = 'contracts/strategy-lending.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-leveraged-yield]
+[contracts.strategy-leveraged-yield-v2]
 path = 'contracts/strategy-leveraged-yield.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-liquidity-mining]
+[contracts.strategy-liquidity-mining-v2]
 path = 'contracts/strategy-liquidity-mining.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-options-selling]
+[contracts.strategy-options-selling-v2]
 path = 'contracts/strategy-options-selling.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-ststx-stake]
+[contracts.strategy-ststx-stake-v2]
 path = 'contracts/strategy-ststx-stake.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-vault]
+[contracts.strategy-vault-v2]
 path = 'contracts/strategy-vault.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-velar-lp]
+[contracts.strategy-velar-lp-v2]
 path = 'contracts/strategy-velar-lp.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-yield-farming]
+[contracts.strategy-yield-farming-v2]
 path = 'contracts/strategy-yield-farming.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.string-utils]
+[contracts.string-utils-v2]
 path = 'contracts/string-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.swap-router]
+[contracts.swap-router-v2]
 path = 'contracts/swap-router.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.test-helpers]
+[contracts.test-helpers-v2]
 path = 'contracts/test-helpers.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.test-token-a]
+[contracts.test-token-a-v2]
 path = 'contracts/test-token-a.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.test-token-b]
+[contracts.test-token-b-v2]
 path = 'contracts/test-token-b.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.time-utils]
+[contracts.time-utils-v2]
 path = 'contracts/time-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.token-distribution]
+[contracts.token-distribution-v2]
 path = 'contracts/token-distribution.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.token-emissions]
+[contracts.token-emissions-v2]
 path = 'contracts/token-emissions.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.token-vesting]
+[contracts.token-vesting-v2]
 path = 'contracts/token-vesting.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.user-registry]
+[contracts.user-registry-v2]
 path = 'contracts/user-registry.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.validation-utils]
+[contracts.validation-utils-v2]
 path = 'contracts/validation-utils.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-emergency]
+[contracts.vault-emergency-v2]
 path = 'contracts/vault-emergency.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-factory]
+[contracts.vault-factory-v2]
 path = 'contracts/vault-factory.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-fee-collector]
+[contracts.vault-fee-collector-v2]
 path = 'contracts/vault-fee-collector.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-governance]
+[contracts.vault-governance-v2]
 path = 'contracts/vault-governance.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-insurance]
+[contracts.vault-insurance-v2]
 path = 'contracts/vault-insurance.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-registry]
+[contracts.vault-registry-v2]
 path = 'contracts/vault-registry.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-rewards]
+[contracts.vault-rewards-v2]
 path = 'contracts/vault-rewards.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-staking]
+[contracts.vault-staking-v2]
 path = 'contracts/vault-staking.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-timelock]
+[contracts.vault-timelock-v2]
 path = 'contracts/vault-timelock.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.vault-treasury]
+[contracts.vault-treasury-v2]
 path = 'contracts/vault-treasury.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.velar-connector]
+[contracts.velar-connector-v2]
 path = 'contracts/velar-connector.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.volatility-tracker]
+[contracts.volatility-tracker-v2]
 path = 'contracts/volatility-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.voting-escrow]
+[contracts.voting-escrow-v2]
 path = 'contracts/voting-escrow.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.whitelist-manager]
+[contracts.whitelist-manager-v2]
 path = 'contracts/whitelist-manager.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.wrapped-token-manager]
+[contracts.wrapped-token-manager-v2]
 path = 'contracts/wrapped-token-manager.clar'
 clarity_version = 4
 epoch = 'latest'
