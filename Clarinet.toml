@@ -5,6 +5,16 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
+[contracts.collateral-manager]
+path = 'contracts/collateral-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.credit-scoring]
+path = 'contracts/credit-scoring.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.governance-token]
 path = 'contracts/governance-token.clar'
 clarity_version = 4
@@ -15,8 +25,58 @@ path = 'contracts/governance-treasury.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.health-factor-monitor]
+path = 'contracts/health-factor-monitor.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.liquidation-bot]
+path = 'contracts/liquidation-bot.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.liquidation-engine]
+path = 'contracts/liquidation-engine.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.ltv-calculator]
+path = 'contracts/ltv-calculator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.oracle-security]
+path = 'contracts/oracle-security.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.price-feed-aggregator]
+path = 'contracts/price-feed-aggregator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.price-oracle-pyth]
+path = 'contracts/price-oracle-pyth.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.price-oracle-redstone]
+path = 'contracts/price-oracle-redstone.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.proposal-executor]
 path = 'contracts/proposal-executor.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.risk-assessment]
+path = 'contracts/risk-assessment.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.risk-parameters]
+path = 'contracts/risk-parameters.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -162,6 +222,11 @@ epoch = 'latest'
 
 [contracts.vault-treasury]
 path = 'contracts/vault-treasury.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.volatility-tracker]
+path = 'contracts/volatility-tracker.clar'
 clarity_version = 4
 epoch = 'latest'
 
