@@ -84,3 +84,31 @@
 (define-read-only (get-spending-record (spending-id uint))
   (map-get? spending-records spending-id)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate spending recipients
+(define-read-only (validate-recipient (recipient principal))
+  (principal-destruct? recipient)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format treasury balances
+(define-read-only (format-treasury-balance)
+  (ok (int-to-ascii (var-get treasury-balance)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse spending amounts
+(define-read-only (parse-spending-amount (amount-str (string-ascii 30)))
+  (match (string-to-uint? amount-str)
+    amount (ok amount)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track treasury operations
+(define-read-only (get-treasury-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
