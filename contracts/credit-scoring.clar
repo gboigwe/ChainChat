@@ -40,3 +40,30 @@
 (define-read-only (get-credit-score (user principal))
   (map-get? credit-scores user)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate user principals
+(define-read-only (validate-user (u principal))
+  (principal-destruct? u)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format credit scores
+(define-read-only (format-score (score uint))
+  (ok (int-to-ascii score))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse score from string
+(define-read-only (parse-score (s-str (string-ascii 10)))
+  (match (string-to-uint? s-str)
+    s (ok s)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track credit scoring timestamps
+(define-read-only (get-cs-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
