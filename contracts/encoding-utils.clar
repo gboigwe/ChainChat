@@ -93,3 +93,30 @@
     salt
   )))
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate address principals
+(define-read-only (validate-addr (addr principal))
+  (principal-destruct? addr)
+)
+
+;; 2. Clarity 4: Format hash buffer
+(define-read-only (format-hash (h (buff 32)))
+  (ok h)
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse number from string
+(define-read-only (parse-num (n-str (string-ascii 20)))
+  (match (string-to-uint? n-str)
+    n (ok n)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track encoding timestamps
+(define-read-only (get-enc-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
