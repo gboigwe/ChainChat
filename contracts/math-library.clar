@@ -125,3 +125,31 @@
     )
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: int-to-utf8 - Format mathematical results
+(define-read-only (format-calc-result (result uint))
+  (ok (int-to-utf8 result))
+)
+
+;; 2. Clarity 4: string-to-uint? - Parse numeric inputs
+(define-read-only (parse-number-string (num-str (string-ascii 30)))
+  (match (string-to-uint? num-str)
+    num (ok num)
+    (err u998)
+  )
+)
+
+;; 3. Clarity 4: buff-to-uint-be - Decode numbers from big-endian buffers
+(define-read-only (decode-number-be (num-buff (buff 16)))
+  (ok (buff-to-uint-be num-buff))
+)
+
+;; 4. Clarity 4: burn-block-height - Timestamp for calculations
+(define-read-only (get-math-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
