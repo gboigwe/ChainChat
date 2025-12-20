@@ -184,3 +184,41 @@
     (err ERR-NOT-LIQUIDATABLE)
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate liquidator and position principals
+(define-read-only (validate-position-principal (position principal))
+  (principal-destruct? position)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format liquidation amounts
+(define-read-only (format-liquidation-id (liq-id uint))
+  (ok (int-to-ascii liq-id))
+)
+
+(define-read-only (format-collateral (collateral uint))
+  (ok (int-to-ascii collateral))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse liquidation parameters from strings
+(define-read-only (parse-liquidation-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str)
+    parsed-id (ok parsed-id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: buff-to-uint-le - Decode collateral amounts from buffers
+(define-read-only (decode-collateral-buffer (coll-buff (buff 16)))
+  (ok (buff-to-uint-le coll-buff))
+)
+
+;; 5. Clarity 4: burn-block-height - Track liquidations with Bitcoin timestamps
+(define-read-only (get-liquidation-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height,
+    time-since-burn: (- stacks-block-time burn-block-height)
+  })
+)
