@@ -5,13 +5,18 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
-[contracts.strategy-engine]
-path = 'contracts/strategy-engine.clar'
+## [contracts.strategy-engine]
+## path = 'contracts/strategy-engine.clar'
+## clarity_version = 4
+## epoch = 'latest'
+## 
+[contracts.strategy-vault]
+path = 'contracts/strategy-vault.clar'
 clarity_version = 4
 epoch = 'latest'
 
-[contracts.strategy-vault]
-path = 'contracts/strategy-vault.clar'
+[contracts.vault-emergency]
+path = 'contracts/vault-emergency.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -20,8 +25,18 @@ path = 'contracts/vault-factory.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.vault-fee-collector]
+path = 'contracts/vault-fee-collector.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.vault-governance]
 path = 'contracts/vault-governance.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-insurance]
+path = 'contracts/vault-insurance.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -30,8 +45,23 @@ path = 'contracts/vault-registry.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.vault-rewards]
+path = 'contracts/vault-rewards.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-staking]
+path = 'contracts/vault-staking.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.vault-timelock]
 path = 'contracts/vault-timelock.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-treasury]
+path = 'contracts/vault-treasury.clar'
 clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
