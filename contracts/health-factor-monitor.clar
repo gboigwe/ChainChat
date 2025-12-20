@@ -64,3 +64,30 @@
 (define-read-only (get-health-factor (position principal))
   (map-get? position-health position)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate position principals
+(define-read-only (validate-pos (p principal))
+  (principal-destruct? p)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format health factor
+(define-read-only (format-health (h uint))
+  (ok (int-to-ascii h))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse health from string
+(define-read-only (parse-health-str (h-str (string-ascii 10)))
+  (match (string-to-uint? h-str)
+    h (ok h)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track health timestamps
+(define-read-only (get-hfm-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
