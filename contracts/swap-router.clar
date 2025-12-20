@@ -186,3 +186,31 @@
 (define-read-only (get-total-savings)
   (var-get total-savings)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate DEX and token principals
+(define-read-only (validate-token-principal (token principal))
+  (principal-destruct? token)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format swap amounts and routes
+(define-read-only (format-swap-amount (amount uint))
+  (ok (int-to-utf8 amount))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse DEX identifiers from strings
+(define-read-only (parse-dex-id (dex-str (string-ascii 10)))
+  (match (string-to-uint? dex-str)
+    dex-id (if (<= dex-id u4) (ok dex-id) (err u997))
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track swap routing with Bitcoin time
+(define-read-only (get-swap-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
