@@ -1,0 +1,25 @@
+{
+  "chain": "stacks",
+  "uuid": "chainchat-vault-events-001",
+  "name": "ChainChat Vault Events Monitor",
+  "version": 1,
+  "networks": {
+    "mainnet": {
+      "if_this": {
+        "scope": "print_event",
+        "contract_identifier": "SPD5ETF2HZ921C8RJG2MHPAN7SSP9AYEYD5GSP84.vault-factory-v2",
+        "contains": "vault-created"
+      },
+      "then_that": {
+        "http_post": {
+          "url": "https://your-api-endpoint.com/webhooks/vault-created",
+          "authorization_header": "Bearer YOUR_API_KEY"
+        }
+      },
+      "start_block": 0,
+      "expire_after_occurrence": null,
+      "decode_clarity_values": true,
+      "include_contract_abi": false
+    }
+  }
+}
