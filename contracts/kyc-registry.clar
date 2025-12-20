@@ -131,3 +131,30 @@
 (define-read-only (get-total-verified)
   (var-get total-verified)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate KYC user principals
+(define-read-only (validate-kyc-user (u principal))
+  (principal-destruct? u)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format KYC level
+(define-read-only (format-kyc-level (l uint))
+  (ok (int-to-ascii l))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse KYC level from string
+(define-read-only (parse-kyc-level (l-str (string-ascii 5)))
+  (match (string-to-uint? l-str)
+    l (ok l)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track KYC timestamps
+(define-read-only (get-kyc-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
