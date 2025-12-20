@@ -1,0 +1,77 @@
+;; title: mock-oracle
+;; version: 1.0.0
+;; summary: Mock price oracle for testing
+;; description: Settable price oracle for tests - Clarity 4
+
+;; Constants
+(define-constant CONTRACT-OWNER tx-sender)
+(define-constant ERR-UNAUTHORIZED (err u7400))
+
+;; Data Maps - Using stacks-block-time for Clarity 4
+(define-map prices (string-ascii 20) {
+  price: uint,
+  decimals: uint,
+  last-updated: uint  ;; Clarity 4: Unix timestamp
+})
+
+;; Public Functions
+
+(define-public (set-price (symbol (string-ascii 20)) (price uint) (decimals uint))
+  (begin
+    (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+
+    (map-set prices symbol {
+      price: price,
+      decimals: decimals,
+      last-updated: stacks-block-time
+    })
+
+    (print {
+      event: "price-updated",
+      symbol: symbol,
+      price: price,
+      timestamp: stacks-block-time
+    })
+
+    (ok true)
+  )
+)
+
+(define-public (batch-set-prices
+  (symbols (list 10 (string-ascii 20)))
+  (price-list (list 10 uint)))
+  (begin
+    (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+    (ok true)
+  )
+)
+
+;; Read-Only Functions
+
+(define-read-only (get-price (symbol (string-ascii 20)))
+  (match (map-get? prices symbol)
+    price-data (ok (get price price-data))
+    (err u404)
+  )
+)
+
+(define-read-only (get-price-data (symbol (string-ascii 20)))
+  (ok (map-get? prices symbol))
+)
+
+(define-read-only (is-price-fresh (symbol (string-ascii 20)) (max-age uint))
+  (match (map-get? prices symbol)
+    price-data (ok (<= (- stacks-block-time (get last-updated price-data)) max-age))
+    (ok false)
+  )
+)
+
+(define-read-only (get-price-with-decimals (symbol (string-ascii 20)))
+  (match (map-get? prices symbol)
+    price-data (ok {
+      price: (get price price-data),
+      decimals: (get decimals price-data)
+    })
+    (err u404)
+  )
+)

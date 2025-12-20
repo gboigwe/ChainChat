@@ -60,6 +60,11 @@ path = 'contracts/event-emitter.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.faucet]
+path = 'contracts/faucet.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.fee-tracker]
 path = 'contracts/fee-tracker.clar'
 clarity_version = 4
@@ -112,6 +117,21 @@ epoch = 'latest'
 
 [contracts.metrics-aggregator]
 path = 'contracts/metrics-aggregator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.mock-dex]
+path = 'contracts/mock-dex.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.mock-oracle]
+path = 'contracts/mock-oracle.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.mock-token]
+path = 'contracts/mock-token.clar'
 clarity_version = 4
 epoch = 'latest'
 
@@ -267,6 +287,21 @@ epoch = 'latest'
 
 [contracts.swap-router]
 path = 'contracts/swap-router.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.test-helpers]
+path = 'contracts/test-helpers.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.test-token-a]
+path = 'contracts/test-token-a.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.test-token-b]
+path = 'contracts/test-token-b.clar'
 clarity_version = 4
 epoch = 'latest'
 
