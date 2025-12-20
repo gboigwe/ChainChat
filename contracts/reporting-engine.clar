@@ -147,3 +147,30 @@
 (define-read-only (get-health-report (report-id uint))
   (map-get? health-reports report-id)
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate reporter principals
+(define-read-only (validate-reporter (r principal))
+  (principal-destruct? r)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format report ID
+(define-read-only (format-report-id (id uint))
+  (ok (int-to-ascii id))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse report ID from string
+(define-read-only (parse-report-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str)
+    id (ok id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track reporting timestamps
+(define-read-only (get-re-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
