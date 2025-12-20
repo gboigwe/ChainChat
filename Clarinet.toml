@@ -20,6 +20,11 @@ path = 'contracts/vault-factory.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.vault-governance]
+path = 'contracts/vault-governance.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.vault-registry]
 path = 'contracts/vault-registry.clar'
 clarity_version = 4
