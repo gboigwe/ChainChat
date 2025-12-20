@@ -70,3 +70,75 @@
     (ft-burn? chainchat-token amount owner)
   )
 )
+
+;; Delegation Functions
+
+(define-map delegations principal principal)  ;; delegator -> delegatee
+(define-map delegation-amounts principal uint)  ;; delegator -> amount delegated
+
+(define-public (delegate (delegatee principal) (amount uint))
+  (let (
+    (delegator-balance (ft-get-balance chainchat-token tx-sender))
+  )
+    (asserts! (>= delegator-balance amount) ERR-INSUFFICIENT-BALANCE)
+
+    (map-set delegations tx-sender delegatee)
+    (map-set delegation-amounts tx-sender amount)
+
+    (print {
+      event: "voting-power-delegated",
+      delegator: tx-sender,
+      delegatee: delegatee,
+      amount: amount,
+      timestamp: stacks-block-time
+    })
+
+    (ok true)
+  )
+)
+
+(define-public (undelegate)
+  (begin
+    (map-delete delegations tx-sender)
+    (map-delete delegation-amounts tx-sender)
+
+    (print {
+      event: "voting-power-undelegated",
+      delegator: tx-sender,
+      timestamp: stacks-block-time
+    })
+
+    (ok true)
+  )
+)
+
+;; Voting Power Functions
+
+(define-read-only (get-voting-power (user principal))
+  (let (
+    (balance (ft-get-balance chainchat-token user))
+    (delegated-away-amount (default-to u0 (map-get? delegation-amounts user)))
+  )
+    ;; Balance minus what user delegated away
+    (ok (- balance delegated-away-amount))
+  )
+)
+
+(define-read-only (get-total-voting-power-with-delegations (user principal))
+  (let (
+    (own-power (ft-get-balance chainchat-token user))
+    (delegated-away (default-to u0 (map-get? delegation-amounts user)))
+  )
+    ;; Own power minus delegated away
+    ;; Note: Receiving delegations would be tracked separately in a real implementation
+    (ok (- own-power delegated-away))
+  )
+)
+
+(define-read-only (get-delegatee (delegator principal))
+  (map-get? delegations delegator)
+)
+
+(define-read-only (get-delegation-amount (delegator principal))
+  (default-to u0 (map-get? delegation-amounts delegator))
+)

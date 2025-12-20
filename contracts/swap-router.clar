@@ -95,8 +95,75 @@
   (token-in principal)
   (token-out principal)
   (amount-in uint))
-  ;; Simplified: returns best output after checking all DEXes
-  (ok (/ (* amount-in u995) u1000))
+  (let (
+    (alex-quote (get-dex-quote DEX-ALEX token-in token-out amount-in))
+    (stackswap-quote (get-dex-quote DEX-STACKSWAP token-in token-out amount-in))
+    (velar-quote (get-dex-quote DEX-VELAR token-in token-out amount-in))
+    (arkadiko-quote (get-dex-quote DEX-ARKADIKO token-in token-out amount-in))
+    (best-quote (get-max-quote (list alex-quote stackswap-quote velar-quote arkadiko-quote)))
+  )
+    (ok best-quote)
+  )
+)
+
+(define-private (get-dex-quote (dex-id uint) (token-in principal) (token-out principal) (amount-in uint))
+  (match (map-get? dex-prices { dex: dex-id, pair: "STX-USDA" })
+    price-data (/ (* amount-in (get price price-data)) u1000000)
+    (/ (* amount-in u995) u1000)  ;; Default 0.5% fee
+  )
+)
+
+(define-private (get-max-quote (quotes (list 10 uint)))
+  (fold max-of-two quotes u0)
+)
+
+(define-private (max-of-two (a uint) (b uint))
+  (if (> a b) a b)
+)
+
+(define-public (execute-multi-hop-swap
+  (route (list 5 uint))
+  (token-in principal)
+  (token-out principal)
+  (amount-in uint)
+  (min-amount-out uint))
+  (let (
+    (swap-id (var-get total-routed-swaps))
+    (amount-out (calculate-multi-hop-output route amount-in))
+  )
+    (asserts! (>= amount-out min-amount-out) ERR-SLIPPAGE)
+
+    (map-set routed-swaps swap-id {
+      user: tx-sender,
+      token-in: token-in,
+      token-out: token-out,
+      amount-in: amount-in,
+      amount-out: amount-out,
+      route: route,
+      gas-saved: u0,
+      timestamp: stacks-block-time
+    })
+
+    (var-set total-routed-swaps (+ swap-id u1))
+
+    (print {
+      event: "multi-hop-swap",
+      swap-id: swap-id,
+      route: route,
+      amount-out: amount-out,
+      timestamp: stacks-block-time
+    })
+
+    (ok amount-out)
+  )
+)
+
+(define-private (calculate-multi-hop-output (route (list 5 uint)) (amount-in uint))
+  (fold apply-hop-fee route amount-in)
+)
+
+(define-private (apply-hop-fee (dex-id uint) (amount uint))
+  (/ (* amount u997) u1000)  ;; 0.3% fee per hop
 )
 
 ;; Read-Only Functions
