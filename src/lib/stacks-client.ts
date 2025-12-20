@@ -21,14 +21,14 @@ import {
   type ClarityValue,
 } from '@stacks/transactions';
 
-import { StacksMainnet } from '@stacks/network';
+import { STACKS_MAINNET } from '@stacks/network';
 import { NETWORK_CONFIG, getContractId } from '../config/contracts';
 
 /**
  * Get configured network
  */
 export function getNetwork() {
-  return new StacksMainnet({ url: NETWORK_CONFIG.stacksNode });
+  return STACKS_MAINNET;
 }
 
 /**
@@ -46,7 +46,7 @@ export async function callReadOnlyFunction(
     : [NETWORK_CONFIG.contractOwner, contractName];
 
   const response = await fetch(
-    `${network.coreApiUrl}/v2/contracts/call-read/${contractAddress}/${contractNameOnly}/${functionName}`,
+    `${network.client.baseUrl}/v2/contracts/call-read/${contractAddress}/${contractNameOnly}/${functionName}`,
     {
       method: 'POST',
       headers: {
@@ -119,7 +119,7 @@ export async function getContractInfo(contractId: string): Promise<any> {
   const [contractAddress, contractName] = contractId.split('.');
 
   const response = await fetch(
-    `${network.coreApiUrl}/v2/contracts/interface/${contractAddress}/${contractName}`
+    `${network.client.baseUrl}/v2/contracts/interface/${contractAddress}/${contractName}`
   );
 
   if (!response.ok) {
@@ -137,7 +137,7 @@ export async function getContractSource(contractId: string): Promise<string> {
   const [contractAddress, contractName] = contractId.split('.');
 
   const response = await fetch(
-    `${network.coreApiUrl}/v2/contracts/source/${contractAddress}/${contractName}`
+    `${network.client.baseUrl}/v2/contracts/source/${contractAddress}/${contractName}`
   );
 
   if (!response.ok) {
@@ -159,7 +159,7 @@ export async function getAccountBalance(address: string): Promise<{
   const network = getNetwork();
 
   const response = await fetch(
-    `${network.coreApiUrl}/extended/v1/address/${address}/balances`
+    `${network.client.baseUrl}/extended/v1/address/${address}/balances`
   );
 
   if (!response.ok) {
@@ -181,7 +181,7 @@ export async function getTransactionStatus(txId: string): Promise<any> {
   const network = getNetwork();
 
   const response = await fetch(
-    `${network.coreApiUrl}/extended/v1/tx/${txId}`
+    `${network.client.baseUrl}/extended/v1/tx/${txId}`
   );
 
   if (!response.ok) {
