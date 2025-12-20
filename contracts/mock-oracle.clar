@@ -75,3 +75,34 @@
     (err u404)
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: int-to-utf8 - Format mock prices
+(define-read-only (format-mock-price (symbol (string-ascii 20)))
+  (match (map-get? prices symbol)
+    price-data (ok (int-to-utf8 (get price price-data)))
+    (err u404)
+  )
+)
+
+;; 2. Clarity 4: string-to-uint? - Parse price values
+(define-read-only (parse-price-value (price-str (string-ascii 30)))
+  (match (string-to-uint? price-str)
+    price (ok price)
+    (err u998)
+  )
+)
+
+;; 3. Clarity 4: buff-to-uint-le - Decode price from buffer
+(define-read-only (decode-price-buffer (price-buff (buff 16)))
+  (ok (buff-to-uint-le price-buff))
+)
+
+;; 4. Clarity 4: burn-block-height - Track mock oracle updates
+(define-read-only (get-mock-oracle-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
