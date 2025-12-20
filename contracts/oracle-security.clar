@@ -65,3 +65,31 @@
 (define-read-only (get-validation-record (validation-id uint))
   (map-get? price-validation-history validation-id)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate oracle principals
+(define-read-only (validate-oracle-principal (oracle principal))
+  (principal-destruct? oracle)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format price deviations
+(define-read-only (format-price-deviation (deviation uint))
+  (ok (int-to-ascii deviation))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse validation IDs
+(define-read-only (parse-validation-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str)
+    id (ok id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track oracle validations
+(define-read-only (get-oracle-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
