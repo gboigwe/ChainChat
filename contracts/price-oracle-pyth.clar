@@ -51,3 +51,16 @@
     (ok (get price feed))
   )
 )
+
+;; Clarity 4 Enhanced Functions
+(define-read-only (validate-pyth-address (pyth principal))
+  (principal-destruct? pyth)
+)
+(define-read-only (format-pyth-price (symbol (string-ascii 20)))
+  (match (map-get? price-feeds symbol)
+    feed (ok (int-to-ascii (get price feed)))
+    (err u404)))
+(define-read-only (parse-confidence (conf-str (string-ascii 20)))
+  (match (string-to-uint? conf-str) conf (ok conf) (err u998)))
+(define-read-only (get-pyth-timestamps)
+  (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
