@@ -290,3 +290,45 @@
     (map-set vault-list-by-owner owner (list vault))
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Decompose vault contract addresses
+(define-read-only (get-vault-address-components (vault-contract principal))
+  (principal-destruct? vault-contract)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format TVL and user counts for display
+(define-read-only (format-vault-tvl (vault-contract principal))
+  (match (map-get? vault-registry vault-contract)
+    vault-info (ok (int-to-utf8 (get total-value-locked vault-info)))
+    (err ERR-VAULT-NOT-REGISTERED)
+  )
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse risk score from string input
+(define-read-only (parse-risk-score (score-str (string-ascii 10)))
+  (match (string-to-uint? score-str)
+    score (if (<= score u100)
+            (ok score)
+            (err u998))
+    (err u997)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Get Bitcoin block time for vault registration
+(define-read-only (get-vault-registration-burn-time)
+  (ok burn-block-height)
+)
+
+;; Clarity 4: Combine features - Comprehensive vault analytics
+(define-read-only (get-vault-analytics (vault-contract principal))
+  (match (map-get? vault-registry vault-contract)
+    vault-data (ok {
+      tvl-formatted: (int-to-utf8 (get total-value-locked vault-data)),
+      age-seconds: (- stacks-block-time (get registered-at vault-data)),
+      burn-time: burn-block-height
+    })
+    (err ERR-VAULT-NOT-REGISTERED)
+  )
+)
