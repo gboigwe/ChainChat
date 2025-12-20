@@ -182,3 +182,33 @@
 (define-read-only (can-pause)
   (> (- stacks-block-time (var-get last-pause-time)) PAUSE-COOLDOWN)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate guardian addresses
+(define-read-only (validate-guardian (guardian principal))
+  (principal-destruct? guardian)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format pause times
+(define-read-only (format-last-pause-time)
+  (ok (int-to-ascii (var-get last-pause-time)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse cooldown periods
+(define-read-only (parse-cooldown (cooldown-str (string-ascii 20)))
+  (match (string-to-uint? cooldown-str)
+    cooldown (ok cooldown)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track emergency actions
+(define-read-only (get-emergency-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height,
+    last-pause: (var-get last-pause-time),
+    can-pause-now: (can-pause)
+  })
+)
