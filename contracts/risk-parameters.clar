@@ -49,3 +49,30 @@
     min-health-factor: (var-get min-health-factor)
   }
 )
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate admin principals
+(define-read-only (validate-admin-rp (a principal))
+  (principal-destruct? a)
+)
+
+;; 2. Clarity 4: int-to-ascii - Format LTV ratio
+(define-read-only (format-ltv (ltv uint))
+  (ok (int-to-ascii ltv))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse parameter from string
+(define-read-only (parse-param (p-str (string-ascii 10)))
+  (match (string-to-uint? p-str)
+    p (ok p)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track risk parameter timestamps
+(define-read-only (get-rp-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
