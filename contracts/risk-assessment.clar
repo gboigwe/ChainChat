@@ -72,3 +72,14 @@
 (define-read-only (get-risk-assessment (position principal))
   (map-get? position-risks position)
 )
+
+;; Clarity 4 Enhanced Functions
+(define-read-only (validate-position-address (position principal))
+  (principal-destruct? position)
+)
+(define-read-only (format-risk-score (score uint))
+  (ok (int-to-ascii score)))
+(define-read-only (parse-risk-level (level-str (string-ascii 10)))
+  (match (string-to-uint? level-str) level (ok level) (err u998)))
+(define-read-only (get-risk-timestamps)
+  (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
