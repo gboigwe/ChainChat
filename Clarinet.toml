@@ -19,6 +19,11 @@ epoch = 'latest'
 path = 'contracts/vault-factory.clar'
 clarity_version = 4
 epoch = 'latest'
+
+[contracts.vault-registry]
+path = 'contracts/vault-registry.clar'
+clarity_version = 4
+epoch = 'latest'
 [repl.analysis]
 passes = ['check_checker']
 
