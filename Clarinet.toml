@@ -5,13 +5,83 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
-## [contracts.strategy-engine]
-## path = 'contracts/strategy-engine.clar'
-## clarity_version = 4
-## epoch = 'latest'
-## 
+[contracts.strategy-alex-pool]
+path = 'contracts/strategy-alex-pool.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-arbitrage]
+path = 'contracts/strategy-arbitrage.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-arkadiko-stake]
+path = 'contracts/strategy-arkadiko-stake.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-basis-trading]
+path = 'contracts/strategy-basis-trading.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-borrowing]
+path = 'contracts/strategy-borrowing.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-delta-neutral]
+path = 'contracts/strategy-delta-neutral.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-flash-loans]
+path = 'contracts/strategy-flash-loans.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-hedging]
+path = 'contracts/strategy-hedging.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-lending]
+path = 'contracts/strategy-lending.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-leveraged-yield]
+path = 'contracts/strategy-leveraged-yield.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-liquidity-mining]
+path = 'contracts/strategy-liquidity-mining.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-options-selling]
+path = 'contracts/strategy-options-selling.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-ststx-stake]
+path = 'contracts/strategy-ststx-stake.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.strategy-vault]
 path = 'contracts/strategy-vault.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-velar-lp]
+path = 'contracts/strategy-velar-lp.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-yield-farming]
+path = 'contracts/strategy-yield-farming.clar'
 clarity_version = 4
 epoch = 'latest'
 
