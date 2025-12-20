@@ -1,0 +1,31 @@
+# Chainhook Configuration for ChainChat
+# Monitors events from deployed contracts on Stacks mainnet
+
+[storage]
+working_dir = "chainhooks"
+
+[http_api]
+http_port = 20456
+database_uri = "redis://localhost:6379/"
+display_logs = true
+
+[network]
+mode = "mainnet"
+bitcoind_rpc_url = "http://bitcoin.blockstack.com:8332"
+bitcoind_rpc_username = "blockstack"
+bitcoind_rpc_password = "blockstacksystem"
+stacks_node_rpc_url = "https://api.hiro.so"
+stacks_events_ingestion_port = 20455
+
+[limits]
+max_number_of_bitcoin_predicates = 100
+max_number_of_concurrent_bitcoin_scans = 100
+max_number_of_stacks_predicates = 50
+max_number_of_concurrent_stacks_scans = 50
+max_number_of_processing_threads = 16
+max_number_of_networking_threads = 16
+max_caching_memory_size_mb = 32000
+
+[logs]
+chainhook_internals = true
+ordinals_internals = false
