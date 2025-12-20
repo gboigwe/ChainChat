@@ -368,3 +368,34 @@
 (define-read-only (is-staking-paused)
   (var-get staking-paused)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate staker principals
+(define-read-only (validate-staker (staker principal))
+  (principal-destruct? staker)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format staking amounts
+(define-read-only (format-stake-amount (user principal))
+  (match (get-stake user)
+    stake-data (ok (int-to-utf8 (get amount-staked stake-data)))
+    (ok (int-to-utf8 u0))
+  )
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse lock periods
+(define-read-only (parse-lock-period (period-str (string-ascii 20)))
+  (match (string-to-uint? period-str)
+    period (ok period)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track stake timing
+(define-read-only (get-staking-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
