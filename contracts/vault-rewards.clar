@@ -337,3 +337,31 @@
 (define-read-only (get-pool-count)
   (- (var-get next-pool-id) u1)
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate reward pool participants
+(define-read-only (validate-participant (user principal))
+  (principal-destruct? user)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format reward amounts
+(define-read-only (format-pool-id (pool-id uint))
+  (ok (int-to-utf8 pool-id))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse pool IDs
+(define-read-only (parse-pool-id (id-str (string-ascii 10)))
+  (match (string-to-uint? id-str)
+    pool-id (ok pool-id)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track reward distribution
+(define-read-only (get-reward-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
