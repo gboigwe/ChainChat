@@ -5,32 +5,30 @@
 
 import {
   makeContractCall,
-  makeContractDeploy,
   broadcastTransaction,
   AnchorMode,
   PostConditionMode,
-  FungibleConditionCode,
-  makeStandardSTXPostCondition,
-  BufferCV,
-  UIntCV,
-  PrincipalCV,
-  StringAsciiCV,
-  StringUtf8CV,
-  TupleCV,
-  ListCV,
-  BooleanCV,
+  bufferCV,
+  uintCV,
+  principalCV,
+  stringAsciiCV,
+  stringUtf8CV,
+  tupleCV,
+  listCV,
+  boolCV,
   cvToJSON,
   hexToCV,
+  type ClarityValue,
 } from '@stacks/transactions';
 
-import { StacksMainnet, StacksNetwork } from '@stacks/network';
+import { STACKS_MAINNET } from '@stacks/network';
 import { NETWORK_CONFIG, getContractId } from '../config/contracts';
 
 /**
  * Get configured network
  */
-export function getNetwork(): StacksNetwork {
-  return new StacksMainnet({ url: NETWORK_CONFIG.stacksNode });
+export function getNetwork() {
+  return STACKS_MAINNET;
 }
 
 /**
@@ -48,7 +46,7 @@ export async function callReadOnlyFunction(
     : [NETWORK_CONFIG.contractOwner, contractName];
 
   const response = await fetch(
-    `${network.coreApiUrl}/v2/contracts/call-read/${contractAddress}/${contractNameOnly}/${functionName}`,
+    `${network.client.baseUrl}/v2/contracts/call-read/${contractAddress}/${contractNameOnly}/${functionName}`,
     {
       method: 'POST',
       headers: {
@@ -121,7 +119,7 @@ export async function getContractInfo(contractId: string): Promise<any> {
   const [contractAddress, contractName] = contractId.split('.');
 
   const response = await fetch(
-    `${network.coreApiUrl}/v2/contracts/interface/${contractAddress}/${contractName}`
+    `${network.client.baseUrl}/v2/contracts/interface/${contractAddress}/${contractName}`
   );
 
   if (!response.ok) {
@@ -139,7 +137,7 @@ export async function getContractSource(contractId: string): Promise<string> {
   const [contractAddress, contractName] = contractId.split('.');
 
   const response = await fetch(
-    `${network.coreApiUrl}/v2/contracts/source/${contractAddress}/${contractName}`
+    `${network.client.baseUrl}/v2/contracts/source/${contractAddress}/${contractName}`
   );
 
   if (!response.ok) {
@@ -161,7 +159,7 @@ export async function getAccountBalance(address: string): Promise<{
   const network = getNetwork();
 
   const response = await fetch(
-    `${network.coreApiUrl}/extended/v1/address/${address}/balances`
+    `${network.client.baseUrl}/extended/v1/address/${address}/balances`
   );
 
   if (!response.ok) {
@@ -183,7 +181,7 @@ export async function getTransactionStatus(txId: string): Promise<any> {
   const network = getNetwork();
 
   const response = await fetch(
-    `${network.coreApiUrl}/extended/v1/tx/${txId}`
+    `${network.client.baseUrl}/extended/v1/tx/${txId}`
   );
 
   if (!response.ok) {
@@ -226,12 +224,12 @@ export async function waitForTransaction(
  * Helper to create Clarity values
  */
 export const cv = {
-  uint: (value: number | bigint) => new UIntCV(BigInt(value)),
-  principal: (address: string) => new PrincipalCV(address),
-  stringAscii: (value: string) => new StringAsciiCV(value),
-  stringUtf8: (value: string) => new StringUtf8CV(value),
-  buffer: (value: Uint8Array) => new BufferCV(value),
-  bool: (value: boolean) => new BooleanCV(value),
-  tuple: (data: Record<string, any>) => new TupleCV(data),
-  list: (values: any[]) => new ListCV(values),
+  uint: (value: number | bigint) => uintCV(value.toString()),
+  principal: (address: string) => principalCV(address),
+  stringAscii: (value: string) => stringAsciiCV(value),
+  stringUtf8: (value: string) => stringUtf8CV(value),
+  buffer: (value: Uint8Array) => bufferCV(value),
+  bool: (value: boolean) => boolCV(value),
+  tuple: (data: Record<string, ClarityValue>) => tupleCV(data),
+  list: (values: ClarityValue[]) => listCV(values),
 };
