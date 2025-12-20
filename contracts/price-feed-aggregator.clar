@@ -44,3 +44,16 @@
 (define-read-only (get-aggregated-price (symbol (string-ascii 20)))
   (map-get? aggregated-prices symbol)
 )
+
+;; Clarity 4 Enhanced Functions
+(define-read-only (validate-oracle-feed (oracle principal))
+  (principal-destruct? oracle)
+)
+(define-read-only (format-price (symbol (string-ascii 20)))
+  (match (map-get? aggregated-prices symbol)
+    price-data (ok (int-to-utf8 (get price price-data)))
+    (err u404)))
+(define-read-only (parse-price-string (price-str (string-ascii 30)))
+  (match (string-to-uint? price-str) parsed (ok parsed) (err u998)))
+(define-read-only (get-aggregator-timestamps)
+  (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
