@@ -74,3 +74,31 @@
     (ok true)
   )
 )
+
+;; Clarity 4 Enhanced Functions
+
+;; 1. Clarity 4: principal-destruct? - Validate token holders
+(define-read-only (validate-holder (holder principal))
+  (principal-destruct? holder)
+)
+
+;; 2. Clarity 4: int-to-utf8 - Format token balances
+(define-read-only (format-balance (holder principal))
+  (ok (int-to-utf8 (ft-get-balance mock-token holder)))
+)
+
+;; 3. Clarity 4: string-to-uint? - Parse token amounts
+(define-read-only (parse-amount (amount-str (string-ascii 30)))
+  (match (string-to-uint? amount-str)
+    amount (ok amount)
+    (err u998)
+  )
+)
+
+;; 4. Clarity 4: burn-block-height - Track token operations
+(define-read-only (get-token-timestamps)
+  (ok {
+    stacks-time: stacks-block-time,
+    burn-time: burn-block-height
+  })
+)
