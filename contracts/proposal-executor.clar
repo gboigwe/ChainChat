@@ -54,3 +54,14 @@
 (define-read-only (get-total-executed)
   (var-get total-executed)
 )
+
+;; Clarity 4 Enhanced Functions
+(define-read-only (validate-proposer (proposer principal))
+  (principal-destruct? proposer)
+)
+(define-read-only (format-proposal-id (id uint))
+  (ok (int-to-ascii id)))
+(define-read-only (parse-proposal-id (id-str (string-ascii 20)))
+  (match (string-to-uint? id-str) id (ok id) (err u998)))
+(define-read-only (get-executor-timestamps)
+  (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
