@@ -5,6 +5,21 @@ authors = []
 telemetry = true
 cache_dir = './.cache'
 requirements = []
+[contracts.governance-token]
+path = 'contracts/governance-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.governance-treasury]
+path = 'contracts/governance-treasury.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.proposal-executor]
+path = 'contracts/proposal-executor.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.strategy-alex-pool]
 path = 'contracts/strategy-alex-pool.clar'
 clarity_version = 4
@@ -85,6 +100,21 @@ path = 'contracts/strategy-yield-farming.clar'
 clarity_version = 4
 epoch = 'latest'
 
+[contracts.token-distribution]
+path = 'contracts/token-distribution.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.token-emissions]
+path = 'contracts/token-emissions.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.token-vesting]
+path = 'contracts/token-vesting.clar'
+clarity_version = 4
+epoch = 'latest'
+
 [contracts.vault-emergency]
 path = 'contracts/vault-emergency.clar'
 clarity_version = 4
@@ -132,6 +162,11 @@ epoch = 'latest'
 
 [contracts.vault-treasury]
 path = 'contracts/vault-treasury.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.voting-escrow]
+path = 'contracts/voting-escrow.clar'
 clarity_version = 4
 epoch = 'latest'
 [repl.analysis]
