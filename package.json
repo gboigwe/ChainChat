@@ -13,22 +13,12 @@
     "preview": "vite preview --config vite.config.frontend.js",
     "start": "npm run dev",
     "server": "node server/index.js",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "chainhook:start": "chainhook service start --config-path=Chainhook.toml",
-    "chainhook:register-all": "npm run chainhook:register:vault && npm run chainhook:register:staking && npm run chainhook:register:rewards && npm run chainhook:register:emergency && npm run chainhook:register:liquidation",
-    "chainhook:register:vault": "chainhook predicates scan chainhooks/vault-events.json --config-path=Chainhook.toml",
-    "chainhook:register:staking": "chainhook predicates scan chainhooks/staking-events.json --config-path=Chainhook.toml",
-    "chainhook:register:rewards": "chainhook predicates scan chainhooks/rewards-events.json --config-path=Chainhook.toml",
-    "chainhook:register:emergency": "chainhook predicates scan chainhooks/emergency-events.json --config-path=Chainhook.toml",
-    "chainhook:register:liquidation": "chainhook predicates scan chainhooks/liquidation-events.json --config-path=Chainhook.toml",
-    "chainhook:list": "chainhook predicates list --config-path=Chainhook.toml",
-    "mainnet:test": "tsx scripts/mainnet-test.ts"
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@hirosystems/clarinet-sdk": "^2.14.0",
-    "@stacks/common": "^6.12.0",
     "@stacks/connect": "^8.2.2",
     "@stacks/network": "^7.3.1",
     "@stacks/transactions": "^6.12.0",
@@ -36,7 +26,6 @@
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -61,7 +50,6 @@
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
     "terser": "^5.44.1",
-    "tsx": "^4.21.0",
     "util": "^0.12.5"
   }
 }
