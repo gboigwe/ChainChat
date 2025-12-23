@@ -1,0 +1,425 @@
+[project]
+name = 'ChainChat'
+description = ''
+authors = []
+telemetry = true
+cache_dir = './.cache'
+requirements = []
+[contracts.access-control]
+path = 'contracts/access-control.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.alex-connector]
+path = 'contracts/alex-connector.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.analytics-tracker]
+path = 'contracts/analytics-tracker.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.arkadiko-connector]
+path = 'contracts/arkadiko-connector.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.array-utils]
+path = 'contracts/array-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.collateral-manager]
+path = 'contracts/collateral-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.conversion-utils]
+path = 'contracts/conversion-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.credit-scoring]
+path = 'contracts/credit-scoring.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.cross-chain-bridge]
+path = 'contracts/cross-chain-bridge.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.encoding-utils]
+path = 'contracts/encoding-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.event-emitter]
+path = 'contracts/event-emitter.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.faucet]
+path = 'contracts/faucet.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.fee-tracker]
+path = 'contracts/fee-tracker.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.governance-token]
+path = 'contracts/governance-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.governance-treasury]
+path = 'contracts/governance-treasury.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.health-factor-monitor]
+path = 'contracts/health-factor-monitor.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.kyc-registry]
+path = 'contracts/kyc-registry.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.liquidation-bot]
+path = 'contracts/liquidation-bot.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.liquidation-engine]
+path = 'contracts/liquidation-engine.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.liquidity-aggregator]
+path = 'contracts/liquidity-aggregator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.ltv-calculator]
+path = 'contracts/ltv-calculator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.math-library]
+path = 'contracts/math-library.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.metrics-aggregator]
+path = 'contracts/metrics-aggregator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.mock-dex]
+path = 'contracts/mock-dex.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.mock-oracle]
+path = 'contracts/mock-oracle.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.mock-token]
+path = 'contracts/mock-token.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.multi-sig]
+path = 'contracts/multi-sig.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.oracle-security]
+path = 'contracts/oracle-security.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.performance-tracker]
+path = 'contracts/performance-tracker.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.permission-manager]
+path = 'contracts/permission-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.price-feed-aggregator]
+path = 'contracts/price-feed-aggregator.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.price-oracle-pyth]
+path = 'contracts/price-oracle-pyth.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.price-oracle-redstone]
+path = 'contracts/price-oracle-redstone.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.proposal-executor]
+path = 'contracts/proposal-executor.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.reporting-engine]
+path = 'contracts/reporting-engine.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.risk-assessment]
+path = 'contracts/risk-assessment.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.risk-parameters]
+path = 'contracts/risk-parameters.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.signature-verifier]
+path = 'contracts/signature-verifier.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.stackswap-connector]
+path = 'contracts/stackswap-connector.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-alex-pool]
+path = 'contracts/strategy-alex-pool.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-arbitrage]
+path = 'contracts/strategy-arbitrage.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-arkadiko-stake]
+path = 'contracts/strategy-arkadiko-stake.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-basis-trading]
+path = 'contracts/strategy-basis-trading.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-borrowing]
+path = 'contracts/strategy-borrowing.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-delta-neutral]
+path = 'contracts/strategy-delta-neutral.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-flash-loans]
+path = 'contracts/strategy-flash-loans.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-hedging]
+path = 'contracts/strategy-hedging.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-lending]
+path = 'contracts/strategy-lending.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-leveraged-yield]
+path = 'contracts/strategy-leveraged-yield.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-liquidity-mining]
+path = 'contracts/strategy-liquidity-mining.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-options-selling]
+path = 'contracts/strategy-options-selling.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-ststx-stake]
+path = 'contracts/strategy-ststx-stake.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-vault]
+path = 'contracts/strategy-vault.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-velar-lp]
+path = 'contracts/strategy-velar-lp.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.strategy-yield-farming]
+path = 'contracts/strategy-yield-farming.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.string-utils]
+path = 'contracts/string-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.swap-router]
+path = 'contracts/swap-router.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.test-helpers]
+path = 'contracts/test-helpers.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.test-token-a]
+path = 'contracts/test-token-a.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.test-token-b]
+path = 'contracts/test-token-b.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.time-utils]
+path = 'contracts/time-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.token-distribution]
+path = 'contracts/token-distribution.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.token-emissions]
+path = 'contracts/token-emissions.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.token-vesting]
+path = 'contracts/token-vesting.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.user-registry]
+path = 'contracts/user-registry.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.validation-utils]
+path = 'contracts/validation-utils.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-emergency]
+path = 'contracts/vault-emergency.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-factory]
+path = 'contracts/vault-factory.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-fee-collector]
+path = 'contracts/vault-fee-collector.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-governance]
+path = 'contracts/vault-governance.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-insurance]
+path = 'contracts/vault-insurance.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-registry]
+path = 'contracts/vault-registry.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-rewards]
+path = 'contracts/vault-rewards.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-staking]
+path = 'contracts/vault-staking.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-timelock]
+path = 'contracts/vault-timelock.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.vault-treasury]
+path = 'contracts/vault-treasury.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.velar-connector]
+path = 'contracts/velar-connector.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.volatility-tracker]
+path = 'contracts/volatility-tracker.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.voting-escrow]
+path = 'contracts/voting-escrow.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.whitelist-manager]
+path = 'contracts/whitelist-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+
+[contracts.wrapped-token-manager]
+path = 'contracts/wrapped-token-manager.clar'
+clarity_version = 4
+epoch = 'latest'
+[repl.analysis]
+passes = ['check_checker']
+
+[repl.analysis.lints]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
+
+[repl.remote_data]
+enabled = false
+api_url = 'https://api.hiro.so'
