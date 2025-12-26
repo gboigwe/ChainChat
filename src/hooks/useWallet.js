@@ -24,6 +24,21 @@ import {
   reconnectWallet,
   isConnectionExpired,
   formatAddress,
+  // Transaction operations
+  transferSTX,
+  callContract,
+  signMessage,
+  signStructuredMessage,
+  deployContract,
+  // Post condition helpers
+  createSTXPostCondition,
+  createFungiblePostCondition,
+  createNFTPostCondition,
+  // Clarity value helpers
+  ClarityValues,
+  // Utility helpers
+  microStxToStx,
+  stxToMicroStx,
 } from '../utils/wallet';
 
 export const useWallet = () => {
@@ -251,11 +266,13 @@ export const useWallet = () => {
     connectionType,
     address: walletData?.address || null,
     testnetAddress: walletData?.testnetAddress || null,
+    btcAddress: walletData?.btcAddress || null,
+    publicKey: walletData?.publicKey || null,
     network: walletData?.network || null,
     connectedAt: walletData?.connectedAt || null,
     lastActivity,
 
-    // Actions
+    // Connection Actions
     connect,
     connectViaWalletConnect,
     disconnect,
@@ -264,8 +281,25 @@ export const useWallet = () => {
     checkExpiry,
     clearError,
 
-    // Utilities
+    // Transaction Operations (direct exports - @stacks/connect v8+)
+    transferSTX,
+    callContract,
+    signMessage,
+    signStructuredMessage,
+    deployContract,
+
+    // Post Condition Helpers
+    createSTXPostCondition,
+    createFungiblePostCondition,
+    createNFTPostCondition,
+
+    // Clarity Value Helpers
+    ClarityValues,
+
+    // Utility Helpers
     formatAddress: (addr) => formatAddress(addr),
+    microStxToStx,
+    stxToMicroStx,
   };
 };
 

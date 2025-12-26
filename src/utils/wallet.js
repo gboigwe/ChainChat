@@ -1,33 +1,60 @@
 /**
- * ChainChat Wallet Utilities - Enhanced Edition
- * Integrates Reown (WalletConnect) with Stacks blockchain
+ * ChainChat Wallet Utilities - v8+ Edition
+ * Integrates Reown (WalletConnect) with Stacks blockchain using @stacks/connect v8+
  *
  * Features:
- * - @stacks/connect integration (600+ wallets via WalletConnect)
+ * - @stacks/connect v8+ API (connect() and request() methods)
+ * - Transaction operations (STX transfer, contract calls, message signing)
+ * - Post conditions for transaction security
+ * - 600+ wallets via WalletConnect/Reown
  * - Enhanced error handling and logging
  * - Session persistence and management
  * - Network configuration (Mainnet/Testnet)
  * - Event-driven architecture
  * - Security best practices
  *
- * @version 2.0.0
+ * @version 3.0.0
  */
 
-import { AppConfig, UserSession, showConnect } from '@stacks/connect';
-import { STACKS_MAINNET, STACKS_TESTNET } from '@stacks/network';
+import {
+  connect,
+  disconnect,
+  request,
+  isConnected,
+  getLocalStorage
+} from '@stacks/connect';
+import {
+  StacksMainnet,
+  StacksTestnet
+} from '@stacks/network';
+import {
+  makeStandardSTXPostCondition,
+  makeStandardFungiblePostCondition,
+  makeStandardNFTPostCondition,
+  FungibleConditionCode,
+  NonFungibleConditionCode,
+  PostConditionMode,
+  createAssetInfo,
+  uintCV,
+  intCV,
+  boolCV,
+  stringAsciiCV,
+  stringUtf8CV,
+  principalCV,
+  bufferCV,
+  tupleCV,
+} from '@stacks/transactions';
 
 // IMPORTANT: Replace with your actual Reown (WalletConnect) Project ID
 // Get it from https://cloud.reown.com/
 const WALLETCONNECT_PROJECT_ID = import.meta.env.VITE_WALLETCONNECT_PROJECT_ID || 'YOUR_PROJECT_ID';
 
-// App configuration for Stacks authentication
-const appConfig = new AppConfig(['store_write', 'publish_data']);
-export const userSession = new UserSession({ appConfig });
-
 // Network configuration (use testnet for development, mainnet for production)
-const NETWORK = import.meta.env.VITE_NETWORK === 'mainnet'
-  ? STACKS_MAINNET
-  : STACKS_TESTNET;
+const getNetwork = () => {
+  return import.meta.env.VITE_NETWORK === 'mainnet'
+    ? new StacksMainnet()
+    : new StacksTestnet();
+};
 
 // Connection state management
 let connectionState = {
@@ -38,12 +65,10 @@ let connectionState = {
 };
 
 /**
- * Connect wallet using Reown (WalletConnect)
+ * Connect wallet using Reown (WalletConnect) - v8+ API
  * Supports 600+ wallets through WalletConnect protocol
  *
  * @param {Object} options - Connection options
- * @param {boolean} options.forceWalletSelect - Force wallet selection modal
- * @param {boolean} options.persistWalletSelect - Persist wallet selection
  * @returns {Promise<Object>} Wallet connection data
  * @throws {Error} If connection fails or user cancels
  */
@@ -56,72 +81,59 @@ export const connectWallet = async (options = {}) => {
   connectionState.isConnecting = true;
   connectionState.lastError = null;
 
-  return new Promise((resolve, reject) => {
-    showConnect({
-      appDetails: {
-        name: 'ChainChat - AI DeFi Strategy Engine',
-        icon: window.location.origin + '/logo.png',
-      },
-      redirectTo: '/',
-      onFinish: () => {
-        try {
-          const userData = userSession.loadUserData();
-
-          const walletData = {
-            address: userData.profile.stxAddress.mainnet,
-            testnetAddress: userData.profile.stxAddress.testnet,
-            profile: userData.profile,
-            connectionType: 'auto',
-            connectedAt: new Date().toISOString(),
-            network: import.meta.env.VITE_NETWORK || 'mainnet',
-          };
-
-          // Update connection state
-          connectionState.isConnecting = false;
-          connectionState.connectionType = 'auto';
-          connectionState.connectionTimestamp = Date.now();
-
-          // Store connection metadata
-          localStorage.setItem('chainchat_wallet_metadata', JSON.stringify({
-            address: walletData.address,
-            connectionType: walletData.connectionType,
-            connectedAt: walletData.connectedAt,
-            network: walletData.network,
-          }));
-
-          // Dispatch custom event for app-wide notification
-          window.dispatchEvent(new CustomEvent('chainchat:wallet:connected', {
-            detail: walletData,
-          }));
-
-          console.log('✅ Wallet connected successfully:', walletData.address);
-          resolve(walletData);
-        } catch (error) {
-          connectionState.isConnecting = false;
-          connectionState.lastError = error.message;
-          console.error('❌ Failed to process wallet connection:', error);
-          reject(error);
-        }
-      },
-      onCancel: () => {
-        connectionState.isConnecting = false;
-        const error = new Error('User cancelled authentication');
-        connectionState.lastError = error.message;
-
-        console.log('⚠️ User cancelled wallet connection');
-        reject(error);
-      },
-      userSession,
-      // Reown (WalletConnect) integration
+  try {
+    // Use the new connect() API from @stacks/connect v8+
+    const response = await connect({
       walletConnectProjectId: WALLETCONNECT_PROJECT_ID,
-      // Enable provider compatibility fixes
-      enableOverrides: true,
-      // Enable local storage for address persistence
-      enableLocalStorage: true,
-      // Apply custom options
       ...options,
     });
-  });
+
+    // Extract wallet data from response
+    const walletData = {
+      address: response.addresses.stx[0].address,
+      testnetAddress: response.addresses.stx[1]?.address || response.addresses.stx[0].address,
+      btcAddress: response.addresses.btc[0].address,
+      profile: response.profile || {},
+      publicKey: response.publicKey,
+      connectionType: 'auto',
+      connectedAt: new Date().toISOString(),
+      network: import.meta.env.VITE_NETWORK || 'mainnet',
+    };
+
+    // Update connection state
+    connectionState.isConnecting = false;
+    connectionState.connectionType = 'auto';
+    connectionState.connectionTimestamp = Date.now();
+
+    // Store connection metadata
+    localStorage.setItem('chainchat_wallet_metadata', JSON.stringify({
+      address: walletData.address,
+      connectionType: walletData.connectionType,
+      connectedAt: walletData.connectedAt,
+      network: walletData.network,
+    }));
+
+    // Dispatch custom event for app-wide notification
+    window.dispatchEvent(new CustomEvent('chainchat:wallet:connected', {
+      detail: walletData,
+    }));
+
+    console.log('✅ Wallet connected successfully:', walletData.address);
+    return walletData;
+
+  } catch (error) {
+    connectionState.isConnecting = false;
+    connectionState.lastError = error.message;
+
+    // Handle specific error cases
+    if (error.message && error.message.includes('User denied')) {
+      console.log('⚠️ User cancelled wallet connection');
+      throw new Error('User cancelled authentication');
+    }
+
+    console.error('❌ Failed to connect wallet:', error);
+    throw error;
+  }
 };
 
 /**
@@ -133,120 +145,44 @@ export const connectWallet = async (options = {}) => {
  * @throws {Error} If connection fails or user cancels
  */
 export const connectWithWalletConnect = async (options = {}) => {
-  // Prevent multiple simultaneous connection attempts
-  if (connectionState.isConnecting) {
-    throw new Error('Connection already in progress');
-  }
-
-  connectionState.isConnecting = true;
-  connectionState.lastError = null;
-
-  return new Promise((resolve, reject) => {
-    showConnect({
-      appDetails: {
-        name: 'ChainChat - AI DeFi Strategy Engine',
-        icon: window.location.origin + '/logo.png',
-      },
-      redirectTo: '/',
-      onFinish: () => {
-        try {
-          const userData = userSession.loadUserData();
-
-          const walletData = {
-            address: userData.profile.stxAddress.mainnet,
-            testnetAddress: userData.profile.stxAddress.testnet,
-            profile: userData.profile,
-            connectionType: 'walletconnect',
-            connectedAt: new Date().toISOString(),
-            network: import.meta.env.VITE_NETWORK || 'mainnet',
-          };
-
-          // Update connection state
-          connectionState.isConnecting = false;
-          connectionState.connectionType = 'walletconnect';
-          connectionState.connectionTimestamp = Date.now();
-
-          // Store connection metadata
-          localStorage.setItem('chainchat_wallet_metadata', JSON.stringify({
-            address: walletData.address,
-            connectionType: walletData.connectionType,
-            connectedAt: walletData.connectedAt,
-            network: walletData.network,
-          }));
-
-          // Dispatch custom event for app-wide notification
-          window.dispatchEvent(new CustomEvent('chainchat:wallet:connected', {
-            detail: walletData,
-          }));
-
-          console.log('✅ WalletConnect connected successfully:', walletData.address);
-          resolve(walletData);
-        } catch (error) {
-          connectionState.isConnecting = false;
-          connectionState.lastError = error.message;
-          console.error('❌ Failed to process WalletConnect connection:', error);
-          reject(error);
-        }
-      },
-      onCancel: () => {
-        connectionState.isConnecting = false;
-        const error = new Error('User cancelled WalletConnect authentication');
-        connectionState.lastError = error.message;
-
-        console.log('⚠️ User cancelled WalletConnect connection');
-        reject(error);
-      },
-      userSession,
-      // Enable WalletConnect with Project ID
-      walletConnectProjectId: WALLETCONNECT_PROJECT_ID,
-      // Force wallet selection modal
-      forceWalletSelect: true,
-      // Persist wallet selection for better UX
-      persistWalletSelect: true,
-      // Enable provider compatibility fixes
-      enableOverrides: true,
-      // Enable local storage
-      enableLocalStorage: true,
-      // Apply custom options
-      ...options,
-    });
+  return connectWallet({
+    walletConnectProjectId: WALLETCONNECT_PROJECT_ID,
+    ...options,
   });
 };
 
 /**
- * Disconnect current wallet session
+ * Disconnect current wallet session - v8+ API
  * Clears all wallet data and resets connection state
  *
  * @returns {boolean} True if disconnection successful
  */
 export const disconnectWallet = () => {
   try {
-    if (userSession.isUserSignedIn()) {
-      const address = getWalletData()?.address;
+    const address = getWalletData()?.address;
 
-      // Sign out from Stacks Connect
-      userSession.signUserOut();
+    // Use the new disconnect() API from @stacks/connect v8+
+    disconnect();
 
-      // Clear connection state
-      connectionState = {
-        isConnecting: false,
-        lastError: null,
-        connectionType: null,
-        connectionTimestamp: null,
-      };
+    // Clear connection state
+    connectionState = {
+      isConnecting: false,
+      lastError: null,
+      connectionType: null,
+      connectionTimestamp: null,
+    };
 
-      // Clear stored metadata
-      localStorage.removeItem('chainchat_wallet_metadata');
+    // Clear stored metadata
+    localStorage.removeItem('chainchat_wallet_metadata');
 
-      // Dispatch custom event for app-wide notification
-      window.dispatchEvent(new CustomEvent('chainchat:wallet:disconnected', {
-        detail: { address },
-      }));
+    // Dispatch custom event for app-wide notification
+    window.dispatchEvent(new CustomEvent('chainchat:wallet:disconnected', {
+      detail: { address },
+    }));
 
-      console.log('✅ Wallet disconnected successfully');
-      return true;
-    }
-    return false;
+    console.log('✅ Wallet disconnected successfully');
+    return true;
+
   } catch (error) {
     console.error('❌ Failed to disconnect wallet:', error);
     return false;
@@ -254,26 +190,33 @@ export const disconnectWallet = () => {
 };
 
 /**
- * Get current wallet data with metadata
+ * Get current wallet data with metadata - v8+ API
  *
  * @returns {Object|null} Wallet data or null if not connected
  */
 export const getWalletData = () => {
-  if (!userSession.isUserSignedIn()) {
+  if (!isConnected()) {
     return null;
   }
 
   try {
-    const userData = userSession.loadUserData();
+    // Use the new getLocalStorage() API from @stacks/connect v8+
+    const userData = getLocalStorage();
+
+    if (!userData || !userData.addresses) {
+      return null;
+    }
 
     // Get stored metadata
     const metadataStr = localStorage.getItem('chainchat_wallet_metadata');
     const metadata = metadataStr ? JSON.parse(metadataStr) : {};
 
     return {
-      address: userData.profile.stxAddress.mainnet,
-      testnetAddress: userData.profile.stxAddress.testnet,
-      profile: userData.profile,
+      address: userData.addresses.stx[0].address,
+      testnetAddress: userData.addresses.stx[1]?.address || userData.addresses.stx[0].address,
+      btcAddress: userData.addresses.btc[0]?.address,
+      profile: userData.profile || {},
+      publicKey: userData.publicKey,
       isSignedIn: true,
       connectionType: metadata.connectionType || connectionState.connectionType,
       connectedAt: metadata.connectedAt,
@@ -286,18 +229,267 @@ export const getWalletData = () => {
 };
 
 /**
- * Check if wallet is connected
+ * Check if wallet is connected - v8+ API
  */
 export const isWalletConnected = () => {
-  return userSession.isUserSignedIn();
+  return isConnected();
 };
+
+/**
+ * =============================================================================
+ * TRANSACTION OPERATIONS - Using request() method from @stacks/connect v8+
+ * =============================================================================
+ */
+
+/**
+ * Transfer STX tokens to a recipient
+ *
+ * @param {string} recipient - Recipient address
+ * @param {string|bigint} amount - Amount in micro-STX (1 STX = 1,000,000 micro-STX)
+ * @param {string} memo - Optional memo (max 34 bytes)
+ * @param {Array} postConditions - Optional post conditions for security
+ * @returns {Promise<Object>} Transaction result with txId
+ */
+export const transferSTX = async (recipient, amount, memo = '', postConditions = []) => {
+  try {
+    // Convert amount to string if it's a BigInt
+    const amountStr = typeof amount === 'bigint' ? amount.toString() : amount;
+
+    // Add default post condition if none provided (protect sender)
+    const senderAddress = getWalletData()?.address;
+    if (postConditions.length === 0 && senderAddress) {
+      postConditions.push(
+        makeStandardSTXPostCondition(
+          senderAddress,
+          FungibleConditionCode.LessEqual,
+          BigInt(amountStr)
+        )
+      );
+    }
+
+    const result = await request('stx_transferStx', {
+      recipient,
+      amount: amountStr,
+      memo: memo || '',
+      postConditions,
+      postConditionMode: PostConditionMode.Deny,
+    });
+
+    console.log('✅ STX transfer successful:', result);
+    return result;
+
+  } catch (error) {
+    console.error('❌ STX transfer failed:', error);
+    throw error;
+  }
+};
+
+/**
+ * Call a smart contract function
+ *
+ * @param {string} contractAddress - Contract address
+ * @param {string} contractName - Contract name
+ * @param {string} functionName - Function to call
+ * @param {Array} functionArgs - Function arguments (Clarity values)
+ * @param {Array} postConditions - Post conditions for security
+ * @param {Object} options - Additional options
+ * @returns {Promise<Object>} Transaction result with txId
+ */
+export const callContract = async (
+  contractAddress,
+  contractName,
+  functionName,
+  functionArgs = [],
+  postConditions = [],
+  options = {}
+) => {
+  try {
+    const result = await request('stx_callContract', {
+      contractAddress,
+      contractName,
+      functionName,
+      functionArgs,
+      postConditions,
+      postConditionMode: options.postConditionMode || PostConditionMode.Deny,
+      ...options,
+    });
+
+    console.log('✅ Contract call successful:', result);
+    return result;
+
+  } catch (error) {
+    console.error('❌ Contract call failed:', error);
+    throw error;
+  }
+};
+
+/**
+ * Sign a message (unstructured)
+ *
+ * @param {string} message - Message to sign
+ * @returns {Promise<Object>} Signature result with signature and publicKey
+ */
+export const signMessage = async (message) => {
+  try {
+    const result = await request('stx_signMessage', {
+      message,
+    });
+
+    console.log('✅ Message signed successfully');
+    return result;
+
+  } catch (error) {
+    console.error('❌ Message signing failed:', error);
+    throw error;
+  }
+};
+
+/**
+ * Sign a structured message (SIP-018 compliant)
+ *
+ * @param {Object} message - Structured message (Clarity value)
+ * @param {Object} domain - Domain separator
+ * @returns {Promise<Object>} Signature result
+ */
+export const signStructuredMessage = async (message, domain) => {
+  try {
+    const result = await request('stx_signStructuredMessage', {
+      message,
+      domain,
+    });
+
+    console.log('✅ Structured message signed successfully');
+    return result;
+
+  } catch (error) {
+    console.error('❌ Structured message signing failed:', error);
+    throw error;
+  }
+};
+
+/**
+ * Deploy a smart contract
+ *
+ * @param {string} contractName - Name for the contract
+ * @param {string} codeBody - Clarity code
+ * @param {Object} options - Additional options
+ * @returns {Promise<Object>} Transaction result with txId
+ */
+export const deployContract = async (contractName, codeBody, options = {}) => {
+  try {
+    const result = await request('stx_deployContract', {
+      contractName,
+      codeBody,
+      postConditionMode: options.postConditionMode || PostConditionMode.Allow,
+      ...options,
+    });
+
+    console.log('✅ Contract deployed successfully:', result);
+    return result;
+
+  } catch (error) {
+    console.error('❌ Contract deployment failed:', error);
+    throw error;
+  }
+};
+
+/**
+ * =============================================================================
+ * POST CONDITIONS HELPERS
+ * =============================================================================
+ */
+
+/**
+ * Create STX post condition
+ *
+ * @param {string} address - Address
+ * @param {string} conditionCode - Condition code ('Equal', 'Greater', 'GreaterEqual', 'Less', 'LessEqual')
+ * @param {bigint} amount - Amount in micro-STX
+ * @returns {Object} Post condition
+ */
+export const createSTXPostCondition = (address, conditionCode, amount) => {
+  const code = FungibleConditionCode[conditionCode] || FungibleConditionCode.Equal;
+  return makeStandardSTXPostCondition(address, code, amount);
+};
+
+/**
+ * Create fungible token post condition
+ *
+ * @param {string} address - Address
+ * @param {string} conditionCode - Condition code
+ * @param {bigint} amount - Token amount
+ * @param {string} contractAddress - Token contract address
+ * @param {string} contractName - Token contract name
+ * @param {string} assetName - Asset name
+ * @returns {Object} Post condition
+ */
+export const createFungiblePostCondition = (
+  address,
+  conditionCode,
+  amount,
+  contractAddress,
+  contractName,
+  assetName
+) => {
+  const code = FungibleConditionCode[conditionCode] || FungibleConditionCode.Equal;
+  const assetInfo = createAssetInfo(contractAddress, contractName, assetName);
+  return makeStandardFungiblePostCondition(address, code, amount, assetInfo);
+};
+
+/**
+ * Create NFT post condition
+ *
+ * @param {string} address - Address
+ * @param {string} conditionCode - Condition code ('Sends' or 'DoesNotSend')
+ * @param {string} contractAddress - NFT contract address
+ * @param {string} contractName - NFT contract name
+ * @param {string} assetName - NFT asset name
+ * @param {*} tokenId - Token ID (Clarity value)
+ * @returns {Object} Post condition
+ */
+export const createNFTPostCondition = (
+  address,
+  conditionCode,
+  contractAddress,
+  contractName,
+  assetName,
+  tokenId
+) => {
+  const code = NonFungibleConditionCode[conditionCode] || NonFungibleConditionCode.Sends;
+  const assetInfo = createAssetInfo(contractAddress, contractName, assetName);
+  return makeStandardNFTPostCondition(address, code, assetInfo, tokenId);
+};
+
+/**
+ * =============================================================================
+ * CLARITY VALUE HELPERS
+ * =============================================================================
+ */
+
+/**
+ * Create Clarity value helpers for contract interactions
+ */
+export const ClarityValues = {
+  uint: (value) => uintCV(value),
+  int: (value) => intCV(value),
+  bool: (value) => boolCV(value),
+  principal: (address) => principalCV(address),
+  stringAscii: (str) => stringAsciiCV(str),
+  stringUtf8: (str) => stringUtf8CV(str),
+  buffer: (buf) => bufferCV(buf),
+  tuple: (data) => tupleCV(data),
+};
+
+/**
+ * =============================================================================
+ * UTILITY FUNCTIONS
+ * =============================================================================
+ */
 
 /**
  * Get network configuration
  */
-export const getNetwork = () => {
-  return NETWORK;
-};
+export { getNetwork };
 
 /**
  * Get current network name
@@ -370,7 +562,7 @@ export const isConnectionExpired = () => {
  * @returns {Object|null} Wallet data if reconnection successful
  */
 export const reconnectWallet = () => {
-  if (userSession.isUserSignedIn() && !isConnectionExpired()) {
+  if (isConnected() && !isConnectionExpired()) {
     const walletData = getWalletData();
 
     if (walletData) {
@@ -434,27 +626,64 @@ export const getSupportedWallets = () => {
       name: 'WalletConnect',
       icon: '🔗',
       type: 'universal',
-      description: '600+ wallets via WalletConnect protocol',
+      description: '600+ wallets via WalletConnect/Reown protocol',
       downloadUrl: 'https://walletconnect.com/',
     },
   ];
 };
 
+/**
+ * Convert micro-STX to STX
+ * @param {string|number|bigint} microStx - Amount in micro-STX
+ * @returns {number} Amount in STX
+ */
+export const microStxToStx = (microStx) => {
+  return Number(microStx) / 1000000;
+};
+
+/**
+ * Convert STX to micro-STX
+ * @param {string|number} stx - Amount in STX
+ * @returns {bigint} Amount in micro-STX
+ */
+export const stxToMicroStx = (stx) => {
+  return BigInt(Math.floor(Number(stx) * 1000000));
+};
+
 // Export all utilities
 export default {
+  // Connection methods
   connectWallet,
   connectWithWalletConnect,
   disconnectWallet,
   getWalletData,
   isWalletConnected,
+  reconnectWallet,
+
+  // Transaction methods
+  transferSTX,
+  callContract,
+  signMessage,
+  signStructuredMessage,
+  deployContract,
+
+  // Post condition helpers
+  createSTXPostCondition,
+  createFungiblePostCondition,
+  createNFTPostCondition,
+
+  // Clarity value helpers
+  ClarityValues,
+
+  // Utility methods
   getNetwork,
   getNetworkName,
   validateWalletConnectSetup,
   getConnectionState,
   getWalletMetadata,
   isConnectionExpired,
-  reconnectWallet,
   formatAddress,
   getSupportedWallets,
-  userSession,
+  microStxToStx,
+  stxToMicroStx,
 };
