@@ -3,11 +3,11 @@
  * Main header navigation with responsive menu
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css';
 
-const Navigation = () => {
+const Navigation = memo(() => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -78,6 +78,8 @@ const Navigation = () => {
       </div>
     </nav>
   );
-};
+});
+
+Navigation.displayName = 'Navigation';
 
 export default Navigation;
