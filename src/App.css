@@ -561,3 +561,57 @@
     display: none;
   }
 }
+
+/* Loading and Error States for React 19 */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  font-size: 1.25rem;
+  color: #fff;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.error-boundary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+  color: white;
+}
+
+.error-boundary h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.error-boundary p {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.error-boundary button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background: white;
+  color: #ff6b6b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.error-boundary button:hover {
+  transform: scale(1.05);
+}
