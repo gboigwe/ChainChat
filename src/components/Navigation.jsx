@@ -3,7 +3,7 @@
  * Main header navigation with responsive menu
  */
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css';
 

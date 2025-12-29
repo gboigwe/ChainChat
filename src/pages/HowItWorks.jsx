@@ -3,7 +3,7 @@
  * Step-by-step guide and process explanation
  */
 
-import React from 'react';
+
 import { Link } from 'react-router-dom';
 import './HowItWorks.css';
 

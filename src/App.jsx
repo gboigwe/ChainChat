@@ -3,7 +3,6 @@
  * Main Application Component with Routing
  */
 
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Landing from './pages/Landing';

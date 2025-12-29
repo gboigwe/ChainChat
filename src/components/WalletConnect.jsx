@@ -3,7 +3,7 @@
  * UI for connecting Stacks wallets using Reown (WalletConnect)
  */
 
-import React from 'react';
+
 import { useWallet } from '../hooks/useWallet';
 
 const WalletConnect = () => {
