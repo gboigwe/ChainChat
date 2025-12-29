@@ -18,12 +18,20 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: false,
     minify: 'terser',
+    target: 'es2020',
     rollupOptions: {
       output: {
         manualChunks: {
           'vendor-stacks': ['@stacks/connect', '@stacks/transactions'],
           'vendor-react': ['react', 'react-dom'],
+          'vendor-wallet': ['@reown/appkit', '@walletconnect/sign-client'],
         },
+      },
+    },
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
       },
     },
   },
