@@ -358,6 +358,248 @@
   (var-get alex-connector)
 )
 
+;; Bulk Operations
+
+;; Bulk execute commands (up to 5 commands per transaction)
+(define-private (execute-single-command
+    (command-data {
+        command: (string-ascii 100),
+        amount: uint
+    }))
+    (let (
+        (command (get command command-data))
+        (amount (get amount command-data))
+        (command-mapping (unwrap! (map-get? command-mappings command) ERR-INVALID-COMMAND))
+        (action (get action command-mapping))
+    )
+        ;; Route to appropriate action
+        (if (is-eq action "start")
+          (start-strategy (get strategy-id command-mapping) amount (get risk-level command-mapping))
+          (if (is-eq action "exit")
+            (exit-all-strategies)
+            (if (is-eq action "stop")
+              (stop-current-strategy)
+              (if (is-eq action "set-risk")
+                (set-user-risk-level (get risk-level command-mapping))
+                ERR-INVALID-COMMAND
+              )
+            )
+          )
+        )
+    )
+)
+
+(define-public (bulk-execute-commands
+    (commands (list 5 {
+        command: (string-ascii 100),
+        amount: uint
+    })))
+    (let (
+        (total-commands (len commands))
+        (results (list))
+    )
+        (asserts! (not (var-get engine-paused)) ERR-UNAUTHORIZED)
+        (asserts! (> total-commands u0) ERR-INVALID-COMMAND)
+
+        ;; Process all commands - each will validate individually
+        (let ((command-results (map execute-single-command commands)))
+            (print {
+                event: "bulk-commands-executed",
+                user: tx-sender,
+                total-commands: total-commands,
+                timestamp: stacks-block-time
+            })
+            (ok {
+                total-commands: total-commands,
+                results: command-results
+            })
+        )
+    )
+)
+
+;; Bulk strategy management for admin (up to 10 users per transaction)
+(define-private (manage-user-strategy
+    (user-data {
+        user: principal,
+        action: (string-ascii 20),
+        strategy-id: uint,
+        amount: uint
+    }))
+    (let (
+        (user (get user user-data))
+        (action (get action user-data))
+        (strategy-id (get strategy-id user-data))
+        (amount (get amount user-data))
+    )
+        ;; Validate action
+        (asserts! (or (is-eq action "start") (is-eq action "stop") (is-eq action "emergency-stop")) ERR-INVALID-COMMAND)
+
+        (if (is-eq action "start")
+          (start-strategy-for-user user strategy-id amount RISK-MEDIUM)
+          (if (is-eq action "stop")
+            (stop-strategy-for-user user)
+            (emergency-stop-strategy user) ;; emergency-stop
+          )
+        )
+    )
+)
+
+(define-public (bulk-manage-strategies
+    (strategy-managements (list 10 {
+        user: principal,
+        action: (string-ascii 20),
+        strategy-id: uint,
+        amount: uint
+    })))
+    (begin
+        (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+        (asserts! (not (var-get engine-paused)) ERR-UNAUTHORIZED)
+        (asserts! (> (len strategy-managements) u0) ERR-INVALID-COMMAND)
+
+        ;; Process all strategy managements
+        (let ((results (map manage-user-strategy strategy-managements)))
+            (print {
+                event: "bulk-strategies-managed",
+                admin: tx-sender,
+                total-managements: (len strategy-managements),
+                timestamp: stacks-block-time
+            })
+            (ok results)
+        )
+    )
+)
+
+;; Helper function for admin bulk strategy start
+(define-private (start-strategy-for-user (user principal) (strategy-id uint) (amount uint))
+    (let (
+        (strategy-def (unwrap! (map-get? strategy-definitions strategy-id) ERR-STRATEGY-NOT-FOUND))
+        (current-strategy (map-get? user-strategies user))
+    )
+        ;; Check if user already has active strategy
+        (asserts! (or (is-none current-strategy)
+                      (not (get is-active (unwrap-panic current-strategy)))) ERR-STRATEGY-ACTIVE)
+
+        ;; Validate amount limits
+        (asserts! (>= amount (get min-amount strategy-def)) ERR-INSUFFICIENT-FUNDS)
+        (asserts! (<= amount (get max-amount strategy-def)) ERR-RISK-LIMIT-EXCEEDED)
+
+        ;; Record strategy for user
+        (map-set user-strategies user {
+          strategy-id: strategy-id,
+          amount-allocated: amount,
+          risk-level: RISK-MEDIUM,
+          start-time: stacks-block-time,
+          is-active: true
+        })
+
+        ;; Emit event
+        (print {
+          event: "admin-start-strategy",
+          user: user,
+          strategy-id: strategy-id,
+          amount: amount,
+          started-by: tx-sender,
+          timestamp: stacks-block-time
+        })
+
+        (ok strategy-id)
+    )
+)
+
+;; Helper function for admin bulk strategy stop
+(define-private (stop-strategy-for-user (user principal))
+    (let (
+        (current-strategy (unwrap! (map-get? user-strategies user) ERR-NO-ACTIVE-STRATEGY))
+    )
+        (asserts! (get is-active current-strategy) ERR-NO-ACTIVE-STRATEGY)
+
+        ;; Update strategy status
+        (map-set user-strategies user
+          (merge current-strategy { is-active: false }))
+
+        ;; Emit event
+        (print {
+          event: "admin-stop-strategy",
+          user: user,
+          strategy-id: (get strategy-id current-strategy),
+          amount-returned: (get amount-allocated current-strategy),
+          stopped-by: tx-sender,
+          timestamp: stacks-block-time
+        })
+
+        (ok (get amount-allocated current-strategy))
+    )
+)
+
+;; Bulk risk settings update (up to 10 users per transaction)
+(define-private (update-user-risk
+    (risk-data {
+        user: principal,
+        risk-level: uint
+    }))
+    (let (
+        (user (get user risk-data))
+        (risk-level (get risk-level risk-data))
+    )
+        ;; Call existing risk setting function but for the specified user
+        ;; This is a simplified version - in production, you'd modify the map directly
+        (if (is-eq user tx-sender)
+          (set-user-risk-level risk-level)
+          (begin
+            ;; Admin updating another user's risk settings
+            (let (
+              (max-allocation (if (is-eq risk-level RISK-LOW) u10000000000
+                                  (if (is-eq risk-level RISK-MEDIUM) u25000000000
+                                      u50000000000)))
+              (stop-loss (if (is-eq risk-level RISK-LOW) u5
+                             (if (is-eq risk-level RISK-MEDIUM) u10
+                                 u20)))
+            )
+              (map-set user-risk-settings user {
+                max-allocation: max-allocation,
+                risk-tolerance: risk-level,
+                stop-loss-percent: stop-loss
+              })
+
+              (print {
+                event: "admin-set-risk-level",
+                user: user,
+                risk-level: risk-level,
+                max-allocation: max-allocation,
+                set-by: tx-sender,
+                timestamp: stacks-block-time
+              })
+
+              (ok risk-level)
+            )
+          )
+        )
+    )
+)
+
+(define-public (bulk-update-risk-settings
+    (risk-updates (list 10 {
+        user: principal,
+        risk-level: uint
+    })))
+    (begin
+        (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+        (asserts! (not (var-get engine-paused)) ERR-UNAUTHORIZED)
+        (asserts! (> (len risk-updates) u0) ERR-INVALID-COMMAND)
+
+        ;; Process all risk updates
+        (let ((results (map update-user-risk risk-updates)))
+            (print {
+                event: "bulk-risk-settings-updated",
+                admin: tx-sender,
+                total-updates: (len risk-updates),
+                timestamp: stacks-block-time
+            })
+            (ok results)
+        )
+    )
+)
+
 ;; Portfolio Information
 (define-read-only (get-user-portfolio (user principal))
   (let (
