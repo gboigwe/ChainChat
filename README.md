@@ -75,7 +75,7 @@ Converts English to strategy actions:
 
 ```bash
 # Clone the repository
-git clone https://github.com/gboigwe/ChainChat.git
+git clone https://github.com/AdekunleBamz/ChainChat.git
 cd ChainChat
 
 # Install dependencies
@@ -277,7 +277,7 @@ For detailed documentation, see `CHAINHOOKS_README.md`
 
 ```bash
 # Clone and setup
-git clone https://github.com/gboigwe/ChainChat
+git clone https://github.com/AdekunleBamz/ChainChat.git
 cd ChainChat
 
 # Install dependencies
