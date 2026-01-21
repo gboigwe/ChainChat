@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import WalletConnect from '../components/WalletConnect';
 import StrategyDashboard from '../components/StrategyDashboard';
+import WalletErrorBoundary from '../components/ErrorBoundary/WalletErrorBoundary';
 import { useWallet } from '../hooks/useWallet';
 import './DashboardPage.css';
 
@@ -54,7 +55,9 @@ const DashboardPage = () => {
         <div className="container">
           {!isConnected ? (
             <section className="connect-section">
-              <WalletConnect />
+              <WalletErrorBoundary>
+                <WalletConnect />
+              </WalletErrorBoundary>
             </section>
           ) : (
             <section className="strategy-section">
