@@ -6,7 +6,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import ErrorBoundary from './components/ErrorBoundary';
+import RootErrorBoundary from './components/ErrorBoundary/RootErrorBoundary';
 import './App.css';
 
 // Lazy load pages for better performance
@@ -17,7 +17,7 @@ const DashboardPage = lazy(() => import('./pages/DashboardPage'));
 
 function App() {
   return (
-    <ErrorBoundary>
+    <RootErrorBoundary>
       <Router>
         <div className="app">
           <Navigation />
@@ -31,7 +31,7 @@ function App() {
           </Suspense>
         </div>
       </Router>
-    </ErrorBoundary>
+    </RootErrorBoundary>
   );
 }
 
