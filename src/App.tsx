@@ -7,6 +7,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import RootErrorBoundary from './components/ErrorBoundary/RootErrorBoundary';
+import RouteErrorBoundary from './components/ErrorBoundary/RouteErrorBoundary';
 import './App.css';
 
 // Lazy load pages for better performance
@@ -23,10 +24,26 @@ function App() {
           <Navigation />
           <Suspense fallback={<div className="loading">Loading...</div>}>
             <Routes>
-              <Route path="/" element={<Landing />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/how-it-works" element={<HowItWorks />} />
-              <Route path="/app" element={<DashboardPage />} />
+              <Route path="/" element={
+                <RouteErrorBoundary>
+                  <Landing />
+                </RouteErrorBoundary>
+              } />
+              <Route path="/about" element={
+                <RouteErrorBoundary>
+                  <About />
+                </RouteErrorBoundary>
+              } />
+              <Route path="/how-it-works" element={
+                <RouteErrorBoundary>
+                  <HowItWorks />
+                </RouteErrorBoundary>
+              } />
+              <Route path="/app" element={
+                <RouteErrorBoundary>
+                  <DashboardPage />
+                </RouteErrorBoundary>
+              } />
             </Routes>
           </Suspense>
         </div>
