@@ -9,6 +9,7 @@ import Navigation from './components/Navigation';
 import RootErrorBoundary from './components/ErrorBoundary/RootErrorBoundary';
 import RouteErrorBoundary from './components/ErrorBoundary/RouteErrorBoundary';
 import './App.css';
+import './styles/errorBoundary.css';
 
 // Lazy load pages for better performance
 const Landing = lazy(() => import('./pages/Landing'));
