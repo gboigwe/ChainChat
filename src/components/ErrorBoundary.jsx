@@ -1,3 +1,8 @@
+/**
+ * Error Boundary Component for React 19
+ * Catches errors in component tree
+ */
+
 import { Component } from 'react';
 
 class ErrorBoundary extends Component {
@@ -11,7 +16,7 @@ class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('Error caught:', error, errorInfo);
+    console.error('ErrorBoundary caught error:', error, errorInfo);
   }
 
   render() {
@@ -21,11 +26,12 @@ class ErrorBoundary extends Component {
           <h2>Something went wrong</h2>
           <p>{this.state.error?.message}</p>
           <button onClick={() => window.location.reload()}>
-            Reload
+            Reload Page
           </button>
         </div>
       );
     }
+
     return this.props.children;
   }
 }
