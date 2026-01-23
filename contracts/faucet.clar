@@ -8,6 +8,7 @@
 (define-constant ERR-UNAUTHORIZED (err u7800))
 (define-constant ERR-ALREADY-CLAIMED (err u7801))
 (define-constant ERR-COOLDOWN (err u7802))
+(define-constant EVENT-CONTRACT-DEPLOYED "contract-deployed")
 
 ;; Faucet parameters
 (define-constant FAUCET-AMOUNT u10000000000)  ;; 10,000 tokens with 6 decimals
@@ -17,6 +18,16 @@
 (define-data-var total-claims uint u0)
 (define-data-var total-distributed uint u0)
 (define-data-var is-active bool true)
+
+(print {
+    event: EVENT-CONTRACT-DEPLOYED,
+    deployer: CONTRACT-OWNER,
+    timestamp: stacks-block-time,
+    faucet-amount: FAUCET-AMOUNT,
+    cooldown: COOLDOWN-PERIOD,
+    initial-active: true,
+    burn-height: burn-block-height
+})
 
 ;; Data Maps - Using stacks-block-time for Clarity 4
 (define-map claims principal {
@@ -65,14 +76,36 @@
 (define-public (toggle-faucet)
   (begin
     (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
-    (var-set is-active (not (var-get is-active)))
-    (ok (var-get is-active))
+    (let ((old-state (var-get is-active))
+          (new-state (not old-state)))
+      (begin
+        (var-set is-active new-state)
+        (print {
+          event: "faucet-toggled",
+          admin: tx-sender,
+          old-state: old-state,
+          new-state: new-state,
+          timestamp: stacks-block-time
+        })
+        
+        (ok new-state)
+      )
+    )
   )
 )
 
 (define-public (emergency-withdraw)
   (begin
     (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
+    (print {
+      event: "emergency-withdraw-called",
+      admin: tx-sender,
+      timestamp: stacks-block-time,
+      burn-height: burn-block-height,
+      total-distributed: (var-get total-distributed),
+      total-claims: (var-get total-claims)
+    })
+    
     (ok true)
   )
 )
