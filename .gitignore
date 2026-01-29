@@ -10,6 +10,8 @@ npm-debug.log*
 coverage
 *.info
 costs-reports.json
+coverage-summary.json
+.nyc_output
 node_modules
 
 # Frontend build files

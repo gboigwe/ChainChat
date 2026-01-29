@@ -1,0 +1,144 @@
+name: Smart Contract Tests
+
+on:
+  push:
+    branches: [main, develop, 'feature/**']
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Clarinet
+        run: |
+          wget https://github.com/hirosystems/clarinet/releases/download/v2.5.0/clarinet-linux-x64.tar.gz
+          tar -xvf clarinet-linux-x64.tar.gz
+          sudo mv clarinet /usr/local/bin/
+          clarinet --version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Clarinet check
+        run: clarinet check
+
+      - name: Run unit tests
+        run: npm test -- tests/access-control.test.ts
+
+      - name: Run security tests
+        run: npm test -- tests/security.test.ts
+
+      - name: Run integration tests
+        run: npm test -- tests/integration.test.ts
+
+      - name: Run property-based tests
+        run: npm test -- tests/property-based.test.ts
+
+      - name: Run fuzzing tests
+        run: npm test -- tests/fuzzing.test.ts
+
+      - name: Run gas optimization tests
+        run: npm test -- tests/gas-optimization.test.ts
+
+      - name: Generate coverage report
+        run: npm run test:coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: true
+
+      - name: Check coverage thresholds
+        run: |
+          COVERAGE=$(cat coverage/coverage-summary.json | jq '.total.statements.pct')
+          if (( $(echo "$COVERAGE < 90" | bc -l) )); then
+            echo "Coverage $COVERAGE% is below 90% threshold"
+            exit 1
+          fi
+          echo "Coverage $COVERAGE% meets threshold"
+
+  security-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Run npm audit
+        run: npm audit --audit-level=moderate
+
+      - name: Run contract security checks
+        run: |
+          npm install -g @stacks/clarity-native-bin
+          clarity-cli check contracts/*.clar
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run Prettier check
+        run: npm run format:check
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Check for build artifacts
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Build artifacts not found"
+            exit 1
+          fi

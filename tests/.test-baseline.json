@@ -1,0 +1,80 @@
+{
+  "version": "1.0.0",
+  "timestamp": "2026-01-29",
+  "coverageThresholds": {
+    "statements": 90,
+    "branches": 90,
+    "functions": 90,
+    "lines": 90
+  },
+  "testSuites": {
+    "unit": {
+      "file": "access-control.test.ts",
+      "expectedTests": 30,
+      "categories": [
+        "initialization",
+        "role-granting",
+        "role-revocation",
+        "role-checking",
+        "security",
+        "edge-cases"
+      ]
+    },
+    "security": {
+      "file": "security.test.ts",
+      "expectedTests": 25,
+      "categories": [
+        "reentrancy",
+        "overflow-underflow",
+        "authorization-bypass",
+        "state-manipulation",
+        "denial-of-service"
+      ]
+    },
+    "integration": {
+      "file": "integration.test.ts",
+      "expectedTests": 15,
+      "categories": [
+        "vault-acl-integration",
+        "user-journeys",
+        "emergency-scenarios",
+        "strategy-coordination"
+      ]
+    },
+    "property-based": {
+      "file": "property-based.test.ts",
+      "expectedTests": 20,
+      "categories": [
+        "balance-invariants",
+        "role-invariants",
+        "strategy-counter-invariants",
+        "authorization-invariants"
+      ]
+    },
+    "fuzzing": {
+      "file": "fuzzing.test.ts",
+      "expectedTests": 20,
+      "categories": [
+        "random-amounts",
+        "random-roles",
+        "random-sequences",
+        "stress-testing"
+      ]
+    },
+    "gas": {
+      "file": "gas-optimization.test.ts",
+      "expectedTests": 20,
+      "categories": [
+        "vault-operations",
+        "access-control",
+        "batch-operations",
+        "read-only-operations"
+      ]
+    }
+  },
+  "minimumTests": 130,
+  "contracts": [
+    "zephyr-gate",
+    "quantum-ledger"
+  ]
+}
