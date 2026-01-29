@@ -1,0 +1,261 @@
+/**
+ * Mobile-Specific Styles
+ * Additional styles for mobile devices
+ */
+
+/* Mobile-first base styles */
+@media (max-width: 768px) {
+  /* Typography adjustments */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Spacing adjustments */
+  .section {
+    padding: 1rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  /* Button touch targets */
+  .btn {
+    min-height: 44px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Form inputs */
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  /* Navigation adjustments */
+  .header {
+    padding: 0.75rem 1rem;
+  }
+
+  /* Content containers */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Tables - make scrollable */
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* Images - optimize for mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Fixed positioning adjustments */
+  .fixed-bottom {
+    bottom: env(safe-area-inset-bottom);
+  }
+
+  .fixed-top {
+    top: env(safe-area-inset-top);
+  }
+
+  /* Modal full-screen on mobile */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    max-width: none;
+  }
+
+  /* Hide desktop elements */
+  .desktop-only {
+    display: none !important;
+  }
+
+  /* Stack elements vertically */
+  .flex-row {
+    flex-direction: column;
+  }
+
+  /* Full-width buttons on mobile */
+  .btn-full-mobile {
+    width: 100%;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .tablet-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1025px) {
+  .mobile-only,
+  .tablet-only {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}
+
+/* Touch-specific styles */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Remove hover effects */
+  *:hover {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Improve scrolling */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Landscape orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
+
+  .bottom-nav {
+    padding: 0.25rem 0;
+  }
+
+  .modal {
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+}
+
+/* Notched devices (iPhone X+) */
+@supports (padding: max(0px)) {
+  .safe-area-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .safe-area-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .safe-area-left {
+    padding-left: max(1rem, env(safe-area-inset-left));
+  }
+
+  .safe-area-right {
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+}
+
+/* Pull-to-refresh indicator */
+@media (max-width: 768px) {
+  body {
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Improved tap targets */
+.touchable {
+  position: relative;
+  cursor: pointer;
+}
+
+.touchable::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  bottom: -10px;
+  left: -10px;
+  z-index: -1;
+}
+
+/* Mobile menu animations */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Loading states for mobile */
+.mobile-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.mobile-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
