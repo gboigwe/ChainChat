@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run Clarinet check on all contracts
+echo "Running Clarinet check..."
+clarinet check || exit 1
+
+# Run lint-staged
+npx lint-staged
+
+# Run tests on changed files
+echo "Running tests..."
+npm test || exit 1
+
+# Check test coverage
+echo "Checking test coverage..."
+npm run test:coverage || exit 1
+
+echo "Pre-commit checks passed!"
