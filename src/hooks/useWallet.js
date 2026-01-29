@@ -1,6 +1,6 @@
 /**
  * Custom React Hook for Wallet Management - Enhanced Edition
- * Provides wallet state and actions using Reown (WalletConnect)
+ * Provides wallet state and actions using Reown (WalletConnect) and Multi-Wallet Support
  *
  * Features:
  * - Auto-reconnection on mount
@@ -9,8 +9,10 @@
  * - Connection expiry detection
  * - Session persistence
  * - Multiple connection methods
+ * - Multi-wallet integration (Xverse, Leather, Boom, Ledger)
+ * - Backwards compatibility
  *
- * @version 2.0.0
+ * @version 3.0.0
  */
 
 import { useState, useEffect, useCallback, useRef } from 'react';
@@ -41,12 +43,19 @@ import {
   stxToMicroStx,
 } from '../utils/wallet';
 
+// Multi-wallet imports
+import { walletManager } from '../services/wallets/WalletManager';
+
 export const useWallet = () => {
   const [walletData, setWalletData] = useState(null);
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState(null);
   const [connectionType, setConnectionType] = useState(null);
   const [lastActivity, setLastActivity] = useState(null);
+
+  // Multi-wallet state
+  const [multiWalletAccount, setMultiWalletAccount] = useState(null);
+  const [activeWalletId, setActiveWalletId] = useState(null);
 
   // Use ref to track if component is mounted (prevent state updates after unmount)
   const isMounted = useRef(true);
@@ -62,7 +71,7 @@ export const useWallet = () => {
       console.warn('WalletConnect not properly configured');
     }
 
-    // Try to reconnect from existing session
+    // Try to reconnect from existing session (legacy)
     if (isWalletConnected() && !isConnectionExpired()) {
       const data = reconnectWallet();
       if (data && isMounted.current) {
@@ -73,9 +82,35 @@ export const useWallet = () => {
       }
     }
 
+    // Subscribe to multi-wallet manager changes
+    const unsubscribeMultiWallet = walletManager.subscribe((state) => {
+      if (isMounted.current) {
+        const account = walletManager.getActiveAccount();
+        setMultiWalletAccount(account);
+        setActiveWalletId(state.activeWallet);
+
+        // If multi-wallet is connected, update connection type
+        if (account) {
+          setConnectionType(state.activeWallet);
+        }
+      }
+    });
+
+    // Load initial multi-wallet state
+    const initialAccount = walletManager.getActiveAccount();
+    const initialState = walletManager.getState();
+    if (initialAccount) {
+      setMultiWalletAccount(initialAccount);
+      setActiveWalletId(initialState.activeWallet);
+      if (!walletData) {
+        setConnectionType(initialState.activeWallet);
+      }
+    }
+
     // Cleanup function
     return () => {
       isMounted.current = false;
+      unsubscribeMultiWallet();
     };
   }, []);
 
@@ -257,20 +292,29 @@ export const useWallet = () => {
     }
   }, []);
 
+  // Determine if any wallet is connected (legacy or multi-wallet)
+  const hasConnection = !!walletData || !!multiWalletAccount;
+  const displayAddress = multiWalletAccount?.address || walletData?.address || null;
+
   return {
-    // State
+    // State (with multi-wallet support)
     walletData,
-    isConnected: !!walletData,
+    isConnected: hasConnection,
     isConnecting,
     error,
     connectionType,
-    address: walletData?.address || null,
+    address: displayAddress,
     testnetAddress: walletData?.testnetAddress || null,
     btcAddress: walletData?.btcAddress || null,
-    publicKey: walletData?.publicKey || null,
-    network: walletData?.network || null,
+    publicKey: multiWalletAccount?.publicKey || walletData?.publicKey || null,
+    network: multiWalletAccount?.network || walletData?.network || null,
     connectedAt: walletData?.connectedAt || null,
     lastActivity,
+
+    // Multi-wallet specific state
+    multiWalletAccount,
+    activeWalletId,
+    connectedWallets: walletManager.getState().connectedWallets,
 
     // Connection Actions
     connect,
@@ -280,6 +324,11 @@ export const useWallet = () => {
     reconnect,
     checkExpiry,
     clearError,
+
+    // Multi-wallet actions
+    walletManager,
+    switchWallet: (walletId) => walletManager.switchWallet(walletId),
+    getActiveAdapter: () => walletManager.getActiveAdapter(),
 
     // Transaction Operations (direct exports - @stacks/connect v8+)
     transferSTX,
