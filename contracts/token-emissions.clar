@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4600))
 (define-constant ERR-NO-EMISSIONS (err u4601))
 
@@ -98,4 +99,9 @@
 
 (define-read-only (is-emissions-paused)
   (var-get emissions-paused)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

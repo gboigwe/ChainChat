@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4100))
 (define-constant ERR-NO-SCHEDULE (err u4101))
 (define-constant ERR-NOTHING-TO-CLAIM (err u4102))
@@ -116,4 +117,9 @@
 
 (define-read-only (get-vested-amount (schedule-id uint))
   (calculate-vested-amount schedule-id)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

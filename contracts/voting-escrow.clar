@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4300))
 (define-constant ERR-INVALID-LOCK (err u4301))
 (define-constant ERR-LOCKED (err u4302))
@@ -96,4 +97,9 @@
 
 (define-read-only (get-total-locked)
   (var-get total-locked)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
