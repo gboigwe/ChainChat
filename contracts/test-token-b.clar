@@ -7,6 +7,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u7700))
 (define-constant ERR-NOT-TOKEN-OWNER (err u7701))
 
@@ -59,6 +60,19 @@
 (define-public (mint (amount uint) (recipient principal))
   (begin
     (asserts! (is-eq tx-sender CONTRACT-OWNER) ERR-UNAUTHORIZED)
-    (ft-mint? token-b amount recipient)
+    (let ((result (ft-mint? token-b amount recipient)))
+      (print {
+        event: "token-minted",
+        recipient: recipient,
+        amount: amount,
+        timestamp: stacks-block-time
+      })
+      result
+    )
   )
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
