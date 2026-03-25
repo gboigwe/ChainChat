@@ -4,6 +4,7 @@
 ;; description: String helper functions - Clarity 4
 
 ;; Constants
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-INVALID-STRING (err u6700))
 
 ;; Read-Only Functions
@@ -64,4 +65,14 @@
     (> (len input) u0)
     (<= (len input) u100)
   )
+)
+
+;; Clarity 4: stacks-block-time - Provide block time context for string operations
+(define-read-only (get-current-timestamp)
+  (ok stacks-block-time)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

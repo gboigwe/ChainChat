@@ -4,6 +4,7 @@
 ;; description: Convert between types and units - Clarity 4
 
 ;; Constants
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-CONVERSION-FAILED (err u6900))
 
 ;; Decimal places
@@ -121,4 +122,14 @@
   (if (is-eq exponent u11) u100000000000
   (if (is-eq exponent u12) u1000000000000
   u1)))))))))))))
+)
+
+;; Clarity 4: stacks-block-time - Current block time for timestamp-based conversions
+(define-read-only (get-current-timestamp)
+  (ok stacks-block-time)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

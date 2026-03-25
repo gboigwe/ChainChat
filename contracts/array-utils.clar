@@ -4,6 +4,7 @@
 ;; description: Helper functions for lists - Clarity 4
 
 ;; Constants
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-EMPTY-LIST (err u6800))
 
 ;; Read-Only Functions
@@ -88,4 +89,14 @@
 
 (define-private (is-greater (n uint))
   (> n u0)
+)
+
+;; Clarity 4: stacks-block-time - Timestamp utilities
+(define-read-only (get-current-timestamp)
+  (ok stacks-block-time)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
