@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u1000))
 (define-constant ERR-INVALID-AMOUNT (err u1001))
 (define-constant ERR-INSUFFICIENT-FUNDS (err u1002))
@@ -384,4 +385,9 @@
 
 (define-read-only (get-max-coverage (loss-amount uint))
   (calculate-coverage loss-amount)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

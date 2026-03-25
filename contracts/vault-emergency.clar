@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u500))
 (define-constant ERR-ALREADY-PAUSED (err u501))
 (define-constant ERR-NOT-PAUSED (err u502))
@@ -211,4 +212,9 @@
     last-pause: (var-get last-pause-time),
     can-pause-now: (can-pause)
   })
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
