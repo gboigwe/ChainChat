@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u2600))
 (define-constant ERR-INVALID-AMOUNT (err u2601))
 (define-constant ERR-LOAN-NOT-REPAID (err u2602))
@@ -99,4 +100,9 @@
 
 (define-read-only (get-total-fees)
   (var-get total-fees-earned)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

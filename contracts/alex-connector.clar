@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5800))
 (define-constant ERR-SWAP-FAILED (err u5801))
 (define-constant ERR-SLIPPAGE-EXCEEDED (err u5802))
@@ -114,4 +115,9 @@
 
 (define-read-only (quote-swap (amount-in uint) (pool-id uint))
   (ok (calculate-output amount-in pool-id))
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

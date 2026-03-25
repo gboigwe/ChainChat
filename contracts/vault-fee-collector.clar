@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u600))
 (define-constant ERR-INSUFFICIENT-BALANCE (err u601))
 (define-constant ERR-INVALID-PERCENTAGE (err u602))
@@ -230,4 +231,9 @@
 
 (define-read-only (is-collection-paused)
   (var-get fee-collection-paused)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

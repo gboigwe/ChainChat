@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u6000))
 (define-constant ERR-INVALID-TICK (err u6001))
 
@@ -102,4 +103,9 @@
 
 (define-read-only (get-pool-config (pool-id uint))
   (map-get? pool-configuration pool-id)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

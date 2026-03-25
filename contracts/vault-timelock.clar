@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u400))
 (define-constant ERR-OPERATION-NOT-FOUND (err u401))
 (define-constant ERR-TIMELOCK-NOT-EXPIRED (err u402))
@@ -275,4 +276,9 @@
 
     (ok true)
   )
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

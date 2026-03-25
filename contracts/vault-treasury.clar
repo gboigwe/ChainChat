@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u900))
 (define-constant ERR-INVALID-AMOUNT (err u901))
 (define-constant ERR-INSUFFICIENT-FUNDS (err u902))
@@ -388,4 +389,9 @@
 
 (define-read-only (get-available-funds)
   (- (var-get total-treasury-balance) (var-get total-allocated))
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

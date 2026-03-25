@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5400))
 (define-constant ERR-NOT-LIQUIDATABLE (err u5401))
 (define-constant ERR-LIQUIDATION-FAILED (err u5402))
@@ -221,4 +222,9 @@
     burn-time: burn-block-height,
     time-since-burn: (- stacks-block-time burn-block-height)
   })
+)
+
+;; 6. Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

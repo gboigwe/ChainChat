@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u6500))
 (define-constant ERR-BRIDGE-PAUSED (err u6501))
 (define-constant ERR-INVALID-CHAIN (err u6502))
@@ -170,4 +171,9 @@
 
 (define-read-only (get-total-volume)
   (var-get total-bridged-volume)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

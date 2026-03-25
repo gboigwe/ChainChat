@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5100))
 (define-constant ERR-NOT-VERIFIED (err u5101))
 
@@ -157,4 +158,9 @@
     stacks-time: stacks-block-time,
     burn-time: burn-block-height
   })
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

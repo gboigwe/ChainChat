@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-ALREADY-REGISTERED (err u4700))
 (define-constant ERR-NOT-REGISTERED (err u4701))
 
@@ -97,4 +98,9 @@
 
 (define-read-only (is-registered (user principal))
   (is-some (map-get? users user))
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

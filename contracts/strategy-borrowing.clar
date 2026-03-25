@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u2900))
 (define-constant ERR-INVALID-AMOUNT (err u2901))
 (define-constant ERR-INSUFFICIENT-COLLATERAL (err u2902))
@@ -125,4 +126,9 @@
 
 (define-read-only (get-total-collateral)
   (var-get total-collateral)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

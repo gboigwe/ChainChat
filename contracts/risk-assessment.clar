@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5300))
 
 ;; Risk levels
@@ -83,3 +84,4 @@
   (match (string-to-uint? level-str) level (ok level) (err u998)))
 (define-read-only (get-risk-timestamps)
   (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
+(define-read-only (get-contract-version) (ok CONTRACT_VERSION))

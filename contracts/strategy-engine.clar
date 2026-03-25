@@ -10,6 +10,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u401))
 (define-constant ERR-INVALID-COMMAND (err u402))
 (define-constant ERR-STRATEGY-NOT-FOUND (err u403))
@@ -370,4 +371,9 @@
       available-commands: (list "start safe strategy" "start growth strategy" "exit all positions" "set risk low" "set risk medium" "set risk high")
     }
   )
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

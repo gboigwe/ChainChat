@@ -4,6 +4,7 @@
 ;; description: Verify cryptographic signatures - Clarity 4
 
 ;; Constants
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-INVALID-SIGNATURE (err u7200))
 (define-constant ERR-SIGNATURE-EXPIRED (err u7201))
 (define-constant ERR-INVALID-SIGNER (err u7202))
@@ -152,4 +153,9 @@
     stacks-time: stacks-block-time,
     burn-time: burn-block-height
   })
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
