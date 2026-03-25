@@ -7,7 +7,6 @@ import {
   STACKS_MAINNET,
   STACKS_TESTNET,
   STACKS_DEVNET,
-  type StacksNetworkName as SdkNetworkName,
 } from '@stacks/network';
 import { getCurrentNetworkName, getNetworkConfig, type StacksNetworkName } from '../config/network-config';
 
@@ -107,6 +106,25 @@ export function getNetworkLabel(name?: StacksNetworkName): string {
     default:
       return 'Unknown';
   }
+}
+
+/**
+ * Get WebSocket URL for a network
+ */
+export function getWsUrl(name?: StacksNetworkName): string {
+  const config = getNetworkConfig(name ?? getCurrentNetworkName());
+  return config.endpoints.hiroApiWsUrl;
+}
+
+/**
+ * Get Bitcoin explorer URL for a given network
+ */
+export function getBtcExplorerUrl(txHash: string, name?: StacksNetworkName): string {
+  const n = name ?? getCurrentNetworkName();
+  if (n === 'mainnet') {
+    return `https://mempool.space/tx/${txHash}`;
+  }
+  return `https://mempool.space/testnet/tx/${txHash}`;
 }
 
 export { type StacksNetworkName };
