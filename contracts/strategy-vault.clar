@@ -9,6 +9,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u401))
 (define-constant ERR-INSUFFICIENT-BALANCE (err u402))
 (define-constant ERR-VAULT-PAUSED (err u403))
@@ -240,4 +241,9 @@
 
 (define-read-only (is-contract-authorized (contract principal))
   (is-authorized-contract contract)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
