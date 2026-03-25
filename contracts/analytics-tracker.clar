@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5200))
 
 ;; Event types
@@ -110,4 +111,9 @@
 
 (define-read-only (get-daily-volume (day-timestamp uint))
   (map-get? daily-volume day-timestamp)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
