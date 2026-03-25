@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u300))
 (define-constant ERR-PROPOSAL-NOT-FOUND (err u301))
 (define-constant ERR-ALREADY-VOTED (err u302))
@@ -314,4 +315,9 @@
       votes-against: u0
     }
   )
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

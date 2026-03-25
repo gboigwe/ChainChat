@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4400))
 (define-constant ERR-NOT-PASSED (err u4401))
 (define-constant ERR-ALREADY-EXECUTED (err u4402))
@@ -65,3 +66,4 @@
   (match (string-to-uint? id-str) id (ok id) (err u998)))
 (define-read-only (get-executor-timestamps)
   (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
+(define-read-only (get-contract-version) (ok CONTRACT_VERSION))
