@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4600))
 (define-constant ERR-INVALID-ROLE (err u4601))
 
@@ -143,4 +144,9 @@
     stacks-time: stacks-block-time,
     burn-time: burn-block-height
   })
+)
+
+;; 5. Clarity 4: get-contract-version - Return the contract version
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

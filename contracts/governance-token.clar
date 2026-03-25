@@ -7,6 +7,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4000))
 (define-constant ERR-NOT-TOKEN-OWNER (err u4001))
 (define-constant ERR-INSUFFICIENT-BALANCE (err u4002))
@@ -179,4 +180,9 @@
     burn-time: burn-block-height,
     timestamp-diff: (- stacks-block-time burn-block-height)
   })
+)
+
+;; 6. Clarity 4: get-contract-version - Return the contract version
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
