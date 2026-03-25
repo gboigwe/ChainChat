@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u100))
 (define-constant ERR-VAULT-EXISTS (err u101))
 (define-constant ERR-VAULT-NOT-FOUND (err u102))
@@ -264,4 +265,9 @@
     })
     (err ERR-VAULT-NOT-FOUND)
   )
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
