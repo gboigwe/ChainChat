@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u4800))
 (define-constant ERR-BLACKLISTED (err u4801))
 
@@ -120,4 +121,9 @@
 
 (define-read-only (get-blacklist-status (user principal))
   (map-get? blacklist user)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
