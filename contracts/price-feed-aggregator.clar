@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5200))
 
 ;; Data Maps - Using stacks-block-time for Clarity 4
@@ -57,3 +58,4 @@
   (match (string-to-uint? price-str) parsed (ok parsed) (err u998)))
 (define-read-only (get-aggregator-timestamps)
   (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
+(define-read-only (get-contract-version) (ok CONTRACT_VERSION))

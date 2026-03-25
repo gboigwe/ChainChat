@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5000))
 (define-constant ERR-STALE-PRICE (err u5001))
 
@@ -64,3 +65,4 @@
   (match (string-to-uint? conf-str) conf (ok conf) (err u998)))
 (define-read-only (get-pyth-timestamps)
   (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
+(define-read-only (get-contract-version) (ok CONTRACT_VERSION))

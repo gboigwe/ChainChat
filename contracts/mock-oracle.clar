@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u7400))
 
 ;; Data Maps - Using stacks-block-time for Clarity 4
@@ -105,4 +106,9 @@
     stacks-time: stacks-block-time,
     burn-time: burn-block-height
   })
+)
+
+;; 5. Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )

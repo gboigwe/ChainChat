@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5100))
 (define-constant ERR-STALE-PRICE (err u5101))
 
@@ -48,3 +49,4 @@
   (match (string-to-uint? ts-str) ts (ok ts) (err u998)))
 (define-read-only (get-redstone-timestamps)
   (ok {stacks-time: stacks-block-time, burn-time: burn-block-height}))
+(define-read-only (get-contract-version) (ok CONTRACT_VERSION))
