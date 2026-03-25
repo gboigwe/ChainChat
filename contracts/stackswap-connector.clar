@@ -5,6 +5,7 @@
 
 ;; Constants
 (define-constant CONTRACT-OWNER tx-sender)
+(define-constant CONTRACT_VERSION "4.0.0")
 (define-constant ERR-UNAUTHORIZED (err u5900))
 (define-constant ERR-INSUFFICIENT-LIQUIDITY (err u5901))
 
@@ -106,4 +107,9 @@
 
 (define-read-only (get-total-trades)
   (var-get total-trades)
+)
+
+;; Clarity 4: get-contract-version - Expose contract version on-chain
+(define-read-only (get-contract-version)
+  (ok CONTRACT_VERSION)
 )
