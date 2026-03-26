@@ -53,3 +53,12 @@ describe('NFT post-condition', () => {
     expect(PC_TEST_NFT_ASSET).toBe('chat-badge');
   });
 });
+
+describe('contract post-condition', () => {
+  it('uses contract principal format', () => {
+    expect(PC_CONTRACT_PRINCIPAL).toContain('.');
+  });
+  it('uses standard principal format', () => {
+    expect(PC_STANDARD_PRINCIPAL).toMatch(/^SP/);
+  });
+});
