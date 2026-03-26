@@ -168,3 +168,7 @@ export function mapCount<V extends MapValue>(
 export function nftOwnerKey(tokenId: bigint): string {
   return serializeKey({ tokenId });
 }
+/** Build FT balance map key */
+export function ftBalanceKey(principal: string): string {
+  return serializeKey({ principal });
+}
