@@ -53,3 +53,11 @@ export function txExplorerUrl(txId: string, config: NetworkConfig): string {
 export function addressExplorerUrl(address: string, config: NetworkConfig): string {
   return `${config.explorerUrl}/address/${address}`;
 }
+/** Build contract explorer URL */
+export function contractExplorerUrl(
+  contractAddress: string,
+  contractName: string,
+  config: NetworkConfig,
+): string {
+  return `${config.explorerUrl}/txid/${contractAddress}.${contractName}`;
+}
