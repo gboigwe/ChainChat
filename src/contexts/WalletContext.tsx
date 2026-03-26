@@ -49,3 +49,7 @@ export function WalletProvider({ children }: { children: React.ReactNode }): Rea
       address: session?.profile?.stxAddress?.mainnet ?? null,
     }));
   }, []);
+  const disconnect = useCallback(() => {
+    clearSession();
+    setState(DEFAULT_STATE);
+  }, []);
