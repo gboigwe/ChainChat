@@ -17,3 +17,5 @@ export const EVENT_LOG_VERSION = '1.0';
 export const QUERY_DEFAULT_PAGE = 0;
 export const QUERY_DEFAULT_PAGE_SIZE = 20;
 export const QUERY_MAX_PAGE_SIZE = 100;
+export const SORT_ASCENDING = 'asc';
+export const SORT_DESCENDING = 'desc';
