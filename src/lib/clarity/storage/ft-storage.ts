@@ -20,3 +20,13 @@ export function validateTransfer(
 ): boolean {
   return getBalance(sender) >= amount;
 }
+/** Execute FT transfer between principals */
+export function executeTransfer(
+  sender: string,
+  recipient: string,
+  amount: TokenBalance,
+): void {
+  if (!validateTransfer(sender, amount)) throw new Error('Insufficient balance');
+  setBalance(sender, getBalance(sender) - amount);
+  setBalance(recipient, getBalance(recipient) + amount);
+}
