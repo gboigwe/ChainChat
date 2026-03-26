@@ -45,3 +45,4 @@ export function usePriceOracle(refreshInterval = 60_000): PriceOracleState & { r
   return { stxUsd, btcUsd, loading, lastUpdated, error, refetch };
 }
 export const PRICE_ORACLE_1 = 1;
+export const PRICE_ORACLE_2 = 2;
