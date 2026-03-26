@@ -57,3 +57,9 @@ export interface FeeEstimate {
   feeRate: number;
   estimatedSize: number;
 }
+/** Nonce information */
+export interface NonceInfo {
+  possibleNextNonce: number;
+  detectedMissingNonces: number[];
+  lastExecutedTxNonce?: number;
+}
