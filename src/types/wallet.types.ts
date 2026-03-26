@@ -21,3 +21,9 @@ export interface ProfileData {
   avatarUrl?: string;
   apps: Record<string, AppPermissions>;
 }
+export interface AppPermissions {
+  origin: string;
+  scopes: string[];
+  lastLoginAt: string;
+  appPrivateKey?: string;
+}
