@@ -105,3 +105,6 @@ export interface MessageAttachment {
   mimeType: string;
   sizeBytes: bigint;
 }
+
+/** Maximum attachment size in bytes */
+export const MAX_ATTACHMENT_SIZE_BYTES = 10_000_000n;
