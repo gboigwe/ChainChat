@@ -98,3 +98,9 @@ export function validateMessageId(id: unknown): ValidationResult {
   else if (id <= 0n) errors.push('Message ID must be positive');
   return { valid: errors.length === 0, errors };
 }
+
+/** Validate reply-to is null or valid message ID */
+export function validateReplyTo(replyTo: unknown): ValidationResult {
+  if (replyTo === null) return { valid: true, errors: [] };
+  return validateMessageId(replyTo);
+}
