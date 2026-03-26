@@ -18,3 +18,11 @@ export interface WalletSessionActions {
 }
 /** Combined return type */
 export type UseWalletSessionReturn = WalletSessionState & WalletSessionActions;
+/** Hook for wallet session management */
+export function useWalletSession(): UseWalletSessionReturn {
+  const [isConnected, setIsConnected] = useState(false);
+  const [address, setAddress] = useState<string | null>(null);
+  const [profile, setProfile] = useState<unknown | null>(null);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [network, setNetwork] = useState<'mainnet' | 'testnet'>('mainnet');
