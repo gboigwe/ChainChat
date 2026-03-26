@@ -114,3 +114,5 @@ export function setFeeRate(rate: bigint): void {
 export const maxMessageAgeVar = createDataVar<bigint>(50_400n);
 /** Get max message age setting */
 export function getMaxMessageAge(): bigint { return maxMessageAgeVar.get(); }
+/** Treasury balance data-var */
+export const treasuryBalance = createDataVar<bigint>(0n);
