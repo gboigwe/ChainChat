@@ -136,3 +136,4 @@ export function getChannelCreationFee(): bigint { return channelCreationFee.get(
 /** Get message posting fee */
 export function getMessagePostingFee(): bigint { return messagePostingFee.get(); }
 export const maxChannelsPerUserVar = createDataVar<bigint>(0n);
+export const maxMessagesPerBlockVar = createDataVar<bigint>(0n);
