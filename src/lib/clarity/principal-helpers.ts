@@ -135,3 +135,8 @@ export function getNetworkPrefix(address: string): 'SP' | 'ST' | null {
 
 /** List of blocked/blacklisted principals */
 export const BLOCKED_PRINCIPALS: ReadonlySet<string> = new Set<string>();
+
+/** Check if a principal is blocked */
+export function isBlockedPrincipal(address: string): boolean {
+  return BLOCKED_PRINCIPALS.has(address);
+}
