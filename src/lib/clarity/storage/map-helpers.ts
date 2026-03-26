@@ -55,3 +55,7 @@ export function mapHas<V extends MapValue>(
 export function mapValues<V extends MapValue>(map: Map<string, V>): V[] {
   return Array.from(map.values());
 }
+/** Get all keys from a map */
+export function mapKeys<V extends MapValue>(map: Map<string, V>): string[] {
+  return Array.from(map.keys());
+}
