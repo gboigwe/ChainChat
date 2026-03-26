@@ -28,3 +28,10 @@ export interface STXTransferEvent {
   sender: string;
   recipient: string;
 }
+/** Smart contract log event */
+export interface ContractLogEvent {
+  type: 'smart_contract_log';
+  contract_id: string;
+  topic: string;
+  value: string;
+}
