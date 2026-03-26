@@ -61,3 +61,4 @@ export const STOR_CONST_39 = 39;
 export const STOR_CONST_40 = 40;
 export const STOR_CONST_41 = 41;
 export const STOR_CONST_42 = 42;
+export const STOR_CONST_43 = 43;
