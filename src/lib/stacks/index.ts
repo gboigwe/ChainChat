@@ -7,3 +7,4 @@ export * from './address-utils';
 export * from './stacks-types';
 export * from './clarity-value-builders';
 export * from './read-only-helpers';
+export * from './network-utils';
