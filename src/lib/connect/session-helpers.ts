@@ -48,3 +48,4 @@ export const SESSION_HELPER_13 = 13;
 export const SESSION_HELPER_14 = 14;
 export const SESSION_HELPER_15 = 15;
 export const SESSION_HELPER_16 = 16;
+export const SESSION_HELPER_17 = 17;
