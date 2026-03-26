@@ -21,3 +21,4 @@ export const SORT_ASCENDING = 'asc';
 export const SORT_DESCENDING = 'desc';
 export const TREASURY_ACCOUNT = 'treasury';
 export const LOCKED_TOKENS_SUFFIX = ':locked';
+export const DEFAULT_INVITE_TTL_BLOCKS = 0;
