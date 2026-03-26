@@ -175,3 +175,11 @@ export function logErr<T, E>(
   }
   return res;
 }
+
+/** Assert that a response is ok or throw */
+export function assertOk<T, E>(res: ClarityResponse<T, E>, context = 'response'): T {
+  if (isErr(res)) {
+    throw new Error(`Expected ok ${context} but got err: ${String(res.error)}`);
+  }
+  return res.value;
+}
