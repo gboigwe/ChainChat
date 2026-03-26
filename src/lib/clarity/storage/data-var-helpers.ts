@@ -139,3 +139,4 @@ export const maxChannelsPerUserVar = createDataVar<bigint>(0n);
 export const maxMessagesPerBlockVar = createDataVar<bigint>(0n);
 export const inviteCostSTXVar = createDataVar<bigint>(0n);
 export const badgeCostMicroSTXVar = createDataVar<bigint>(0n);
+export const reactionCooldownBlocksVar = createDataVar<bigint>(0n);
