@@ -92,3 +92,4 @@ export function getProviderCapabilities(provider: WalletProvider): ProviderCapab
   if (provider === WalletProvider.Xverse) return { ...base, signPsbt: true };
   return base;
 }
+export const PROVIDER_FLAG_1 = false;
