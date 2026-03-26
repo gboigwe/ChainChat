@@ -76,3 +76,12 @@ export function encodeMessageContent(content: MessageContent): string {
   if (!isAsciiOnly(content)) throw new Error('Message content must be ASCII only');
   return content;
 }
+
+/** Reaction emoji to uint mapping for Clarity contract */
+export const REACTION_CODES: Record<string, bigint> = {
+  like: 1n,
+  love: 2n,
+  laugh: 3n,
+  wow: 4n,
+  sad: 5n,
+};
