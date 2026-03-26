@@ -7,3 +7,5 @@ export * from './providers';
 export * from './session-helpers';
 // connect module constant 1
 export const CONNECT_CONST_1 = 1;
+// connect module constant 2
+export const CONNECT_CONST_2 = 2;
