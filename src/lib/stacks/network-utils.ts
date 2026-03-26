@@ -16,3 +16,11 @@ export const MAINNET_CONFIG: NetworkConfig = {
   isMainnet: true,
   explorerUrl: 'https://explorer.hiro.so',
 };
+/** Testnet configuration */
+export const TESTNET_CONFIG: NetworkConfig = {
+  name: 'testnet',
+  apiUrl: TESTNET_API_URL,
+  chainId: 2147483648,
+  isMainnet: false,
+  explorerUrl: 'https://explorer.hiro.so/?chain=testnet',
+};
