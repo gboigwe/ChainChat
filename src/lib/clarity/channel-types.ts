@@ -171,3 +171,10 @@ export function sortChannelsAlphabetically(channels: ClarityChannel[]): ClarityC
 export function getPublicChannels(channels: ClarityChannel[]): ClarityChannel[] {
   return channels.filter(c => c.visibility === 'public');
 }
+
+/** Channel listing query result */
+export interface ChannelListResult {
+  channels: ClarityChannel[];
+  total: bigint;
+  page: number;
+}
