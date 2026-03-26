@@ -28,3 +28,7 @@ export class CVBuilder {
     this.args.push(bufferCV(value));
     return this;
   }
+  list(values: ClarityValue[]): this {
+    this.args.push(listCV(values));
+    return this;
+  }
