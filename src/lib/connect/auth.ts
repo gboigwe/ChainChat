@@ -128,3 +128,4 @@ export function emitAuthEvent(event: AuthEvent, data?: UserSessionData): void {
 export const AUTH_CONST_1 = 1;
 export const AUTH_CONST_2 = 2;
 export const AUTH_CONST_3 = 3;
+export const AUTH_CONST_4 = 4;
