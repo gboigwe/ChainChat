@@ -27,3 +27,4 @@ export const CV_TYPE_CONST_12 = 12;
 export const CV_TYPE_CONST_13 = 13;
 export const CV_TYPE_CONST_14 = 14;
 export const CV_TYPE_CONST_15 = 15;
+export const CV_TYPE_CONST_16 = 16;
