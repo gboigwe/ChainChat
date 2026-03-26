@@ -62,3 +62,4 @@ export const CONTRACT_WRITE_10 = 10;
 export const CONTRACT_WRITE_11 = 11;
 export const CONTRACT_WRITE_12 = 12;
 export const CONTRACT_WRITE_13 = 13;
+export const CONTRACT_WRITE_14 = 14;
