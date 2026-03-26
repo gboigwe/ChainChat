@@ -97,3 +97,7 @@ export function cvEquals(a: ClarityValue, b: ClarityValue): boolean {
 function cvToString(cv: ClarityValue): string {
   return JSON.stringify(cv, (_, v) => typeof v === 'bigint' ? v.toString() : v);
 }
+/** Helper: check if CV has expected field with type check 1 */
+export function hasTupleField1(cv: ClarityValue, field: string): boolean {
+  return isTupleCV(cv) && field in cv.data;
+}
