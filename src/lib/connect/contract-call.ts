@@ -28,3 +28,22 @@ export function validateContractCallArgs(options: Partial<ContractCallRegularOpt
   if (!Array.isArray(options.functionArgs)) errors.push('functionArgs must be an array');
   return errors;
 }
+/** Build contract call options with defaults */
+export function buildContractCallOptions(
+  contractAddress: string,
+  contractName: string,
+  functionName: string,
+  functionArgs: unknown[],
+  network: string,
+  overrides?: Partial<ContractCallRegularOptions>,
+): ContractCallRegularOptions {
+  return {
+    contractAddress,
+    contractName,
+    functionName,
+    functionArgs,
+    network,
+    postConditionMode: 'deny',
+    ...overrides,
+  };
+}
