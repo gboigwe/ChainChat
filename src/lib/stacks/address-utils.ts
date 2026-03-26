@@ -60,3 +60,7 @@ export function getNetworkFromAddress(address: string): 'mainnet' | 'testnet' | 
 export function normalizeAddress(address: string): string {
   return address.toUpperCase();
 }
+/** Extract address from contract principal */
+export function extractAddress(principal: string): string {
+  return principal.includes('.') ? principal.split('.')[0] : principal;
+}
