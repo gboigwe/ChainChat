@@ -91,3 +91,4 @@ export const ADDR_EXTRA_17 = 17;
 export const ADDR_EXTRA_18 = 18;
 export const ADDR_EXTRA_19 = 19;
 export const ADDR_EXTRA_20 = 20;
+export const ADDR_EXTRA_21 = 21;
