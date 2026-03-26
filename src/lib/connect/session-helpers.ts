@@ -21,3 +21,7 @@ export function getHubUrl(data: UserSessionData): string {
 export function hasProfile(data: UserSessionData): boolean {
   return data.profile !== undefined && data.profile !== null;
 }
+/** Get avatar URL from profile */
+export function getAvatarUrl(data: UserSessionData): string | null {
+  return data.profile?.avatarUrl ?? null;
+}
