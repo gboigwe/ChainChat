@@ -49,3 +49,7 @@ export type StorageEventUnion =
   | ReactionAddedEvent;
 /** Global event log */
 export const storageEventLog: StorageEventUnion[] = [];
+/** Append event to log */
+export function logStorageEvent(event: StorageEventUnion): void {
+  storageEventLog.push(event);
+}
