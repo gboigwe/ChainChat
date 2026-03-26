@@ -46,3 +46,4 @@ export function useTransactionStatus(
   };
 }
 export const TX_STATUS_1 = 1;
+export const TX_STATUS_2 = 2;
