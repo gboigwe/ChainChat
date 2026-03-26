@@ -19,3 +19,4 @@ export class Cache<T> {
     this.store.set(key, { value, expiresAt: Date.now() + this.ttlMs });
   }
   delete(key: string): void { this.store.delete(key); }
+  clear(): void { this.store.clear(); }
