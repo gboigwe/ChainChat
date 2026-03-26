@@ -97,3 +97,9 @@ export function nftTotalSupply(): number {
 export function nftExists(tokenId: NFTTokenId): boolean {
   return nftOwnerMap.has(tokenId);
 }
+/** Get all badge types owned by principal */
+export function getBadgesByOwner(owner: string): BadgeNFT[] {
+  return getTokensByOwner(owner)
+    .map(id => getBadge(id))
+    .filter((b): b is BadgeNFT => b !== null);
+}
