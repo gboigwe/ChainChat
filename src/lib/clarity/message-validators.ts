@@ -55,3 +55,15 @@ export function validateSender(sender: string): ValidationResult {
   }
   return { valid: errors.length === 0, errors };
 }
+
+/** Validate a full ClarityMessage object */
+export function validateMessage(msg: {
+  content: string;
+  sender: string;
+  channelId: bigint;
+}): ValidationResult {
+  return composeValidators(
+    () => validateContent(msg.content),
+    () => validateSender(msg.sender),
+  );
+}
