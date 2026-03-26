@@ -67,3 +67,4 @@ export function WalletProvider({ children }: { children: React.ReactNode }): Rea
       setState(prev => ({ ...prev, isConnecting: false }));
     }
   }, [refreshSession]);
+  useEffect(() => { refreshSession(); }, [refreshSession]);
