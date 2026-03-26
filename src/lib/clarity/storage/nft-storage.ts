@@ -156,3 +156,5 @@ export function revokeBadge(tokenId: NFTTokenId, admin: string): void {
   badgeMap.delete(tokenId);
   void admin;
 }
+/** Badge rarity level 1 */
+export const BADGE_RARITY_1 = 1n;
