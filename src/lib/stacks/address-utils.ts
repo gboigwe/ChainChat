@@ -72,3 +72,8 @@ export function buildContractId(address: string, contractName: string): string {
 export function isValidContractName(name: string): boolean {
   return /^[a-z][a-z0-9\-]{0,39}$/.test(name);
 }
+/** Get version byte from network and signature type */
+export function getVersionByte(network: 'mainnet' | 'testnet', multiSig = false): AddressVersion {
+  if (network === 'mainnet') return multiSig ? AddressVersion.MainnetMultiSig : AddressVersion.MainnetSingleSig;
+  return multiSig ? AddressVersion.TestnetMultiSig : AddressVersion.TestnetSingleSig;
+}
