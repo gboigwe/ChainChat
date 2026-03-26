@@ -20,3 +20,11 @@ export async function getBlock(
 ): Promise<BlockResponse> {
   return client.fetch<BlockResponse>(`/extended/v1/block/${hashOrHeight}`);
 }
+/** Get recent blocks */
+export async function getBlockList(
+  client: HiroApiClient,
+  limit = 20,
+  offset = 0,
+): Promise<{ results: BlockResponse[]; total: number }> {
+  return client.fetch('/extended/v1/block', undefined, { limit, offset });
+}
