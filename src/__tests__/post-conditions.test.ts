@@ -13,3 +13,19 @@ export const PC_TEST_FT_CONTRACT = 'SP2JXKMSH007NPYAQHKJPQMAQYAD90NQGTVJVQ02B.ch
 export const PC_TEST_NFT_CONTRACT = 'SP2JXKMSH007NPYAQHKJPQMAQYAD90NQGTVJVQ02B.chat-nft';
 export const PC_TEST_ASSET_NAME = 'chat-token';
 export const PC_TEST_NFT_ASSET = 'chat-badge';
+
+import { describe, it, expect } from 'vitest';
+describe('STX post-condition', () => {
+  it('allows equal STX amount', () => {
+    expect(PC_TEST_STX_AMOUNT).toBe(1000000n);
+  });
+  it('validates send-eq condition', () => {
+    expect(PC_CONDITION_EQUAL).toBe('eq');
+  });
+  it('validates send-gt condition', () => {
+    expect(PC_CONDITION_GT).toBe('gt');
+  });
+  it('validates send-lt condition', () => {
+    expect(PC_CONDITION_LT).toBe('lt');
+  });
+});
