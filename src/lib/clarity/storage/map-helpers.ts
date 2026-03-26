@@ -176,3 +176,7 @@ export function ftBalanceKey(principal: string): string {
 export function ftAllowanceKey(owner: string, spender: string): string {
   return serializeKey({ owner, spender });
 }
+/** Build token lock map key */
+export function tokenLockKey(owner: string): string {
+  return serializeKey({ owner });
+}
