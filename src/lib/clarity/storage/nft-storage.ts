@@ -70,3 +70,5 @@ export interface BadgeNFT extends NFTMetadata {
   badgeType: BadgeType;
   channelId?: bigint;
 }
+/** Badge NFT map */
+export const badgeMap = new Map<bigint, BadgeNFT>();
