@@ -37,3 +37,10 @@ export async function getBlockTransactions(
 ): Promise<{ results: unknown[]; total: number }> {
   return client.fetch(`/extended/v1/block/${blockHash}/transactions`, undefined, { limit, offset });
 }
+/** Get burn block info */
+export async function getBurnBlock(
+  client: HiroApiClient,
+  burnBlockHash: string,
+): Promise<unknown> {
+  return client.fetch(`/extended/v2/burn-blocks/${burnBlockHash}`);
+}
