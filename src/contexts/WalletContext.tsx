@@ -29,3 +29,5 @@ const DEFAULT_STATE: WalletContextState = {
   isConnecting: false,
   error: null,
 };
+/** The wallet React context */
+export const WalletContext = createContext<WalletContextValue | null>(null);
