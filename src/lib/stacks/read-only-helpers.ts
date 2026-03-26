@@ -41,3 +41,5 @@ export const READ_ONLY_FUNCTIONS = {
 } as const;
 /** Read-only call timeout in milliseconds */
 export const READ_ONLY_TIMEOUT_MS = 15_000;
+/** Max args for read-only calls */
+export const MAX_READ_ONLY_ARGS = 10;
