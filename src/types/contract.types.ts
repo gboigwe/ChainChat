@@ -18,3 +18,8 @@ export interface FunctionABI {
   args: Array<{ name: string; type: string | object }>;
   outputs: { type: string | object };
 }
+export interface VariableABI {
+  name: string;
+  type: string | object;
+  access: 'variable' | 'constant';
+}
