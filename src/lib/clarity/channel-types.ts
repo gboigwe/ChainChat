@@ -211,3 +211,15 @@ export function serializeChannel(ch: ClarityChannel): Record<string, unknown> {
     visibility: ch.visibility,
   };
 }
+
+/** Deserialize plain object to ClarityChannel */
+export function deserializeChannel(raw: Record<string, unknown>): ClarityChannel {
+  return {
+    id: BigInt(raw['id'] as string),
+    name: raw['name'] as string,
+    description: raw['description'] as string,
+    owner: raw['owner'] as string,
+    createdAt: BigInt(raw['createdAt'] as string),
+    visibility: raw['visibility'] as ChannelVisibility,
+  };
+}
