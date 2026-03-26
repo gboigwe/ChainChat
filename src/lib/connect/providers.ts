@@ -73,3 +73,7 @@ export function getPreferredProvider(): WalletProvider {
 export function hasWalletInstalled(): boolean {
   return detectInstalledWallets().length > 0;
 }
+/** Get provider display name */
+export function getProviderName(provider: WalletProvider): string {
+  return PROVIDER_REGISTRY[provider].name;
+}
