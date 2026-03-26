@@ -27,3 +27,8 @@ export interface AppPermissions {
   lastLoginAt: string;
   appPrivateKey?: string;
 }
+export interface SignatureData {
+  signature: string;
+  publicKey: string;
+  message?: string;
+}
