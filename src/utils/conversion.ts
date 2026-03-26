@@ -37,3 +37,4 @@ export const CONV_CONST_36 = 36;
 export const CONV_CONST_37 = 37;
 export const CONV_CONST_38 = 38;
 export const CONV_CONST_39 = 39;
+export const CONV_CONST_40 = 40;
