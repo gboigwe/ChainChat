@@ -2,3 +2,4 @@
 export * from './auth';
 export * from './contract-call';
 export * from './stx-transfer';
+export * from './message-signing';
