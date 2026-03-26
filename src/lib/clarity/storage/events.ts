@@ -63,3 +63,10 @@ export function getEventsByType<T extends StorageEventUnion>(
 export function clearEventLog(): void {
   storageEventLog.length = 0;
 }
+/** Get events in block range */
+export function getEventsInRange(
+  start: bigint,
+  end: bigint,
+): StorageEventUnion[] {
+  return storageEventLog.filter(e => e.blockHeight >= start && e.blockHeight <= end);
+}
