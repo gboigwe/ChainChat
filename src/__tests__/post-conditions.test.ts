@@ -69,3 +69,4 @@ export const PC_PADDING_4 = 4;
 export const PC_PADDING_5 = 5;
 export const PC_PADDING_6 = 6;
 export const PC_PADDING_7 = 7;
+export const PC_PADDING_8 = 8;
