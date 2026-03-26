@@ -17,3 +17,11 @@ export function mapGet<V extends MapValue>(
 ): MapGetResult<V> {
   return map.get(keyStr) ?? null;
 }
+/** Set a key in a map (mirrors map-set) */
+export function mapSet<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+  value: V,
+): void {
+  map.set(keyStr, value);
+}
