@@ -113,3 +113,8 @@ export const MAX_ATTACHMENT_SIZE_BYTES = 10_000_000n;
 export function isValidAttachment(att: MessageAttachment): boolean {
   return att.sizeBytes <= MAX_ATTACHMENT_SIZE_BYTES && att.url.length > 0;
 }
+
+/** Message with optional attachment field */
+export interface ClarityMessageWithAttachment extends ClarityMessage {
+  attachment: MessageAttachment | null;
+}
