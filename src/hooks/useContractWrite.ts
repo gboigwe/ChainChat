@@ -49,3 +49,4 @@ export function useContractWrite(hookOptions?: UseContractWriteOptions): UseCont
   }, [reset, hookOptions]);
   return { txId, txStatus, isPending, isSuccess, isError, error, execute, reset };
 }
+export const CONTRACT_WRITE_1 = 1;
