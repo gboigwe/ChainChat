@@ -8,3 +8,4 @@ export const FT_MAX_SUPPLY = 1_000_000_000_000_000n;
 export const NFT_MAX_SUPPLY = 10_000n;
 export const BADGE_PRICE_STX = 10_000_000n;
 export const SNAPSHOT_VERSION = '1.0';
+export const MAX_LOG_ENTRIES = 10_000;
