@@ -9,3 +9,13 @@ export interface TxStatusState {
   isFailed: boolean;
   loading: boolean;
 }
+/** Poll transaction status until finalized */
+export function useTransactionStatus(
+  txId: string | null,
+  apiUrl = 'https://api.hiro.so',
+  pollInterval = 5000,
+): TxStatusState {
+  const [status, setStatus] = useState<string | null>(null);
+  const [blockHeight, setBlockHeight] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [isFinalized, setIsFinalized] = useState(false);
