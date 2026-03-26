@@ -110,3 +110,4 @@ export const TX_EXTRA_19 = 19;
 export const TX_EXTRA_20 = 20;
 export const TX_EXTRA_21 = 21;
 export const TX_EXTRA_22 = 22;
+export const TX_EXTRA_23 = 23;
