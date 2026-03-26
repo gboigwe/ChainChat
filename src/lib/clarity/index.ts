@@ -8,3 +8,4 @@ export * from './message-validators';
 export * from './tuple-helpers';
 export * from './types';
 export * from './constants';
+export * from './error-codes';
