@@ -46,3 +46,5 @@ export const messageCounter = createDataVar<bigint>(0n);
 export const channelCounter = createDataVar<bigint>(0n);
 /** Contract owner data-var */
 export const contractOwner = createDataVar<string>('');
+/** Is contract paused data-var */
+export const contractPaused = createDataVar<boolean>(false);
