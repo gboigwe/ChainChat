@@ -24,3 +24,7 @@ export function isValidMapValue(value: unknown): boolean {
 export function isValidPage(page: number): boolean {
   return Number.isInteger(page) && page >= 0;
 }
+/** Validate limit is within allowed range */
+export function isValidLimit(limit: number, max = 100): boolean {
+  return Number.isInteger(limit) && limit > 0 && limit <= max;
+}
