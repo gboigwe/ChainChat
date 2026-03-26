@@ -34,3 +34,8 @@ export function timestampToBlockHeight(
   const elapsed = timestamp - genesisTimestamp;
   return BigInt(Math.floor(elapsed / AVERAGE_BLOCK_TIME_SECONDS));
 }
+
+/** Convert block height to a JavaScript Date object */
+export function blockHeightToDate(blockHeight: bigint): Date {
+  return new Date(blockHeightToTimestamp(blockHeight) * 1000);
+}
