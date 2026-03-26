@@ -89,3 +89,8 @@ export function blocksSinceCreation(createdAt: bigint, currentBlock: bigint): bi
   if (currentBlock < createdAt) return 0n;
   return currentBlock - createdAt;
 }
+
+/** Check if message was created within last N blocks */
+export function isRecent(createdAt: bigint, currentBlock: bigint, withinBlocks: bigint): boolean {
+  return blocksSinceCreation(createdAt, currentBlock) <= withinBlocks;
+}
