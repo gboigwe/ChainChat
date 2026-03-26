@@ -58,3 +58,4 @@ export const ACCOUNT_BALANCE_15 = 15;
 export const ACCOUNT_BALANCE_16 = 16;
 export const ACCOUNT_BALANCE_17 = 17;
 export const ACCOUNT_BALANCE_18 = 18;
+export const ACCOUNT_BALANCE_19 = 19;
