@@ -43,3 +43,11 @@ export interface NFTTransferEvent {
   recipient: string;
   value: string;
 }
+/** FT transfer event */
+export interface FTTransferEvent {
+  type: 'ft_transfer';
+  asset_identifier: string;
+  amount: string;
+  sender: string;
+  recipient: string;
+}
