@@ -30,3 +30,7 @@ export function decrementVar(dataVar: DataVar<bigint>, delta = 1n): bigint {
 export function compareVar<T>(dataVar: DataVar<T>, expected: T): boolean {
   return dataVar.get() === expected;
 }
+/** Reset data-var to initial value */
+export function resetVar<T>(dataVar: DataVar<T>, initial: T): void {
+  dataVar.set(initial);
+}
