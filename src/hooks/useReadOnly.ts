@@ -70,3 +70,4 @@ export const READ_ONLY_20 = 20;
 export const READ_ONLY_21 = 21;
 export const READ_ONLY_22 = 22;
 export const READ_ONLY_23 = 23;
+export const READ_ONLY_24 = 24;
