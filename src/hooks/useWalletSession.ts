@@ -26,3 +26,13 @@ export function useWalletSession(): UseWalletSessionReturn {
   const [isConnecting, setIsConnecting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [network, setNetwork] = useState<'mainnet' | 'testnet'>('mainnet');
+  const refresh = useCallback(() => {
+    try {
+      const raw = localStorage.getItem('blockstack-session');
+      if (!raw) { setIsConnected(false); setAddress(null); return; }
+      const data = JSON.parse(raw);
+      setAddress(data?.profile?.stxAddress?.mainnet ?? null);
+      setProfile(data?.profile ?? null);
+      setIsConnected(true);
+    } catch { setIsConnected(false); }
+  }, []);
