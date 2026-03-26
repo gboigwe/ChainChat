@@ -106,3 +106,7 @@ export function mapTransform<V extends MapValue, U extends MapValue>(
 export function mapSize<V extends MapValue>(map: Map<string, V>): number {
   return map.size;
 }
+/** Clear all entries from map */
+export function mapClear<V extends MapValue>(map: Map<string, V>): void {
+  map.clear();
+}
