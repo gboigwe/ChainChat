@@ -43,3 +43,10 @@ export interface MemberStorageTuple {
   'joined-at': bigint;
   'post-count': bigint;
 }
+/** Build member storage tuple */
+export function buildMemberTuple(
+  role: bigint,
+  joinedAt: bigint,
+): MemberStorageTuple {
+  return { role, 'joined-at': joinedAt, 'post-count': 0n };
+}
