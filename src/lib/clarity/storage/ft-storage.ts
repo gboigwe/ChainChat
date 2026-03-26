@@ -109,3 +109,5 @@ export interface FTTransferEvent {
   amount: bigint;
   blockHeight: bigint;
 }
+/** FT transfer event log */
+export const ftTransferLog: FTTransferEvent[] = [];
