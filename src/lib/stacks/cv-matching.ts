@@ -101,3 +101,7 @@ function cvToString(cv: ClarityValue): string {
 export function hasTupleField1(cv: ClarityValue, field: string): boolean {
   return isTupleCV(cv) && field in cv.data;
 }
+/** Helper: check if CV has expected field with type check 2 */
+export function hasTupleField2(cv: ClarityValue, field: string): boolean {
+  return isTupleCV(cv) && field in cv.data;
+}
