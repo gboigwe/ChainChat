@@ -51,3 +51,5 @@ export function getTxVersion(network: StacksNetwork): number {
 }
 /** Post condition modes */
 export type PostConditionMode = 'allow' | 'deny';
+/** Anchor mode options */
+export type AnchorMode = 'on-chain-only' | 'off-chain-only' | 'any';
