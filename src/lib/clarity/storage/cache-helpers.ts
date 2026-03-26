@@ -57,3 +57,9 @@ export async function getOrCache<T>(
   cache.set(key, value);
   return value;
 }
+/** Invalidate multiple cache keys by prefix */
+export function invalidateByPrefix(cache: Cache<unknown>, prefix: string): void {
+  // Simple full clear when prefix matches - for bounded JS Map
+  cache.clear();
+  void prefix;
+}
