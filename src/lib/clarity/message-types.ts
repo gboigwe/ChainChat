@@ -88,3 +88,8 @@ export const REACTION_CODES: Record<string, bigint> = {
 
 /** Maximum reactions per message allowed by contract */
 export const MAX_REACTIONS_PER_MESSAGE = 1000n;
+
+/** Check if message has reached reaction limit */
+export function isReactionLimitReached(msg: ClarityMessage): boolean {
+  return msg.reactions >= MAX_REACTIONS_PER_MESSAGE;
+}
