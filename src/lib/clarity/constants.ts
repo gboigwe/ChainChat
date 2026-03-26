@@ -19,3 +19,4 @@ export const STACKS_MAINNET_CHAIN_ID = 1;
 export const STACKS_TESTNET_CHAIN_ID = 2147483648;
 export const MAX_CONTRACT_NAME_LENGTH = 40;
 export const MIN_FEE_RATE = 1n;
+export const HIGH_PRIORITY_FEE_MULTIPLIER = 2;
