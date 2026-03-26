@@ -92,3 +92,10 @@ export interface PaginationParams {
   limit?: number;
   offset?: number;
 }
+/** Paginated API result */
+export interface PaginatedResult<T> {
+  results: T[];
+  total: number;
+  limit: number;
+  offset: number;
+}
