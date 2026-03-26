@@ -52,3 +52,7 @@ export function isKnownEventType(type: string): boolean {
 export function isValidSortOrder(order: string): boolean {
   return order === 'asc' || order === 'desc';
 }
+/** Validate cache TTL is positive */
+export function isValidCacheTTL(ttl: number): boolean {
+  return Number.isFinite(ttl) && ttl > 0;
+}
