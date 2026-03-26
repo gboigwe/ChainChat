@@ -68,3 +68,9 @@ export function nextMessageId(): bigint {
 export function nextChannelId(): bigint {
   return incrementVar(channelCounter);
 }
+/** Toggle boolean data-var */
+export function toggleVar(dataVar: DataVar<boolean>): boolean {
+  const next = !dataVar.get();
+  dataVar.set(next);
+  return next;
+}
