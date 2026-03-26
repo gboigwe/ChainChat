@@ -34,3 +34,7 @@ export function matchCV<R>(cv: ClarityValue, matcher: CVMatcher<R>): R {
   if (matcher._) return matcher._(cv);
   throw new Error(`No handler for CV type: ${cv.type}`);
 }
+/** Check if CV matches a given type string */
+export function isCVType(cv: ClarityValue, type: string): boolean {
+  return cv.type === type;
+}
