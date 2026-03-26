@@ -47,3 +47,5 @@ export type StorageEventUnion =
   | MemberJoinedEvent
   | MemberKickedEvent
   | ReactionAddedEvent;
+/** Global event log */
+export const storageEventLog: StorageEventUnion[] = [];
