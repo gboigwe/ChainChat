@@ -129,3 +129,5 @@ export function withdrawFromTreasury(amount: bigint): void {
 }
 /** Channel creation fee (microSTX) */
 export const channelCreationFee = createDataVar<bigint>(5_000_000n);
+/** Message posting fee (microSTX, 0 = free) */
+export const messagePostingFee = createDataVar<bigint>(0n);
