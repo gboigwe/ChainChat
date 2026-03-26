@@ -45,3 +45,13 @@ export function composeValidators(
   }
   return { valid: true, errors: [] };
 }
+
+/** Validate principal address field on a message */
+export function validateSender(sender: string): ValidationResult {
+  const errors: string[] = [];
+  if (!sender || sender.length === 0) errors.push('Sender cannot be empty');
+  if (!sender.startsWith('SP') && !sender.startsWith('ST')) {
+    errors.push('Sender must be a valid Stacks principal');
+  }
+  return { valid: errors.length === 0, errors };
+}
