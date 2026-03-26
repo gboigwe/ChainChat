@@ -33,3 +33,10 @@ export function extractField<T extends Record<string, unknown>, K extends keyof 
 ): T[K] {
   return tuple[field];
 }
+
+/** Serialize tuple to JSON-safe plain object */
+export function serializeTuple(tuple: Record<string, unknown>): Record<string, string> {
+  return Object.fromEntries(
+    Object.entries(tuple).map(([k, v]) => [k, String(v)]),
+  );
+}
