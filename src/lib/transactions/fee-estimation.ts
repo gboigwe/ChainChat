@@ -27,3 +27,11 @@ export function getLowPriorityFee(baseFee: bigint): bigint {
 }
 /** Fee tier options */
 export type FeeTier = 'low' | 'standard' | 'high';
+/** Get fee for a tier */
+export function getFeeForTier(baseFee: bigint, tier: FeeTier): bigint {
+  switch (tier) {
+    case 'low': return getLowPriorityFee(baseFee);
+    case 'standard': return baseFee;
+    case 'high': return getHighPriorityFee(baseFee);
+  }
+}
