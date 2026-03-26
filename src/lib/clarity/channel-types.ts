@@ -22,6 +22,5 @@ export interface ClarityChannel {
   description: ChannelDescription;
   owner: PrincipalAddress;
   createdAt: BlockHeight;
+  visibility: ChannelVisibility;
 }
-
-  /** Visibility level of the channel */
