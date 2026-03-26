@@ -34,3 +34,8 @@ export function useContractEvents(
       setError(e instanceof Error ? e.message : 'Failed to fetch events');
     } finally { setLoading(false); }
   }, [contractId, apiUrl]);
+  useEffect(() => {
+    void refetch();
+    const id = setInterval(() => void refetch(), pollInterval);
+    return () => clearInterval(id);
+  }, [refetch, pollInterval]);
