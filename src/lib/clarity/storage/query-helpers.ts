@@ -109,3 +109,18 @@ export function applyFilters<T>(
 ): T[] {
   return items.filter(item => filters.every(f => f(item)));
 }
+/** Apply sort, filter, and pagination in one pass */
+export function queryItems<T>(
+  items: T[],
+  options: {
+    filters?: Array<(item: T) => boolean>;
+    sortField?: keyof T;
+    sortOrder?: SortOrder;
+    page?: number;
+    pageSize?: number;
+  },
+): QueryResult<T> {
+  let result = options.filters ? applyFilters(items, options.filters) : [...items];
+  if (options.sortField) result = sortByStringField(result, options.sortField, options.sortOrder);
+  return buildQueryResult(result, options.page ?? 0, options.pageSize ?? 20);
+}
