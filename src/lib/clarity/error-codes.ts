@@ -47,3 +47,5 @@ export const ERR_ATTACHMENT_TOO_LARGE = 111n;
 
 /** Error: invalid reaction code */
 export const ERR_INVALID_REACTION = 112n;
+/** Error: rate limit exceeded */
+export const ERR_RATE_LIMIT = 429n;
