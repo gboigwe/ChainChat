@@ -96,3 +96,4 @@ export const SIGN_CONST_6 = 6;
 export const SIGN_CONST_7 = 7;
 export const SIGN_CONST_8 = 8;
 export const SIGN_CONST_9 = 9;
+export const SIGN_CONST_10 = 10;
