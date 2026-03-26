@@ -9,3 +9,7 @@ export const ftAllowanceMap = new Map<string, TokenBalance>();
 export function getBalance(principal: string): TokenBalance {
   return ftBalanceMap.get(principal) ?? 0n;
 }
+/** Set balance for principal */
+export function setBalance(principal: string, amount: TokenBalance): void {
+  ftBalanceMap.set(principal, amount);
+}
