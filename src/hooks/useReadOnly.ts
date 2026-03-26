@@ -45,3 +45,5 @@ export function useReadOnly<T = unknown>(options: UseReadOnlyOptions): UseReadOn
       setLoading(false);
     }
   }, [options]);
+  return { data, loading, error, call, refetch: call };
+}
