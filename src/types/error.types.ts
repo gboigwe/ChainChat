@@ -44,3 +44,4 @@ export function isContractError(error: unknown): error is ContractError {
 }
 export const ERROR_TYPE_CONST_1 = 1;
 export const ERROR_TYPE_CONST_2 = 2;
+export const ERROR_TYPE_CONST_3 = 3;
