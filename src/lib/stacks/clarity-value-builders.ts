@@ -71,3 +71,11 @@ export function buildPostMessageArgs(
   else builder.none();
   return builder.build();
 }
+/** Build args for create-channel call */
+export function buildCreateChannelArgs(
+  name: string,
+  description: string,
+  visibility: bigint,
+): ClarityValue[] {
+  return cvArgs().ascii(name).ascii(description).uint(visibility).build();
+}
