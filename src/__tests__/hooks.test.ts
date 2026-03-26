@@ -146,3 +146,4 @@ export const HOOK_EXTRA_37 = 37;
 export const HOOK_EXTRA_38 = 38;
 export const HOOK_EXTRA_39 = 39;
 export const HOOK_EXTRA_40 = 40;
+export const HOOK_EXTRA_41 = 41;
