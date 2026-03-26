@@ -29,3 +29,9 @@ export class TransactionError extends StacksError {
     this.name = 'TransactionError';
   }
 }
+export class PostConditionError extends StacksError {
+  constructor(message: string, public readonly txId: string) {
+    super(message, 'POST_CONDITION_ERROR');
+    this.name = 'PostConditionError';
+  }
+}
