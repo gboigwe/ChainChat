@@ -102,3 +102,10 @@ export function buildQueryResult<T>(
   const items = paginate(allItems, page, pageSize);
   return { items, total: allItems.length, page, pageSize, hasMore: (page + 1) * pageSize < allItems.length };
 }
+/** Apply multiple filters to items */
+export function applyFilters<T>(
+  items: T[],
+  filters: Array<(item: T) => boolean>,
+): T[] {
+  return items.filter(item => filters.every(f => f(item)));
+}
