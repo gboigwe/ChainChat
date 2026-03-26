@@ -46,3 +46,4 @@ export const STX_PC_1 = 1;
 export const STX_PC_2 = 2;
 export const STX_PC_3 = 3;
 export const STX_PC_4 = 4;
+export const STX_PC_5 = 5;
