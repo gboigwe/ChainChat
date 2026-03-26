@@ -10,3 +10,10 @@ export interface MapEntry<K extends MapKey, V extends MapValue> {
 }
 /** Result of a map-get? — matches Clarity optional */
 export type MapGetResult<V> = V | null;
+/** Wrap a map-get? result for type safety */
+export function mapGet<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+): MapGetResult<V> {
+  return map.get(keyStr) ?? null;
+}
