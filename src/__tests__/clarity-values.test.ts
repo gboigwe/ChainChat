@@ -126,3 +126,4 @@ export const CV_TEST_EXTRA_3 = 3;
 export const CV_TEST_EXTRA_4 = 4;
 export const CV_TEST_EXTRA_5 = 5;
 export const CV_EXTRA_1 = 1;
+export const CV_EXTRA_2 = 2;
