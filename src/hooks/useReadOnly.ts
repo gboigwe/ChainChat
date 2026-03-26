@@ -25,3 +25,23 @@ export function useReadOnly<T = unknown>(options: UseReadOnlyOptions): UseReadOn
   const [data, setData] = useState<T | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const call = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const apiUrl = options.apiUrl ?? 'https://api.hiro.so';
+      const url = `${apiUrl}/v2/contracts/call-read/${options.contractAddress}/${options.contractName}/${options.functionName}`;
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sender: options.sender ?? options.contractAddress, arguments: options.functionArgs ?? [] }),
+      });
+      const json = await res.json();
+      if (json.okay) setData(json.result as T);
+      else setError(json.cause ?? 'Call failed');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
+  }, [options]);
