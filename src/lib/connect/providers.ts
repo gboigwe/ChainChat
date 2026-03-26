@@ -58,3 +58,9 @@ export function isProviderInstalled(provider: WalletProvider): boolean {
     default: return false;
   }
 }
+/** Detect all installed wallet providers */
+export function detectInstalledWallets(): WalletProvider[] {
+  return Object.values(WalletProvider)
+    .filter(p => p !== WalletProvider.Unknown)
+    .filter(isProviderInstalled);
+}
