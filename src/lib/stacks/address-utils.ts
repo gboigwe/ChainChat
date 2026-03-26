@@ -29,3 +29,8 @@ export function getAddressVersion(address: string): AddressVersion {
   if (isTestnetAddress(address)) return AddressVersion.TestnetSingleSig;
   throw new Error(`Cannot determine version for address: ${address}`);
 }
+/** Truncate address for display */
+export function truncateAddress(address: string, chars = 8): string {
+  if (address.length <= chars * 2 + 3) return address;
+  return `${address.slice(0, chars)}...${address.slice(-chars)}`;
+}
