@@ -9,3 +9,9 @@ export interface AccountInfoResponse {
   balance_proof: string;
   nonce_proof: string;
 }
+/** Account balance response */
+export interface AccountBalanceResponse {
+  stx: { balance: string; locked: string; burnchain_unlock_height: number };
+  fungible_tokens: Record<string, { balance: string }>;
+  non_fungible_tokens: Record<string, { count: string }>;
+}
