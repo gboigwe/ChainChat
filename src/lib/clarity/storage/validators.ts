@@ -4,3 +4,7 @@ import { NFT_URI_MAX_LENGTH, NFT_MAX_SUPPLY, FT_MAX_SUPPLY } from './constants';
 export function isValidNFTUri(uri: string): boolean {
   return uri.length > 0 && uri.length <= NFT_URI_MAX_LENGTH;
 }
+/** Validate token ID is within supply bounds */
+export function isValidTokenId(tokenId: bigint): boolean {
+  return tokenId > 0n && tokenId <= NFT_MAX_SUPPLY;
+}
