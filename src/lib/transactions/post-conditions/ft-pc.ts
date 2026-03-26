@@ -51,3 +51,4 @@ export function makeContractFungiblePostCondition(
     assetInfo: { contractAddress: assetContractAddress, contractName: assetContractName, assetName },
   };
 }
+export const FT_PC_1 = 1;
