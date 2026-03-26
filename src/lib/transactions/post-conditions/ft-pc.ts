@@ -33,3 +33,21 @@ export function makeStandardFungiblePostCondition(
     assetInfo: { contractAddress, contractName, assetName },
   };
 }
+/** Make contract FT post-condition */
+export function makeContractFungiblePostCondition(
+  address: string,
+  contractName: string,
+  conditionCode: FungibleConditionCode,
+  amount: bigint,
+  assetContractAddress: string,
+  assetContractName: string,
+  assetName: string,
+): ContractFTPostCondition {
+  return {
+    type: 'ft',
+    principal: { type: 'contract', address, contractName },
+    conditionCode,
+    amount,
+    assetInfo: { contractAddress: assetContractAddress, contractName: assetContractName, assetName },
+  };
+}
