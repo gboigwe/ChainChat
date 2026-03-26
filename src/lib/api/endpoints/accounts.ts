@@ -53,3 +53,12 @@ export async function getAccountTransactions(
 ): Promise<{ results: unknown[]; total: number }> {
   return client.fetch(`/extended/v1/address/${address}/transactions`, undefined, { limit, offset });
 }
+/** Get account asset holdings */
+export async function getAccountAssets(
+  client: HiroApiClient,
+  address: string,
+  limit = 50,
+  offset = 0,
+): Promise<{ results: unknown[]; total: number }> {
+  return client.fetch(`/extended/v1/address/${address}/assets`, undefined, { limit, offset });
+}
