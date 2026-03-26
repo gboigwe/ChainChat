@@ -36,3 +36,7 @@ export function mapDelete<V extends MapValue>(
 export function serializeKey(key: MapKey): string {
   return JSON.stringify(key, (_, v) => typeof v === 'bigint' ? v.toString() : v);
 }
+/** Build a message-channel composite key */
+export function messageChannelKey(channelId: bigint, messageId: bigint): string {
+  return serializeKey({ channelId, messageId });
+}
