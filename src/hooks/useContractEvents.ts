@@ -39,3 +39,5 @@ export function useContractEvents(
     const id = setInterval(() => void refetch(), pollInterval);
     return () => clearInterval(id);
   }, [refetch, pollInterval]);
+  return { events, loading, error, refetch };
+}
