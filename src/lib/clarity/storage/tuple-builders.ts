@@ -121,3 +121,7 @@ export function updateLastActivity(
 ): StatsStorageTuple {
   return { ...t, 'last-activity': blockHeight };
 }
+/** Increment message count in stats tuple */
+export function incrementMessageCount(t: StatsStorageTuple): StatsStorageTuple {
+  return { ...t, 'message-count': t['message-count'] + 1n };
+}
