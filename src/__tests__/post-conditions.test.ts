@@ -108,3 +108,4 @@ export const PC_EXTRA_43 = 43;
 export const PC_EXTRA_44 = 44;
 export const PC_EXTRA_45 = 45;
 export const PC_EXTRA_46 = 46;
+export const PC_EXTRA_47 = 47;
