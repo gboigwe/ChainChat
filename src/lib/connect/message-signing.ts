@@ -11,3 +11,10 @@ export interface SignatureData {
   signature: string;
   publicKey: string;
 }
+/** Structured data signing options */
+export interface StructuredDataSignOptions {
+  domain: SIP018Domain;
+  message: Record<string, unknown>;
+  onFinish?: (data: SignatureData) => void;
+  onCancel?: () => void;
+}
