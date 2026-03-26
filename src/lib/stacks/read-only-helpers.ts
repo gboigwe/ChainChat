@@ -6,3 +6,12 @@ export interface ParsedReadOnlyResult<T> {
   value: T | null;
   rawHex: string;
 }
+/** Build read-only call URL */
+export function buildReadOnlyUrl(
+  apiBase: string,
+  contractAddress: string,
+  contractName: string,
+  functionName: string,
+): string {
+  return `${apiBase}/v2/contracts/call-read/${contractAddress}/${contractName}/${functionName}`;
+}
