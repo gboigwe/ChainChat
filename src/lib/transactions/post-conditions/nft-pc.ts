@@ -37,3 +37,21 @@ export interface ContractNFTPostCondition {
   assetInfo: { contractAddress: string; contractName: string; assetName: string };
   tokenId: unknown;
 }
+/** Make contract NFT post-condition */
+export function makeContractNonFungiblePostCondition(
+  address: string,
+  contractName: string,
+  conditionCode: NonFungibleConditionCode,
+  contractAddress: string,
+  assetContractName: string,
+  assetName: string,
+  tokenId: unknown,
+): ContractNFTPostCondition {
+  return {
+    type: 'nft',
+    principal: { type: 'contract', address, contractName },
+    conditionCode,
+    assetInfo: { contractAddress, contractName: assetContractName, assetName },
+    tokenId,
+  };
+}
