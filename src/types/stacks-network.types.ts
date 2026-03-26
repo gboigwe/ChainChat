@@ -10,3 +10,8 @@ export interface NetworkConfig {
 }
 export type ChainId = 1 | 2147483648;
 export type EpochIdentifier = 'epoch-1.0' | 'epoch-2.0' | 'epoch-2.05' | 'epoch-2.1' | 'epoch-2.2' | 'epoch-2.3' | 'epoch-2.4' | 'epoch-2.5' | 'epoch-3.0';
+export interface NetworkEndpoints {
+  api: string;
+  ws: string;
+  explorer: string;
+}
