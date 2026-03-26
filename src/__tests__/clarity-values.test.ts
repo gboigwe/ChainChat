@@ -154,3 +154,4 @@ export const CV_EXTRA_26 = 26;
 export const CV_EXTRA_27 = 27;
 export const CV_EXTRA_28 = 28;
 export const CV_EXTRA_29 = 29;
+export const CV_EXTRA_30 = 30;
