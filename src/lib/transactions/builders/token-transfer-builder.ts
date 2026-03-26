@@ -62,3 +62,4 @@ export const FT_BUILDER_CONST_4 = 4;
 export const FT_BUILDER_CONST_5 = 5;
 export const FT_BUILDER_CONST_6 = 6;
 export const FT_BUILDER_CONST_7 = 7;
+export const FT_BUILDER_CONST_8 = 8;
