@@ -83,3 +83,4 @@ export const NONCE_CONST_4 = 4;
 export const NONCE_CONST_5 = 5;
 export const NONCE_CONST_6 = 6;
 export const NONCE_CONST_7 = 7;
+export const NONCE_CONST_8 = 8;
