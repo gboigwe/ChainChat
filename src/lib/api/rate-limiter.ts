@@ -91,3 +91,4 @@ export const RATE_LIMITER_CONST_43 = 43;
 export const RATE_LIMITER_CONST_44 = 44;
 export const RATE_LIMITER_CONST_45 = 45;
 export const RATE_LIMITER_CONST_46 = 46;
+export const RATE_LIMITER_CONST_47 = 47;
