@@ -110,3 +110,5 @@ export function isListCV(cv: ClarityValue): cv is ListCV { return cv.type === 'l
 export function isTupleCV(cv: ClarityValue): cv is TupleCV { return cv.type === 'tuple'; }
 /** Type guard: is NoneCV */
 export function isNoneCV(cv: ClarityValue): cv is NoneCV { return cv.type === 'none'; }
+/** Type guard: is SomeCV */
+export function isSomeCV(cv: ClarityValue): cv is SomeCV { return cv.type === 'some'; }
