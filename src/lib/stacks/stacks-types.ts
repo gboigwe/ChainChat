@@ -19,3 +19,5 @@ export interface BroadcastResult {
   error?: string;
   reason?: string;
 }
+/** Transaction event types */
+export type TxEventType = 'smart_contract_log' | 'stx_transfer' | 'stx_lock' | 'nft_mint' | 'nft_transfer' | 'nft_burn' | 'ft_mint' | 'ft_transfer' | 'ft_burn';
