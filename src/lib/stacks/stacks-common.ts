@@ -69,3 +69,5 @@ export const MAX_FUNCTION_ARGS = 10;
 export const MAX_MEMO_BYTES = 34;
 /** STX decimal places */
 export const STX_DECIMALS = 6;
+/** Default nonce gap allowed */
+export const MAX_NONCE_GAP = 25;
