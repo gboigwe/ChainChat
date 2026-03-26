@@ -38,3 +38,4 @@ export const SESSION_HELPER_3 = 3;
 export const SESSION_HELPER_4 = 4;
 export const SESSION_HELPER_5 = 5;
 export const SESSION_HELPER_6 = 6;
+export const SESSION_HELPER_7 = 7;
