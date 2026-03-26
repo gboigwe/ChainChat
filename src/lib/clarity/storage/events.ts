@@ -59,3 +59,7 @@ export function getEventsByType<T extends StorageEventUnion>(
 ): T[] {
   return storageEventLog.filter(e => e.type === type) as T[];
 }
+/** Clear event log */
+export function clearEventLog(): void {
+  storageEventLog.length = 0;
+}
