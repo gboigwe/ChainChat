@@ -22,3 +22,11 @@ export interface ContractCallTransaction extends Transaction {
     function_args?: Array<{ hex: string; repr: string; name: string; type: string }>;
   };
 }
+export interface TokenTransferTransaction extends Transaction {
+  tx_type: 'token_transfer';
+  token_transfer: {
+    recipient_address: string;
+    amount: string;
+    memo: string;
+  };
+}
