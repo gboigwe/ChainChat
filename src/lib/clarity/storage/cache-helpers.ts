@@ -15,3 +15,6 @@ export class Cache<T> {
     if (Date.now() > entry.expiresAt) { this.store.delete(key); return null; }
     return entry.value;
   }
+  set(key: string, value: T): void {
+    this.store.set(key, { value, expiresAt: Date.now() + this.ttlMs });
+  }
