@@ -72,3 +72,11 @@ export interface AccountInfo {
   balance_proof: string;
   nonce_proof: string;
 }
+/** Typed contract call args builder */
+export interface ContractCallArgsBuilder {
+  addUInt(value: bigint): ContractCallArgsBuilder;
+  addBool(value: boolean): ContractCallArgsBuilder;
+  addString(value: string): ContractCallArgsBuilder;
+  addPrincipal(value: string): ContractCallArgsBuilder;
+  build(): unknown[];
+}
