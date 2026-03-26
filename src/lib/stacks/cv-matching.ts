@@ -73,3 +73,8 @@ export function extractList<T>(cv: ClarityValue, mapper: (item: ClarityValue) =>
   if (!isListCV(cv)) return null;
   return cv.list.map(mapper);
 }
+/** Extract buffer as hex string */
+export function extractBufferAsHex(cv: ClarityValue): string | null {
+  if (!isBufferCV(cv)) return null;
+  return Array.from(cv.value).map(b => b.toString(16).padStart(2, '0')).join('');
+}
