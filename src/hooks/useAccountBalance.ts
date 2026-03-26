@@ -40,3 +40,4 @@ export function useAccountBalance(
   const formatted = `${(balance / 1_000_000n).toString()}.${(balance % 1_000_000n).toString().padStart(6, '0')} STX`;
   return { balance, locked, available, total, formatted, loading, error, refetch: fetchBalance };
 }
+export const ACCOUNT_BALANCE_1 = 1;
