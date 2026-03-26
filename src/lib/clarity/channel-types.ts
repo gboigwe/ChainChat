@@ -191,3 +191,11 @@ export function isPrivateChannel(channel: ClarityChannel): boolean {
 export function isPublicChannel(channel: ClarityChannel): boolean {
   return channel.visibility === 'public';
 }
+
+/** Update channel visibility */
+export function withVisibility(
+  channel: ClarityChannel,
+  visibility: ChannelVisibility,
+): ClarityChannel {
+  return { ...channel, visibility };
+}
