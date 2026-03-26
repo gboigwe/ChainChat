@@ -1,3 +1,5 @@
 // Stacks.js ClarityValue type system
 /** Base clarity value type */
 export interface ClarityValue { type: string; }
+/** Clarity uint value */
+export interface UIntCV extends ClarityValue { type: 'uint'; value: bigint; }
