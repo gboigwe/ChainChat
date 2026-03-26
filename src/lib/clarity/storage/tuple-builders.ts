@@ -37,3 +37,9 @@ export function buildChannelTuple(
 ): ChannelStorageTuple {
   return { name, description, owner, 'created-at': createdAt, visibility, 'member-count': 0n };
 }
+/** Member storage tuple */
+export interface MemberStorageTuple {
+  role: bigint;
+  'joined-at': bigint;
+  'post-count': bigint;
+}
