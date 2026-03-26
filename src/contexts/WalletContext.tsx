@@ -71,3 +71,9 @@ export function WalletProvider({ children }: { children: React.ReactNode }): Rea
   const value: WalletContextValue = { ...state, connect, disconnect, setNetwork, refreshSession };
   return React.createElement(WalletContext.Provider, { value }, children);
 }
+/** Selector: get formatted address (truncated) */
+export function selectTruncatedAddress(state: WalletContextState): string {
+  const addr = state.address;
+  if (!addr) return '';
+  return `${addr.slice(0, 8)}...${addr.slice(-4)}`;
+}
