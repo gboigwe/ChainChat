@@ -29,3 +29,14 @@ export async function broadcastTransaction(
     headers: { 'Content-Type': 'application/octet-stream' },
   });
 }
+/** Get transaction list with filters */
+export async function getTransactionList(
+  client: HiroApiClient,
+  limit = 50,
+  offset = 0,
+  type?: string,
+): Promise<{ results: TransactionResponse[]; total: number }> {
+  const params: Record<string, string | number> = { limit, offset };
+  if (type) params['type'] = type;
+  return client.fetch('/extended/v1/tx', undefined, params);
+}
