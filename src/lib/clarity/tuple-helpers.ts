@@ -54,3 +54,15 @@ export function buildReactionKey(
 export function buildStatsKey(channelId: bigint): Record<string, bigint> {
   return { 'channel-id': channelId };
 }
+
+/** Assert all required keys exist in a tuple */
+export function assertTupleHasKeys(
+  tuple: Record<string, unknown>,
+  required: string[],
+): void {
+  for (const key of required) {
+    if (!(key in tuple)) {
+      throw new Error(`Missing required tuple key: ${key}`);
+    }
+  }
+}
