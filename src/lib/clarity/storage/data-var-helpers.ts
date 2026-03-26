@@ -48,3 +48,7 @@ export const channelCounter = createDataVar<bigint>(0n);
 export const contractOwner = createDataVar<string>('');
 /** Is contract paused data-var */
 export const contractPaused = createDataVar<boolean>(false);
+/** Check if contract operations should be blocked */
+export function isContractPaused(): boolean {
+  return contractPaused.get();
+}
