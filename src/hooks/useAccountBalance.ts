@@ -41,3 +41,4 @@ export function useAccountBalance(
   return { balance, locked, available, total, formatted, loading, error, refetch: fetchBalance };
 }
 export const ACCOUNT_BALANCE_1 = 1;
+export const ACCOUNT_BALANCE_2 = 2;
