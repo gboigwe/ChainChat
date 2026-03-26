@@ -89,3 +89,4 @@ export const ACCOUNT_CONST_16 = 16;
 export const ACCOUNT_CONST_17 = 17;
 export const ACCOUNT_CONST_18 = 18;
 export const ACCOUNT_CONST_19 = 19;
+export const ACCOUNT_CONST_20 = 20;
