@@ -103,3 +103,7 @@ export function getBadgesByOwner(owner: string): BadgeNFT[] {
     .map(id => getBadge(id))
     .filter((b): b is BadgeNFT => b !== null);
 }
+/** Check if principal has a specific badge type */
+export function hasBadge(owner: string, badgeType: BadgeType): boolean {
+  return getBadgesByOwner(owner).some(b => b.badgeType === badgeType);
+}
