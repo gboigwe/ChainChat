@@ -73,3 +73,7 @@ export function bufferToUint64(buf: Uint8Array): bigint {
 export function stringToBytes(str: string): Uint8Array {
   return new TextEncoder().encode(str);
 }
+/** Convert Uint8Array bytes to UTF-8 string */
+export function bytesToString(bytes: Uint8Array): string {
+  return new TextDecoder().decode(bytes);
+}
