@@ -132,3 +132,6 @@ export function getNetworkPrefix(address: string): 'SP' | 'ST' | null {
   if (address.startsWith('ST')) return 'ST';
   return null;
 }
+
+/** List of blocked/blacklisted principals */
+export const BLOCKED_PRINCIPALS: ReadonlySet<string> = new Set<string>();
