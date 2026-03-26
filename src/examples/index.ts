@@ -8,3 +8,4 @@ export const EXAMPLES_EXTRA_3 = 3;
 export const EXAMPLES_EXTRA_4 = 4;
 export const EXAMPLES_EXTRA_5 = 5;
 export const EXAMPLES_EXTRA_6 = 6;
+export const EXAMPLES_EXTRA_7 = 7;
