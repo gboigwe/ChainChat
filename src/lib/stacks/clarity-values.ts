@@ -84,3 +84,7 @@ export function noneCV(): NoneCV { return { type: 'none' }; }
 export function someCV(value: ClarityValue): SomeCV {
   return { type: 'some', value };
 }
+/** Factory: ok */
+export function okCV(value: ClarityValue): OkCV {
+  return { type: 'ok', value };
+}
