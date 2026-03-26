@@ -26,3 +26,10 @@ export interface MemberJoinedEvent extends StorageEvent {
   principal: string;
   role: string;
 }
+/** Member kicked event */
+export interface MemberKickedEvent extends StorageEvent {
+  type: 'member-kicked';
+  channelId: bigint;
+  principal: string;
+  kickedBy: string;
+}
