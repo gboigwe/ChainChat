@@ -68,3 +68,7 @@ export function extractAddress(principal: string): string {
 export function buildContractId(address: string, contractName: string): string {
   return `${address}.${contractName}`;
 }
+/** Check if contract name is valid Clarity identifier */
+export function isValidContractName(name: string): boolean {
+  return /^[a-z][a-z0-9\-]{0,39}$/.test(name);
+}
