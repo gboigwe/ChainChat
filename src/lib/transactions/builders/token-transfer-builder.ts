@@ -23,3 +23,7 @@ export class FTTransferBuilder {
     this.options.contractName = name;
     return this;
   }
+  setTokenName(name: string): this {
+    this.options.tokenName = name;
+    return this;
+  }
