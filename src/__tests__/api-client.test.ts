@@ -104,3 +104,4 @@ describe('HiroApiError class', () => {
     expect(err).toBeInstanceOf(Error);
   });
 });
+export const API_PADDING_1 = 1;
