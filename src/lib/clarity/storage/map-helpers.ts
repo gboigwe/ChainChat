@@ -120,3 +120,7 @@ export function mapToArray<V extends MapValue>(
 export function reactionKey(messageId: bigint, reactor: string): string {
   return serializeKey({ messageId, reactor });
 }
+/** Build invite map key */
+export function inviteKey(channelId: bigint, invitee: string): string {
+  return serializeKey({ channelId, invitee });
+}
