@@ -47,3 +47,8 @@ export function buildContractPrincipal(deployer: string, name: string): string {
 export function isMainnetPrincipal(address: string): boolean {
   return address.startsWith('SP');
 }
+
+/** Detect if address is on testnet */
+export function isTestnetPrincipal(address: string): boolean {
+  return address.startsWith('ST');
+}
