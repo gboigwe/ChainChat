@@ -71,3 +71,10 @@ export function clearSession(): void {
 export function isSignedIn(): boolean {
   return getUserSession() !== null;
 }
+/** Get Stacks address for a given network */
+export function getStacksAddress(
+  userData: UserSessionData,
+  network: 'mainnet' | 'testnet',
+): string | null {
+  return userData.profile?.stxAddress[network] ?? null;
+}
