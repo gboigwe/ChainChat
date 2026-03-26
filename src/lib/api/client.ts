@@ -49,3 +49,23 @@ export class HiroApiClient {
     if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, String(v)));
     return url.toString();
   }
+  async fetch<T>(path: string, options?: RequestInit, params?: Record<string, string | number>): Promise<T> {
+    const url = this.buildUrl(path, params);
+    let lastError: Error | null = null;
+    for (let attempt = 0; attempt <= this.maxRetries; attempt++) {
+      if (attempt > 0) await new Promise(r => setTimeout(r, retryDelay(attempt - 1)));
+      try {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), this.timeout);
+        const res = await fetch(url, { ...options, headers: this.buildHeaders(), signal: controller.signal });
+        clearTimeout(timer);
+        if (!res.ok) throw new HiroApiError(`HTTP ${res.status}`, res.status, path);
+        return await res.json() as T;
+      } catch (e) {
+        lastError = e instanceof Error ? e : new Error(String(e));
+        if (e instanceof HiroApiError && e.statusCode < 500) throw e;
+      }
+    }
+    throw lastError ?? new Error('Request failed');
+  }
+}
