@@ -43,3 +43,4 @@ export function useAccountBalance(
 export const ACCOUNT_BALANCE_1 = 1;
 export const ACCOUNT_BALANCE_2 = 2;
 export const ACCOUNT_BALANCE_3 = 3;
+export const ACCOUNT_BALANCE_4 = 4;
