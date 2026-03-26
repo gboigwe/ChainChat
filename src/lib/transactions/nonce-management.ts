@@ -26,3 +26,10 @@ export class NonceTracker {
     this.setNonce(address, current + 1);
     return current + 1;
   }
+  reserveNonce(address: string): number {
+    const nonce = this.getNonce(address);
+    const state = this.state.get(address);
+    if (state) state.pending.push(nonce);
+    this.incrementNonce(address);
+    return nonce;
+  }
