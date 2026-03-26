@@ -93,3 +93,4 @@ export function getProviderCapabilities(provider: WalletProvider): ProviderCapab
   return base;
 }
 export const PROVIDER_FLAG_1 = false;
+export const PROVIDER_FLAG_2 = false;
