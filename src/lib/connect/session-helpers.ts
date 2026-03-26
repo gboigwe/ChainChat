@@ -35,3 +35,4 @@ export function getDisplayName(data: UserSessionData): string {
 export const SESSION_HELPER_1 = 1;
 export const SESSION_HELPER_2 = 2;
 export const SESSION_HELPER_3 = 3;
+export const SESSION_HELPER_4 = 4;
