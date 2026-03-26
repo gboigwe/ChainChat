@@ -25,3 +25,12 @@ export function sanitizeContent(content: string): string {
 export function containsDisallowedChars(name: string): boolean {
   return /[^a-zA-Z0-9\-_ ]/.test(name);
 }
+
+/** Validate channel name meets contract rules */
+export function validateChannelName(name: string): ValidationResult {
+  const errors: string[] = [];
+  if (name.length === 0) errors.push('Name cannot be empty');
+  if (name.length > 64) errors.push('Name too long (max 64)');
+  if (containsDisallowedChars(name)) errors.push('Name contains disallowed characters');
+  return { valid: errors.length === 0, errors };
+}
