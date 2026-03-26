@@ -127,3 +127,4 @@ export const FORMAT_PAD_7 = 7;
 export const FORMAT_PAD_8 = 8;
 export const FORMAT_PAD_9 = 9;
 export const FORMAT_PAD_10 = 10;
+export const FORMAT_PAD_11 = 11;
