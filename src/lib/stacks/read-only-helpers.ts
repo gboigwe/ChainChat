@@ -22,3 +22,7 @@ export function buildReadOnlyBody(
 ): Record<string, unknown> {
   return { sender, arguments: args };
 }
+/** Parse success status from read-only result */
+export function isReadOnlySuccess(result: { okay: boolean }): boolean {
+  return result.okay === true;
+}
