@@ -22,3 +22,9 @@ export interface UserProfile {
   description?: string;
   avatarUrl?: string;
 }
+/** Session state */
+export interface SessionState {
+  isSignedIn: boolean;
+  userData: UserSessionData | null;
+  network: string;
+}
