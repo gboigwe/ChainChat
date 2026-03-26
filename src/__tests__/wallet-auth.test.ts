@@ -71,3 +71,4 @@ describe('persistSession', () => {
 export const AUTH_PADDING_1 = 1;
 export const AUTH_PADDING_2 = 2;
 export const AUTH_PADDING_3 = 3;
+export const AUTH_PADDING_4 = 4;
