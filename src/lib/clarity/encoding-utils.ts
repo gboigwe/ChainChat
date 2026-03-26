@@ -28,3 +28,7 @@ export function hexToBuffer(hex: string): Uint8Array {
   }
   return bytes;
 }
+/** Pad hex string to 64 chars (32 bytes) */
+export function padHex(hex: string): string {
+  return hex.replace(/^0x/, '').padStart(64, '0');
+}
