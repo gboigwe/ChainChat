@@ -19,3 +19,18 @@ export interface CVMatcher<R> {
   err?: (v: ClarityValue) => R;
   _?: (cv: ClarityValue) => R;
 }
+/** Match a ClarityValue against handler functions */
+export function matchCV<R>(cv: ClarityValue, matcher: CVMatcher<R>): R {
+  if (isUIntCV(cv) && matcher.uint) return matcher.uint(cv.value);
+  if (isIntCV(cv) && matcher.int) return matcher.int(cv.value);
+  if (isBoolCV(cv) && matcher.bool) return matcher.bool(cv.value);
+  if (isStringAsciiCV(cv) && matcher.stringAscii) return matcher.stringAscii(cv.value);
+  if (isNoneCV(cv) && matcher.none) return matcher.none();
+  if (isSomeCV(cv) && matcher.some) return matcher.some(cv.value);
+  if (isOkCV(cv) && matcher.ok) return matcher.ok(cv.value);
+  if (isErrCV(cv) && matcher.err) return matcher.err(cv.value);
+  if (isTupleCV(cv) && matcher.tuple) return matcher.tuple(cv.data);
+  if (isListCV(cv) && matcher.list) return matcher.list(cv.list);
+  if (matcher._) return matcher._(cv);
+  throw new Error(`No handler for CV type: ${cv.type}`);
+}
