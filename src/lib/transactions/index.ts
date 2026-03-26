@@ -19,3 +19,4 @@ export const TX_INDEX_9 = 9;
 export const TX_INDEX_10 = 10;
 export const TX_INDEX_11 = 11;
 export const TX_INDEX_12 = 12;
+export const TX_INDEX_13 = 13;
