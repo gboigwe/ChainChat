@@ -201,3 +201,16 @@ export function countOk<T, E>(responses: ClarityResponse<T, E>[]): number {
 export function countErr<T, E>(responses: ClarityResponse<T, E>[]): number {
   return responses.filter(isErr).length;
 }
+
+/** Partition responses into ok and err arrays */
+export function partitionResponses<T, E>(
+  responses: ClarityResponse<T, E>[],
+): { oks: T[]; errors: E[] } {
+  const oks: T[] = [];
+  const errors: E[] = [];
+  for (const res of responses) {
+    if (isOk(res)) oks.push(res.value);
+    else errors.push(res.error);
+  }
+  return { oks, errors };
+}
