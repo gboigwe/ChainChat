@@ -76,3 +76,21 @@ export class ContractCallBuilder {
     if (this.options.nonce === undefined) errors.push('nonce required');
     return errors;
   }
+  build(): ContractCallTxOptions {
+    const errors = this.validate();
+    if (errors.length > 0) throw new Error(`Build failed: ${errors.join(', ')}`);
+    return {
+      contractAddress: this.options.contractAddress!,
+      contractName: this.options.contractName!,
+      functionName: this.options.functionName!,
+      functionArgs: this.options.functionArgs ?? [],
+      fee: this.options.fee!,
+      nonce: this.options.nonce!,
+      anchorMode: this.options.anchorMode ?? 'any',
+      postConditionMode: this.options.postConditionMode ?? 'deny',
+      postConditions: this.options.postConditions ?? [],
+      network: this.options.network!,
+      senderKey: this.options.senderKey,
+    };
+  }
+}
