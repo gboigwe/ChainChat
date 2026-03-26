@@ -7,3 +7,4 @@ export const UTILS_VERSION = '1.0.0';
 export const UTILS_PACKAGE = 'chainchat-utils';
 export const UTILS_EXTRA_1 = 1;
 export const UTILS_EXTRA_2 = 2;
+export const UTILS_EXTRA_3 = 3;
