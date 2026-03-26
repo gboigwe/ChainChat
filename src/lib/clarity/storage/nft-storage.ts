@@ -164,3 +164,5 @@ export const BADGE_RARITY_2 = 2n;
 export const BADGE_RARITY_3 = 3n;
 /** Badge rarity level 4 */
 export const BADGE_RARITY_4 = 4n;
+/** Badge rarity level 5 */
+export const BADGE_RARITY_5 = 5n;
