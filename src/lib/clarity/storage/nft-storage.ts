@@ -136,3 +136,7 @@ export function countBadgesByType(badgeType: BadgeType): number {
 export function getAllNFTMetadata(): NFTMetadata[] {
   return Array.from(nftMetadataMap.values());
 }
+/** Get NFTs minted after block height */
+export function getNFTsMintedAfter(blockHeight: bigint): NFTMetadata[] {
+  return getAllNFTMetadata().filter(m => m.mintedAt >= blockHeight);
+}
