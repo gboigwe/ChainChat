@@ -49,3 +49,4 @@ export function useWalletSession(): UseWalletSessionReturn {
     setAddress(null);
     setProfile(null);
   }, []);
+  useEffect(() => { refresh(); }, [refresh]);
