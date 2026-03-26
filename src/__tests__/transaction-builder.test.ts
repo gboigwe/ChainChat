@@ -90,3 +90,4 @@ describe('PostConditionMode', () => {
 });
 export const TX_PADDING_1 = 1;
 export const TX_PADDING_2 = 2;
+export const TX_PADDING_3 = 3;
