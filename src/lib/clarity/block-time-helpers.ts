@@ -65,3 +65,8 @@ export function blocksUntilExpiry(expiryBlock: bigint, currentBlock: bigint): bi
   if (isExpired(expiryBlock, currentBlock)) return 0n;
   return expiryBlock - currentBlock;
 }
+
+/** Convert block duration to approximate seconds */
+export function blockDurationToSeconds(blocks: bigint): number {
+  return Number(blocks) * AVERAGE_BLOCK_TIME_SECONDS;
+}
