@@ -16,3 +16,16 @@ export interface NFTMetadata {
 export const nftOwnerMap = new Map<bigint, string>();
 /** NFT metadata map */
 export const nftMetadataMap = new Map<bigint, NFTMetadata>();
+/** Mint a new NFT badge */
+export function mintNFT(
+  tokenId: NFTTokenId,
+  owner: string,
+  uri: string,
+  blockHeight: bigint,
+): NFTMetadata {
+  if (nftOwnerMap.has(tokenId)) throw new Error(`Token ${tokenId} already minted`);
+  const meta: NFTMetadata = { tokenId, owner, uri, mintedAt: blockHeight };
+  nftOwnerMap.set(tokenId, owner);
+  nftMetadataMap.set(tokenId, meta);
+  return meta;
+}
