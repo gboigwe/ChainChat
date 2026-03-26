@@ -52,3 +52,7 @@ export const contractPaused = createDataVar<boolean>(false);
 export function isContractPaused(): boolean {
   return contractPaused.get();
 }
+/** Pause the contract */
+export function pauseContract(): void {
+  contractPaused.set(true);
+}
