@@ -96,3 +96,8 @@ export const MAX_CHANNEL_MEMBERS = 1000n;
 export function isChannelFull(memberCount: bigint): boolean {
   return memberCount >= MAX_CHANNEL_MEMBERS;
 }
+
+/** Compute invite expiry block from current + 1 week */
+export function computeInviteExpiry(currentBlock: bigint): bigint {
+  return currentBlock + 1008n;
+}
