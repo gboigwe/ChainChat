@@ -95,3 +95,8 @@ export function incrementPostCount(t: MemberStorageTuple): MemberStorageTuple {
 export function incrementMemberCount(t: ChannelStorageTuple): ChannelStorageTuple {
   return { ...t, 'member-count': t['member-count'] + 1n };
 }
+/** Decrement channel member count (minimum 0) */
+export function decrementMemberCount(t: ChannelStorageTuple): ChannelStorageTuple {
+  const count = t['member-count'] > 0n ? t['member-count'] - 1n : 0n;
+  return { ...t, 'member-count': count };
+}
