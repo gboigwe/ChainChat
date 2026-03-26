@@ -21,3 +21,8 @@ export class NonceTracker {
       pending: existing?.pending ?? [],
     });
   }
+  incrementNonce(address: string): number {
+    const current = this.getNonce(address);
+    this.setNonce(address, current + 1);
+    return current + 1;
+  }
