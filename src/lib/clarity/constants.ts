@@ -21,3 +21,4 @@ export const MAX_CONTRACT_NAME_LENGTH = 40;
 export const MIN_FEE_RATE = 1n;
 export const HIGH_PRIORITY_FEE_MULTIPLIER = 2;
 export const NONCE_FETCH_TIMEOUT_MS = 10_000;
+export const TX_BROADCAST_MAX_RETRIES = 5;
