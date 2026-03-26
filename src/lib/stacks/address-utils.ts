@@ -81,3 +81,8 @@ export function getVersionByte(network: 'mainnet' | 'testnet', multiSig = false)
 export function samePrincipalDeployer(a: string, b: string): boolean {
   return extractAddress(a) === extractAddress(b);
 }
+/** Known well-known contract addresses */
+export const WELL_KNOWN_CONTRACTS = {
+  pox: 'SP000000000000000000002Q6VF78.pox-4',
+  bns: 'SP000000000000000000002Q6VF78.bns',
+} as const;
