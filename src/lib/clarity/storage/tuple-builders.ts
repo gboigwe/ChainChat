@@ -153,3 +153,7 @@ export interface FTBalanceTuple {
   locked: bigint;
   'last-transfer': bigint;
 }
+/** Build FT balance storage tuple */
+export function buildFTBalanceTuple(amount: bigint, lastTransfer: bigint): FTBalanceTuple {
+  return { amount, locked: 0n, 'last-transfer': lastTransfer };
+}
