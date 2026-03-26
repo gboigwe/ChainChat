@@ -28,3 +28,10 @@ export const MICRO_STX_PER_STX = 1_000_000n;
 export function stxToMicroStx(stx: bigint): bigint { return stx * MICRO_STX_PER_STX; }
 /** Convert microSTX to STX */
 export function microStxToStx(microStx: bigint): bigint { return microStx / MICRO_STX_PER_STX; }
+/** Format microSTX as decimal STX string */
+export function formatMicroStx(microStx: bigint, decimals = 6): string {
+  const divisor = 10n ** BigInt(decimals);
+  const whole = microStx / divisor;
+  const frac = microStx % divisor;
+  return `${whole}.${frac.toString().padStart(decimals, '0')}`;
+}
