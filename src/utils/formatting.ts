@@ -70,3 +70,4 @@ export function formatFeeRate(fee: bigint, txSize: number): string {
   const rate = Number(fee) / txSize;
   return rate.toFixed(2) + ' μSTX/byte';
 }
+export const FORMAT_CONST_4 = 4;
