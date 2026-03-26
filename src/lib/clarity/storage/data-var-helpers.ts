@@ -74,3 +74,14 @@ export function toggleVar(dataVar: DataVar<boolean>): boolean {
   dataVar.set(next);
   return next;
 }
+/** Clamp numeric data-var between min and max */
+export function clampVar(
+  dataVar: DataVar<bigint>,
+  min: bigint,
+  max: bigint,
+): bigint {
+  const v = dataVar.get();
+  const clamped = v < min ? min : v > max ? max : v;
+  dataVar.set(clamped);
+  return clamped;
+}
