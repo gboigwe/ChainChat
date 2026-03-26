@@ -71,3 +71,8 @@ export const MAX_MEMO_BYTES = 34;
 export const STX_DECIMALS = 6;
 /** Default nonce gap allowed */
 export const MAX_NONCE_GAP = 25;
+/** Compute percentage of fee relative to amount */
+export function feePercentage(fee: bigint, amount: bigint): number {
+  if (amount === 0n) return 0;
+  return Number((fee * 10000n) / amount) / 100;
+}
