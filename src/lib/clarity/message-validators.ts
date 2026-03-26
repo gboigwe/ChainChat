@@ -104,3 +104,9 @@ export function validateReplyTo(replyTo: unknown): ValidationResult {
   if (replyTo === null) return { valid: true, errors: [] };
   return validateMessageId(replyTo);
 }
+/** Validate attachment mime type against allowed list */
+export function validateMimeType(mimeType: string): ValidationResult {
+  const allowed = ['image/png', 'image/jpeg', 'image/gif', 'image/webp', 'text/plain'];
+  const errors = allowed.includes(mimeType) ? [] : [`Unsupported mime type: ${mimeType}`];
+  return { valid: errors.length === 0, errors };
+}
