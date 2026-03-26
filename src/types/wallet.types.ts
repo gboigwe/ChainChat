@@ -39,3 +39,4 @@ export interface StructuredData {
 export const WALLET_TYPE_CONST_1 = 1;
 export const WALLET_TYPE_CONST_2 = 2;
 export const WALLET_TYPE_CONST_3 = 3;
+export const WALLET_TYPE_CONST_4 = 4;
