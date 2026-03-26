@@ -127,3 +127,5 @@ export function withdrawFromTreasury(amount: bigint): void {
   if (treasuryBalance.get() < amount) throw new Error('Insufficient treasury funds');
   decrementVar(treasuryBalance, amount);
 }
+/** Channel creation fee (microSTX) */
+export const channelCreationFee = createDataVar<bigint>(5_000_000n);
