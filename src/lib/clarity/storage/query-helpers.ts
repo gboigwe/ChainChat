@@ -53,3 +53,12 @@ export function groupByField<T>(
   }
   return groups;
 }
+/** Count items by field value */
+export function countByField<T>(items: T[], field: keyof T): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const item of items) {
+    const key = String(item[field]);
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  return counts;
+}
