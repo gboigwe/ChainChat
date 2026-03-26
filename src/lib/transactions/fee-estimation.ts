@@ -40,3 +40,7 @@ export function estimateContractCallFee(numArgs: number): bigint {
   const size = 300 + numArgs * 40;
   return estimateFee(size);
 }
+/** Estimate STX transfer fee */
+export function estimateSTXTransferFee(memoLength = 0): bigint {
+  return estimateFee(200 + memoLength);
+}
