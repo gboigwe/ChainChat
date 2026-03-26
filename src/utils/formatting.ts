@@ -124,3 +124,4 @@ export const FORMAT_PAD_4 = 4;
 export const FORMAT_PAD_5 = 5;
 export const FORMAT_PAD_6 = 6;
 export const FORMAT_PAD_7 = 7;
+export const FORMAT_PAD_8 = 8;
