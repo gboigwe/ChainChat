@@ -58,3 +58,4 @@ export function validateTransferOptions(options: Partial<STXTransferOptions>): s
   if (options.memo) errors.push(...validateMemo(options.memo));
   return errors;
 }
+export const TRANSFER_CONST_1 = 1;
