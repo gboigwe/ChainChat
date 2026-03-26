@@ -51,3 +51,8 @@ export function uint32ToBuffer(value: number): Uint8Array {
   new DataView(buf.buffer).setUint32(0, value, false);
   return buf;
 }
+
+/** Convert big-endian 4-byte buffer to number */
+export function bufferToUint32(buf: Uint8Array): number {
+  return new DataView(buf.buffer).getUint32(0, false);
+}
