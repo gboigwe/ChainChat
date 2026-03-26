@@ -84,3 +84,5 @@ export function estimateTxSize(numArgs: number): number {
 export function calculateFee(feeRate: number, txSize: number): bigint {
   return BigInt(Math.ceil(feeRate * txSize));
 }
+/** Maximum read-only call response bytes */
+export const MAX_READ_ONLY_RESPONSE_BYTES = 20_000;
