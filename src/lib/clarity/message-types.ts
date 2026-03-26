@@ -228,3 +228,16 @@ export function isReply(msg: ClarityMessage): boolean {
 export function getTopReacted(messages: ClarityMessage[], n: number): ClarityMessage[] {
   return [...messages].sort((a, b) => Number(b.reactions - a.reactions)).slice(0, n);
 }
+
+/** Serialize a ClarityMessage to a plain object for storage */
+export function serializeMessage(msg: ClarityMessage): Record<string, unknown> {
+  return {
+    id: msg.id.toString(),
+    sender: msg.sender,
+    content: msg.content,
+    channelId: msg.channelId.toString(),
+    createdAt: msg.createdAt.toString(),
+    replyTo: msg.replyTo?.toString() ?? null,
+    reactions: msg.reactions.toString(),
+  };
+}
