@@ -83,3 +83,9 @@ export function blockDurationToHuman(blocks: bigint): string {
   if (secs < 86400) return `${Math.round(secs / 3600)} hours`;
   return `${Math.round(secs / 86400)} days`;
 }
+
+/** Time elapsed since message creation block */
+export function blocksSinceCreation(createdAt: bigint, currentBlock: bigint): bigint {
+  if (currentBlock < createdAt) return 0n;
+  return currentBlock - createdAt;
+}
