@@ -157,3 +157,14 @@ export function findMessageById(
 ): ClarityMessage | undefined {
   return messages.find(m => m.id === id);
 }
+
+/** Count messages per sender */
+export function countBySender(
+  messages: ClarityMessage[],
+): Map<PrincipalAddress, number> {
+  const counts = new Map<PrincipalAddress, number>();
+  for (const m of messages) {
+    counts.set(m.sender, (counts.get(m.sender) ?? 0) + 1);
+  }
+  return counts;
+}
