@@ -37,3 +37,10 @@ export async function getAccountSTXBalance(
   const info = await getAccountInfo(client, address);
   return info.balance;
 }
+/** Get account nonces */
+export async function getAccountNonces(
+  client: HiroApiClient,
+  address: string,
+): Promise<{ possible_next_nonce: number; detected_missing_nonces: number[] }> {
+  return client.fetch(`/extended/v1/address/${address}/nonces`);
+}
