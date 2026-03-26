@@ -60,3 +60,14 @@ export class CVBuilder {
 export function cvArgs(): CVBuilder {
   return new CVBuilder();
 }
+/** Quickly build args for a message post call */
+export function buildPostMessageArgs(
+  channelId: bigint,
+  content: string,
+  replyTo: bigint | null,
+): ClarityValue[] {
+  const builder = cvArgs().uint(channelId).ascii(content);
+  if (replyTo !== null) builder.some(uintCV(replyTo));
+  else builder.none();
+  return builder.build();
+}
