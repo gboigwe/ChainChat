@@ -36,3 +36,4 @@ export async function simulateSendMessage(opts: SendMessageOptions): Promise<Sen
 }
 export const SEND_MSG_CONST_1 = 1;
 export const SEND_MSG_CONST_2 = 2;
+export const SEND_MSG_CONST_3 = 3;
