@@ -140,3 +140,8 @@ export const BLOCKED_PRINCIPALS: ReadonlySet<string> = new Set<string>();
 export function isBlockedPrincipal(address: string): boolean {
   return BLOCKED_PRINCIPALS.has(address);
 }
+
+/** Get the length of a principal string */
+export function principalLength(address: string): number {
+  return address.length;
+}
