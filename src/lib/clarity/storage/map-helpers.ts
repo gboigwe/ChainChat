@@ -40,3 +40,7 @@ export function serializeKey(key: MapKey): string {
 export function messageChannelKey(channelId: bigint, messageId: bigint): string {
   return serializeKey({ channelId, messageId });
 }
+/** Build a member-channel composite key */
+export function memberChannelKey(channelId: bigint, principal: string): string {
+  return serializeKey({ channelId, principal });
+}
