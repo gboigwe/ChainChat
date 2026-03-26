@@ -57,3 +57,9 @@ export function extractBool(cv: ClarityValue): boolean | null {
 export function extractStringAscii(cv: ClarityValue): string | null {
   return isStringAsciiCV(cv) ? cv.value : null;
 }
+/** Extract optional inner value or null */
+export function extractOptional(cv: ClarityValue): ClarityValue | null {
+  if (isSomeCV(cv)) return cv.value;
+  if (isNoneCV(cv)) return null;
+  return null;
+}
