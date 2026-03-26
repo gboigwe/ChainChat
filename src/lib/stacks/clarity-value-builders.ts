@@ -44,3 +44,7 @@ export class CVBuilder {
     this.args.push(contractPrincipalCV(address, name));
     return this;
   }
+  none(): this {
+    this.args.push(noneCV());
+    return this;
+  }
