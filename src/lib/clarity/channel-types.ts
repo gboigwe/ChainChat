@@ -42,3 +42,11 @@ export interface ChannelMember {
   role: MemberRole;
   joinedAt: BlockHeight;
 }
+
+/** Channel permission flags stored per member */
+export interface ChannelPermissions {
+  canPost: boolean;
+  canInvite: boolean;
+  canDelete: boolean;
+  canKick: boolean;
+}
