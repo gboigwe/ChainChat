@@ -21,3 +21,10 @@ export interface BroadcastResult {
 }
 /** Transaction event types */
 export type TxEventType = 'smart_contract_log' | 'stx_transfer' | 'stx_lock' | 'nft_mint' | 'nft_transfer' | 'nft_burn' | 'ft_mint' | 'ft_transfer' | 'ft_burn';
+/** STX transfer event */
+export interface STXTransferEvent {
+  type: 'stx_transfer';
+  amount: string;
+  sender: string;
+  recipient: string;
+}
