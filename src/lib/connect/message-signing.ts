@@ -24,3 +24,11 @@ export interface SIP018Domain {
   version: string;
   chainId: number;
 }
+/** Build SIP-018 domain for ChainChat */
+export function buildSIP018Domain(network: 'mainnet' | 'testnet'): SIP018Domain {
+  return {
+    name: 'ChainChat',
+    version: '1.0.0',
+    chainId: network === 'mainnet' ? 1 : 2147483648,
+  };
+}
