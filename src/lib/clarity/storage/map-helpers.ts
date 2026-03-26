@@ -110,3 +110,9 @@ export function mapSize<V extends MapValue>(map: Map<string, V>): number {
 export function mapClear<V extends MapValue>(map: Map<string, V>): void {
   map.clear();
 }
+/** Convert map to array of entries */
+export function mapToArray<V extends MapValue>(
+  map: Map<string, V>,
+): Array<{ key: string; value: V }> {
+  return Array.from(map.entries()).map(([key, value]) => ({ key, value }));
+}
