@@ -12,3 +12,7 @@ export class CVBuilder {
     this.args.push(intCV(BigInt(value)));
     return this;
   }
+  bool(value: boolean): this {
+    this.args.push(boolCV(value));
+    return this;
+  }
