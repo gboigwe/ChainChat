@@ -92,3 +92,11 @@ export const ERROR_MESSAGES: Record<bigint | number, string> = {
 export function getErrorMessage(code: bigint): string {
   return ERROR_MESSAGES[Number(code)] ?? `Unknown error: ${code}`;
 }
+
+/** Lift a nullable value into ClarityResponse */
+export function fromNullable<T>(
+  value: T | null | undefined,
+  errorCode: bigint = ERR_NOT_FOUND,
+): ClarityResponse<T, bigint> {
+  return value != null ? ok(value) : err(errorCode);
+}
