@@ -5,3 +5,10 @@ export interface StorageEvent {
   blockHeight: bigint;
   txId?: string;
 }
+/** Message created event */
+export interface MessageCreatedEvent extends StorageEvent {
+  type: 'message-created';
+  messageId: bigint;
+  channelId: bigint;
+  sender: string;
+}
