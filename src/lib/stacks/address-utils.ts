@@ -77,3 +77,7 @@ export function getVersionByte(network: 'mainnet' | 'testnet', multiSig = false)
   if (network === 'mainnet') return multiSig ? AddressVersion.MainnetMultiSig : AddressVersion.MainnetSingleSig;
   return multiSig ? AddressVersion.TestnetMultiSig : AddressVersion.TestnetSingleSig;
 }
+/** Check if two principals refer to same deployer */
+export function samePrincipalDeployer(a: string, b: string): boolean {
+  return extractAddress(a) === extractAddress(b);
+}
