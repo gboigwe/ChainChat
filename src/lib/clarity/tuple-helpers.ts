@@ -12,3 +12,8 @@ export function buildMessageKey(channelId: bigint, messageId: bigint): Record<st
 export function buildMemberKey(channelId: bigint, principal: string): Record<string, unknown> {
   return { 'channel-id': channelId, member: principal };
 }
+
+/** Build invite key tuple */
+export function buildInviteKey(channelId: bigint, invitee: string): Record<string, unknown> {
+  return { 'channel-id': channelId, invitee };
+}
