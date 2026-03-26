@@ -42,3 +42,8 @@ export function buildContractPrincipal(deployer: string, name: string): string {
   if (!/^[a-z][a-z0-9\-]{0,39}$/.test(name)) throw new Error('Invalid contract name');
   return `${deployer}.${name}`;
 }
+
+/** Detect if address is on mainnet */
+export function isMainnetPrincipal(address: string): boolean {
+  return address.startsWith('SP');
+}
