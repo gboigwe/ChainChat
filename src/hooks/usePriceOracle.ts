@@ -24,3 +24,16 @@ export function usePriceOracle(refreshInterval = 60_000): PriceOracleState & { r
   const [loading, setLoading] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const refetch = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch('https://api.hiro.so/extended/v1/market/tokens/prices');
+      const data = await res.json();
+      setStxUsd(data?.['STX']?.price ?? null);
+      setBtcUsd(data?.['BTC']?.price ?? null);
+      setLastUpdated(new Date());
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed to fetch prices');
+    } finally { setLoading(false); }
+  }, []);
