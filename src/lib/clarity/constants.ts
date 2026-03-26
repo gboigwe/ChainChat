@@ -27,3 +27,4 @@ export const MAX_PENDING_TXS = 10;
 export const PRICE_REFRESH_INTERVAL_MS = 60_000;
 export const DEFAULT_PAGE_SIZE = 20;
 export const MAX_PAGE_SIZE = 100;
+export const SESSION_STORAGE_KEY = 'chainchat-session';
