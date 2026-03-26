@@ -88,3 +88,9 @@ export function assertValidPrincipal(address: string): void {
     throw new Error(`assertValidPrincipal failed: "${address}" is not a valid Stacks principal`);
   }
 }
+
+/** Convert principal to network-specific format */
+export function toTestnetPrincipal(mainnetAddr: string): string {
+  if (!isMainnetPrincipal(mainnetAddr)) throw new Error('Not a mainnet address');
+  return 'ST' + mainnetAddr.slice(2);
+}
