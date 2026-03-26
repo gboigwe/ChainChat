@@ -61,3 +61,7 @@ export function buildStructuredDataSignOptions(
 export function isValidSignature(signature: string): boolean {
   return /^[0-9a-fA-F]{130}$/.test(signature);
 }
+/** Validate public key format */
+export function isValidPublicKey(publicKey: string): boolean {
+  return /^(02|03)[0-9a-fA-F]{64}$/.test(publicKey);
+}
