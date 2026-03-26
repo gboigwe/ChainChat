@@ -170,3 +170,7 @@ export interface AllowanceTuple {
   amount: bigint;
   'approved-at': bigint;
 }
+/** Build allowance tuple */
+export function buildAllowanceTuple(amount: bigint, approvedAt: bigint): AllowanceTuple {
+  return { amount, 'approved-at': approvedAt };
+}
