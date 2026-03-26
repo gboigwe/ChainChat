@@ -5,3 +5,6 @@ export type MessageId = bigint;
 
 /** Clarity string-ascii content with max length 500 */
 export type MessageContent = string;
+
+/** Stacks principal address for message sender */
+export type PrincipalAddress = string;
