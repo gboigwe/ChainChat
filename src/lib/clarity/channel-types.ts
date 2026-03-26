@@ -80,3 +80,11 @@ export function decodeVisibility(code: bigint): ChannelVisibility {
   if (!entry) throw new Error(`Unknown visibility code: ${code}`);
   return entry[0] as ChannelVisibility;
 }
+
+/** Check whether a principal has a given permission in a channel */
+export function hasPermission(
+  member: ChannelMember,
+  permission: keyof ChannelPermissions,
+): boolean {
+  return DEFAULT_PERMISSIONS[member.role][permission];
+}
