@@ -51,3 +51,4 @@ export function useContractWrite(hookOptions?: UseContractWriteOptions): UseCont
 }
 export const CONTRACT_WRITE_1 = 1;
 export const CONTRACT_WRITE_2 = 2;
+export const CONTRACT_WRITE_3 = 3;
