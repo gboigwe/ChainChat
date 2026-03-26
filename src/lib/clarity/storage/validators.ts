@@ -44,3 +44,7 @@ export function isNonNegativeBigint(value: bigint): boolean {
 export function isNonEmptyPrincipal(principal: string): boolean {
   return typeof principal === 'string' && principal.length > 0;
 }
+/** Validate event type is known */
+export function isKnownEventType(type: string): boolean {
+  return ['message-created', 'channel-created', 'member-joined', 'member-kicked', 'reaction-added'].includes(type);
+}
