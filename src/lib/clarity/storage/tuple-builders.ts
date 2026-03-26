@@ -161,3 +161,7 @@ export function buildFTBalanceTuple(amount: bigint, lastTransfer: bigint): FTBal
 export function lockAmount(t: FTBalanceTuple, amount: bigint): FTBalanceTuple {
   return { ...t, amount: t.amount - amount, locked: t.locked + amount };
 }
+/** Release locked amount back to available */
+export function unlockAmount(t: FTBalanceTuple, amount: bigint): FTBalanceTuple {
+  return { ...t, amount: t.amount + amount, locked: t.locked - amount };
+}
