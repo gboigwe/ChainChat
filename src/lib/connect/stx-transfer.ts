@@ -63,3 +63,4 @@ export const TRANSFER_CONST_2 = 2;
 export const TRANSFER_CONST_3 = 3;
 export const TRANSFER_CONST_4 = 4;
 export const TRANSFER_CONST_5 = 5;
+export const TRANSFER_CONST_6 = 6;
