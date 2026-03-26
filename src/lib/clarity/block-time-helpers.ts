@@ -49,3 +49,8 @@ export function formatBlockDate(blockHeight: bigint, locale = 'en-US'): string {
 export function formatBlockDateTime(blockHeight: bigint, locale = 'en-US'): string {
   return blockHeightToDate(blockHeight).toLocaleString(locale);
 }
+
+/** Compute expiry block height from current + duration in blocks */
+export function computeExpiryBlock(currentBlock: bigint, durationBlocks: bigint): bigint {
+  return currentBlock + durationBlocks;
+}
