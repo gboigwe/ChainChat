@@ -26,3 +26,7 @@ export function buildReadOnlyBody(
 export function isReadOnlySuccess(result: { okay: boolean }): boolean {
   return result.okay === true;
 }
+/** Extract cause from failed read-only result */
+export function getReadOnlyError(result: { cause?: string }): string {
+  return result.cause ?? 'Unknown error';
+}
