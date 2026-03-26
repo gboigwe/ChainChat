@@ -24,3 +24,4 @@ export const NONCE_FETCH_TIMEOUT_MS = 10_000;
 export const TX_BROADCAST_MAX_RETRIES = 5;
 export const WEBSOCKET_RECONNECT_DELAY_MS = 5_000;
 export const MAX_PENDING_TXS = 10;
+export const PRICE_REFRESH_INTERVAL_MS = 60_000;
