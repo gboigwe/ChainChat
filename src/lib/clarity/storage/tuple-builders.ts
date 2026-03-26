@@ -106,3 +106,11 @@ export interface StatsStorageTuple {
   'member-count': bigint;
   'last-activity': bigint;
 }
+/** Build stats storage tuple */
+export function buildStatsTuple(
+  messageCount: bigint,
+  memberCount: bigint,
+  lastActivity: bigint,
+): StatsStorageTuple {
+  return { 'message-count': messageCount, 'member-count': memberCount, 'last-activity': lastActivity };
+}
