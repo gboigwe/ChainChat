@@ -155,3 +155,12 @@ export async function retryOnErr<T>(
   }
   return lastErr ?? err(ERR_INVALID_INPUT);
 }
+
+/** Convert array of nullables to ClarityResponse list */
+export function fromNullableList<T>(
+  items: Array<T | null | undefined>,
+  errorCode: bigint = ERR_NOT_FOUND,
+): ClarityResponse<T[], bigint> {
+  const results = items.map(i => fromNullable(i, errorCode));
+  return collectOk(results);
+}
