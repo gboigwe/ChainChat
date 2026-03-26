@@ -58,3 +58,8 @@ export const DEFAULT_PERMISSIONS: Record<MemberRole, ChannelPermissions> = {
   member:    { canPost: true,  canInvite: false, canDelete: false, canKick: false },
   viewer:    { canPost: false, canInvite: false, canDelete: false, canKick: false },
 };
+
+/** Validate channel name length */
+export function isValidChannelName(name: string): boolean {
+  return name.length > 0 && name.length <= MAX_CHANNEL_NAME_LENGTH;
+}
