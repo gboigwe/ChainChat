@@ -138,3 +138,7 @@ export function uintCVFromNumber(n: number): UIntCV {
   if (n < 0) throw new Error('uint cannot be negative');
   return uintCV(BigInt(n));
 }
+/** Buffer CV from string (ASCII encoding) */
+export function bufferCVFromString(str: string): BufferCV {
+  return bufferCV(new TextEncoder().encode(str));
+}
