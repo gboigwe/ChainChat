@@ -36,3 +36,7 @@ export function padHex(hex: string): string {
 export function isHexString(str: string): boolean {
   return /^(0x)?[0-9a-fA-F]*$/.test(str);
 }
+/** Normalize hex string by removing 0x prefix */
+export function normalizeHex(hex: string): string {
+  return hex.startsWith('0x') ? hex.slice(2) : hex;
+}
