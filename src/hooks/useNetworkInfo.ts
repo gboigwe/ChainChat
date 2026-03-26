@@ -24,3 +24,13 @@ export function useNetworkInfo(network: 'mainnet' | 'testnet' = 'mainnet'): Netw
       .catch(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
   }, [apiUrl]);
+  return {
+    networkName: network,
+    chainId: network === 'mainnet' ? 1 : 2147483648,
+    apiUrl,
+    blockHeight,
+    blockTime: 600,
+    isMainnet: network === 'mainnet',
+    loading,
+  };
+}
