@@ -98,3 +98,10 @@ export function isReactionLimitReached(msg: ClarityMessage): boolean {
 export function isThreadRoot(msg: ClarityMessage): boolean {
   return msg.replyTo === null;
 }
+
+/** Attachment reference stored as optional tuple in message */
+export interface MessageAttachment {
+  url: string;
+  mimeType: string;
+  sizeBytes: bigint;
+}
