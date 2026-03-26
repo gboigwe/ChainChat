@@ -64,3 +64,7 @@ export function normalizeAddress(address: string): string {
 export function extractAddress(principal: string): string {
   return principal.includes('.') ? principal.split('.')[0] : principal;
 }
+/** Build contract identifier string */
+export function buildContractId(address: string, contractName: string): string {
+  return `${address}.${contractName}`;
+}
