@@ -7,3 +7,8 @@ export type ClarityTuple<T extends Record<string, unknown>> = T;
 export function buildMessageKey(channelId: bigint, messageId: bigint): Record<string, bigint> {
   return { 'channel-id': channelId, 'message-id': messageId };
 }
+
+/** Build a member key tuple for membership map */
+export function buildMemberKey(channelId: bigint, principal: string): Record<string, unknown> {
+  return { 'channel-id': channelId, member: principal };
+}
