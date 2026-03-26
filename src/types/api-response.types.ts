@@ -40,3 +40,4 @@ export interface ReadOnlyFunctionResponse {
   result?: string;
   cause?: string;
 }
+export const API_RESPONSE_CONST_1 = 1;
