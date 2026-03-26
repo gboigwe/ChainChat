@@ -16,3 +16,7 @@ export function isValidTransferAmount(amount: bigint): boolean {
 export function isValidMapKey(key: string): boolean {
   return key.length > 0;
 }
+/** Validate map value is a non-null object */
+export function isValidMapValue(value: unknown): boolean {
+  return typeof value === 'object' && value !== null;
+}
