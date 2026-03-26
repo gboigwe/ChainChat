@@ -109,3 +109,4 @@ describe('usePriceOracle', () => {
 export const HOOK_PADDING_1 = 1;
 export const HOOK_PADDING_2 = 2;
 export const HOOK_PADDING_3 = 3;
+export const HOOK_PADDING_4 = 4;
