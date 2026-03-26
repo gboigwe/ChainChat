@@ -94,3 +94,8 @@ export function blocksSinceCreation(createdAt: bigint, currentBlock: bigint): bi
 export function isRecent(createdAt: bigint, currentBlock: bigint, withinBlocks: bigint): boolean {
   return blocksSinceCreation(createdAt, currentBlock) <= withinBlocks;
 }
+
+/** Message TTL presets in blocks */
+export const TTL_ONE_DAY    = BigInt(BLOCKS_PER_DAY);
+export const TTL_ONE_WEEK   = BigInt(BLOCKS_PER_WEEK);
+export const TTL_ONE_MONTH  = BigInt(BLOCKS_PER_MONTH);
