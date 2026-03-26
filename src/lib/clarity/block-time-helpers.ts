@@ -114,3 +114,12 @@ export function messageAge(createdAt: bigint, currentBlock: bigint): string {
   const elapsed = blocksSinceCreation(createdAt, currentBlock);
   return blockDurationToHuman(elapsed) + ' ago';
 }
+
+/** Compute block range for last N days */
+export function blockRangeForDays(
+  currentBlock: bigint,
+  days: number,
+): { start: bigint; end: bigint } {
+  const blocks = BigInt(days * BLOCKS_PER_DAY);
+  return { start: currentBlock - blocks, end: currentBlock };
+}
