@@ -18,3 +18,5 @@ export interface WalletContextActions {
   setNetwork: (network: 'mainnet' | 'testnet') => void;
   refreshSession: () => void;
 }
+/** Combined wallet context value */
+export type WalletContextValue = WalletContextState & WalletContextActions;
