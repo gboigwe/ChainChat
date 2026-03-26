@@ -88,3 +88,4 @@ export function buildInviteStructuredData(
   return { type: StructuredDataType.ChannelInvite, channelId: channelId.toString(), invitee, role };
 }
 export const SIGN_CONST_1 = 1;
+export const SIGN_CONST_2 = 2;
