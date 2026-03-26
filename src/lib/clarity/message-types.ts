@@ -204,3 +204,12 @@ export function paginateMessages(
 export function contentChanged(original: MessageContent, updated: MessageContent): boolean {
   return original !== updated;
 }
+
+/** Reaction emoji codes for display */
+export const REACTION_EMOJI: Record<string, string> = {
+  like: '👍',
+  love: '❤️',
+  laugh: '😂',
+  wow: '😮',
+  sad: '😢',
+};
