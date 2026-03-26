@@ -28,3 +28,12 @@ export interface SessionState {
   userData: UserSessionData | null;
   network: string;
 }
+/** Build default auth options */
+export function buildAuthOptions(
+  appName: string,
+  appIcon: string,
+  onFinish: (data: UserSessionData) => void,
+  onCancel?: () => void,
+): AuthOptions {
+  return { appDetails: { name: appName, icon: appIcon }, onFinish, onCancel };
+}
