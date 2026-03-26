@@ -74,3 +74,7 @@ export function tupleCV(data: Record<string, ClarityValue>): TupleCV {
 export function standardPrincipalCV(address: string): StandardPrincipalCV {
   return { type: 'principal', address };
 }
+/** Factory: contract principal */
+export function contractPrincipalCV(address: string, contractName: string): ContractPrincipalCV {
+  return { type: 'contract', address, contractName };
+}
