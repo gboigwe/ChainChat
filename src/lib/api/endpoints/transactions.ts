@@ -50,3 +50,10 @@ export async function getMempoolTransactions(
   if (senderAddress) params['sender_address'] = senderAddress;
   return client.fetch('/extended/v1/tx/mempool', undefined, params);
 }
+/** Get dropped mempool transactions */
+export async function getDroppedMempoolTransactions(
+  client: HiroApiClient,
+  limit = 50,
+): Promise<{ results: TransactionResponse[] }> {
+  return client.fetch('/extended/v1/tx/mempool/dropped', undefined, { limit });
+}
