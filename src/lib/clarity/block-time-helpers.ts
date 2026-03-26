@@ -14,3 +14,6 @@ export const BLOCKS_PER_WEEK = 1008;
 
 /** Blocks per 30-day month approximation */
 export const BLOCKS_PER_MONTH = 4320;
+
+/** Unix timestamp of Stacks genesis block (mainnet) */
+export const STACKS_GENESIS_TIMESTAMP = 1604956800;
