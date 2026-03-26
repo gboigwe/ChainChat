@@ -59,3 +59,11 @@ export function getUserSession(): UserSessionData | null {
 export function getUserData(): UserSessionData | null {
   return getUserSession();
 }
+/** Clear user session from storage */
+export function clearSession(): void {
+  try {
+    localStorage.removeItem('blockstack-session');
+  } catch {
+    // ignore
+  }
+}
