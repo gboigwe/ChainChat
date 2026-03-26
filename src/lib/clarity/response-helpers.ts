@@ -164,3 +164,14 @@ export function fromNullableList<T>(
   const results = items.map(i => fromNullable(i, errorCode));
   return collectOk(results);
 }
+
+/** Log err responses for debugging */
+export function logErr<T, E>(
+  res: ClarityResponse<T, E>,
+  context?: string,
+): ClarityResponse<T, E> {
+  if (isErr(res)) {
+    console.warn(`[ClarityErr]${context ? ` [${context}]` : ''}: ${String(res.error)}`);
+  }
+  return res;
+}
