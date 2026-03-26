@@ -14,3 +14,4 @@ export const DEFAULT_POST_CONDITION_MODE = 'deny';
 export const BROADCAST_TIMEOUT_MS = 30_000;
 export const MAX_MEMO_LENGTH = 34;
 export const HIRO_API_BASE_MAINNET = 'https://api.hiro.so';
+export const HIRO_API_BASE_TESTNET = 'https://api.testnet.hiro.so';
