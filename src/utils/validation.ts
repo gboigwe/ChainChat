@@ -7,3 +7,4 @@ export const VALIDATION_HEX_EVEN_LENGTH = true;
 export const VALID_CONST_6 = 6;
 export const VALID_CONST_7 = 7;
 export const VALID_CONST_8 = 8;
+export const VALID_CONST_9 = 9;
