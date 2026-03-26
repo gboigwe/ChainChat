@@ -166,3 +166,8 @@ export function filterChannelsByVisibility(
 export function sortChannelsAlphabetically(channels: ClarityChannel[]): ClarityChannel[] {
   return [...channels].sort((a, b) => a.name.localeCompare(b.name));
 }
+
+/** Get public channels only */
+export function getPublicChannels(channels: ClarityChannel[]): ClarityChannel[] {
+  return channels.filter(c => c.visibility === 'public');
+}
