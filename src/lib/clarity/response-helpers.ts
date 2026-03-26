@@ -53,3 +53,11 @@ export function mapOk<T, U, E>(
 ): ClarityResponse<U, E> {
   return isOk(res) ? ok(fn(res.value)) : res;
 }
+
+/** Map over err value, preserving ok */
+export function mapErr<T, E, F>(
+  res: ClarityResponse<T, E>,
+  fn: (error: E) => F,
+): ClarityResponse<T, F> {
+  return isErr(res) ? err(fn(res.error)) : res;
+}
