@@ -196,3 +196,8 @@ export function fromTruthy<T>(
 export function countOk<T, E>(responses: ClarityResponse<T, E>[]): number {
   return responses.filter(isOk).length;
 }
+
+/** Count err responses in an array */
+export function countErr<T, E>(responses: ClarityResponse<T, E>[]): number {
+  return responses.filter(isErr).length;
+}
