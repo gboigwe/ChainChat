@@ -21,3 +21,5 @@ export class Cache<T> {
   delete(key: string): void { this.store.delete(key); }
   clear(): void { this.store.clear(); }
   has(key: string): boolean { return this.get(key) !== null; }
+  size(): number { return this.store.size; }
+}
