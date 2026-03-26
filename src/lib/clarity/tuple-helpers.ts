@@ -17,3 +17,11 @@ export function buildMemberKey(channelId: bigint, principal: string): Record<str
 export function buildInviteKey(channelId: bigint, invitee: string): Record<string, unknown> {
   return { 'channel-id': channelId, invitee };
 }
+
+/** Merge two tuple objects — later keys win */
+export function mergeTuples<T extends Record<string, unknown>>(
+  base: Partial<T>,
+  override: Partial<T>,
+): Partial<T> {
+  return { ...base, ...override };
+}
