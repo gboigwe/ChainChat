@@ -9,3 +9,7 @@ export function isSessionExpired(data: UserSessionData): boolean {
 export function getUsername(data: UserSessionData): string | null {
   return data.username ?? null;
 }
+/** Get identity address from session */
+export function getIdentityAddress(data: UserSessionData): string | null {
+  return data.identityAddress ?? null;
+}
