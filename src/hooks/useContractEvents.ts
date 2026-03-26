@@ -45,3 +45,4 @@ export const CONTRACT_EVENTS_1 = 1;
 export const CONTRACT_EVENTS_2 = 2;
 export const CONTRACT_EVENTS_3 = 3;
 export const CONTRACT_EVENTS_4 = 4;
+export const CONTRACT_EVENTS_5 = 5;
