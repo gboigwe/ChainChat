@@ -70,3 +70,9 @@ export function truncatePrincipal(address: string, chars = 6): string {
 export function principalsEqual(a: string, b: string): boolean {
   return a === b;
 }
+
+/** Known ChainChat contract addresses */
+export const CHAINCHAT_CONTRACTS = {
+  messaging: 'SP000000000000000000002Q6VF78.chainchat-messaging',
+  channels:  'SP000000000000000000002Q6VF78.chainchat-channels',
+} as const;
