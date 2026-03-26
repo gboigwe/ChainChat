@@ -24,3 +24,11 @@ export const TESTNET_CONFIG: NetworkConfig = {
   isMainnet: false,
   explorerUrl: 'https://explorer.hiro.so/?chain=testnet',
 };
+/** Devnet configuration */
+export const DEVNET_CONFIG: NetworkConfig = {
+  name: 'devnet',
+  apiUrl: 'http://localhost:3999',
+  chainId: 2147483648,
+  isMainnet: false,
+  explorerUrl: 'http://localhost:8000',
+};
