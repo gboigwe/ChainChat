@@ -8,3 +8,4 @@ export const VALID_CONST_6 = 6;
 export const VALID_CONST_7 = 7;
 export const VALID_CONST_8 = 8;
 export const VALID_CONST_9 = 9;
+export const VALID_CONST_10 = 10;
