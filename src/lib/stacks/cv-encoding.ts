@@ -52,3 +52,10 @@ export function serializeClarityValue(cv: ClarityValue): Uint8Array {
   // simplified serialization for type-checking purposes
   return prefix;
 }
+/** Deserialize bytes to ClarityValue */
+export function deserializeClarityValue(bytes: Uint8Array): AnyCV {
+  const typeCode = bytes[0];
+  const typeName = Object.keys(TYPE_CODES).find(k => TYPE_CODES[k] === typeCode);
+  if (!typeName) throw new Error(`Unknown type code: ${typeCode}`);
+  return { type: typeName } as AnyCV;
+}
