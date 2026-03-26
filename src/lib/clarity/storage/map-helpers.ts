@@ -116,3 +116,7 @@ export function mapToArray<V extends MapValue>(
 ): Array<{ key: string; value: V }> {
   return Array.from(map.entries()).map(([key, value]) => ({ key, value }));
 }
+/** Build reaction map key */
+export function reactionKey(messageId: bigint, reactor: string): string {
+  return serializeKey({ messageId, reactor });
+}
