@@ -12,3 +12,12 @@ export class NonceTracker {
   getNonce(address: string): number {
     return this.state.get(address)?.nonce ?? 0;
   }
+  setNonce(address: string, nonce: number): void {
+    const existing = this.state.get(address);
+    this.state.set(address, {
+      address,
+      lastFetched: Date.now(),
+      nonce,
+      pending: existing?.pending ?? [],
+    });
+  }
