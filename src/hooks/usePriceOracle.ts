@@ -42,3 +42,5 @@ export function usePriceOracle(refreshInterval = 60_000): PriceOracleState & { r
     const id = setInterval(() => void refetch(), refreshInterval);
     return () => clearInterval(id);
   }, [refetch, refreshInterval]);
+  return { stxUsd, btcUsd, loading, lastUpdated, error, refetch };
+}
