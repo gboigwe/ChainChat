@@ -13,3 +13,5 @@ export const ERR_ALREADY_MEMBER = 104n;
 export const ERR_CANNOT_KICK_OWNER = 105n;
 /** Error: permission denied for action */
 export const ERR_PERMISSION_DENIED = 106n;
+/** Error: message content is empty */
+export const ERR_EMPTY_CONTENT = 107n;
