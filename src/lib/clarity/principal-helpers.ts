@@ -94,3 +94,9 @@ export function toTestnetPrincipal(mainnetAddr: string): string {
   if (!isMainnetPrincipal(mainnetAddr)) throw new Error('Not a mainnet address');
   return 'ST' + mainnetAddr.slice(2);
 }
+
+/** Convert testnet principal to mainnet format */
+export function toMainnetPrincipal(testnetAddr: string): string {
+  if (!isTestnetPrincipal(testnetAddr)) throw new Error('Not a testnet address');
+  return 'SP' + testnetAddr.slice(2);
+}
