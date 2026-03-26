@@ -82,3 +82,13 @@ export function isValidFunctionArg(cv: ClarityValue): boolean {
 }
 /** JSON-serializable representation of a ClarityValue */
 export type CVJson = { type: string; value?: unknown };
+/** Convert ClarityValue to JSON-serializable object */
+export function cvToJson(cv: ClarityValue): CVJson {
+  const base: CVJson = { type: cv.type };
+  const any = cv as Record<string, unknown>;
+  if ('value' in any) {
+    const val = any['value'];
+    base.value = typeof val === 'bigint' ? val.toString() : val;
+  }
+  return base;
+}
