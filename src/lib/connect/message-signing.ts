@@ -57,3 +57,7 @@ export function buildStructuredDataSignOptions(
 ): StructuredDataSignOptions {
   return { domain, message, onFinish };
 }
+/** Validate signature string format */
+export function isValidSignature(signature: string): boolean {
+  return /^[0-9a-fA-F]{130}$/.test(signature);
+}
