@@ -45,3 +45,13 @@ export function parseUserSession(raw: string): UserSessionData | null {
     return null;
   }
 }
+/** Get user session from localStorage */
+export function getUserSession(): UserSessionData | null {
+  try {
+    const raw = localStorage.getItem('blockstack-session');
+    if (!raw) return null;
+    return parseUserSession(raw);
+  } catch {
+    return null;
+  }
+}
