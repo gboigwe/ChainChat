@@ -11,3 +11,4 @@ export const EXAMPLES_EXTRA_6 = 6;
 export const EXAMPLES_EXTRA_7 = 7;
 export const EXAMPLES_EXTRA_8 = 8;
 export const EXAMPLES_EXTRA_9 = 9;
+export const EXAMPLES_EXTRA_10 = 10;
