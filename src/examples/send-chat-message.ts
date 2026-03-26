@@ -48,3 +48,4 @@ export const SEND_MSG_CONST_11 = 11;
 export const SEND_MSG_CONST_12 = 12;
 export const SEND_MSG_CONST_13 = 13;
 export const SEND_MSG_CONST_14 = 14;
+export const SEND_MSG_CONST_15 = 15;
