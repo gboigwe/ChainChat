@@ -56,3 +56,4 @@ export const CREATE_CHAN_CONST_13 = 13;
 export const CREATE_CHAN_CONST_14 = 14;
 export const CREATE_CHAN_CONST_15 = 15;
 export const CREATE_CHAN_CONST_16 = 16;
+export const CREATE_CHAN_CONST_17 = 17;
