@@ -135,3 +135,4 @@ export const TX_EXTRA_44 = 44;
 export const TX_EXTRA_45 = 45;
 export const TX_EXTRA_46 = 46;
 export const TX_EXTRA_47 = 47;
+export const TX_EXTRA_48 = 48;
