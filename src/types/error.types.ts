@@ -36,3 +36,6 @@ export class PostConditionError extends StacksError {
   }
 }
 export type StacksErrorType = 'CONTRACT_ERROR' | 'NETWORK_ERROR' | 'WALLET_ERROR' | 'TRANSACTION_ERROR' | 'POST_CONDITION_ERROR';
+export function isStacksError(error: unknown): error is StacksError {
+  return error instanceof StacksError;
+}
