@@ -121,3 +121,15 @@ export function collectOk<T, E>(
   }
   return ok(values);
 }
+
+/** Convert async result to ClarityResponse */
+export async function fromPromise<T>(
+  promise: Promise<T>,
+  onError?: (e: unknown) => bigint,
+): Promise<ClarityResponse<T, bigint>> {
+  try {
+    return ok(await promise);
+  } catch (e) {
+    return err(onError ? onError(e) : ERR_INVALID_INPUT);
+  }
+}
