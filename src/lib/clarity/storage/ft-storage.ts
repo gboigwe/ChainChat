@@ -170,3 +170,7 @@ export function snapshotBalances(): Record<string, string> {
     Array.from(ftBalanceMap.entries()).map(([k, v]) => [k, v.toString()])
   );
 }
+/** Get locked token amount for principal */
+export function getLockedBalance(principal: string): bigint {
+  return tokenLockMap.get(principal)?.amount ?? 0n;
+}
