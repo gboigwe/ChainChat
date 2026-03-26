@@ -104,3 +104,4 @@ export const STACKS_COMMON_10 = 10;
 export const STACKS_COMMON_11 = 11;
 export const STACKS_COMMON_12 = 12;
 export const STACKS_COMMON_13 = 13;
+export const STACKS_COMMON_14 = 14;
