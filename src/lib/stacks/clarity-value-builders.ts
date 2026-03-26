@@ -87,3 +87,7 @@ export function buildInviteMemberArgs(
 ): ClarityValue[] {
   return cvArgs().uint(channelId).principal(invitee).uint(role).build();
 }
+/** Build args for react-to-message call */
+export function buildReactArgs(messageId: bigint, reactionCode: bigint): ClarityValue[] {
+  return cvArgs().uint(messageId).uint(reactionCode).build();
+}
