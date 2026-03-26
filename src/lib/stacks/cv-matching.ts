@@ -49,3 +49,7 @@ export function narrowCVType<T extends ClarityValue>(
 export function extractUInt(cv: ClarityValue): bigint | null {
   return isUIntCV(cv) ? cv.value : null;
 }
+/** Extract bool value or null */
+export function extractBool(cv: ClarityValue): boolean | null {
+  return isBoolCV(cv) ? cv.value : null;
+}
