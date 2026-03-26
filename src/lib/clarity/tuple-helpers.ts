@@ -87,3 +87,8 @@ export function validateTupleSchema(
 export function countTupleKeys(tuple: Record<string, unknown>): number {
   return Object.keys(tuple).length;
 }
+
+/** Clone a tuple shallowly */
+export function cloneTuple<T extends Record<string, unknown>>(tuple: T): T {
+  return { ...tuple };
+}
