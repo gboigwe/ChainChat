@@ -11,3 +11,10 @@ export interface TransactionResponse {
   block_height?: number;
   tx_index?: number;
 }
+/** Get a transaction by ID */
+export async function getTransaction(
+  client: HiroApiClient,
+  txId: string,
+): Promise<TransactionResponse> {
+  return client.fetch<TransactionResponse>(`/extended/v1/tx/${txId}`);
+}
