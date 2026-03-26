@@ -45,3 +45,7 @@ export function getNetworkConfig(name: string): NetworkConfig {
 export function isMainnet(config: NetworkConfig): boolean {
   return config.isMainnet;
 }
+/** Build transaction explorer URL */
+export function txExplorerUrl(txId: string, config: NetworkConfig): string {
+  return `${config.explorerUrl}/txid/${txId}`;
+}
