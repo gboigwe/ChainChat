@@ -184,3 +184,5 @@ export function arg16<T extends ClarityValue>(cv: T): T { return cv; }
 export function arg17<T extends ClarityValue>(cv: T): T { return cv; }
 /** CV builder convenience for arg position 18 */
 export function arg18<T extends ClarityValue>(cv: T): T { return cv; }
+/** CV builder convenience for arg position 19 */
+export function arg19<T extends ClarityValue>(cv: T): T { return cv; }
