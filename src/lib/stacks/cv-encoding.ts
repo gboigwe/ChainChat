@@ -38,3 +38,10 @@ export function getTypeCode(type: string): number {
   if (code === undefined) throw new Error(`Unknown CV type: ${type}`);
   return code;
 }
+/** Serialize uint to 16-byte big-endian */
+function serializeUInt(value: bigint): Uint8Array {
+  const buf = new Uint8Array(16);
+  let v = value;
+  for (let i = 15; i >= 0 && v > 0n; i--) { buf[i] = Number(v & 0xffn); v >>= 8n; }
+  return buf;
+}
