@@ -41,3 +41,7 @@ export function messageCacheKey(channelId: bigint, messageId: bigint): string {
 export function balanceCacheKey(principal: string): string {
   return `bal:${principal}`;
 }
+/** Invalidate all message caches for a channel */
+export function invalidateChannelMessages(channelId: bigint): void {
+  messageCache.clear();
+}
