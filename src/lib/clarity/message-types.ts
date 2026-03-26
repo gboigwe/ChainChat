@@ -18,4 +18,5 @@ export interface ClarityMessage {
   channelId: ChannelId;
   createdAt: BlockHeight;
   replyTo: OptionalMessageRef;
+  reactions: ReactionCount;
 }
