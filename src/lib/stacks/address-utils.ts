@@ -16,3 +16,10 @@ export function isMainnetAddress(address: string): boolean {
 export function isTestnetAddress(address: string): boolean {
   return address.startsWith('ST');
 }
+/** Validate Stacks address format */
+export function validateStacksAddress(address: string): boolean {
+  if (!address) return false;
+  if (!isMainnetAddress(address) && !isTestnetAddress(address)) return false;
+  if (address.length < 38 || address.length > 42) return false;
+  return /^S[PT][0-9A-Z]+$/.test(address);
+}
