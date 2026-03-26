@@ -26,3 +26,8 @@ export const MAX_MESSAGE_LENGTH = 500;
 
 /** Minimum allowed length for string-ascii content */
 export const MIN_MESSAGE_LENGTH = 1;
+
+/** Clarity tuple representing a chat message */
+export interface ClarityMessage {
+  id: MessageId;
+}
