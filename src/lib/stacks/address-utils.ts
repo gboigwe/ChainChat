@@ -46,3 +46,7 @@ export function parseContractPrincipal(principal: string): { address: string; co
   if (!address || !contractName) throw new Error(`Invalid contract principal: ${principal}`);
   return { address, contractName };
 }
+/** Check if principal is a valid Stacks principal */
+export function isValidPrincipal(principal: string): boolean {
+  return validateStacksAddress(principal) || validateContractPrincipal(principal);
+}
