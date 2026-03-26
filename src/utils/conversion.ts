@@ -16,3 +16,4 @@ export const CONV_CONST_15 = 15;
 export const CONV_CONST_16 = 16;
 export const CONV_CONST_17 = 17;
 export const CONV_CONST_18 = 18;
+export const CONV_CONST_19 = 19;
