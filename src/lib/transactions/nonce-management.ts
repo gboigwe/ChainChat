@@ -48,3 +48,5 @@ export class NonceTracker {
     return this.state.get(address)?.pending ?? [];
   }
 }
+/** Global nonce tracker singleton */
+export const globalNonceTracker = new NonceTracker();
