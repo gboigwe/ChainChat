@@ -45,3 +45,17 @@ export async function getContractDataMapEntry(
     { method: 'POST', body: key },
   );
 }
+/** Call a read-only contract function */
+export async function callReadOnlyFunction(
+  client: HiroApiClient,
+  contractAddress: string,
+  contractName: string,
+  functionName: string,
+  sender: string,
+  args: string[],
+): Promise<{ okay: boolean; result?: string; cause?: string }> {
+  return client.fetch(
+    `/v2/contracts/call-read/${contractAddress}/${contractName}/${functionName}`,
+    { method: 'POST', body: JSON.stringify({ sender, arguments: args }) },
+  );
+}
