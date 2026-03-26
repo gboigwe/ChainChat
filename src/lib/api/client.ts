@@ -110,3 +110,4 @@ export const API_CLIENT_CONST_32 = 32;
 export const API_CLIENT_CONST_33 = 33;
 export const API_CLIENT_CONST_34 = 34;
 export const API_CLIENT_CONST_35 = 35;
+export const API_CLIENT_CONST_36 = 36;
