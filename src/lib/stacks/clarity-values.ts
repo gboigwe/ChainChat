@@ -43,3 +43,7 @@ export function intCV(value: bigint | number): IntCV {
 export function boolCV(value: boolean): BoolCV {
   return { type: 'bool', value };
 }
+/** Factory: string-ascii */
+export function stringAsciiCV(value: string): StringAsciiCV {
+  return { type: 'string-ascii', value };
+}
