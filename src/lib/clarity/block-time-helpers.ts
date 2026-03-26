@@ -140,3 +140,8 @@ export function ttlProgress(
 export function blockHeightToISO(blockHeight: bigint): string {
   return blockHeightToDate(blockHeight).toISOString();
 }
+
+/** Check if two block heights are within the same day */
+export function isSameDay(blockA: bigint, blockB: bigint): boolean {
+  return blockHeightToDate(blockA).toDateString() === blockHeightToDate(blockB).toDateString();
+}
