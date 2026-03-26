@@ -64,3 +64,8 @@ export function uint64ToBuffer(value: bigint): Uint8Array {
   view.setBigUint64(0, value, false);
   return buf;
 }
+
+/** Convert 8-byte big-endian buffer to bigint */
+export function bufferToUint64(buf: Uint8Array): bigint {
+  return new DataView(buf.buffer).getBigUint64(0, false);
+}
