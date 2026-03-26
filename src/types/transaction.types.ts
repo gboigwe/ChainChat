@@ -38,3 +38,8 @@ export interface TransactionReceipt {
   result?: string;
   events: TxEvent[];
 }
+export interface TxEvent {
+  eventIndex: number;
+  eventType: TxEventType;
+  txId: string;
+}
