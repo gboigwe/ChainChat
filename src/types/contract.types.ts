@@ -23,3 +23,8 @@ export interface VariableABI {
   type: string | object;
   access: 'variable' | 'constant';
 }
+export interface MapABI {
+  name: string;
+  key: string | object;
+  value: string | object;
+}
