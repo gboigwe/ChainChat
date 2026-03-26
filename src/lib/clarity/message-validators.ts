@@ -82,3 +82,11 @@ export function validateBlockHeight(height: unknown): ValidationResult {
   else if (height < 0n) errors.push('Block height cannot be negative');
   return { valid: errors.length === 0, errors };
 }
+
+/** Validate channel ID is a positive bigint */
+export function validateChannelId(id: unknown): ValidationResult {
+  const errors: string[] = [];
+  if (typeof id !== 'bigint') errors.push('Channel ID must be a bigint');
+  else if (id <= 0n) errors.push('Channel ID must be positive');
+  return { valid: errors.length === 0, errors };
+}
