@@ -51,3 +51,7 @@ export function stringAsciiCV(value: string): StringAsciiCV {
 export function stringUtf8CV(value: string): StringUtf8CV {
   return { type: 'string-utf8', value };
 }
+/** Factory: buffer */
+export function bufferCV(value: Uint8Array): BufferCV {
+  return { type: 'buffer', value };
+}
