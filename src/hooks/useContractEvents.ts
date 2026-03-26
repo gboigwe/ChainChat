@@ -22,3 +22,15 @@ export function useContractEvents(
   const [events, setEvents] = useState<ContractEvent[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const refetch = useCallback(async () => {
+    if (!contractId) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`${apiUrl}/extended/v1/contract/${contractId}/events?limit=50`);
+      const data = await res.json();
+      setEvents(data.results ?? []);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed to fetch events');
+    } finally { setLoading(false); }
+  }, [contractId, apiUrl]);
