@@ -121,3 +121,8 @@ export interface ChannelStats {
 
 /** Channel sort modes */
 export type ChannelSortMode = 'recent' | 'popular' | 'alphabetical';
+
+/** Encode MemberRole to Clarity uint */
+export function encodeRole(role: MemberRole): bigint {
+  return ROLE_CODES[role];
+}
