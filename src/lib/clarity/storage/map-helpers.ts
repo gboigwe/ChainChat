@@ -190,3 +190,11 @@ export function mapReduce<V extends MapValue, R>(
   for (const [k, v] of map) acc = fn(acc, v, k);
   return acc;
 }
+/** Get entries where value matches predicate */
+export function mapFind<V extends MapValue>(
+  map: Map<string, V>,
+  predicate: (v: V) => boolean,
+): V | null {
+  for (const v of map.values()) if (predicate(v)) return v;
+  return null;
+}
