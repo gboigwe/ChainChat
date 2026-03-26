@@ -68,3 +68,4 @@ export const CONTRACT_WRITE_16 = 16;
 export const CONTRACT_WRITE_17 = 17;
 export const CONTRACT_WRITE_18 = 18;
 export const CONTRACT_WRITE_19 = 19;
+export const CONTRACT_WRITE_20 = 20;
