@@ -49,3 +49,7 @@ export function isMainnet(config: NetworkConfig): boolean {
 export function txExplorerUrl(txId: string, config: NetworkConfig): string {
   return `${config.explorerUrl}/txid/${txId}`;
 }
+/** Build address explorer URL */
+export function addressExplorerUrl(address: string, config: NetworkConfig): string {
+  return `${config.explorerUrl}/address/${address}`;
+}
