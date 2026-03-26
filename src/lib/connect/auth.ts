@@ -100,3 +100,13 @@ export function persistSession(data: UserSessionData): void {
     // ignore storage errors
   }
 }
+/** Merge partial user profile into existing */
+export function mergeProfile(
+  existing: UserSessionData,
+  updates: Partial<UserProfile>,
+): UserSessionData {
+  return {
+    ...existing,
+    profile: { ...existing.profile, ...updates } as UserProfile,
+  };
+}
