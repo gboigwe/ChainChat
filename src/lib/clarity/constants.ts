@@ -12,3 +12,4 @@ export const MICRO_STX_PER_STX = 1_000_000n;
 export const STX_DECIMALS = 6;
 export const DEFAULT_POST_CONDITION_MODE = 'deny';
 export const BROADCAST_TIMEOUT_MS = 30_000;
+export const MAX_MEMO_LENGTH = 34;
