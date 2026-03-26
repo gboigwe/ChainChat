@@ -82,3 +82,4 @@ export function isReadyToSubmit(options: ContractCallRegularOptions): boolean {
   return validateContractCallArgs(options).length === 0;
 }
 export const CALL_CONST_1 = 1;
+export const CALL_CONST_2 = 2;
