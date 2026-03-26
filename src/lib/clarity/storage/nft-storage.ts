@@ -107,3 +107,10 @@ export function getBadgesByOwner(owner: string): BadgeNFT[] {
 export function hasBadge(owner: string, badgeType: BadgeType): boolean {
   return getBadgesByOwner(owner).some(b => b.badgeType === badgeType);
 }
+/** NFT transfer event record */
+export interface NFTTransferEvent {
+  tokenId: NFTTokenId;
+  from: string;
+  to: string;
+  blockHeight: bigint;
+}
