@@ -100,3 +100,4 @@ export const TX_PADDING_9 = 9;
 export const TX_PADDING_10 = 10;
 export const TX_PADDING_11 = 11;
 export const TX_PADDING_12 = 12;
+export const TX_PADDING_13 = 13;
