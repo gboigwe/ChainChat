@@ -39,3 +39,4 @@ export function useMempoolMonitor(
 export const MEMPOOL_1 = 1;
 export const MEMPOOL_2 = 2;
 export const MEMPOOL_3 = 3;
+export const MEMPOOL_4 = 4;
