@@ -71,3 +71,11 @@ export enum StructuredDataType {
   ChannelInvite = 'channel-invite',
   Report = 'report',
 }
+/** Build a chat message structured data object */
+export function buildMessageStructuredData(
+  content: string,
+  channelId: bigint,
+  sender: string,
+): Record<string, unknown> {
+  return { type: StructuredDataType.Message, content, channelId: channelId.toString(), sender };
+}
