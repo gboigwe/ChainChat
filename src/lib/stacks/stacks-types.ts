@@ -7,3 +7,9 @@ export interface ContractCallOptions {
   functionArgs: unknown[];
   network: string;
 }
+/** Read-only call result */
+export interface ReadOnlyResult {
+  okay: boolean;
+  result?: string;
+  cause?: string;
+}
