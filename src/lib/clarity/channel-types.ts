@@ -118,3 +118,6 @@ export interface ChannelStats {
   messageCount: bigint;
   lastActivityBlock: bigint;
 }
+
+/** Channel sort modes */
+export type ChannelSortMode = 'recent' | 'popular' | 'alphabetical';
