@@ -145,3 +145,9 @@ export function blockHeightToISO(blockHeight: bigint): string {
 export function isSameDay(blockA: bigint, blockB: bigint): boolean {
   return blockHeightToDate(blockA).toDateString() === blockHeightToDate(blockB).toDateString();
 }
+
+/** Round block height to nearest hour boundary */
+export function roundToHour(blockHeight: bigint): bigint {
+  const blocksPerHour = BigInt(BLOCKS_PER_HOUR);
+  return (blockHeight / blocksPerHour) * blocksPerHour;
+}
