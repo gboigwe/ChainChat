@@ -20,3 +20,8 @@ export function validateContent(content: string): ValidationResult {
 export function sanitizeContent(content: string): string {
   return content.trim();
 }
+
+/** Check for disallowed characters in channel names */
+export function containsDisallowedChars(name: string): boolean {
+  return /[^a-zA-Z0-9\-_ ]/.test(name);
+}
