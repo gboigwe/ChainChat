@@ -59,3 +59,8 @@ export function isClarityMessage(value: unknown): value is ClarityMessage {
   const m = value as Record<string, unknown>;
   return typeof m['id'] === 'bigint';
 }
+
+/** Validate message content against Clarity string-ascii constraints */
+export function isValidMessageContent(content: string): boolean {
+  return content.length >= MIN_MESSAGE_LENGTH && content.length <= MAX_MESSAGE_LENGTH;
+}
