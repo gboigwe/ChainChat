@@ -40,3 +40,7 @@ export class FTTransferBuilder {
     this.options.memo = memo;
     return this;
   }
+  setFee(fee: bigint): this { this.options.fee = fee; return this; }
+  setNonce(nonce: bigint): this { this.options.nonce = nonce; return this; }
+  setNetwork(net: string): this { this.options.network = net; return this; }
+  setAnchorMode(m: 'on-chain-only' | 'off-chain-only' | 'any'): this { this.options.anchorMode = m; return this; }
