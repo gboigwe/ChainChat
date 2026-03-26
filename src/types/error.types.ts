@@ -11,3 +11,9 @@ export class ContractError extends StacksError {
     this.name = 'ContractError';
   }
 }
+export class NetworkError extends StacksError {
+  constructor(message: string, public readonly statusCode?: number) {
+    super(message, 'NETWORK_ERROR');
+    this.name = 'NetworkError';
+  }
+}
