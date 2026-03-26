@@ -25,3 +25,9 @@ export function buildMemoBuffer(memo: string): Uint8Array {
   padded.set(bytes);
   return padded;
 }
+/** Validate memo string length */
+export function validateMemo(memo: string): string[] {
+  const errors: string[] = [];
+  if (memo.length > 34) errors.push('Memo must be 34 bytes or less');
+  return errors;
+}
