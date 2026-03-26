@@ -37,3 +37,4 @@ export function useNetworkInfo(network: 'mainnet' | 'testnet' = 'mainnet'): Netw
 export const NETWORK_INFO_1 = 1;
 export const NETWORK_INFO_2 = 2;
 export const NETWORK_INFO_3 = 3;
+export const NETWORK_INFO_4 = 4;
