@@ -85,3 +85,6 @@ export const REACTION_CODES: Record<string, bigint> = {
   wow: 4n,
   sad: 5n,
 };
+
+/** Maximum reactions per message allowed by contract */
+export const MAX_REACTIONS_PER_MESSAGE = 1000n;
