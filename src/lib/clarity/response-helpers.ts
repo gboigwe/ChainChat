@@ -214,3 +214,8 @@ export function partitionResponses<T, E>(
   }
   return { oks, errors };
 }
+
+/** Convert ClarityResponse to Promise */
+export function toPromise<T, E>(res: ClarityResponse<T, E>): Promise<T> {
+  return isOk(res) ? Promise.resolve(res.value) : Promise.reject(res.error);
+}
