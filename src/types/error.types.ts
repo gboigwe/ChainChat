@@ -17,3 +17,9 @@ export class NetworkError extends StacksError {
     this.name = 'NetworkError';
   }
 }
+export class WalletError extends StacksError {
+  constructor(message: string, public readonly provider?: string) {
+    super(message, 'WALLET_ERROR');
+    this.name = 'WalletError';
+  }
+}
