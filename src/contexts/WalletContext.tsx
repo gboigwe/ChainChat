@@ -11,3 +11,10 @@ export interface WalletContextState {
   isConnecting: boolean;
   error: string | null;
 }
+/** Wallet context actions */
+export interface WalletContextActions {
+  connect: () => Promise<void>;
+  disconnect: () => void;
+  setNetwork: (network: 'mainnet' | 'testnet') => void;
+  refreshSession: () => void;
+}
