@@ -42,3 +42,4 @@ export function makeContractSTXPostCondition(
 export const STX_SEND_EQUAL = FungibleConditionCode.Equal;
 /** Condition code: less than or equal (send at most) */
 export const STX_SEND_AT_MOST = FungibleConditionCode.LessEqual;
+export const STX_PC_1 = 1;
