@@ -133,3 +133,8 @@ export function decodeRole(code: bigint): MemberRole {
   if (!entry) throw new Error(`Unknown role code: ${code}`);
   return entry[0] as MemberRole;
 }
+
+/** Check if a principal is the channel owner */
+export function isChannelOwner(channel: ClarityChannel, principal: PrincipalAddress): boolean {
+  return channel.owner === principal;
+}
