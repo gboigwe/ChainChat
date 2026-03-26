@@ -20,3 +20,12 @@ export interface WalletContextActions {
 }
 /** Combined wallet context value */
 export type WalletContextValue = WalletContextState & WalletContextActions;
+/** Default state values */
+const DEFAULT_STATE: WalletContextState = {
+  isConnected: false,
+  address: null,
+  network: 'mainnet',
+  userData: null,
+  isConnecting: false,
+  error: null,
+};
