@@ -72,3 +72,4 @@ export async function getAccountInboundSTX(
 }
 export const ACCOUNT_CONST_1 = 1;
 export const ACCOUNT_CONST_2 = 2;
+export const ACCOUNT_CONST_3 = 3;
