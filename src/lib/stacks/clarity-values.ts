@@ -47,3 +47,7 @@ export function boolCV(value: boolean): BoolCV {
 export function stringAsciiCV(value: string): StringAsciiCV {
   return { type: 'string-ascii', value };
 }
+/** Factory: string-utf8 */
+export function stringUtf8CV(value: string): StringUtf8CV {
+  return { type: 'string-utf8', value };
+}
