@@ -8,3 +8,13 @@ export interface MessageStorageTuple {
   'reply-to': bigint | null;
   reactions: bigint;
 }
+/** Build message storage tuple */
+export function buildMessageTuple(
+  sender: string,
+  content: string,
+  channelId: bigint,
+  createdAt: bigint,
+  replyTo: bigint | null,
+): MessageStorageTuple {
+  return { sender, content, 'channel-id': channelId, 'created-at': createdAt, 'reply-to': replyTo, reactions: 0n };
+}
