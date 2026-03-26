@@ -77,3 +77,4 @@ export async function getTxEvents(
 ): Promise<{ results: unknown[]; limit: number; offset: number }> {
   return client.fetch(`/extended/v1/tx/${txId}/events`, undefined, { limit, offset });
 }
+export const TX_ENDPOINT_CONST_1 = 1;
