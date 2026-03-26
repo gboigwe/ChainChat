@@ -125,3 +125,10 @@ export function validatePrincipals(addresses: string[]): {
   }
   return { valid, invalid };
 }
+
+/** Get network prefix (SP/ST) from principal */
+export function getNetworkPrefix(address: string): 'SP' | 'ST' | null {
+  if (address.startsWith('SP')) return 'SP';
+  if (address.startsWith('ST')) return 'ST';
+  return null;
+}
