@@ -1,0 +1,79 @@
+// Clarity v4 encoding utility functions
+/** Encode a bigint as hex string (little-endian 16 bytes) */
+export function bigintToHex(value: bigint): string {
+  return value.toString(16).padStart(32, '0');
+}
+/** Decode hex string to bigint */
+export function hexToBigint(hex: string): bigint {
+  return BigInt('0x' + hex.replace(/^0x/, ''));
+}
+/** Encode string as ASCII byte array */
+export function stringToAsciiBytes(str: string): Uint8Array {
+  return new TextEncoder().encode(str);
+}
+/** Decode ASCII byte array to string */
+export function asciiBytesToString(bytes: Uint8Array): string {
+  return new TextDecoder('ascii').decode(bytes);
+}
+/** Encode buffer as hex string */
+export function bufferToHex(buffer: Uint8Array): string {
+  return Array.from(buffer).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+/** Decode hex string to Uint8Array buffer */
+export function hexToBuffer(hex: string): Uint8Array {
+  const clean = hex.replace(/^0x/, '');
+  const bytes = new Uint8Array(clean.length / 2);
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
+  }
+  return bytes;
+}
+/** Pad hex string to 64 chars (32 bytes) */
+export function padHex(hex: string): string {
+  return hex.replace(/^0x/, '').padStart(64, '0');
+}
+/** Check if string is valid hex */
+export function isHexString(str: string): boolean {
+  return /^(0x)?[0-9a-fA-F]*$/.test(str);
+}
+/** Normalize hex string by removing 0x prefix */
+export function normalizeHex(hex: string): string {
+  return hex.startsWith('0x') ? hex.slice(2) : hex;
+}
+/** Add 0x prefix to hex string if missing */
+export function addHexPrefix(hex: string): string {
+  return hex.startsWith('0x') ? hex : '0x' + hex;
+}
+
+/** Convert number to big-endian 4-byte buffer */
+export function uint32ToBuffer(value: number): Uint8Array {
+  const buf = new Uint8Array(4);
+  new DataView(buf.buffer).setUint32(0, value, false);
+  return buf;
+}
+
+/** Convert big-endian 4-byte buffer to number */
+export function bufferToUint32(buf: Uint8Array): number {
+  return new DataView(buf.buffer).getUint32(0, false);
+}
+
+/** Convert bigint to 8-byte big-endian buffer */
+export function uint64ToBuffer(value: bigint): Uint8Array {
+  const buf = new Uint8Array(8);
+  const view = new DataView(buf.buffer);
+  view.setBigUint64(0, value, false);
+  return buf;
+}
+
+/** Convert 8-byte big-endian buffer to bigint */
+export function bufferToUint64(buf: Uint8Array): bigint {
+  return new DataView(buf.buffer).getBigUint64(0, false);
+}
+/** Convert UTF-8 string to Uint8Array */
+export function stringToBytes(str: string): Uint8Array {
+  return new TextEncoder().encode(str);
+}
+/** Convert Uint8Array bytes to UTF-8 string */
+export function bytesToString(bytes: Uint8Array): string {
+  return new TextDecoder().decode(bytes);
+}
