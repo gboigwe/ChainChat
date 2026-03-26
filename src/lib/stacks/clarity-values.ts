@@ -124,3 +124,8 @@ export function isContractPrincipalCV(cv: ClarityValue): cv is ContractPrincipal
 export function isPrincipalCV(cv: ClarityValue): cv is StandardPrincipalCV | ContractPrincipalCV {
   return cv.type === 'principal' || cv.type === 'contract';
 }
+/** Get string representation of principal CV */
+export function principalCVToString(cv: StandardPrincipalCV | ContractPrincipalCV): string {
+  if (cv.type === 'principal') return cv.address;
+  return `${cv.address}.${cv.contractName}`;
+}
