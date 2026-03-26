@@ -118,3 +118,8 @@ export function isValidAttachment(att: MessageAttachment): boolean {
 export interface ClarityMessageWithAttachment extends ClarityMessage {
   attachment: MessageAttachment | null;
 }
+
+/** Sort messages by block height ascending */
+export function sortMessagesByBlock(messages: ClarityMessage[]): ClarityMessage[] {
+  return [...messages].sort((a, b) => (a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0));
+}
