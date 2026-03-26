@@ -40,3 +40,13 @@ export async function getTransactionList(
   if (type) params['type'] = type;
   return client.fetch('/extended/v1/tx', undefined, params);
 }
+/** Get mempool transactions */
+export async function getMempoolTransactions(
+  client: HiroApiClient,
+  senderAddress?: string,
+  limit = 50,
+): Promise<{ results: TransactionResponse[]; total: number }> {
+  const params: Record<string, string | number> = { limit };
+  if (senderAddress) params['sender_address'] = senderAddress;
+  return client.fetch('/extended/v1/tx/mempool', undefined, params);
+}
