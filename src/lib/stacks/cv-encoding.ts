@@ -59,3 +59,10 @@ export function deserializeClarityValue(bytes: Uint8Array): AnyCV {
   if (!typeName) throw new Error(`Unknown type code: ${typeCode}`);
   return { type: typeName } as AnyCV;
 }
+/** Convert hex string to ClarityValue */
+export function hexToCV(hex: string): AnyCV {
+  const clean = hex.replace(/^0x/, '');
+  const bytes = new Uint8Array(clean.length / 2);
+  for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
+  return deserializeClarityValue(bytes);
+}
