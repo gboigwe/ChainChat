@@ -13,3 +13,6 @@ export interface ContractCallTxOptions {
   network: string;
   senderKey?: string;
 }
+/** Mutable builder for ContractCallTransaction */
+export class ContractCallBuilder {
+  private options: Partial<ContractCallTxOptions> = {};
