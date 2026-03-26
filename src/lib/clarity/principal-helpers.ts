@@ -29,3 +29,9 @@ export function getDeployerAddress(contractPrincipal: string): string | null {
   const match = CONTRACT_PRINCIPAL_REGEX.exec(contractPrincipal);
   return match ? match[1] : null;
 }
+
+/** Extract contract name from a contract principal */
+export function getContractName(contractPrincipal: string): string | null {
+  const match = CONTRACT_PRINCIPAL_REGEX.exec(contractPrincipal);
+  return match ? match[2] : null;
+}
