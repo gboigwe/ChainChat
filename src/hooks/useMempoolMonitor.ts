@@ -16,3 +16,15 @@ export function useMempoolMonitor(
   const [pending, setPending] = useState<unknown[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const refresh = useCallback(async () => {
+    if (!address) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`${apiUrl}/extended/v1/tx/mempool?sender_address=${address}&limit=50`);
+      const data = await res.json();
+      setPending(data.results ?? []);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Failed to fetch mempool');
+    } finally { setLoading(false); }
+  }, [address, apiUrl]);
