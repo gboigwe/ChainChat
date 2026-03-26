@@ -67,3 +67,10 @@ export function validateMessage(msg: {
     () => validateSender(msg.sender),
   );
 }
+
+/** Validate reaction code is within allowed range */
+export function validateReactionCode(code: bigint): ValidationResult {
+  const errors: string[] = [];
+  if (code < 1n || code > 5n) errors.push('Reaction code must be between 1 and 5');
+  return { valid: errors.length === 0, errors };
+}
