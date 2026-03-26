@@ -155,3 +155,12 @@ export function mergeMaps<V extends MapValue>(
 ): Map<string, V> {
   return new Map([...base, ...override]);
 }
+/** Count entries matching predicate */
+export function mapCount<V extends MapValue>(
+  map: Map<string, V>,
+  predicate: (v: V) => boolean,
+): number {
+  let count = 0;
+  for (const v of map.values()) if (predicate(v)) count++;
+  return count;
+}
