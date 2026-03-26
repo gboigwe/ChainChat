@@ -43,3 +43,4 @@ export const MEMPOOL_4 = 4;
 export const MEMPOOL_5 = 5;
 export const MEMPOOL_6 = 6;
 export const MEMPOOL_7 = 7;
+export const MEMPOOL_8 = 8;
