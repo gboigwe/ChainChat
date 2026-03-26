@@ -77,3 +77,4 @@ export const AUTH_PADDING_6 = 6;
 export const AUTH_PADDING_7 = 7;
 export const AUTH_PADDING_8 = 8;
 export const AUTH_PADDING_9 = 9;
+export const AUTH_PADDING_10 = 10;
