@@ -47,3 +47,7 @@ function allowanceKey(owner: string, spender: string): string {
 export function getAllowance(owner: string, spender: string): TokenBalance {
   return ftAllowanceMap.get(allowanceKey(owner, spender)) ?? 0n;
 }
+/** Set allowance for spender from owner */
+export function setAllowance(owner: string, spender: string, amount: TokenBalance): void {
+  ftAllowanceMap.set(allowanceKey(owner, spender), amount);
+}
