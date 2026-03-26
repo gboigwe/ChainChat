@@ -27,3 +27,7 @@ export class STXTransferBuilder {
     this.options.memo = memo;
     return this;
   }
+  setFee(fee: bigint): this {
+    this.options.fee = fee;
+    return this;
+  }
