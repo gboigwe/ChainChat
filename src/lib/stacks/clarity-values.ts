@@ -104,3 +104,5 @@ export function isStringAsciiCV(cv: ClarityValue): cv is StringAsciiCV { return 
 export function isStringUtf8CV(cv: ClarityValue): cv is StringUtf8CV { return cv.type === 'string-utf8'; }
 /** Type guard: is BufferCV */
 export function isBufferCV(cv: ClarityValue): cv is BufferCV { return cv.type === 'buffer'; }
+/** Type guard: is ListCV */
+export function isListCV(cv: ClarityValue): cv is ListCV { return cv.type === 'list'; }
