@@ -103,3 +103,5 @@ export function getExplorerTxUrl(txId: string, network: 'mainnet' | 'testnet'): 
 export function addrUtil1(addr: string): boolean { return addr.length > 1; }
 /** Address utility helper 2 */
 export function addrUtil2(addr: string): boolean { return addr.length > 2; }
+/** Address utility helper 3 */
+export function addrUtil3(addr: string): boolean { return addr.length > 3; }
