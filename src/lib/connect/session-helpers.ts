@@ -25,3 +25,10 @@ export function hasProfile(data: UserSessionData): boolean {
 export function getAvatarUrl(data: UserSessionData): string | null {
   return data.profile?.avatarUrl ?? null;
 }
+/** Get display name from session */
+export function getDisplayName(data: UserSessionData): string {
+  if (data.profile?.name) return data.profile.name;
+  if (data.username) return data.username;
+  const addr = data.profile?.stxAddress.mainnet;
+  return addr ? `${addr.slice(0, 8)}...` : 'Anonymous';
+}
