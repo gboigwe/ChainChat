@@ -96,3 +96,7 @@ export function cvToJson(cv: ClarityValue): CVJson {
 export function serializeArgs(args: ClarityValue[]): string[] {
   return args.map(cvToHex);
 }
+/** Count bytes required for serialization */
+export function cvByteLength(cv: ClarityValue): number {
+  return serializeClarityValue(cv).length;
+}
