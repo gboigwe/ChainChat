@@ -87,3 +87,8 @@ export const ERROR_MESSAGES: Record<bigint | number, string> = {
   [Number(ERR_CHANNEL_FULL)]: 'Channel is full',
   [Number(ERR_MESSAGE_TOO_LONG)]: 'Message too long',
 };
+
+/** Convert error code bigint to readable string */
+export function getErrorMessage(code: bigint): string {
+  return ERROR_MESSAGES[Number(code)] ?? `Unknown error: ${code}`;
+}
