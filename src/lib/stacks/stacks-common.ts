@@ -41,3 +41,5 @@ export function addressesEqual(a: string, b: string): boolean { return a === b; 
 export const MIN_TX_FEE = 180n;
 /** Default anchor mode */
 export const DEFAULT_ANCHOR_MODE = 'any';
+/** Transaction version for mainnet */
+export const TX_VERSION_MAINNET = 0;
