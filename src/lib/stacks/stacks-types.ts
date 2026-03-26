@@ -63,3 +63,12 @@ export interface NonceInfo {
   detectedMissingNonces: number[];
   lastExecutedTxNonce?: number;
 }
+/** Account info response */
+export interface AccountInfo {
+  balance: string;
+  locked: string;
+  unlock_height: number;
+  nonce: number;
+  balance_proof: string;
+  nonce_proof: string;
+}
