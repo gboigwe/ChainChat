@@ -112,3 +112,5 @@ export function setFeeRate(rate: bigint): void {
 }
 /** Maximum message age before archival (data-var) */
 export const maxMessageAgeVar = createDataVar<bigint>(50_400n);
+/** Get max message age setting */
+export function getMaxMessageAge(): bigint { return maxMessageAgeVar.get(); }
