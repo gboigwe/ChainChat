@@ -62,3 +62,9 @@ export function buildReactionTuple(
 ): ReactionStorageTuple {
   return { 'reaction-code': reactionCode, 'block-height': blockHeight };
 }
+/** Invite storage tuple */
+export interface InviteStorageTuple {
+  inviter: string;
+  role: bigint;
+  'expiry-block': bigint;
+}
