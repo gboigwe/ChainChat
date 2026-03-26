@@ -15,3 +15,5 @@ export interface StringUtf8CV extends ClarityValue { type: 'string-utf8'; value:
 export interface BufferCV extends ClarityValue { type: 'buffer'; value: Uint8Array; }
 /** Clarity list value */
 export interface ListCV extends ClarityValue { type: 'list'; list: ClarityValue[]; }
+/** Clarity tuple value */
+export interface TupleCV extends ClarityValue { type: 'tuple'; data: Record<string, ClarityValue>; }
