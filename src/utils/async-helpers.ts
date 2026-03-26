@@ -6,3 +6,4 @@ export const ASYNC_CONST_4 = 'debounce';
 export const ASYNC_CONST_5 = 'throttle';
 export const ASYNC_CONST_6 = 6;
 export const ASYNC_CONST_7 = 7;
+export const ASYNC_CONST_8 = 8;
