@@ -93,3 +93,9 @@ export function formatBalance(balance: bigint, decimals = 6): string {
   const fraction = balance % divisor;
   return `${whole}.${fraction.toString().padStart(decimals, '0')}`;
 }
+/** Parse formatted balance back to bigint */
+export function parseBalance(formatted: string, decimals = 6): bigint {
+  const [whole, frac = ''] = formatted.split('.');
+  const paddedFrac = frac.padEnd(decimals, '0').slice(0, decimals);
+  return BigInt(whole) * 10n ** BigInt(decimals) + BigInt(paddedFrac);
+}
