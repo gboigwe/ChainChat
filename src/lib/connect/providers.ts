@@ -79,3 +79,10 @@ export function getProviderName(provider: WalletProvider): string {
 }
 /** Wallet connection status */
 export type WalletConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error';
+/** Provider capabilities */
+export interface ProviderCapabilities {
+  signMessage: boolean;
+  signStructuredData: boolean;
+  sendTransactions: boolean;
+  signPsbt: boolean;
+}
