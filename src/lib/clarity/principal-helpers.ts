@@ -111,3 +111,17 @@ export function parsePrincipal(raw: unknown): string {
 export function sameDeployer(a: string, b: string): boolean {
   return getDeployerAddress(a) === getDeployerAddress(b);
 }
+
+/** Batch validate a list of principals */
+export function validatePrincipals(addresses: string[]): {
+  valid: string[];
+  invalid: string[];
+} {
+  const valid: string[] = [];
+  const invalid: string[] = [];
+  for (const addr of addresses) {
+    if (isValidPrincipal(addr)) valid.push(addr);
+    else invalid.push(addr);
+  }
+  return { valid, invalid };
+}
