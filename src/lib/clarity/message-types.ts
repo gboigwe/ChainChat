@@ -199,3 +199,8 @@ export function paginateMessages(
   const start = page * pageSize;
   return messages.slice(start, start + pageSize);
 }
+
+/** Check if message content has changed (edit detection) */
+export function contentChanged(original: MessageContent, updated: MessageContent): boolean {
+  return original !== updated;
+}
