@@ -35,3 +35,4 @@ export async function simulateSendMessage(opts: SendMessageOptions): Promise<Sen
   return { txId: '0x' + '0'.repeat(64), status: 'pending' };
 }
 export const SEND_MSG_CONST_1 = 1;
+export const SEND_MSG_CONST_2 = 2;
