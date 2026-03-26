@@ -52,3 +52,4 @@ export const NETWORK_TYPE_28 = 28;
 export const NETWORK_TYPE_29 = 29;
 export const NETWORK_TYPE_30 = 30;
 export const NETWORK_TYPE_31 = 31;
+export const NETWORK_TYPE_32 = 32;
