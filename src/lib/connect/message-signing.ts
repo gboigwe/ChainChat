@@ -104,3 +104,4 @@ export const SIGN_CONST_14 = 14;
 export const SIGN_CONST_15 = 15;
 export const SIGN_CONST_16 = 16;
 export const SIGN_CONST_17 = 17;
+export const SIGN_CONST_18 = 18;
