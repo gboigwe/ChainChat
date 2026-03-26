@@ -55,3 +55,10 @@ export interface ReactionStorageTuple {
   'reaction-code': bigint;
   'block-height': bigint;
 }
+/** Build reaction storage tuple */
+export function buildReactionTuple(
+  reactionCode: bigint,
+  blockHeight: bigint,
+): ReactionStorageTuple {
+  return { 'reaction-code': reactionCode, 'block-height': blockHeight };
+}
