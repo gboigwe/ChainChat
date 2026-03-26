@@ -60,3 +60,7 @@ export function pauseContract(): void {
 export function resumeContract(): void {
   contractPaused.set(false);
 }
+/** Get and increment message counter atomically */
+export function nextMessageId(): bigint {
+  return incrementVar(messageCounter);
+}
