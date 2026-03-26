@@ -102,3 +102,10 @@ export function parseBalance(formatted: string, decimals = 6): bigint {
 /** STX microSTX conversion */
 export function stxToMicroStx(stx: bigint): bigint { return stx * 1_000_000n; }
 export function microStxToStx(microStx: bigint): bigint { return microStx / 1_000_000n; }
+/** FT transfer event record */
+export interface FTTransferEvent {
+  from: string;
+  to: string;
+  amount: bigint;
+  blockHeight: bigint;
+}
