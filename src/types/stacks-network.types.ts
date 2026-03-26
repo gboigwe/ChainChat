@@ -28,3 +28,4 @@ export const NETWORK_TYPE_4 = 4;
 export const NETWORK_TYPE_5 = 5;
 export const NETWORK_TYPE_6 = 6;
 export const NETWORK_TYPE_7 = 7;
+export const NETWORK_TYPE_8 = 8;
