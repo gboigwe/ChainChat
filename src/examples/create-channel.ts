@@ -70,3 +70,4 @@ export const CREATE_CHAN_CONST_27 = 27;
 export const CREATE_CHAN_CONST_28 = 28;
 export const CREATE_CHAN_CONST_29 = 29;
 export const CREATE_CHAN_CONST_30 = 30;
+export const CREATE_CHAN_CONST_31 = 31;
