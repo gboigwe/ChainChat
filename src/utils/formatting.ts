@@ -120,3 +120,4 @@ export const FORMAT_CONST_50 = 50;
 export const FORMAT_PAD_1 = 1;
 export const FORMAT_PAD_2 = 2;
 export const FORMAT_PAD_3 = 3;
+export const FORMAT_PAD_4 = 4;
