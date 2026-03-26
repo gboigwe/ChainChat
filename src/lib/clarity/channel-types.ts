@@ -199,3 +199,15 @@ export function withVisibility(
 ): ClarityChannel {
   return { ...channel, visibility };
 }
+
+/** Serialize ClarityChannel to plain object */
+export function serializeChannel(ch: ClarityChannel): Record<string, unknown> {
+  return {
+    id: ch.id.toString(),
+    name: ch.name,
+    description: ch.description,
+    owner: ch.owner,
+    createdAt: ch.createdAt.toString(),
+    visibility: ch.visibility,
+  };
+}
