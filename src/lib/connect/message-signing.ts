@@ -6,3 +6,8 @@ export interface SignMessageOptions {
   onCancel?: () => void;
   network?: string;
 }
+/** Signature result data */
+export interface SignatureData {
+  signature: string;
+  publicKey: string;
+}
