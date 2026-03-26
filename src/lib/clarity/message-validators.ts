@@ -34,3 +34,14 @@ export function validateChannelName(name: string): ValidationResult {
   if (containsDisallowedChars(name)) errors.push('Name contains disallowed characters');
   return { valid: errors.length === 0, errors };
 }
+
+/** Compose multiple validators, returning first failure */
+export function composeValidators(
+  ...validators: Array<() => ValidationResult>
+): ValidationResult {
+  for (const v of validators) {
+    const result = v();
+    if (!result.valid) return result;
+  }
+  return { valid: true, errors: [] };
+}
