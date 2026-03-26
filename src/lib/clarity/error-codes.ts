@@ -19,3 +19,17 @@ export const ERR_EMPTY_CONTENT = 107n;
 export const ERR_INVITE_EXPIRED = 108n;
 /** Error: channel is at capacity */
 export const ERR_CHANNEL_CAPACITY = 109n;
+
+/** Map from error code to description */
+export const CONTRACT_ERROR_DESCRIPTIONS: Record<number, string> = {
+  100: 'Not a channel member',
+  101: 'Channel not found',
+  102: 'Message not found',
+  103: 'Already reacted',
+  104: 'Already a member',
+  105: 'Cannot kick channel owner',
+  106: 'Permission denied',
+  107: 'Empty content',
+  108: 'Invite expired',
+  109: 'Channel at capacity',
+};
