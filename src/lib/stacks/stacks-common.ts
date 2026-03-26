@@ -91,3 +91,4 @@ export const NONCE_STALE_AFTER_BLOCKS = 5n;
 export const EVENT_POLL_INTERVAL_MS = 5000;
 export const TX_STATUS_POLL_INTERVAL_MS = 5000;
 export const MAX_TX_BROADCAST_SIZE = 5000;
+export const STACKS_COMMON_1 = 1;
