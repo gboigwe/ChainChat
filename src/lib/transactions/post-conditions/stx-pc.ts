@@ -29,3 +29,12 @@ export function makeStandardSTXPostCondition(
 ): StandardSTXPostCondition {
   return { type: 'stx', principal: { type: 'standard', address }, conditionCode, amount };
 }
+/** Make a contract STX post-condition */
+export function makeContractSTXPostCondition(
+  address: string,
+  contractName: string,
+  conditionCode: FungibleConditionCode,
+  amount: bigint,
+): ContractSTXPostCondition {
+  return { type: 'stx', principal: { type: 'contract', address, contractName }, conditionCode, amount };
+}
