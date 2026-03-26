@@ -172,3 +172,7 @@ export function nftOwnerKey(tokenId: bigint): string {
 export function ftBalanceKey(principal: string): string {
   return serializeKey({ principal });
 }
+/** Build allowance map key */
+export function ftAllowanceKey(owner: string, spender: string): string {
+  return serializeKey({ owner, spender });
+}
