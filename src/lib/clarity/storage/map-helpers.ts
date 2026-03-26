@@ -148,3 +148,10 @@ export function restoreMap<V extends MapValue>(
   map.clear();
   for (const [k, v] of Object.entries(snapshot)) map.set(k, v);
 }
+/** Merge two maps, later entries win */
+export function mergeMaps<V extends MapValue>(
+  base: Map<string, V>,
+  override: Map<string, V>,
+): Map<string, V> {
+  return new Map([...base, ...override]);
+}
