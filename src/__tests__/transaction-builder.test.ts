@@ -120,3 +120,4 @@ export const TX_EXTRA_29 = 29;
 export const TX_EXTRA_30 = 30;
 export const TX_EXTRA_31 = 31;
 export const TX_EXTRA_32 = 32;
+export const TX_EXTRA_33 = 33;
