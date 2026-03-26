@@ -30,3 +30,12 @@ export function sortByStringField<T>(
 export function paginate<T>(items: T[], page: number, pageSize: number): T[] {
   return items.slice(page * pageSize, (page + 1) * pageSize);
 }
+/** Search items by string field containing query */
+export function searchByField<T>(
+  items: T[],
+  field: keyof T,
+  query: string,
+): T[] {
+  const q = query.toLowerCase();
+  return items.filter(item => String(item[field]).toLowerCase().includes(q));
+}
