@@ -55,3 +55,4 @@ export function useWalletSession(): UseWalletSessionReturn {
 export const WALLET_SESSION_1 = 1;
 export const WALLET_SESSION_2 = 2;
 export const WALLET_SESSION_3 = 3;
+export const WALLET_SESSION_4 = 4;
