@@ -105,3 +105,8 @@ export const feeRateVar = createDataVar<bigint>(1000n);
 export const minDepositVar = createDataVar<bigint>(1_000_000n);
 /** Get current fee rate */
 export function getFeeRate(): bigint { return feeRateVar.get(); }
+/** Update fee rate (owner only) */
+export function setFeeRate(rate: bigint): void {
+  if (rate <= 0n) throw new Error('Fee rate must be positive');
+  feeRateVar.set(rate);
+}
