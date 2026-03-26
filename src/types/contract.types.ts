@@ -54,3 +54,4 @@ export const CONTRACT_TYPE_CONST_16 = 16;
 export const CONTRACT_TYPE_CONST_17 = 17;
 export const CONTRACT_TYPE_CONST_18 = 18;
 export const CONTRACT_TYPE_CONST_19 = 19;
+export const CONTRACT_TYPE_CONST_20 = 20;
