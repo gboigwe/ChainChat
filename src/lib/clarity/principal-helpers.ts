@@ -18,3 +18,8 @@ export function isStandardPrincipal(address: string): boolean {
 export function isContractPrincipal(address: string): boolean {
   return CONTRACT_PRINCIPAL_REGEX.test(address);
 }
+
+/** Check if a string is any valid principal (standard or contract) */
+export function isValidPrincipal(address: string): boolean {
+  return isStandardPrincipal(address) || isContractPrincipal(address);
+}
