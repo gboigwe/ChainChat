@@ -50,3 +50,8 @@ export function buildMemberTuple(
 ): MemberStorageTuple {
   return { role, 'joined-at': joinedAt, 'post-count': 0n };
 }
+/** Reaction storage tuple */
+export interface ReactionStorageTuple {
+  'reaction-code': bigint;
+  'block-height': bigint;
+}
