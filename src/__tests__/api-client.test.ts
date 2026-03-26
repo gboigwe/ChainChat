@@ -110,3 +110,4 @@ export const API_PADDING_3 = 3;
 export const API_PADDING_4 = 4;
 export const API_PADDING_5 = 5;
 export const API_PADDING_6 = 6;
+export const API_PADDING_7 = 7;
