@@ -55,3 +55,4 @@ export const STOR_CONST_33 = 33;
 export const STOR_CONST_34 = 34;
 export const STOR_CONST_35 = 35;
 export const STOR_CONST_36 = 36;
+export const STOR_CONST_37 = 37;
