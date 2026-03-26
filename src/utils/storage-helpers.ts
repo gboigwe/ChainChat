@@ -32,3 +32,4 @@ export const STOR_CONST_10 = 10;
 export const STOR_CONST_11 = 11;
 export const STOR_CONST_12 = 12;
 export const STOR_CONST_13 = 13;
+export const STOR_CONST_14 = 14;
