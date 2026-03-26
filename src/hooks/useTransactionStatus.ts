@@ -45,3 +45,4 @@ export function useTransactionStatus(
     loading,
   };
 }
+export const TX_STATUS_1 = 1;
