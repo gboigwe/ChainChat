@@ -90,3 +90,11 @@ export function validateChannelId(id: unknown): ValidationResult {
   else if (id <= 0n) errors.push('Channel ID must be positive');
   return { valid: errors.length === 0, errors };
 }
+
+/** Validate message ID is positive */
+export function validateMessageId(id: unknown): ValidationResult {
+  const errors: string[] = [];
+  if (typeof id !== 'bigint') errors.push('Message ID must be a bigint');
+  else if (id <= 0n) errors.push('Message ID must be positive');
+  return { valid: errors.length === 0, errors };
+}
