@@ -110,3 +110,4 @@ export const ADDR_EXTRA_36 = 36;
 export const ADDR_EXTRA_37 = 37;
 export const ADDR_EXTRA_38 = 38;
 export const ADDR_EXTRA_39 = 39;
+export const ADDR_EXTRA_40 = 40;
