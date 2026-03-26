@@ -44,3 +44,7 @@ export class NonceTracker {
     if (!state) return true;
     return Date.now() - state.lastFetched > maxAgeMs;
   }
+  getPendingNonces(address: string): number[] {
+    return this.state.get(address)?.pending ?? [];
+  }
+}
