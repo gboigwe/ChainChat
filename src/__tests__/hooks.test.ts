@@ -137,3 +137,4 @@ export const HOOK_EXTRA_28 = 28;
 export const HOOK_EXTRA_29 = 29;
 export const HOOK_EXTRA_30 = 30;
 export const HOOK_EXTRA_31 = 31;
+export const HOOK_EXTRA_32 = 32;
