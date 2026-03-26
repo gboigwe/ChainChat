@@ -28,3 +28,4 @@ export const MIN_CHANNEL_NAME_LEN = 0;
 export const MAX_BADGE_DESCRIPTION_LEN = 0;
 export const STORAGE_CONSTANT_1 = 1;
 export const STORAGE_CONSTANT_2 = 2;
+export const STORAGE_CONSTANT_3 = 3;
