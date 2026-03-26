@@ -9,3 +9,5 @@ export * from './session-helpers';
 export const CONNECT_CONST_1 = 1;
 // connect module constant 2
 export const CONNECT_CONST_2 = 2;
+// connect module constant 3
+export const CONNECT_CONST_3 = 3;
