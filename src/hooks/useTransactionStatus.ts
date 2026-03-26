@@ -55,3 +55,4 @@ export const TX_STATUS_7 = 7;
 export const TX_STATUS_8 = 8;
 export const TX_STATUS_9 = 9;
 export const TX_STATUS_10 = 10;
+export const TX_STATUS_11 = 11;
