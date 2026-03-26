@@ -4,3 +4,4 @@ export * from './channel-types';
 export * from './response-helpers';
 export * from './principal-helpers';
 export * from './block-time-helpers';
+export * from './message-validators';
