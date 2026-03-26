@@ -9,3 +9,5 @@ export const ERR_MESSAGE_NOT_FOUND = 102n;
 export const ERR_ALREADY_REACTED = 103n;
 /** Error: principal is already a member */
 export const ERR_ALREADY_MEMBER = 104n;
+/** Error: cannot kick channel owner */
+export const ERR_CANNOT_KICK_OWNER = 105n;
