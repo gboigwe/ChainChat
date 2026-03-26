@@ -77,3 +77,11 @@ export interface MessageDeletedEvent extends StorageEvent {
   channelId: bigint;
   deletedBy: string;
 }
+/** Filter events by block range */
+export function filterEventsByBlock(
+  events: StorageEventUnion[],
+  start: bigint,
+  end: bigint,
+): StorageEventUnion[] {
+  return events.filter(e => e.blockHeight >= start && e.blockHeight <= end);
+}
