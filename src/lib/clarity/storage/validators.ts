@@ -40,3 +40,7 @@ export function isValidBlockRange(start: bigint, end: bigint): boolean {
 export function isNonNegativeBigint(value: bigint): boolean {
   return value >= 0n;
 }
+/** Validate principal is non-empty string */
+export function isNonEmptyPrincipal(principal: string): boolean {
+  return typeof principal === 'string' && principal.length > 0;
+}
