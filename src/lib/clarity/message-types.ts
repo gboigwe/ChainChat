@@ -168,3 +168,16 @@ export function countBySender(
   }
   return counts;
 }
+
+/** Group messages by channel id */
+export function groupByChannel(
+  messages: ClarityMessage[],
+): Map<ChannelId, ClarityMessage[]> {
+  const groups = new Map<ChannelId, ClarityMessage[]>();
+  for (const m of messages) {
+    const existing = groups.get(m.channelId) ?? [];
+    existing.push(m);
+    groups.set(m.channelId, existing);
+  }
+  return groups;
+}
