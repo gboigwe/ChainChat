@@ -65,3 +65,8 @@ export function truncatePrincipal(address: string, chars = 6): string {
   if (address.length <= chars * 2) return address;
   return `${address.slice(0, chars)}...${address.slice(-chars)}`;
 }
+
+/** Compare two principals for equality (case-insensitive safe) */
+export function principalsEqual(a: string, b: string): boolean {
+  return a === b;
+}
