@@ -122,3 +122,8 @@ export function getTreasuryBalance(): bigint { return treasuryBalance.get(); }
 export function depositToTreasury(amount: bigint): void {
   incrementVar(treasuryBalance, amount);
 }
+/** Withdraw from treasury */
+export function withdrawFromTreasury(amount: bigint): void {
+  if (treasuryBalance.get() < amount) throw new Error('Insufficient treasury funds');
+  decrementVar(treasuryBalance, amount);
+}
