@@ -59,3 +59,4 @@ export const FT_PC_5 = 5;
 export const FT_PC_6 = 6;
 export const FT_PC_7 = 7;
 export const FT_PC_8 = 8;
+export const FT_PC_9 = 9;
