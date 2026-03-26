@@ -16,3 +16,11 @@ export async function getContractInfo(
 ): Promise<ContractInfoResponse> {
   return client.fetch<ContractInfoResponse>(`/extended/v1/contract/${contractId}`);
 }
+/** Get contract interface (ABI) */
+export async function getContractInterface(
+  client: HiroApiClient,
+  contractAddress: string,
+  contractName: string,
+): Promise<unknown> {
+  return client.fetch(`/v2/contracts/interface/${contractAddress}/${contractName}`);
+}
