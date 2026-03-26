@@ -9,3 +9,4 @@ export * from './fee-estimation';
 export * from './nonce-management';
 export const TX_INDEX_1 = 1;
 export const TX_INDEX_2 = 2;
+export const TX_INDEX_3 = 3;
