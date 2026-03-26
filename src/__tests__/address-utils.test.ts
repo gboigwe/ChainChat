@@ -71,3 +71,4 @@ describe('truncateAddress', () => {
     expect(truncated).toContain('...');
   });
 });
+export const ADDR_PADDING_1 = 1;
