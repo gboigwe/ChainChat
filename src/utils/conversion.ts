@@ -5,3 +5,4 @@ export const CONV_MIN_TRANSFER_STX = 0.000001;
 export const CONV_STX_DECIMALS = 6;
 export const CONV_CONST_6 = 6;
 export const CONV_CONST_7 = 7;
+export const CONV_CONST_8 = 8;
