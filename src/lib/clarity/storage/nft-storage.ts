@@ -114,3 +114,5 @@ export interface NFTTransferEvent {
   to: string;
   blockHeight: bigint;
 }
+/** Transfer event log */
+export const transferEventLog: NFTTransferEvent[] = [];
