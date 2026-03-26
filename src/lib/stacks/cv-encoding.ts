@@ -15,3 +15,20 @@ export function cvToString(cv: ClarityValue): string {
     default: return JSON.stringify(cv);
   }
 }
+/** ClarityValue type code map */
+const TYPE_CODES: Record<string, number> = {
+  'int': 0,
+  'uint': 1,
+  'buffer': 2,
+  'bool': 3,
+  'principal': 5,
+  'contract': 6,
+  'ok': 7,
+  'err': 8,
+  'none': 9,
+  'some': 10,
+  'list': 11,
+  'tuple': 12,
+  'string-ascii': 13,
+  'string-utf8': 14,
+};
