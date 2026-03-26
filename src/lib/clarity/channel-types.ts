@@ -50,3 +50,11 @@ export interface ChannelPermissions {
   canDelete: boolean;
   canKick: boolean;
 }
+
+/** Default permissions by role */
+export const DEFAULT_PERMISSIONS: Record<MemberRole, ChannelPermissions> = {
+  admin:     { canPost: true,  canInvite: true,  canDelete: true,  canKick: true  },
+  moderator: { canPost: true,  canInvite: true,  canDelete: true,  canKick: false },
+  member:    { canPost: true,  canInvite: false, canDelete: false, canKick: false },
+  viewer:    { canPost: false, canInvite: false, canDelete: false, canKick: false },
+};
