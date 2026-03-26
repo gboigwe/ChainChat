@@ -14,3 +14,7 @@ export async function search(
 ): Promise<SearchResult> {
   return client.fetch<SearchResult>(`/extended/v1/search/${id}`);
 }
+/** Search by transaction ID */
+export async function searchByTxid(client: HiroApiClient, txid: string): Promise<SearchResult> {
+  return search(client, txid);
+}
