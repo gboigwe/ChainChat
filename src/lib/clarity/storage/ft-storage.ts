@@ -86,3 +86,10 @@ export function getTopHolders(n: number): Array<{ principal: string; balance: bi
 export function hasSufficientBalance(principal: string, amount: bigint): boolean {
   return getBalance(principal) >= amount;
 }
+/** Format token balance for display */
+export function formatBalance(balance: bigint, decimals = 6): string {
+  const divisor = 10n ** BigInt(decimals);
+  const whole = balance / divisor;
+  const fraction = balance % divisor;
+  return `${whole}.${fraction.toString().padStart(decimals, '0')}`;
+}
