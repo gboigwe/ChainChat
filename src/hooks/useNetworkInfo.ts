@@ -34,3 +34,4 @@ export function useNetworkInfo(network: 'mainnet' | 'testnet' = 'mainnet'): Netw
     loading,
   };
 }
+export const NETWORK_INFO_1 = 1;
