@@ -11,3 +11,6 @@ export const BLOCKS_PER_DAY = 144;
 
 /** Blocks per week on Stacks mainnet */
 export const BLOCKS_PER_WEEK = 1008;
+
+/** Blocks per 30-day month approximation */
+export const BLOCKS_PER_MONTH = 4320;
