@@ -141,3 +141,17 @@ export function pipe<T, E>(
 ): ClarityResponse<T, E> {
   return fns.reduce((acc, fn) => andThen(acc, fn), initial);
 }
+
+/** Retry an operation up to N times on err */
+export async function retryOnErr<T>(
+  fn: () => Promise<ClarityResponse<T, bigint>>,
+  retries = 3,
+): Promise<ClarityResponse<T, bigint>> {
+  let lastErr: ErrResponse<bigint> | null = null;
+  for (let i = 0; i < retries; i++) {
+    const res = await fn();
+    if (isOk(res)) return res;
+    lastErr = res;
+  }
+  return lastErr ?? err(ERR_INVALID_INPUT);
+}
