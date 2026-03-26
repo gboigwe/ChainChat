@@ -52,3 +52,4 @@ export function formatFee(fee: bigint): string {
 }
 export const FEE_CONST_1 = 1n;
 export const FEE_CONST_2 = 2n;
+export const FEE_CONST_3 = 3n;
