@@ -110,3 +110,5 @@ export function mergeProfile(
     profile: { ...existing.profile, ...updates } as UserProfile,
   };
 }
+/** Auth event types */
+export type AuthEvent = 'sign-in' | 'sign-out' | 'session-updated';
