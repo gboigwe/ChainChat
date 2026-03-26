@@ -15,3 +15,9 @@ export interface NetworkEndpoints {
   ws: string;
   explorer: string;
 }
+export interface BlockInfo {
+  height: number;
+  hash: string;
+  burnBlockTime: number;
+  epoch: EpochIdentifier;
+}
