@@ -62,3 +62,7 @@ export class ContractCallBuilder {
     this.options.network = network;
     return this;
   }
+  setSenderKey(key: string): this {
+    this.options.senderKey = key;
+    return this;
+  }
