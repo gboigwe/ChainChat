@@ -114,3 +114,10 @@ export function buildStatsTuple(
 ): StatsStorageTuple {
   return { 'message-count': messageCount, 'member-count': memberCount, 'last-activity': lastActivity };
 }
+/** Update last activity in stats tuple */
+export function updateLastActivity(
+  t: StatsStorageTuple,
+  blockHeight: bigint,
+): StatsStorageTuple {
+  return { ...t, 'last-activity': blockHeight };
+}
