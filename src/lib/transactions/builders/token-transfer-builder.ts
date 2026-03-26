@@ -51,3 +51,7 @@ export class FTTransferBuilder {
     return { contractAddress, contractName, tokenName, recipient, amount, memo: this.options.memo ?? '', fee, nonce, network, anchorMode: this.options.anchorMode ?? 'any' };
   }
 }
+/** Factory: create FTTransferBuilder */
+export function ftTransfer(): FTTransferBuilder {
+  return new FTTransferBuilder();
+}
