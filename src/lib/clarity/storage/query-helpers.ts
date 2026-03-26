@@ -133,3 +133,7 @@ export function mergeQueryResults<T>(a: QueryResult<T>, b: QueryResult<T>): Quer
   const items = [...a.items, ...b.items];
   return { items, total: a.total + b.total, page: 0, pageSize: items.length, hasMore: false };
 }
+/** Count total pages for items */
+export function totalPages(total: number, pageSize: number): number {
+  return Math.ceil(total / pageSize);
+}
