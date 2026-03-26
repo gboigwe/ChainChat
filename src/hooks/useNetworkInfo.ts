@@ -58,3 +58,4 @@ export const NETWORK_INFO_21 = 21;
 export const NETWORK_INFO_22 = 22;
 export const NETWORK_INFO_23 = 23;
 export const NETWORK_INFO_24 = 24;
+export const NETWORK_INFO_25 = 25;
