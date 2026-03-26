@@ -147,3 +147,9 @@ export interface NFTStorageTuple {
 export function buildNFTTuple(owner: string, uri: string, mintedAt: bigint): NFTStorageTuple {
   return { owner, uri, 'minted-at': mintedAt };
 }
+/** FT balance storage tuple */
+export interface FTBalanceTuple {
+  amount: bigint;
+  locked: bigint;
+  'last-transfer': bigint;
+}
