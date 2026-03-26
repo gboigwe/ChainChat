@@ -15,3 +15,10 @@ export interface AccountBalanceResponse {
   fungible_tokens: Record<string, { balance: string }>;
   non_fungible_tokens: Record<string, { count: string }>;
 }
+/** Get account info */
+export async function getAccountInfo(
+  client: HiroApiClient,
+  address: string,
+): Promise<AccountInfoResponse> {
+  return client.fetch<AccountInfoResponse>(`/v2/accounts/${address}`, undefined, { proof: 0 });
+}
