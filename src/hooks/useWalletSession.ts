@@ -53,3 +53,4 @@ export function useWalletSession(): UseWalletSessionReturn {
   return { isConnected, address, profile, isConnecting, error, network, connect, disconnect, refresh, setNetwork };
 }
 export const WALLET_SESSION_1 = 1;
+export const WALLET_SESSION_2 = 2;
