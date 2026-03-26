@@ -34,3 +34,9 @@ export function isOk<T, E>(res: ClarityResponse<T, E>): res is OkResponse<T> {
 export function isErr<T, E>(res: ClarityResponse<T, E>): res is ErrResponse<E> {
   return res.type === 'err';
 }
+
+/** Unwrap ok value or throw */
+export function unwrap<T, E>(res: ClarityResponse<T, E>): T {
+  if (isOk(res)) return res.value;
+  throw new Error(`Clarity err response: ${String((res as ErrResponse<E>).error)}`);
+}
