@@ -93,3 +93,12 @@ export function mapFilter<V extends MapValue>(
   for (const [k, v] of map) if (predicate(v, k)) result.set(k, v);
   return result;
 }
+/** Transform map values */
+export function mapTransform<V extends MapValue, U extends MapValue>(
+  map: Map<string, V>,
+  fn: (value: V) => U,
+): Map<string, U> {
+  const result = new Map<string, U>();
+  for (const [k, v] of map) result.set(k, fn(v));
+  return result;
+}
