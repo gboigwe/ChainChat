@@ -65,3 +65,4 @@ export const FEE_CONST_12 = 12n;
 export const FEE_CONST_13 = 13n;
 export const FEE_CONST_14 = 14n;
 export const FEE_CONST_15 = 15n;
+export const FEE_CONST_16 = 16n;
