@@ -67,3 +67,4 @@ export const CONTRACT_TYPE_CONST_29 = 29;
 export const CONTRACT_TYPE_CONST_30 = 30;
 export const CONTRACT_TYPE_CONST_31 = 31;
 export const CONTRACT_TYPE_CONST_32 = 32;
+export const CONTRACT_TYPE_CONST_33 = 33;
