@@ -63,3 +63,9 @@ export function transferFrom(
   setAllowance(owner, spender, allowed - amount);
   executeTransfer(owner, recipient, amount);
 }
+/** Revoke all allowances from owner */
+export function revokeAllAllowances(owner: string): void {
+  for (const key of ftAllowanceMap.keys()) {
+    if (key.startsWith(`${owner}:`)) ftAllowanceMap.delete(key);
+  }
+}
