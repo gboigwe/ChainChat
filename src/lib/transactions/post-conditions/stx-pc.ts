@@ -58,3 +58,4 @@ export const STX_PC_13 = 13;
 export const STX_PC_14 = 14;
 export const STX_PC_15 = 15;
 export const STX_PC_16 = 16;
+export const STX_PC_17 = 17;
