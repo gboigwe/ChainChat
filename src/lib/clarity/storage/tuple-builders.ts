@@ -83,3 +83,7 @@ export function getMsgChannelId(t: MessageStorageTuple): bigint { return t['chan
 export function getMsgCreatedAt(t: MessageStorageTuple): bigint { return t['created-at']; }
 export function getMsgReplyTo(t: MessageStorageTuple): bigint | null { return t['reply-to']; }
 export function getMsgReactions(t: MessageStorageTuple): bigint { return t.reactions; }
+/** Increment reaction count in message tuple */
+export function incrementReactions(t: MessageStorageTuple): MessageStorageTuple {
+  return { ...t, reactions: t.reactions + 1n };
+}
