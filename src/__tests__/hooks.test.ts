@@ -106,3 +106,4 @@ describe('usePriceOracle', () => {
     expect(formatted).toBe('1.25');
   });
 });
+export const HOOK_PADDING_1 = 1;
