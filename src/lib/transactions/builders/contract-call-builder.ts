@@ -99,3 +99,4 @@ export function contractCall(): ContractCallBuilder {
   return new ContractCallBuilder();
 }
 export const CC_BUILDER_CONST_1 = 1;
+export const CC_BUILDER_CONST_2 = 2;
