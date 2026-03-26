@@ -132,3 +132,7 @@ export function countBadgesByType(badgeType: BadgeType): number {
   for (const badge of badgeMap.values()) if (badge.badgeType === badgeType) count++;
   return count;
 }
+/** Get all NFT metadata as array */
+export function getAllNFTMetadata(): NFTMetadata[] {
+  return Array.from(nftMetadataMap.values());
+}
