@@ -25,3 +25,8 @@ export const VISIBILITY_CODES: Record<ChannelVisibility, bigint> = {
   private: 2n,
   restricted: 3n,
 };
+
+/** Core channel tuple as stored in Clarity define-map */
+export interface ClarityChannel {
+  id: ChannelId;
+}
