@@ -31,3 +31,7 @@ export interface MapABI {
 export interface TokenABI {
   name: string;
 }
+export interface EventABI {
+  name: string;
+  type: 'stx_asset' | 'fungible_token_asset' | 'non_fungible_token_asset' | 'smart_contract_log';
+}
