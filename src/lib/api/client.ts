@@ -115,3 +115,4 @@ export const API_CLIENT_CONST_37 = 37;
 export const API_CLIENT_CONST_38 = 38;
 export const API_CLIENT_CONST_39 = 39;
 export const API_CLIENT_CONST_40 = 40;
+export const API_CLIENT_CONST_41 = 41;
