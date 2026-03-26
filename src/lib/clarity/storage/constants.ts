@@ -13,3 +13,4 @@ export const LOG_RETENTION_BLOCKS = 50_400n;
 export const CACHE_TTL_CHANNEL_MS = 60_000;
 export const CACHE_TTL_MESSAGE_MS = 30_000;
 export const CACHE_TTL_BALANCE_MS = 10_000;
+export const EVENT_LOG_VERSION = '1.0';
