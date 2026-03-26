@@ -139,3 +139,13 @@ export function getThreadReplies(
 ): ClarityMessage[] {
   return messages.filter(m => m.replyTo === rootId);
 }
+
+/** Deduplicate message list by id */
+export function deduplicateMessages(messages: ClarityMessage[]): ClarityMessage[] {
+  const seen = new Set<bigint>();
+  return messages.filter(m => {
+    if (seen.has(m.id)) return false;
+    seen.add(m.id);
+    return true;
+  });
+}
