@@ -63,3 +63,5 @@ export function isTxFinalized(status: TxStatus): boolean {
 export function isTxSuccess(status: TxStatus): boolean {
   return status === 'success';
 }
+/** Maximum function arguments */
+export const MAX_FUNCTION_ARGS = 10;
