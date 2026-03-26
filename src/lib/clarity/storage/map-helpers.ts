@@ -222,3 +222,6 @@ export function batchKey7(id: bigint): string { return serializeKey({ batch: 7, 
 
 /** Build batch operation key 8 */
 export function batchKey8(id: bigint): string { return serializeKey({ batch: 8, id }); }
+
+/** Build batch operation key 9 */
+export function batchKey9(id: bigint): string { return serializeKey({ batch: 9, id }); }
