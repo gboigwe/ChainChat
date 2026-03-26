@@ -31,3 +31,7 @@ export interface OkCV extends ClarityValue { type: 'ok'; value: ClarityValue; }
 export interface ErrCV extends ClarityValue { type: 'err'; value: ClarityValue; }
 /** Union of all Clarity value types */
 export type AnyCV = UIntCV | IntCV | BoolCV | StringAsciiCV | StringUtf8CV | BufferCV | ListCV | TupleCV | StandardPrincipalCV | ContractPrincipalCV | NoneCV | SomeCV | OkCV | ErrCV;
+/** Factory: uint */
+export function uintCV(value: bigint | number): UIntCV {
+  return { type: 'uint', value: BigInt(value) };
+}
