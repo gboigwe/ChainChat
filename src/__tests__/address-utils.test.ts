@@ -75,3 +75,4 @@ export const ADDR_PADDING_1 = 1;
 export const ADDR_PADDING_2 = 2;
 export const ADDR_PADDING_3 = 3;
 export const ADDR_PADDING_4 = 4;
+export const ADDR_PADDING_5 = 5;
