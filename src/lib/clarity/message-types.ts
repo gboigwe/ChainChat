@@ -93,3 +93,8 @@ export const MAX_REACTIONS_PER_MESSAGE = 1000n;
 export function isReactionLimitReached(msg: ClarityMessage): boolean {
   return msg.reactions >= MAX_REACTIONS_PER_MESSAGE;
 }
+
+/** Thread root checker — message is root if replyTo is null */
+export function isThreadRoot(msg: ClarityMessage): boolean {
+  return msg.replyTo === null;
+}
