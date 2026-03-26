@@ -12,3 +12,9 @@ export function createDataVar<T>(initial: T): DataVar<T> {
     set: (v: T) => { current = v; },
   };
 }
+/** Atomic update: get current value, apply fn, set result */
+export function atomicUpdate<T>(dataVar: DataVar<T>, fn: (current: T) => T): T {
+  const updated = fn(dataVar.get());
+  dataVar.set(updated);
+  return updated;
+}
