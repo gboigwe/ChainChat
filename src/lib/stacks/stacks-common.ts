@@ -24,3 +24,5 @@ export function getChainId(network: StacksNetwork): number {
 }
 /** MicroSTX per STX */
 export const MICRO_STX_PER_STX = 1_000_000n;
+/** Convert STX to microSTX */
+export function stxToMicroStx(stx: bigint): bigint { return stx * MICRO_STX_PER_STX; }
