@@ -141,3 +141,4 @@ export const CV_EXTRA_13 = 13;
 export const CV_EXTRA_14 = 14;
 export const CV_EXTRA_15 = 15;
 export const CV_EXTRA_16 = 16;
+export const CV_EXTRA_17 = 17;
