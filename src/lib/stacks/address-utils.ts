@@ -56,3 +56,7 @@ export function getNetworkFromAddress(address: string): 'mainnet' | 'testnet' | 
   if (isTestnetAddress(address)) return 'testnet';
   return 'unknown';
 }
+/** Normalize address to uppercase */
+export function normalizeAddress(address: string): string {
+  return address.toUpperCase();
+}
