@@ -41,3 +41,11 @@ export function verifyMessageSignature(
   // Signature verification requires crypto — placeholder implementation
   return signature.length > 0 && publicKey.length > 0 && message.length > 0;
 }
+/** Build sign message options */
+export function buildSignMessageOptions(
+  message: string,
+  onFinish: (data: SignatureData) => void,
+  onCancel?: () => void,
+): SignMessageOptions {
+  return { message, onFinish, onCancel };
+}
