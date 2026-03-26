@@ -40,3 +40,12 @@ export function serializeTuple(tuple: Record<string, unknown>): Record<string, s
     Object.entries(tuple).map(([k, v]) => [k, String(v)]),
   );
 }
+
+/** Build a reaction key tuple */
+export function buildReactionKey(
+  messageId: bigint,
+  reactor: string,
+  reactionCode: bigint,
+): Record<string, unknown> {
+  return { 'message-id': messageId, reactor, 'reaction-code': reactionCode };
+}
