@@ -22,3 +22,5 @@ export function getApiUrl(network: StacksNetwork): string {
 export function getChainId(network: StacksNetwork): number {
   return network === 'mainnet' ? MAINNET_CHAIN_ID : TESTNET_CHAIN_ID;
 }
+/** MicroSTX per STX */
+export const MICRO_STX_PER_STX = 1_000_000n;
