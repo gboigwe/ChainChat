@@ -53,3 +53,4 @@ export const READ_ONLY_3 = 3;
 export const READ_ONLY_4 = 4;
 export const READ_ONLY_5 = 5;
 export const READ_ONLY_6 = 6;
+export const READ_ONLY_7 = 7;
