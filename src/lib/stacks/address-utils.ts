@@ -95,3 +95,7 @@ export function getExplorerAddressUrl(address: string, network: 'mainnet' | 'tes
   const base = network === 'mainnet' ? 'https://explorer.hiro.so' : 'https://explorer.hiro.so';
   return `${base}/address/${address}?chain=${network}`;
 }
+/** Derive explorer URL for a transaction */
+export function getExplorerTxUrl(txId: string, network: 'mainnet' | 'testnet'): string {
+  return `https://explorer.hiro.so/txid/${txId}?chain=${network}`;
+}
