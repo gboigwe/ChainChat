@@ -12,3 +12,7 @@ export function isValidTokenId(tokenId: bigint): boolean {
 export function isValidTransferAmount(amount: bigint): boolean {
   return amount > 0n && amount <= FT_MAX_SUPPLY;
 }
+/** Validate map key is non-empty */
+export function isValidMapKey(key: string): boolean {
+  return key.length > 0;
+}
