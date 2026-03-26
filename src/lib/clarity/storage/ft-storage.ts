@@ -139,3 +139,11 @@ export function lockTokens(
   setBalance(owner, getBalance(owner) - amount);
   tokenLockMap.set(owner, { owner, amount, releaseBlock });
 }
+/** Release locked tokens after expiry */
+export function releaseLockedTokens(owner: string, currentBlock: bigint): void {
+  const lock = tokenLockMap.get(owner);
+  if (!lock) throw new Error('No locked tokens');
+  if (currentBlock < lock.releaseBlock) throw new Error('Lock period not expired');
+  setBalance(owner, getBalance(owner) + lock.amount);
+  tokenLockMap.delete(owner);
+}
