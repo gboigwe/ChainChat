@@ -80,3 +80,5 @@ export function isValidFunctionArg(cv: ClarityValue): boolean {
   const validTypes = ['uint', 'int', 'bool', 'string-ascii', 'string-utf8', 'buffer', 'list', 'tuple', 'principal', 'contract', 'none', 'some'];
   return validTypes.includes(cv.type);
 }
+/** JSON-serializable representation of a ClarityValue */
+export type CVJson = { type: string; value?: unknown };
