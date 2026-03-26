@@ -113,3 +113,4 @@ export const API_CLIENT_CONST_35 = 35;
 export const API_CLIENT_CONST_36 = 36;
 export const API_CLIENT_CONST_37 = 37;
 export const API_CLIENT_CONST_38 = 38;
+export const API_CLIENT_CONST_39 = 39;
