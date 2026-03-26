@@ -23,3 +23,7 @@ export const DEFAULT_CONFIG: HiroApiConfig = {
   timeout: 30_000,
   maxRetries: 3,
 };
+/** Retry delay calculator with exponential backoff */
+export function retryDelay(attempt: number): number {
+  return Math.min(1000 * 2 ** attempt, 10_000);
+}
