@@ -174,3 +174,7 @@ export function snapshotBalances(): Record<string, string> {
 export function getLockedBalance(principal: string): bigint {
   return tokenLockMap.get(principal)?.amount ?? 0n;
 }
+/** Get total (available + locked) balance */
+export function getTotalBalance(principal: string): bigint {
+  return getBalance(principal) + getLockedBalance(principal);
+}
