@@ -75,3 +75,11 @@ export function blockDurationToSeconds(blocks: bigint): number {
 export function secondsToBlocks(seconds: number): bigint {
   return BigInt(Math.ceil(seconds / AVERAGE_BLOCK_TIME_SECONDS));
 }
+
+/** Human-readable duration from block count */
+export function blockDurationToHuman(blocks: bigint): string {
+  const secs = blockDurationToSeconds(blocks);
+  if (secs < 3600) return `${Math.round(secs / 60)} minutes`;
+  if (secs < 86400) return `${Math.round(secs / 3600)} hours`;
+  return `${Math.round(secs / 86400)} days`;
+}
