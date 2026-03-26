@@ -88,3 +88,12 @@ export function collectCVTypes(cv: ClarityValue): string[] {
   if (isTupleCV(cv)) Object.values(cv.data).forEach(v => types.push(...collectCVTypes(v)));
   return types;
 }
+/** Deep equality check for two ClarityValues */
+export function cvEquals(a: ClarityValue, b: ClarityValue): boolean {
+  if (a.type !== b.type) return false;
+  return cvToString(a) === cvToString(b);
+}
+
+function cvToString(cv: ClarityValue): string {
+  return JSON.stringify(cv, (_, v) => typeof v === 'bigint' ? v.toString() : v);
+}
