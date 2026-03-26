@@ -51,3 +51,4 @@ export const ERROR_TYPE_CONST_6 = 6;
 export const ERROR_TYPE_CONST_7 = 7;
 export const ERROR_TYPE_CONST_8 = 8;
 export const ERROR_TYPE_CONST_9 = 9;
+export const ERROR_TYPE_CONST_10 = 10;
