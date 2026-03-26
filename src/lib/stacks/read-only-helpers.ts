@@ -39,3 +39,5 @@ export const READ_ONLY_FUNCTIONS = {
   getReactionCount: 'get-reaction-count',
   isChannelMember: 'is-channel-member',
 } as const;
+/** Read-only call timeout in milliseconds */
+export const READ_ONLY_TIMEOUT_MS = 15_000;
