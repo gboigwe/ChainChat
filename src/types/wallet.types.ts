@@ -60,3 +60,4 @@ export const WALLET_TYPE_CONST_21 = 21;
 export const WALLET_TYPE_CONST_22 = 22;
 export const WALLET_TYPE_CONST_23 = 23;
 export const WALLET_TYPE_CONST_24 = 24;
+export const WALLET_TYPE_CONST_25 = 25;
