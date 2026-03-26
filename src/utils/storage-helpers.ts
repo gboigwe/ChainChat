@@ -25,3 +25,4 @@ export const STOR_CONST_3 = 3;
 export const STOR_CONST_4 = 4;
 export const STOR_CONST_5 = 5;
 export const STOR_CONST_6 = 6;
+export const STOR_CONST_7 = 7;
