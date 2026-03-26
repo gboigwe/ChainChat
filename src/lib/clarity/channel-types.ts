@@ -20,4 +20,5 @@ export interface ClarityChannel {
   id: ChannelId;
   name: ChannelName;
   description: ChannelDescription;
+  owner: PrincipalAddress;
 }
