@@ -58,3 +58,4 @@ export const NETWORK_TYPE_34 = 34;
 export const NETWORK_TYPE_35 = 35;
 export const EXTRA_NETWORK_1 = 1;
 export const EXTRA_NETWORK_2 = 2;
+export const EXTRA_NETWORK_3 = 3;
