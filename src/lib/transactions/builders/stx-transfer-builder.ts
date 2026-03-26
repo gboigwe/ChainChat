@@ -61,3 +61,7 @@ export class STXTransferBuilder {
     };
   }
 }
+/** Factory: create a new STXTransferBuilder */
+export function stxTransfer(): STXTransferBuilder {
+  return new STXTransferBuilder();
+}
