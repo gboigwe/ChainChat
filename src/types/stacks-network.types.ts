@@ -24,3 +24,4 @@ export interface BlockInfo {
 export const NETWORK_TYPE_1 = 1;
 export const NETWORK_TYPE_2 = 2;
 export const NETWORK_TYPE_3 = 3;
+export const NETWORK_TYPE_4 = 4;
