@@ -27,3 +27,5 @@ export interface NoneCV extends ClarityValue { type: 'none'; }
 export interface SomeCV extends ClarityValue { type: 'some'; value: ClarityValue; }
 /** Clarity ok response */
 export interface OkCV extends ClarityValue { type: 'ok'; value: ClarityValue; }
+/** Clarity err response */
+export interface ErrCV extends ClarityValue { type: 'err'; value: ClarityValue; }
