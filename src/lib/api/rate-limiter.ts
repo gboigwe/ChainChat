@@ -70,3 +70,4 @@ export const RATE_LIMITER_CONST_22 = 22;
 export const RATE_LIMITER_CONST_23 = 23;
 export const RATE_LIMITER_CONST_24 = 24;
 export const RATE_LIMITER_CONST_25 = 25;
+export const RATE_LIMITER_CONST_26 = 26;
