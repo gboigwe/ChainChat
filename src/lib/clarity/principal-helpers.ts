@@ -100,3 +100,9 @@ export function toMainnetPrincipal(testnetAddr: string): string {
   if (!isTestnetPrincipal(testnetAddr)) throw new Error('Not a testnet address');
   return 'SP' + testnetAddr.slice(2);
 }
+
+/** Parse principal from unknown input with validation */
+export function parsePrincipal(raw: unknown): string {
+  if (typeof raw !== 'string') throw new Error('Principal must be a string');
+  return normalizePrincipal(raw);
+}
