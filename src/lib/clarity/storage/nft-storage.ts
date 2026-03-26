@@ -89,3 +89,7 @@ export function mintBadge(
 export function getBadge(tokenId: NFTTokenId): BadgeNFT | null {
   return badgeMap.get(tokenId) ?? null;
 }
+/** Total NFT supply */
+export function nftTotalSupply(): number {
+  return nftOwnerMap.size;
+}
