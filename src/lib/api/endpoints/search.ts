@@ -26,3 +26,7 @@ export async function searchByAddress(client: HiroApiClient, address: string): P
 export async function searchByBlock(client: HiroApiClient, blockHash: string): Promise<SearchResult> {
   return search(client, blockHash);
 }
+/** Search by contract ID */
+export async function searchByContract(client: HiroApiClient, contractId: string): Promise<SearchResult> {
+  return search(client, contractId);
+}
