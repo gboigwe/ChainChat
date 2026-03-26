@@ -75,3 +75,4 @@ export const hiroApi = new HiroApiClient();
 export function createHiroApiClient(apiKey: string, baseUrl?: string): HiroApiClient {
   return new HiroApiClient({ apiKey, baseUrl });
 }
+export const API_CLIENT_CONST_1 = 1;
