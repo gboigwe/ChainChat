@@ -11,3 +11,5 @@ export interface BoolCV extends ClarityValue { type: 'bool'; value: boolean; }
 export interface StringAsciiCV extends ClarityValue { type: 'string-ascii'; value: string; }
 /** Clarity string-utf8 value */
 export interface StringUtf8CV extends ClarityValue { type: 'string-utf8'; value: string; }
+/** Clarity buffer value */
+export interface BufferCV extends ClarityValue { type: 'buffer'; value: Uint8Array; }
