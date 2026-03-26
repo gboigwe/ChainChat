@@ -79,3 +79,11 @@ export function buildMessageStructuredData(
 ): Record<string, unknown> {
   return { type: StructuredDataType.Message, content, channelId: channelId.toString(), sender };
 }
+/** Build a channel invite structured data */
+export function buildInviteStructuredData(
+  channelId: bigint,
+  invitee: string,
+  role: string,
+): Record<string, unknown> {
+  return { type: StructuredDataType.ChannelInvite, channelId: channelId.toString(), invitee, role };
+}
