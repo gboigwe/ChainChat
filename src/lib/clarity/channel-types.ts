@@ -63,3 +63,8 @@ export const DEFAULT_PERMISSIONS: Record<MemberRole, ChannelPermissions> = {
 export function isValidChannelName(name: string): boolean {
   return name.length > 0 && name.length <= MAX_CHANNEL_NAME_LENGTH;
 }
+
+/** Validate channel description length */
+export function isValidChannelDesc(desc: string): boolean {
+  return desc.length <= MAX_CHANNEL_DESC_LENGTH;
+}
