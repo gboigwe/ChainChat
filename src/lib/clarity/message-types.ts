@@ -41,3 +41,14 @@ export interface MessageQueryParams {
   limit: number;
   offset: number;
 }
+
+/** Factory: create a new ClarityMessage with defaults */
+export function createMessage(
+  id: MessageId,
+  sender: PrincipalAddress,
+  content: MessageContent,
+  channelId: ChannelId,
+  createdAt: BlockHeight,
+): ClarityMessage {
+  return { id, sender, content, channelId, createdAt, replyTo: null, reactions: 0n };
+}
