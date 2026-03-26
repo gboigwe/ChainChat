@@ -30,3 +30,4 @@ export interface TokenTransferTransaction extends Transaction {
     memo: string;
   };
 }
+export type TxEventType = 'smart_contract_log' | 'stx_transfer' | 'stx_lock' | 'nft_mint' | 'nft_transfer' | 'nft_burn' | 'ft_mint' | 'ft_transfer' | 'ft_burn';
