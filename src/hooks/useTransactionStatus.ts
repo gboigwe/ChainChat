@@ -19,3 +19,14 @@ export function useTransactionStatus(
   const [blockHeight, setBlockHeight] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
   const [isFinalized, setIsFinalized] = useState(false);
+  const poll = useCallback(async () => {
+    if (!txId || isFinalized) return;
+    setLoading(true);
+    try {
+      const res = await fetch(`${apiUrl}/extended/v1/tx/${txId}`);
+      const data = await res.json();
+      setStatus(data.tx_status);
+      setBlockHeight(data.block_height ?? null);
+      if (data.tx_status !== 'pending') setIsFinalized(true);
+    } catch { } finally { setLoading(false); }
+  }, [txId, apiUrl, isFinalized]);
