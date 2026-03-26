@@ -6,3 +6,4 @@ export * from './ft-storage';
 export * from './tuple-builders';
 export * from './constants';
 export * from './validators';
+export * from './query-helpers';
