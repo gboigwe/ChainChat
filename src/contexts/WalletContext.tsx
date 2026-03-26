@@ -37,3 +37,6 @@ export function useWalletContext(): WalletContextValue {
   if (!ctx) throw new Error('useWalletContext must be used within WalletProvider');
   return ctx;
 }
+/** Wallet context provider component */
+export function WalletProvider({ children }: { children: React.ReactNode }): React.ReactElement {
+  const [state, setState] = useState<WalletContextState>(DEFAULT_STATE);
