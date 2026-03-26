@@ -51,3 +51,15 @@ export function getAllowance(owner: string, spender: string): TokenBalance {
 export function setAllowance(owner: string, spender: string, amount: TokenBalance): void {
   ftAllowanceMap.set(allowanceKey(owner, spender), amount);
 }
+/** Transfer from allowance */
+export function transferFrom(
+  owner: string,
+  spender: string,
+  recipient: string,
+  amount: TokenBalance,
+): void {
+  const allowed = getAllowance(owner, spender);
+  if (allowed < amount) throw new Error('Insufficient allowance');
+  setAllowance(owner, spender, allowed - amount);
+  executeTransfer(owner, recipient, amount);
+}
