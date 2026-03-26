@@ -41,3 +41,15 @@ describe('FT post-condition', () => {
     expect(PC_TEST_ASSET_NAME).toBe('chat-token');
   });
 });
+
+describe('NFT post-condition', () => {
+  it('has valid NFT token id', () => {
+    expect(PC_TEST_NFT_ID).toBe(42n);
+  });
+  it('references correct NFT contract', () => {
+    expect(PC_TEST_NFT_CONTRACT).toContain('chat-nft');
+  });
+  it('has valid NFT asset name', () => {
+    expect(PC_TEST_NFT_ASSET).toBe('chat-badge');
+  });
+});
