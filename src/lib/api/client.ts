@@ -17,3 +17,9 @@ export class HiroApiError extends Error {
     this.name = 'HiroApiError';
   }
 }
+/** Default API configuration */
+export const DEFAULT_CONFIG: HiroApiConfig = {
+  baseUrl: 'https://api.hiro.so',
+  timeout: 30_000,
+  maxRetries: 3,
+};
