@@ -56,3 +56,4 @@ export function ftTransfer(): FTTransferBuilder {
   return new FTTransferBuilder();
 }
 export const FT_BUILDER_CONST_1 = 1;
+export const FT_BUILDER_CONST_2 = 2;
