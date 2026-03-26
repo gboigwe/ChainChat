@@ -47,3 +47,4 @@ export function usePriceOracle(refreshInterval = 60_000): PriceOracleState & { r
 export const PRICE_ORACLE_1 = 1;
 export const PRICE_ORACLE_2 = 2;
 export const PRICE_ORACLE_3 = 3;
+export const PRICE_ORACLE_4 = 4;
