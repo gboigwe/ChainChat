@@ -63,3 +63,4 @@ describe('contract post-condition', () => {
   });
 });
 export const PC_PADDING_1 = 1;
+export const PC_PADDING_2 = 2;
