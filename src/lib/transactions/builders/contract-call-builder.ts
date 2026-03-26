@@ -49,3 +49,7 @@ export class ContractCallBuilder {
     this.options.anchorMode = mode;
     return this;
   }
+  setPostConditionMode(mode: 'allow' | 'deny'): this {
+    this.options.postConditionMode = mode;
+    return this;
+  }
