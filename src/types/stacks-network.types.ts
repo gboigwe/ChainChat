@@ -38,3 +38,4 @@ export const NETWORK_TYPE_14 = 14;
 export const NETWORK_TYPE_15 = 15;
 export const NETWORK_TYPE_16 = 16;
 export const NETWORK_TYPE_17 = 17;
+export const NETWORK_TYPE_18 = 18;
