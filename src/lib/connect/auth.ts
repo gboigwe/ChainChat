@@ -126,3 +126,4 @@ export function emitAuthEvent(event: AuthEvent, data?: UserSessionData): void {
   authListeners.forEach(l => l(event, data));
 }
 export const AUTH_CONST_1 = 1;
+export const AUTH_CONST_2 = 2;
