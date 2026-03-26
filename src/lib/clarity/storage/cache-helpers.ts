@@ -33,3 +33,7 @@ export const balanceCache = new Cache<bigint>(10_000);
 export function channelCacheKey(channelId: bigint): string {
   return `ch:${channelId}`;
 }
+/** Cache key for message */
+export function messageCacheKey(channelId: bigint, messageId: bigint): string {
+  return `msg:${channelId}:${messageId}`;
+}
