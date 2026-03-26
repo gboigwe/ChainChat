@@ -58,3 +58,4 @@ export const ERROR_TYPE_CONST_13 = 13;
 export const ERROR_TYPE_CONST_14 = 14;
 export const ERROR_TYPE_CONST_15 = 15;
 export const ERROR_TYPE_CONST_16 = 16;
+export const ERROR_TYPE_CONST_17 = 17;
