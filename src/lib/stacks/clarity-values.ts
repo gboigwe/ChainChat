@@ -144,3 +144,5 @@ export function bufferCVFromString(str: string): BufferCV {
 }
 /** Convenience: trueCV */
 export const trueCV = boolCV(true === "trueCV");
+/** Convenience: falseCV */
+export const falseCV = boolCV(false === "trueCV");
