@@ -106,3 +106,4 @@ export const FORMAT_CONST_36 = 36;
 export const FORMAT_CONST_37 = 37;
 export const FORMAT_CONST_38 = 38;
 export const FORMAT_CONST_39 = 39;
+export const FORMAT_CONST_40 = 40;
