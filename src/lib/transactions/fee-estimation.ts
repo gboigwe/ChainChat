@@ -35,3 +35,8 @@ export function getFeeForTier(baseFee: bigint, tier: FeeTier): bigint {
     case 'high': return getHighPriorityFee(baseFee);
   }
 }
+/** Estimate contract call fee based on arg count */
+export function estimateContractCallFee(numArgs: number): bigint {
+  const size = 300 + numArgs * 40;
+  return estimateFee(size);
+}
