@@ -44,3 +44,8 @@ export function blockHeightToDate(blockHeight: bigint): Date {
 export function formatBlockDate(blockHeight: bigint, locale = 'en-US'): string {
   return blockHeightToDate(blockHeight).toLocaleDateString(locale);
 }
+
+/** Format block height as a locale date-time string */
+export function formatBlockDateTime(blockHeight: bigint, locale = 'en-US'): string {
+  return blockHeightToDate(blockHeight).toLocaleString(locale);
+}
