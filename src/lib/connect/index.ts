@@ -27,3 +27,5 @@ export const CONNECT_CONST_9 = 9;
 export const CONNECT_CONST_10 = 10;
 // connect module constant 11
 export const CONNECT_CONST_11 = 11;
+// connect module constant 12
+export const CONNECT_CONST_12 = 12;
