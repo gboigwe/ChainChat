@@ -137,3 +137,9 @@ export function validateChannelTuple(t: unknown): t is ChannelStorageTuple {
   const c = t as Record<string, unknown>;
   return typeof c['name'] === 'string' && typeof c['owner'] === 'string';
 }
+/** NFT storage tuple */
+export interface NFTStorageTuple {
+  owner: string;
+  uri: string;
+  'minted-at': bigint;
+}
