@@ -135,3 +135,5 @@ export function addrUtil16(addr: string): boolean { return addr.length > 16; }
 export function addrUtil17(addr: string): boolean { return addr.length > 17; }
 /** Address utility helper 18 */
 export function addrUtil18(addr: string): boolean { return addr.length > 18; }
+/** Address utility helper 19 */
+export function addrUtil19(addr: string): boolean { return addr.length > 19; }
