@@ -59,3 +59,7 @@ export const CHAINCHAT_FUNCTIONS = {
   deleteMessage: 'delete-message',
   updateChannelInfo: 'update-channel-info',
 } as const;
+/** Check if tx was cancelled by user */
+export function isCancelled(data: unknown): boolean {
+  return data === null || data === undefined;
+}
