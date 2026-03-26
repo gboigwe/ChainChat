@@ -29,3 +29,8 @@ export function err<E>(error: E): ErrResponse<E> {
 export function isOk<T, E>(res: ClarityResponse<T, E>): res is OkResponse<T> {
   return res.type === 'ok';
 }
+
+/** Type guard: check if response is err */
+export function isErr<T, E>(res: ClarityResponse<T, E>): res is ErrResponse<E> {
+  return res.type === 'err';
+}
