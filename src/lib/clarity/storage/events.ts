@@ -40,3 +40,10 @@ export interface ReactionAddedEvent extends StorageEvent {
   reactor: string;
   reactionCode: bigint;
 }
+/** Union of all storage events */
+export type StorageEventUnion =
+  | MessageCreatedEvent
+  | ChannelCreatedEvent
+  | MemberJoinedEvent
+  | MemberKickedEvent
+  | ReactionAddedEvent;
