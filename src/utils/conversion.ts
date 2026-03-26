@@ -45,3 +45,4 @@ export const CONV_CONST_44 = 44;
 export const CONV_CONST_45 = 45;
 export const CONV_CONST_46 = 46;
 export const CONV_CONST_47 = 47;
+export const CONV_CONST_48 = 48;
