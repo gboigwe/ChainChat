@@ -69,3 +69,9 @@ export function revokeAllAllowances(owner: string): void {
     if (key.startsWith(`${owner}:`)) ftAllowanceMap.delete(key);
   }
 }
+/** Total supply computed from all balances */
+export function totalSupply(): TokenBalance {
+  let total = 0n;
+  for (const balance of ftBalanceMap.values()) total += balance;
+  return total;
+}
