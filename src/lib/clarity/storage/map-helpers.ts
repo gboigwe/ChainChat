@@ -75,3 +75,12 @@ export function mapSetBatch<V extends MapValue>(
 ): void {
   for (const { key, value } of entries) map.set(key, value);
 }
+/** Batch delete multiple keys */
+export function mapDeleteBatch<V extends MapValue>(
+  map: Map<string, V>,
+  keys: string[],
+): number {
+  let deleted = 0;
+  for (const key of keys) if (map.delete(key)) deleted++;
+  return deleted;
+}
