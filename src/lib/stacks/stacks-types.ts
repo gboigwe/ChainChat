@@ -13,3 +13,9 @@ export interface ReadOnlyResult {
   result?: string;
   cause?: string;
 }
+/** Broadcast transaction result */
+export interface BroadcastResult {
+  txid?: string;
+  error?: string;
+  reason?: string;
+}
