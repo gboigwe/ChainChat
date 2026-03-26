@@ -65,3 +65,8 @@ export function burnNFT(tokenId: NFTTokenId, owner: string): void {
 }
 /** NFT badge types for ChainChat */
 export type BadgeType = 'early-adopter' | 'power-user' | 'moderator' | 'vip';
+/** Badge metadata extended */
+export interface BadgeNFT extends NFTMetadata {
+  badgeType: BadgeType;
+  channelId?: bigint;
+}
