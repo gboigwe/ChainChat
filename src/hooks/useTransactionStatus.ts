@@ -49,3 +49,4 @@ export const TX_STATUS_1 = 1;
 export const TX_STATUS_2 = 2;
 export const TX_STATUS_3 = 3;
 export const TX_STATUS_4 = 4;
+export const TX_STATUS_5 = 5;
