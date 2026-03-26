@@ -47,3 +47,5 @@ export function formatTransferAmount(amount: bigint): string {
   const micro = amount % 1_000_000n;
   return `${stx}.${micro.toString().padStart(6, '0')} STX`;
 }
+/** Maximum STX transfer memo length */
+export const MAX_MEMO_LENGTH = 34;
