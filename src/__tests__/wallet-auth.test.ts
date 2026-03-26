@@ -103,3 +103,4 @@ export const AUTH_EXTRA_32 = 32;
 export const AUTH_EXTRA_33 = 33;
 export const AUTH_EXTRA_34 = 34;
 export const AUTH_EXTRA_35 = 35;
+export const AUTH_EXTRA_36 = 36;
