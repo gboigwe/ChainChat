@@ -59,3 +59,12 @@ export function mapValues<V extends MapValue>(map: Map<string, V>): V[] {
 export function mapKeys<V extends MapValue>(map: Map<string, V>): string[] {
   return Array.from(map.keys());
 }
+/** Get or set default value pattern */
+export function mapGetOrSet<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+  defaultValue: V,
+): V {
+  if (!map.has(keyStr)) map.set(keyStr, defaultValue);
+  return map.get(keyStr)!;
+}
