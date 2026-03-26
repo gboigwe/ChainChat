@@ -19,3 +19,12 @@ export function asciiBytesToString(bytes: Uint8Array): string {
 export function bufferToHex(buffer: Uint8Array): string {
   return Array.from(buffer).map(b => b.toString(16).padStart(2, '0')).join('');
 }
+/** Decode hex string to Uint8Array buffer */
+export function hexToBuffer(hex: string): Uint8Array {
+  const clean = hex.replace(/^0x/, '');
+  const bytes = new Uint8Array(clean.length / 2);
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
+  }
+  return bytes;
+}
