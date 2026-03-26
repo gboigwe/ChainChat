@@ -7,3 +7,7 @@ export function bigintToHex(value: bigint): string {
 export function hexToBigint(hex: string): bigint {
   return BigInt('0x' + hex.replace(/^0x/, ''));
 }
+/** Encode string as ASCII byte array */
+export function stringToAsciiBytes(str: string): Uint8Array {
+  return new TextEncoder().encode(str);
+}
