@@ -11,3 +11,4 @@ export const SNAPSHOT_VERSION = '1.0';
 export const MAX_LOG_ENTRIES = 10_000;
 export const LOG_RETENTION_BLOCKS = 50_400n;
 export const CACHE_TTL_CHANNEL_MS = 60_000;
+export const CACHE_TTL_MESSAGE_MS = 30_000;
