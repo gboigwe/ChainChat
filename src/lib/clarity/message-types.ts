@@ -11,3 +11,6 @@ export type PrincipalAddress = string;
 
 /** Block height when message was created */
 export type BlockHeight = bigint;
+
+/** Channel identifier backed by Clarity uint */
+export type ChannelId = bigint;
