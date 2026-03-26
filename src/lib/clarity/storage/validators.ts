@@ -32,3 +32,7 @@ export function isValidLimit(limit: number, max = 100): boolean {
 export function isValidBadgeType(type: string): boolean {
   return ['early-adopter', 'power-user', 'moderator', 'vip'].includes(type);
 }
+/** Validate block height range */
+export function isValidBlockRange(start: bigint, end: bigint): boolean {
+  return start >= 0n && end >= start;
+}
