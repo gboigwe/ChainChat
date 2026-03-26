@@ -218,3 +218,8 @@ export const REACTION_EMOJI: Record<string, string> = {
 export function getReactionEmoji(name: string): string {
   return REACTION_EMOJI[name] ?? '?';
 }
+
+/** Check if a message is a reply */
+export function isReply(msg: ClarityMessage): boolean {
+  return msg.replyTo !== null;
+}
