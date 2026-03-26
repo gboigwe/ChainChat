@@ -18,3 +18,7 @@ export function getApiUrl(network: StacksNetwork): string {
     default: throw new Error(`Unknown network: ${network}`);
   }
 }
+/** Get chain ID for network */
+export function getChainId(network: StacksNetwork): number {
+  return network === 'mainnet' ? MAINNET_CHAIN_ID : TESTNET_CHAIN_ID;
+}
