@@ -13,3 +13,12 @@ export interface Transaction {
   burn_block_time?: number;
   canonical: boolean;
 }
+export interface ContractCallTransaction extends Transaction {
+  tx_type: 'contract_call';
+  contract_call: {
+    contract_id: string;
+    function_name: string;
+    function_signature: string;
+    function_args?: Array<{ hex: string; repr: string; name: string; type: string }>;
+  };
+}
