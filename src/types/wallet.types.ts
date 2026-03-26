@@ -13,3 +13,11 @@ export interface AuthData {
   profile: ProfileData;
   hubUrl: string;
 }
+export interface ProfileData {
+  stxAddress: { mainnet: string; testnet: string };
+  btcAddress?: string;
+  name?: string;
+  description?: string;
+  avatarUrl?: string;
+  apps: Record<string, AppPermissions>;
+}
