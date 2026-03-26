@@ -161,3 +161,8 @@ export function filterChannelsByVisibility(
 ): ClarityChannel[] {
   return channels.filter(c => c.visibility === visibility);
 }
+
+/** Sort channels alphabetically by name */
+export function sortChannelsAlphabetically(channels: ClarityChannel[]): ClarityChannel[] {
+  return [...channels].sort((a, b) => a.name.localeCompare(b.name));
+}
