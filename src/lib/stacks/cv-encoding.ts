@@ -75,3 +75,8 @@ export function cvToHex(cv: ClarityValue): string {
 export function serializeTupleData(data: Record<string, ClarityValue>): Array<{ key: string; value: ClarityValue }> {
   return Object.keys(data).sort().map(key => ({ key, value: data[key] }));
 }
+/** Validate CV can be used as a function argument */
+export function isValidFunctionArg(cv: ClarityValue): boolean {
+  const validTypes = ['uint', 'int', 'bool', 'string-ascii', 'string-utf8', 'buffer', 'list', 'tuple', 'principal', 'contract', 'none', 'some'];
+  return validTypes.includes(cv.type);
+}
