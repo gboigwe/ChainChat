@@ -53,3 +53,8 @@ export class ContractCallBuilder {
     this.options.postConditionMode = mode;
     return this;
   }
+  addPostCondition(pc: unknown): this {
+    if (!this.options.postConditions) this.options.postConditions = [];
+    this.options.postConditions.push(pc);
+    return this;
+  }
