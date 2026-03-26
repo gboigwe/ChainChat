@@ -54,3 +54,4 @@ export const SEND_MSG_CONST_17 = 17;
 export const SEND_MSG_CONST_18 = 18;
 export const SEND_MSG_CONST_19 = 19;
 export const SEND_MSG_CONST_20 = 20;
+export const SEND_MSG_CONST_21 = 21;
