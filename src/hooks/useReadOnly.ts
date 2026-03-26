@@ -9,3 +9,9 @@ export interface UseReadOnlyOptions {
   sender?: string;
   apiUrl?: string;
 }
+/** State returned by useReadOnly */
+export interface UseReadOnlyState<T> {
+  data: T | null;
+  loading: boolean;
+  error: string | null;
+}
