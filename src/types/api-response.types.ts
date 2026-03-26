@@ -18,3 +18,12 @@ export interface AccountInfoApiResponse {
   balance_proof: string;
   nonce_proof: string;
 }
+export interface BlockApiResponse {
+  canonical: boolean;
+  height: number;
+  hash: string;
+  index_block_hash: string;
+  parent_block_hash: string;
+  burn_block_time: number;
+  txs: string[];
+}
