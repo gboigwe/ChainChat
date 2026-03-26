@@ -44,3 +44,9 @@ export async function getBurnBlock(
 ): Promise<unknown> {
   return client.fetch(`/extended/v2/burn-blocks/${burnBlockHash}`);
 }
+/** Get the latest confirmed block */
+export async function getLatestBlock(client: HiroApiClient): Promise<BlockResponse> {
+  const result = await getBlockList(client, 1, 0);
+  if (result.results.length === 0) throw new Error('No blocks found');
+  return result.results[0];
+}
