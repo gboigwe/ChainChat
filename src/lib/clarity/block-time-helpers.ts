@@ -99,3 +99,12 @@ export function isRecent(createdAt: bigint, currentBlock: bigint, withinBlocks: 
 export const TTL_ONE_DAY    = BigInt(BLOCKS_PER_DAY);
 export const TTL_ONE_WEEK   = BigInt(BLOCKS_PER_WEEK);
 export const TTL_ONE_MONTH  = BigInt(BLOCKS_PER_MONTH);
+
+/** Format remaining blocks as a countdown string */
+export function formatCountdown(blocks: bigint): string {
+  const seconds = blockDurationToSeconds(blocks);
+  if (seconds < 60) return `${seconds}s`;
+  if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
+  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
+  return `${Math.floor(seconds / 86400)}d`;
+}
