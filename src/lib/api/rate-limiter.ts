@@ -45,3 +45,4 @@ export class RateLimiter {
 }
 /** Global rate limiter instance */
 export const globalRateLimiter = new RateLimiter();
+export const RATE_LIMITER_CONST_1 = 1;
