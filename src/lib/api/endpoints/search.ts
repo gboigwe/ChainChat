@@ -31,3 +31,4 @@ export async function searchByContract(client: HiroApiClient, contractId: string
   return search(client, contractId);
 }
 export const SEARCH_CONST_1 = 1;
+export const SEARCH_CONST_2 = 2;
