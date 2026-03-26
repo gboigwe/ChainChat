@@ -148,3 +148,8 @@ export function createChannel(
 ): ClarityChannel {
   return { id, name, description: '', owner, createdAt, visibility: 'public' };
 }
+
+/** Check if a channel invite is still valid */
+export function isInviteValid(invite: ChannelInvite, currentBlock: bigint): boolean {
+  return currentBlock < invite.expiryBlock;
+}
