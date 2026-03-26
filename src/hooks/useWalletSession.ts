@@ -36,3 +36,10 @@ export function useWalletSession(): UseWalletSessionReturn {
       setIsConnected(true);
     } catch { setIsConnected(false); }
   }, []);
+  const connect = useCallback(async () => {
+    setIsConnecting(true);
+    setError(null);
+    try { refresh(); }
+    catch (e) { setError(e instanceof Error ? e.message : 'Failed to connect'); }
+    finally { setIsConnecting(false); }
+  }, [refresh]);
