@@ -49,3 +49,8 @@ export function buildReactionKey(
 ): Record<string, unknown> {
   return { 'message-id': messageId, reactor, 'reaction-code': reactionCode };
 }
+
+/** Build channel stats key */
+export function buildStatsKey(channelId: bigint): Record<string, bigint> {
+  return { 'channel-id': channelId };
+}
