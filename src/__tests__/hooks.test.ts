@@ -111,3 +111,4 @@ export const HOOK_PADDING_2 = 2;
 export const HOOK_PADDING_3 = 3;
 export const HOOK_PADDING_4 = 4;
 export const HOOK_PADDING_5 = 5;
+export const HOOK_PADDING_6 = 6;
