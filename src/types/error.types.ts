@@ -23,3 +23,9 @@ export class WalletError extends StacksError {
     this.name = 'WalletError';
   }
 }
+export class TransactionError extends StacksError {
+  constructor(message: string, public readonly txId?: string, public readonly reason?: string) {
+    super(message, 'TRANSACTION_ERROR');
+    this.name = 'TransactionError';
+  }
+}
