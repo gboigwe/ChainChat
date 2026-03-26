@@ -16,3 +16,7 @@ export function estimateFee(txSizeBytes: number, feeRate = BASE_FEE_RATE): bigin
 export function feeRateToFee(feeRate: number, sizeBytes: number): bigint {
   return estimateFee(sizeBytes, feeRate);
 }
+/** Get high priority fee */
+export function getHighPriorityFee(baseFee: bigint): bigint {
+  return BigInt(Math.ceil(Number(baseFee) * HIGH_PRIORITY_FEE_MULTIPLIER));
+}
