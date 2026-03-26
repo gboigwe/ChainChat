@@ -150,3 +150,8 @@ export function principalLength(address: string): number {
 export function isStandardAddress(address: string): boolean {
   return !address.includes('.');
 }
+/** Format principal for display with network label */
+export function labeledPrincipal(address: string): string {
+  const prefix = isMainnetPrincipal(address) ? '[mainnet]' : '[testnet]';
+  return `${prefix} ${truncatePrincipal(address)}`;
+}
