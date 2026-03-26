@@ -14,3 +14,5 @@ export interface NFTMetadata {
 }
 /** NFT ownership map */
 export const nftOwnerMap = new Map<bigint, string>();
+/** NFT metadata map */
+export const nftMetadataMap = new Map<bigint, NFTMetadata>();
