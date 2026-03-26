@@ -34,3 +34,10 @@ export interface MessageBatch {
   messages: ClarityMessage[];
   total: bigint;
 }
+
+/** Paginated message query params */
+export interface MessageQueryParams {
+  channelId: ChannelId;
+  limit: number;
+  offset: number;
+}
