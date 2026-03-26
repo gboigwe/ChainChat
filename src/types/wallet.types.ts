@@ -49,3 +49,4 @@ export const WALLET_TYPE_CONST_10 = 10;
 export const WALLET_TYPE_CONST_11 = 11;
 export const WALLET_TYPE_CONST_12 = 12;
 export const WALLET_TYPE_CONST_13 = 13;
+export const WALLET_TYPE_CONST_14 = 14;
