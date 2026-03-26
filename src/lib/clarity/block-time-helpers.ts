@@ -8,3 +8,6 @@ export const BLOCKS_PER_HOUR = 6;
 
 /** Blocks per day on Stacks mainnet */
 export const BLOCKS_PER_DAY = 144;
+
+/** Blocks per week on Stacks mainnet */
+export const BLOCKS_PER_WEEK = 1008;
