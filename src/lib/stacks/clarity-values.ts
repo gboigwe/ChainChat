@@ -96,3 +96,5 @@ export function errCV(value: ClarityValue): ErrCV {
 export function isUIntCV(cv: ClarityValue): cv is UIntCV { return cv.type === 'uint'; }
 /** Type guard: is IntCV */
 export function isIntCV(cv: ClarityValue): cv is IntCV { return cv.type === 'int'; }
+/** Type guard: is BoolCV */
+export function isBoolCV(cv: ClarityValue): cv is BoolCV { return cv.type === 'bool'; }
