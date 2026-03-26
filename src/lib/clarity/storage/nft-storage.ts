@@ -5,3 +5,10 @@ export type NFTTokenId = bigint;
 export interface NFTOwnerKey {
   tokenId: NFTTokenId;
 }
+/** NFT metadata stored in map */
+export interface NFTMetadata {
+  tokenId: NFTTokenId;
+  owner: string;
+  uri: string;
+  mintedAt: bigint;
+}
