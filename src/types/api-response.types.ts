@@ -27,3 +27,11 @@ export interface BlockApiResponse {
   burn_block_time: number;
   txs: string[];
 }
+export interface MempoolTransactionApiResponse {
+  tx_id: string;
+  nonce: number;
+  fee_rate: string;
+  sender_address: string;
+  receipt_time: number;
+  tx_status: string;
+}
