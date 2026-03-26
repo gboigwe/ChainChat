@@ -47,3 +47,4 @@ export class RateLimiter {
 export const globalRateLimiter = new RateLimiter();
 export const RATE_LIMITER_CONST_1 = 1;
 export const RATE_LIMITER_CONST_2 = 2;
+export const RATE_LIMITER_CONST_3 = 3;
