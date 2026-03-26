@@ -137,3 +137,7 @@ export function mergeQueryResults<T>(a: QueryResult<T>, b: QueryResult<T>): Quer
 export function totalPages(total: number, pageSize: number): number {
   return Math.ceil(total / pageSize);
 }
+/** Check if current page is the last page */
+export function isLastPage(result: QueryResult<unknown>): boolean {
+  return !result.hasMore;
+}
