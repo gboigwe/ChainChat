@@ -66,3 +66,8 @@ export function hexToCV(hex: string): AnyCV {
   for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
   return deserializeClarityValue(bytes);
 }
+/** Convert ClarityValue to hex string */
+export function cvToHex(cv: ClarityValue): string {
+  const bytes = serializeClarityValue(cv);
+  return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
+}
