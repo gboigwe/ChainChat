@@ -56,3 +56,14 @@ export function WalletProvider({ children }: { children: React.ReactNode }): Rea
   const setNetwork = useCallback((network: 'mainnet' | 'testnet') => {
     setState(prev => ({ ...prev, network }));
   }, []);
+  const connect = useCallback(async () => {
+    setState(prev => ({ ...prev, isConnecting: true, error: null }));
+    try {
+      // openAuth would be called here with @stacks/connect
+      refreshSession();
+    } catch (e) {
+      setState(prev => ({ ...prev, error: e instanceof Error ? e.message : 'Connection failed' }));
+    } finally {
+      setState(prev => ({ ...prev, isConnecting: false }));
+    }
+  }, [refreshSession]);
