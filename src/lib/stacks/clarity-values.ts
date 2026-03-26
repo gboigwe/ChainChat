@@ -55,3 +55,10 @@ export function stringUtf8CV(value: string): StringUtf8CV {
 export function bufferCV(value: Uint8Array): BufferCV {
   return { type: 'buffer', value };
 }
+/** Factory: buffer from hex string */
+export function bufferCVFromHex(hex: string): BufferCV {
+  const clean = hex.replace(/^0x/, '');
+  const bytes = new Uint8Array(clean.length / 2);
+  for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
+  return bufferCV(bytes);
+}
