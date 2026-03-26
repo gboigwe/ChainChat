@@ -20,3 +20,6 @@ export interface ClarityMessage {
   replyTo: OptionalMessageRef;
   reactions: ReactionCount;
 }
+
+/** Message status tracking on-chain state */
+export type MessageStatus = 'pending' | 'confirmed' | 'deleted';
