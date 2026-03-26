@@ -48,3 +48,7 @@ export function isNonEmptyPrincipal(principal: string): boolean {
 export function isKnownEventType(type: string): boolean {
   return ['message-created', 'channel-created', 'member-joined', 'member-kicked', 'reaction-added'].includes(type);
 }
+/** Validate sort order string */
+export function isValidSortOrder(order: string): boolean {
+  return order === 'asc' || order === 'desc';
+}
