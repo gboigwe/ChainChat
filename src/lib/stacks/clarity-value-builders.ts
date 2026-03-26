@@ -24,3 +24,7 @@ export class CVBuilder {
     this.args.push(stringUtf8CV(value));
     return this;
   }
+  buffer(value: Uint8Array): this {
+    this.args.push(bufferCV(value));
+    return this;
+  }
