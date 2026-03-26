@@ -110,3 +110,11 @@ export interface ChannelInvite {
   expiryBlock: bigint;
   role: MemberRole;
 }
+
+/** Channel stats tuple for dashboard queries */
+export interface ChannelStats {
+  channelId: ChannelId;
+  memberCount: bigint;
+  messageCount: bigint;
+  lastActivityBlock: bigint;
+}
