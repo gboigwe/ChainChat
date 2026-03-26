@@ -15,3 +15,7 @@ export function stringToAsciiBytes(str: string): Uint8Array {
 export function asciiBytesToString(bytes: Uint8Array): string {
   return new TextDecoder('ascii').decode(bytes);
 }
+/** Encode buffer as hex string */
+export function bufferToHex(buffer: Uint8Array): string {
+  return Array.from(buffer).map(b => b.toString(16).padStart(2, '0')).join('');
+}
