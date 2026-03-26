@@ -69,3 +69,11 @@ export function extractTxId(data: FinishedTxData): string {
 }
 /** Post-condition type options */
 export type PostConditionCode = 'sent-equal-to' | 'sent-less-than' | 'sent-greater-than' | 'sent-less-than-or-equal-to' | 'sent-greater-than-or-equal-to';
+/** Build a STX post-condition */
+export function buildSTXPostCondition(
+  principal: string,
+  code: PostConditionCode,
+  amount: bigint,
+): Record<string, unknown> {
+  return { type: 'stx', principal, conditionCode: code, amount: amount.toString() };
+}
