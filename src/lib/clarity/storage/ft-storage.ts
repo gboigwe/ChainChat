@@ -147,3 +147,9 @@ export function releaseLockedTokens(owner: string, currentBlock: bigint): void {
   setBalance(owner, getBalance(owner) + lock.amount);
   tokenLockMap.delete(owner);
 }
+/** Get all principals with non-zero balance */
+export function getActiveHolders(): string[] {
+  return Array.from(ftBalanceMap.entries())
+    .filter(([, balance]) => balance > 0n)
+    .map(([principal]) => principal);
+}
