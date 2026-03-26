@@ -186,3 +186,8 @@ export const DEFAULT_CHANNEL_PAGE_SIZE = 20;
 export function isPrivateChannel(channel: ClarityChannel): boolean {
   return channel.visibility === 'private';
 }
+
+/** Check if a channel is public */
+export function isPublicChannel(channel: ClarityChannel): boolean {
+  return channel.visibility === 'public';
+}
