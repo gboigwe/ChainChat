@@ -23,3 +23,9 @@ export function isContractPrincipal(address: string): boolean {
 export function isValidPrincipal(address: string): boolean {
   return isStandardPrincipal(address) || isContractPrincipal(address);
 }
+
+/** Extract deployer address from a contract principal */
+export function getDeployerAddress(contractPrincipal: string): string | null {
+  const match = CONTRACT_PRINCIPAL_REGEX.exec(contractPrincipal);
+  return match ? match[1] : null;
+}
