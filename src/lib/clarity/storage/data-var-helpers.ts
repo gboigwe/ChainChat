@@ -85,3 +85,7 @@ export function clampVar(
   dataVar.set(clamped);
   return clamped;
 }
+/** Subscribe to changes on a data-var */
+export interface DataVarWithSubscription<T> extends DataVar<T> {
+  subscribe(listener: (newValue: T, oldValue: T) => void): () => void;
+}
