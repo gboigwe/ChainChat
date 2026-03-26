@@ -99,3 +99,4 @@ export const SIGN_CONST_9 = 9;
 export const SIGN_CONST_10 = 10;
 export const SIGN_CONST_11 = 11;
 export const SIGN_CONST_12 = 12;
+export const SIGN_CONST_13 = 13;
