@@ -14,3 +14,11 @@ export interface UserSessionData {
   appPrivateKey?: string;
   hubUrl?: string;
 }
+/** User profile data */
+export interface UserProfile {
+  stxAddress: { mainnet: string; testnet: string };
+  btcAddress?: string;
+  name?: string;
+  description?: string;
+  avatarUrl?: string;
+}
