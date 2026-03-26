@@ -30,3 +30,7 @@ export function executeTransfer(
   setBalance(sender, getBalance(sender) - amount);
   setBalance(recipient, getBalance(recipient) + amount);
 }
+/** Mint new tokens to principal */
+export function mintTokens(recipient: string, amount: TokenBalance): void {
+  setBalance(recipient, getBalance(recipient) + amount);
+}
