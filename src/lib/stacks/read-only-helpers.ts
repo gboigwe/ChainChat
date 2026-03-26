@@ -15,3 +15,10 @@ export function buildReadOnlyUrl(
 ): string {
   return `${apiBase}/v2/contracts/call-read/${contractAddress}/${contractName}/${functionName}`;
 }
+/** Build read-only request body */
+export function buildReadOnlyBody(
+  sender: string,
+  args: string[],
+): Record<string, unknown> {
+  return { sender, arguments: args };
+}
