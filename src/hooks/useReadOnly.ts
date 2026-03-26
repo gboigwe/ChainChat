@@ -20,3 +20,8 @@ export type UseReadOnlyReturn<T> = UseReadOnlyState<T> & {
   call: () => Promise<void>;
   refetch: () => Promise<void>;
 };
+/** Generic read-only contract call hook */
+export function useReadOnly<T = unknown>(options: UseReadOnlyOptions): UseReadOnlyReturn<T> {
+  const [data, setData] = useState<T | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
