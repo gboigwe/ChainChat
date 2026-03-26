@@ -13,3 +13,5 @@ export interface StringAsciiCV extends ClarityValue { type: 'string-ascii'; valu
 export interface StringUtf8CV extends ClarityValue { type: 'string-utf8'; value: string; }
 /** Clarity buffer value */
 export interface BufferCV extends ClarityValue { type: 'buffer'; value: Uint8Array; }
+/** Clarity list value */
+export interface ListCV extends ClarityValue { type: 'list'; list: ClarityValue[]; }
