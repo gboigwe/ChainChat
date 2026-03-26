@@ -24,3 +24,11 @@ export async function getContractInterface(
 ): Promise<unknown> {
   return client.fetch(`/v2/contracts/interface/${contractAddress}/${contractName}`);
 }
+/** Get contract source code */
+export async function getContractSource(
+  client: HiroApiClient,
+  contractAddress: string,
+  contractName: string,
+): Promise<{ source: string; publish_height: number }> {
+  return client.fetch(`/v2/contracts/source/${contractAddress}/${contractName}`);
+}
