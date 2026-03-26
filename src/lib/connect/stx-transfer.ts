@@ -41,3 +41,9 @@ export function buildSTXTransferOptions(
 ): STXTransferOptions {
   return { recipient, amount, memo, network, ...overrides };
 }
+/** Format transfer amount for display */
+export function formatTransferAmount(amount: bigint): string {
+  const stx = amount / 1_000_000n;
+  const micro = amount % 1_000_000n;
+  return `${stx}.${micro.toString().padStart(6, '0')} STX`;
+}
