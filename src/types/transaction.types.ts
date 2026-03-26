@@ -31,3 +31,10 @@ export interface TokenTransferTransaction extends Transaction {
   };
 }
 export type TxEventType = 'smart_contract_log' | 'stx_transfer' | 'stx_lock' | 'nft_mint' | 'nft_transfer' | 'nft_burn' | 'ft_mint' | 'ft_transfer' | 'ft_burn';
+export interface TransactionReceipt {
+  txId: string;
+  success: boolean;
+  blockHeight: number;
+  result?: string;
+  events: TxEvent[];
+}
