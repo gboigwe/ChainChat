@@ -40,3 +40,7 @@ export const PROVIDER_REGISTRY: Record<WalletProvider, ProviderInfo> = {
     downloadUrl: '',
   },
 };
+/** Get provider icon URL */
+export function getProviderIcon(provider: WalletProvider): string {
+  return PROVIDER_REGISTRY[provider].icon;
+}
