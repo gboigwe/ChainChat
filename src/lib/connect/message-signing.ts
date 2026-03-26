@@ -65,3 +65,9 @@ export function isValidSignature(signature: string): boolean {
 export function isValidPublicKey(publicKey: string): boolean {
   return /^(02|03)[0-9a-fA-F]{64}$/.test(publicKey);
 }
+/** Structured data types enum */
+export enum StructuredDataType {
+  Message = 'message',
+  ChannelInvite = 'channel-invite',
+  Report = 'report',
+}
