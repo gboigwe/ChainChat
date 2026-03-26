@@ -25,3 +25,10 @@ export function mapSet<V extends MapValue>(
 ): void {
   map.set(keyStr, value);
 }
+/** Delete a key from map (mirrors map-delete) */
+export function mapDelete<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+): boolean {
+  return map.delete(keyStr);
+}
