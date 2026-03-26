@@ -11,3 +11,5 @@ export const CONNECT_CONST_1 = 1;
 export const CONNECT_CONST_2 = 2;
 // connect module constant 3
 export const CONNECT_CONST_3 = 3;
+// connect module constant 4
+export const CONNECT_CONST_4 = 4;
