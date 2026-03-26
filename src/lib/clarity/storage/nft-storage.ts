@@ -37,3 +37,13 @@ export function getNFTOwner(tokenId: NFTTokenId): string | null {
 export function getNFTMetadata(tokenId: NFTTokenId): NFTMetadata | null {
   return nftMetadataMap.get(tokenId) ?? null;
 }
+/** Transfer NFT to new owner */
+export function transferNFT(
+  tokenId: NFTTokenId,
+  from: string,
+  to: string,
+): void {
+  const owner = getNFTOwner(tokenId);
+  if (owner !== from) throw new Error('Sender is not NFT owner');
+  nftOwnerMap.set(tokenId, to);
+}
