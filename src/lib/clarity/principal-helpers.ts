@@ -35,3 +35,10 @@ export function getContractName(contractPrincipal: string): string | null {
   const match = CONTRACT_PRINCIPAL_REGEX.exec(contractPrincipal);
   return match ? match[2] : null;
 }
+
+/** Build a contract principal from deployer address and name */
+export function buildContractPrincipal(deployer: string, name: string): string {
+  if (!isStandardPrincipal(deployer)) throw new Error('Invalid deployer address');
+  if (!/^[a-z][a-z0-9\-]{0,39}$/.test(name)) throw new Error('Invalid contract name');
+  return `${deployer}.${name}`;
+}
