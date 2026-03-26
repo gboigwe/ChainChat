@@ -191,3 +191,8 @@ export function fromTruthy<T>(
 ): ClarityResponse<T, bigint> {
   return value ? ok(value) : err(errorCode);
 }
+
+/** Count ok responses in an array */
+export function countOk<T, E>(responses: ClarityResponse<T, E>[]): number {
+  return responses.filter(isOk).length;
+}
