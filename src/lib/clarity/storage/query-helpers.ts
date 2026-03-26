@@ -85,3 +85,11 @@ export function minBigintField<T>(items: T[], field: keyof T): bigint {
     return v < min ? v : min;
   }, items[0][field] as unknown as bigint);
 }
+/** Query result with pagination metadata */
+export interface QueryResult<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  hasMore: boolean;
+}
