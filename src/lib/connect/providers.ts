@@ -64,3 +64,8 @@ export function detectInstalledWallets(): WalletProvider[] {
     .filter(p => p !== WalletProvider.Unknown)
     .filter(isProviderInstalled);
 }
+/** Get preferred provider — first installed or unknown */
+export function getPreferredProvider(): WalletProvider {
+  const installed = detectInstalledWallets();
+  return installed[0] ?? WalletProvider.Unknown;
+}
