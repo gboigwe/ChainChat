@@ -91,3 +91,4 @@ export const AUTH_EXTRA_20 = 20;
 export const AUTH_EXTRA_21 = 21;
 export const AUTH_EXTRA_22 = 22;
 export const AUTH_EXTRA_23 = 23;
+export const AUTH_EXTRA_24 = 24;
