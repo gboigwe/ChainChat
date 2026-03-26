@@ -12,3 +12,9 @@ export interface ContractInterface {
   epoch: string;
   clarity_version: string;
 }
+export interface FunctionABI {
+  name: string;
+  access: 'public' | 'read_only' | 'private';
+  args: Array<{ name: string; type: string | object }>;
+  outputs: { type: string | object };
+}
