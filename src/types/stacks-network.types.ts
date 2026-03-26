@@ -62,3 +62,4 @@ export const EXTRA_NETWORK_3 = 3;
 export const EXTRA_NETWORK_4 = 4;
 export const EXTRA_NETWORK_5 = 5;
 export const EXTRA_NETWORK_6 = 6;
+export const EXTRA_NETWORK_7 = 7;
