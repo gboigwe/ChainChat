@@ -76,3 +76,7 @@ export function feePercentage(fee: bigint, amount: bigint): number {
   if (amount === 0n) return 0;
   return Number((fee * 10000n) / amount) / 100;
 }
+/** Estimate byte size for fee calculation */
+export function estimateTxSize(numArgs: number): number {
+  return 300 + numArgs * 40;
+}
