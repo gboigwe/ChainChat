@@ -40,3 +40,7 @@ export function isHexString(str: string): boolean {
 export function normalizeHex(hex: string): string {
   return hex.startsWith('0x') ? hex.slice(2) : hex;
 }
+/** Add 0x prefix to hex string if missing */
+export function addHexPrefix(hex: string): string {
+  return hex.startsWith('0x') ? hex : '0x' + hex;
+}
