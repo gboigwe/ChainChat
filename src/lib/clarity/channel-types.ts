@@ -178,3 +178,6 @@ export interface ChannelListResult {
   total: bigint;
   page: number;
 }
+
+/** Default page size for channel listings */
+export const DEFAULT_CHANNEL_PAGE_SIZE = 20;
