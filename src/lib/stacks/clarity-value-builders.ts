@@ -20,3 +20,7 @@ export class CVBuilder {
     this.args.push(stringAsciiCV(value));
     return this;
   }
+  utf8(value: string): this {
+    this.args.push(stringUtf8CV(value));
+    return this;
+  }
