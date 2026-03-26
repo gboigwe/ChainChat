@@ -9,3 +9,6 @@ export interface NonceTrackerState {
 /** Nonce tracker class for managing transaction sequences */
 export class NonceTracker {
   private state: Map<string, NonceTrackerState> = new Map();
+  getNonce(address: string): number {
+    return this.state.get(address)?.nonce ?? 0;
+  }
