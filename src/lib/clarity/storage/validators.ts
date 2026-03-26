@@ -36,3 +36,7 @@ export function isValidBadgeType(type: string): boolean {
 export function isValidBlockRange(start: bigint, end: bigint): boolean {
   return start >= 0n && end >= start;
 }
+/** Validate bigint is non-negative */
+export function isNonNegativeBigint(value: bigint): boolean {
+  return value >= 0n;
+}
