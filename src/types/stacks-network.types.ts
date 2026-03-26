@@ -21,3 +21,4 @@ export interface BlockInfo {
   burnBlockTime: number;
   epoch: EpochIdentifier;
 }
+export const NETWORK_TYPE_1 = 1;
