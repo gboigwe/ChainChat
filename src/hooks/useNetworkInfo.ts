@@ -15,3 +15,12 @@ export function useNetworkInfo(network: 'mainnet' | 'testnet' = 'mainnet'): Netw
   const apiUrl = network === 'mainnet' ? 'https://api.hiro.so' : 'https://api.testnet.hiro.so';
   const [blockHeight, setBlockHeight] = useState<number | null>(null);
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    fetch(`${apiUrl}/extended/v1/block?limit=1`)
+      .then(r => r.json())
+      .then(data => { if (!cancelled) { setBlockHeight(data.results?.[0]?.height ?? null); setLoading(false); } })
+      .catch(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, [apiUrl]);
