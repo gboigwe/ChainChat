@@ -27,3 +27,9 @@ export const DEFAULT_CONFIG: HiroApiConfig = {
 export function retryDelay(attempt: number): number {
   return Math.min(1000 * 2 ** attempt, 10_000);
 }
+/** Hiro API client class */
+export class HiroApiClient {
+  private baseUrl: string;
+  private apiKey?: string;
+  private timeout: number;
+  private maxRetries: number;
