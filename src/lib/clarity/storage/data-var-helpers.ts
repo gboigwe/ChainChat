@@ -133,3 +133,5 @@ export const channelCreationFee = createDataVar<bigint>(5_000_000n);
 export const messagePostingFee = createDataVar<bigint>(0n);
 /** Get channel creation fee */
 export function getChannelCreationFee(): bigint { return channelCreationFee.get(); }
+/** Get message posting fee */
+export function getMessagePostingFee(): bigint { return messagePostingFee.get(); }
