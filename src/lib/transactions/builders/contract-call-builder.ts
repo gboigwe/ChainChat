@@ -28,3 +28,7 @@ export class ContractCallBuilder {
     this.options.functionName = name;
     return this;
   }
+  setFunctionArgs(args: unknown[]): this {
+    this.options.functionArgs = args;
+    return this;
+  }
