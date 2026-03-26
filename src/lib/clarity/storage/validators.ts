@@ -20,3 +20,7 @@ export function isValidMapKey(key: string): boolean {
 export function isValidMapValue(value: unknown): boolean {
   return typeof value === 'object' && value !== null;
 }
+/** Validate page number is non-negative */
+export function isValidPage(page: number): boolean {
+  return Number.isInteger(page) && page >= 0;
+}
