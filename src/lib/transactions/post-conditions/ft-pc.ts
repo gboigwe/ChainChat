@@ -16,3 +16,20 @@ export interface ContractFTPostCondition {
   amount: bigint;
   assetInfo: { contractAddress: string; contractName: string; assetName: string };
 }
+/** Make standard FT post-condition */
+export function makeStandardFungiblePostCondition(
+  address: string,
+  conditionCode: FungibleConditionCode,
+  amount: bigint,
+  contractAddress: string,
+  contractName: string,
+  assetName: string,
+): StandardFTPostCondition {
+  return {
+    type: 'ft',
+    principal: { type: 'standard', address },
+    conditionCode,
+    amount,
+    assetInfo: { contractAddress, contractName, assetName },
+  };
+}
