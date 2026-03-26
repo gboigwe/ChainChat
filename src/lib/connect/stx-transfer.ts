@@ -49,3 +49,12 @@ export function formatTransferAmount(amount: bigint): string {
 }
 /** Maximum STX transfer memo length */
 export const MAX_MEMO_LENGTH = 34;
+/** Validate full transfer options */
+export function validateTransferOptions(options: Partial<STXTransferOptions>): string[] {
+  const errors: string[] = [];
+  if (!options.recipient) errors.push('recipient is required');
+  if (options.amount === undefined) errors.push('amount is required');
+  else errors.push(...validateTransferAmount(options.amount));
+  if (options.memo) errors.push(...validateMemo(options.memo));
+  return errors;
+}
