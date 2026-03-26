@@ -85,3 +85,7 @@ export function mintBadge(
   badgeMap.set(tokenId, badge);
   return badge;
 }
+/** Get badge by token ID */
+export function getBadge(tokenId: NFTTokenId): BadgeNFT | null {
+  return badgeMap.get(tokenId) ?? null;
+}
