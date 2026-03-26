@@ -13,3 +13,12 @@ export interface UseContractEventsState {
   loading: boolean;
   error: string | null;
 }
+/** Poll contract events */
+export function useContractEvents(
+  contractId: string | null,
+  apiUrl = 'https://api.hiro.so',
+  pollInterval = 10000,
+): UseContractEventsState & { refetch: () => void } {
+  const [events, setEvents] = useState<ContractEvent[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
