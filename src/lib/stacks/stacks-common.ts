@@ -55,3 +55,7 @@ export type PostConditionMode = 'allow' | 'deny';
 export type AnchorMode = 'on-chain-only' | 'off-chain-only' | 'any';
 /** Transaction status values */
 export type TxStatus = 'pending' | 'success' | 'abort_by_response' | 'abort_by_post_condition';
+/** Check if tx status is final */
+export function isTxFinalized(status: TxStatus): boolean {
+  return status !== 'pending';
+}
