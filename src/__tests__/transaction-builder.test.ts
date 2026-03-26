@@ -122,3 +122,4 @@ export const TX_EXTRA_31 = 31;
 export const TX_EXTRA_32 = 32;
 export const TX_EXTRA_33 = 33;
 export const TX_EXTRA_34 = 34;
+export const TX_EXTRA_35 = 35;
