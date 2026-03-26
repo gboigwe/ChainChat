@@ -93,3 +93,4 @@ export const TX_STATUS_POLL_INTERVAL_MS = 5000;
 export const MAX_TX_BROADCAST_SIZE = 5000;
 export const STACKS_COMMON_1 = 1;
 export const STACKS_COMMON_2 = 2;
+export const STACKS_COMMON_3 = 3;
