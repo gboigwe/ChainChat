@@ -65,3 +65,7 @@ export function contractExplorerUrl(
 export function isValidNetworkName(name: string): boolean {
   return ['mainnet', 'testnet', 'devnet'].includes(name);
 }
+/** Get all supported network names */
+export function getSupportedNetworks(): string[] {
+  return ['mainnet', 'testnet', 'devnet'];
+}
