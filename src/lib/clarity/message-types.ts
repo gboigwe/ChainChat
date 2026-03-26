@@ -52,3 +52,10 @@ export function createMessage(
 ): ClarityMessage {
   return { id, sender, content, channelId, createdAt, replyTo: null, reactions: 0n };
 }
+
+/** Guard: check if value is a valid ClarityMessage */
+export function isClarityMessage(value: unknown): value is ClarityMessage {
+  if (typeof value !== 'object' || value === null) return false;
+  const m = value as Record<string, unknown>;
+  return typeof m['id'] === 'bigint';
+}
