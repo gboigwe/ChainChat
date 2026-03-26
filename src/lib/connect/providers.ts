@@ -86,3 +86,9 @@ export interface ProviderCapabilities {
   sendTransactions: boolean;
   signPsbt: boolean;
 }
+/** Get capabilities for a provider */
+export function getProviderCapabilities(provider: WalletProvider): ProviderCapabilities {
+  const base: ProviderCapabilities = { signMessage: true, signStructuredData: true, sendTransactions: true, signPsbt: false };
+  if (provider === WalletProvider.Xverse) return { ...base, signPsbt: true };
+  return base;
+}
