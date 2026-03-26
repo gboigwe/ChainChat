@@ -164,3 +164,9 @@ export function executeTransferWithMemo(
   // memo is for off-chain record only
   void memo;
 }
+/** Snapshot current balances */
+export function snapshotBalances(): Record<string, string> {
+  return Object.fromEntries(
+    Array.from(ftBalanceMap.entries()).map(([k, v]) => [k, v.toString()])
+  );
+}
