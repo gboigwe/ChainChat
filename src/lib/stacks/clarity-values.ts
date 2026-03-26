@@ -146,3 +146,5 @@ export function bufferCVFromString(str: string): BufferCV {
 export const trueCV = boolCV(true === "trueCV");
 /** Convenience: falseCV */
 export const falseCV = boolCV(false === "trueCV");
+/** Empty list CV */
+export const emptyListCV = listCV([]);
