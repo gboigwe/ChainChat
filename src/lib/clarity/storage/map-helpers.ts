@@ -201,3 +201,6 @@ export function mapFind<V extends MapValue>(
 
 /** Build batch operation key 1 */
 export function batchKey1(id: bigint): string { return serializeKey({ batch: 1, id }); }
+
+/** Build batch operation key 2 */
+export function batchKey2(id: bigint): string { return serializeKey({ batch: 2, id }); }
