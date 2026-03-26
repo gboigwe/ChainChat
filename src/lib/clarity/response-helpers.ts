@@ -77,3 +77,13 @@ export const ERR_ALREADY_EXISTS  = 409n;
 export const ERR_INVALID_INPUT   = 400n;
 export const ERR_CHANNEL_FULL    = 413n;
 export const ERR_MESSAGE_TOO_LONG = 414n;
+
+/** Human-readable descriptions for error codes */
+export const ERROR_MESSAGES: Record<bigint | number, string> = {
+  [Number(ERR_NOT_FOUND)]: 'Resource not found',
+  [Number(ERR_UNAUTHORIZED)]: 'Not authorized',
+  [Number(ERR_ALREADY_EXISTS)]: 'Already exists',
+  [Number(ERR_INVALID_INPUT)]: 'Invalid input',
+  [Number(ERR_CHANNEL_FULL)]: 'Channel is full',
+  [Number(ERR_MESSAGE_TOO_LONG)]: 'Message too long',
+};
