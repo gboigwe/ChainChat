@@ -56,3 +56,11 @@ export function uint32ToBuffer(value: number): Uint8Array {
 export function bufferToUint32(buf: Uint8Array): number {
   return new DataView(buf.buffer).getUint32(0, false);
 }
+
+/** Convert bigint to 8-byte big-endian buffer */
+export function uint64ToBuffer(value: bigint): Uint8Array {
+  const buf = new Uint8Array(8);
+  const view = new DataView(buf.buffer);
+  view.setBigUint64(0, value, false);
+  return buf;
+}
