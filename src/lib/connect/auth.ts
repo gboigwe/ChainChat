@@ -87,3 +87,8 @@ export function getCurrentAddress(
 }
 /** Session storage key */
 export const SESSION_KEY = 'blockstack-session';
+/** App details for ChainChat */
+export const CHAINCHAT_APP_DETAILS = {
+  name: 'ChainChat',
+  icon: '/favicon.ico',
+} as const;
