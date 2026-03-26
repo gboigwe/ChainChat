@@ -6,3 +6,4 @@ export * from './post-conditions/stx-pc';
 export * from './post-conditions/ft-pc';
 export * from './post-conditions/nft-pc';
 export * from './fee-estimation';
+export * from './nonce-management';
