@@ -52,3 +52,7 @@ export class CVBuilder {
     this.args.push(someCV(value));
     return this;
   }
+  build(): ClarityValue[] {
+    return [...this.args];
+  }
+}
