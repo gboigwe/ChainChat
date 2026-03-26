@@ -133,3 +133,8 @@ export function principalCVToString(cv: StandardPrincipalCV | ContractPrincipalC
 export function optionalCV(value: ClarityValue | null): SomeCV | NoneCV {
   return value !== null ? someCV(value) : noneCV();
 }
+/** Create uint from number safely */
+export function uintCVFromNumber(n: number): UIntCV {
+  if (n < 0) throw new Error('uint cannot be negative');
+  return uintCV(BigInt(n));
+}
