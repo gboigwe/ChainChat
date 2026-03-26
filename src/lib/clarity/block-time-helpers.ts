@@ -25,3 +25,12 @@ export function blockHeightToTimestamp(
 ): number {
   return genesisTimestamp + Number(blockHeight) * AVERAGE_BLOCK_TIME_SECONDS;
 }
+
+/** Estimate block height from Unix timestamp */
+export function timestampToBlockHeight(
+  timestamp: number,
+  genesisTimestamp = STACKS_GENESIS_TIMESTAMP,
+): bigint {
+  const elapsed = timestamp - genesisTimestamp;
+  return BigInt(Math.floor(elapsed / AVERAGE_BLOCK_TIME_SECONDS));
+}
