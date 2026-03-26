@@ -167,3 +167,8 @@ export function startOfDayBlock(blockHeight: bigint): bigint {
 export function isFutureBlock(blockHeight: bigint, currentBlock: bigint): boolean {
   return blockHeight > currentBlock;
 }
+
+/** Check if a block is in the past relative to current */
+export function isPastBlock(blockHeight: bigint, currentBlock: bigint): boolean {
+  return blockHeight < currentBlock;
+}
