@@ -66,3 +66,19 @@ export function assertTupleHasKeys(
     }
   }
 }
+
+/** Validate tuple keys against expected schema */
+export function validateTupleSchema(
+  tuple: Record<string, unknown>,
+  schema: Record<string, string>,
+): string[] {
+  const errors: string[] = [];
+  for (const [key, expectedType] of Object.entries(schema)) {
+    if (!(key in tuple)) {
+      errors.push(`Missing key: ${key}`);
+    } else if (typeof tuple[key] !== expectedType && expectedType !== 'bigint') {
+      errors.push(`Wrong type for key ${key}: expected ${expectedType}`);
+    }
+  }
+  return errors;
+}
