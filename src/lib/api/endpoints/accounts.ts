@@ -29,3 +29,11 @@ export async function getAccountBalance(
 ): Promise<AccountBalanceResponse> {
   return client.fetch<AccountBalanceResponse>(`/extended/v1/address/${address}/balances`);
 }
+/** Get account STX balance only */
+export async function getAccountSTXBalance(
+  client: HiroApiClient,
+  address: string,
+): Promise<string> {
+  const info = await getAccountInfo(client, address);
+  return info.balance;
+}
