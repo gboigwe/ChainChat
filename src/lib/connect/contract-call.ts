@@ -100,3 +100,4 @@ export const CALL_CONST_16 = 16;
 export const CALL_CONST_17 = 17;
 export const CALL_CONST_18 = 18;
 export const CALL_CONST_19 = 19;
+export const CALL_CONST_20 = 20;
