@@ -44,3 +44,10 @@ export function normalizeHex(hex: string): string {
 export function addHexPrefix(hex: string): string {
   return hex.startsWith('0x') ? hex : '0x' + hex;
 }
+
+/** Convert number to big-endian 4-byte buffer */
+export function uint32ToBuffer(value: number): Uint8Array {
+  const buf = new Uint8Array(4);
+  new DataView(buf.buffer).setUint32(0, value, false);
+  return buf;
+}
