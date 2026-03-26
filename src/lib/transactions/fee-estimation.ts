@@ -44,3 +44,9 @@ export function estimateContractCallFee(numArgs: number): bigint {
 export function estimateSTXTransferFee(memoLength = 0): bigint {
   return estimateFee(200 + memoLength);
 }
+/** Format fee for display */
+export function formatFee(fee: bigint): string {
+  const stx = fee / 1_000_000n;
+  const micro = fee % 1_000_000n;
+  return `${stx}.${micro.toString().padStart(6, '0')} STX`;
+}
