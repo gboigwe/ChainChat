@@ -41,3 +41,4 @@ export const NETWORK_INFO_4 = 4;
 export const NETWORK_INFO_5 = 5;
 export const NETWORK_INFO_6 = 6;
 export const NETWORK_INFO_7 = 7;
+export const NETWORK_INFO_8 = 8;
