@@ -32,3 +32,9 @@ const TYPE_CODES: Record<string, number> = {
   'string-ascii': 13,
   'string-utf8': 14,
 };
+/** Get numeric type code for a ClarityValue type string */
+export function getTypeCode(type: string): number {
+  const code = TYPE_CODES[type];
+  if (code === undefined) throw new Error(`Unknown CV type: ${type}`);
+  return code;
+}
