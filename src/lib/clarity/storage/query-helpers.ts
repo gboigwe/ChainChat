@@ -70,3 +70,10 @@ export function uniqueByField<T>(items: T[], field: keyof T): T[keyof T][] {
 export function sumBigintField<T>(items: T[], field: keyof T): bigint {
   return items.reduce((acc, item) => acc + (item[field] as unknown as bigint), 0n);
 }
+/** Max bigint field across items */
+export function maxBigintField<T>(items: T[], field: keyof T): bigint {
+  return items.reduce((max, item) => {
+    const v = item[field] as unknown as bigint;
+    return v > max ? v : max;
+  }, 0n);
+}
