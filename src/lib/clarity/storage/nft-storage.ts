@@ -12,3 +12,5 @@ export interface NFTMetadata {
   uri: string;
   mintedAt: bigint;
 }
+/** NFT ownership map */
+export const nftOwnerMap = new Map<bigint, string>();
