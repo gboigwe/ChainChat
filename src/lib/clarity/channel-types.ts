@@ -181,3 +181,8 @@ export interface ChannelListResult {
 
 /** Default page size for channel listings */
 export const DEFAULT_CHANNEL_PAGE_SIZE = 20;
+
+/** Check if a channel is private */
+export function isPrivateChannel(channel: ClarityChannel): boolean {
+  return channel.visibility === 'private';
+}
