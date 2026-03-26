@@ -68,3 +68,8 @@ export function extractTupleField(cv: ClarityValue, field: string): ClarityValue
   if (!isTupleCV(cv)) return null;
   return cv.data[field] ?? null;
 }
+/** Extract list as typed array using a mapper */
+export function extractList<T>(cv: ClarityValue, mapper: (item: ClarityValue) => T): T[] | null {
+  if (!isListCV(cv)) return null;
+  return cv.list.map(mapper);
+}
