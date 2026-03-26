@@ -80,3 +80,10 @@ export interface ContractCallArgsBuilder {
   addPrincipal(value: string): ContractCallArgsBuilder;
   build(): unknown[];
 }
+/** Block info response */
+export interface BlockInfo {
+  hash: string;
+  height: number;
+  burn_block_time: number;
+  index_block_hash: string;
+}
