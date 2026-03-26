@@ -78,3 +78,4 @@ export async function getTxEvents(
   return client.fetch(`/extended/v1/tx/${txId}/events`, undefined, { limit, offset });
 }
 export const TX_ENDPOINT_CONST_1 = 1;
+export const TX_ENDPOINT_CONST_2 = 2;
