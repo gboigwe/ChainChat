@@ -56,3 +56,7 @@ export function isContractPaused(): boolean {
 export function pauseContract(): void {
   contractPaused.set(true);
 }
+/** Resume contract operations */
+export function resumeContract(): void {
+  contractPaused.set(false);
+}
