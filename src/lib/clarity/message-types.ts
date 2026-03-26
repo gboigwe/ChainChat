@@ -28,3 +28,9 @@ export type MessageStatus = 'pending' | 'confirmed' | 'deleted';
 export interface MessageWithMeta extends ClarityMessage {
   status: MessageStatus;
 }
+
+/** Batch of messages returned from contract map iteration */
+export interface MessageBatch {
+  messages: ClarityMessage[];
+  total: bigint;
+}
