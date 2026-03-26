@@ -35,3 +35,10 @@ export const ROLE_CODES: Record<MemberRole, bigint> = {
   member: 3n,
   viewer: 4n,
 };
+
+/** Channel membership tuple */
+export interface ChannelMember {
+  principal: PrincipalAddress;
+  role: MemberRole;
+  joinedAt: BlockHeight;
+}
