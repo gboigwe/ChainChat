@@ -43,3 +43,21 @@ export class STXTransferBuilder {
     this.options.network = network;
     return this;
   }
+  build(): STXTransferTxOptions {
+    if (!this.options.recipient) throw new Error('recipient required');
+    if (!this.options.amount) throw new Error('amount required');
+    if (this.options.fee === undefined) throw new Error('fee required');
+    if (this.options.nonce === undefined) throw new Error('nonce required');
+    if (!this.options.network) throw new Error('network required');
+    return {
+      recipient: this.options.recipient,
+      amount: this.options.amount,
+      memo: this.options.memo ?? '',
+      fee: this.options.fee,
+      nonce: this.options.nonce,
+      anchorMode: this.options.anchorMode ?? 'any',
+      network: this.options.network,
+      senderKey: this.options.senderKey,
+    };
+  }
+}
