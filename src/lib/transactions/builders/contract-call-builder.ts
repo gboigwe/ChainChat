@@ -66,3 +66,13 @@ export class ContractCallBuilder {
     this.options.senderKey = key;
     return this;
   }
+  validate(): string[] {
+    const errors: string[] = [];
+    if (!this.options.contractAddress) errors.push('contractAddress required');
+    if (!this.options.contractName) errors.push('contractName required');
+    if (!this.options.functionName) errors.push('functionName required');
+    if (!this.options.network) errors.push('network required');
+    if (this.options.fee === undefined) errors.push('fee required');
+    if (this.options.nonce === undefined) errors.push('nonce required');
+    return errors;
+  }
