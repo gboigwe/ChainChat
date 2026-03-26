@@ -100,3 +100,7 @@ export function serializeArgs(args: ClarityValue[]): string[] {
 export function cvByteLength(cv: ClarityValue): number {
   return serializeClarityValue(cv).length;
 }
+/** Compact print of CV for logging */
+export function cvDebugString(cv: ClarityValue): string {
+  try { return cvToString(cv); } catch { return `<${cv.type}>`; }
+}
