@@ -14,3 +14,10 @@ export interface StandardSTXPostCondition {
   conditionCode: FungibleConditionCode;
   amount: bigint;
 }
+/** Contract STX post-condition */
+export interface ContractSTXPostCondition {
+  type: 'stx';
+  principal: { type: 'contract'; address: string; contractName: string };
+  conditionCode: FungibleConditionCode;
+  amount: bigint;
+}
