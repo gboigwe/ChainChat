@@ -39,3 +39,8 @@ export class NonceTracker {
       state.pending = state.pending.filter(n => n !== nonce);
     }
   }
+  isStale(address: string, maxAgeMs = 30_000): boolean {
+    const state = this.state.get(address);
+    if (!state) return true;
+    return Date.now() - state.lastFetched > maxAgeMs;
+  }
