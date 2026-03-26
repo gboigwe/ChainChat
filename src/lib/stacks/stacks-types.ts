@@ -87,3 +87,8 @@ export interface BlockInfo {
   burn_block_time: number;
   index_block_hash: string;
 }
+/** Pagination query parameters */
+export interface PaginationParams {
+  limit?: number;
+  offset?: number;
+}
