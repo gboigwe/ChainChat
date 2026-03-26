@@ -60,3 +60,4 @@ export function validateTransferOptions(options: Partial<STXTransferOptions>): s
 }
 export const TRANSFER_CONST_1 = 1;
 export const TRANSFER_CONST_2 = 2;
+export const TRANSFER_CONST_3 = 3;
