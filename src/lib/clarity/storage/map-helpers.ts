@@ -102,3 +102,7 @@ export function mapTransform<V extends MapValue, U extends MapValue>(
   for (const [k, v] of map) result.set(k, fn(v));
   return result;
 }
+/** Get map size */
+export function mapSize<V extends MapValue>(map: Map<string, V>): number {
+  return map.size;
+}
