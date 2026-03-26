@@ -51,3 +51,9 @@ export interface FTTransferEvent {
   sender: string;
   recipient: string;
 }
+/** Gas estimation result */
+export interface FeeEstimate {
+  fee: bigint;
+  feeRate: number;
+  estimatedSize: number;
+}
