@@ -131,3 +131,4 @@ export const FORMAT_PAD_11 = 11;
 export const FORMAT_PAD_12 = 12;
 export const FORMAT_PAD_13 = 13;
 export const FORMAT_PAD_14 = 14;
+export const FORMAT_PAD_15 = 15;
