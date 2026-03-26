@@ -29,3 +29,7 @@ export function mintNFT(
   nftMetadataMap.set(tokenId, meta);
   return meta;
 }
+/** Get NFT owner */
+export function getNFTOwner(tokenId: NFTTokenId): string | null {
+  return nftOwnerMap.get(tokenId) ?? null;
+}
