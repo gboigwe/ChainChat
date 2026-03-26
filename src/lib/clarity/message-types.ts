@@ -181,3 +181,11 @@ export function groupByChannel(
   }
   return groups;
 }
+
+/** Get the most recent message from a list */
+export function getLatestMessage(messages: ClarityMessage[]): ClarityMessage | null {
+  if (messages.length === 0) return null;
+  return messages.reduce((latest, m) =>
+    m.createdAt > latest.createdAt ? m : latest,
+  );
+}
