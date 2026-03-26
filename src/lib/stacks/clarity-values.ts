@@ -152,3 +152,5 @@ export const emptyListCV = listCV([]);
 export function arg1<T extends ClarityValue>(cv: T): T { return cv; }
 /** CV builder convenience for arg position 2 */
 export function arg2<T extends ClarityValue>(cv: T): T { return cv; }
+/** CV builder convenience for arg position 3 */
+export function arg3<T extends ClarityValue>(cv: T): T { return cv; }
