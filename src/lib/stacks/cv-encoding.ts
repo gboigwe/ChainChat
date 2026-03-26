@@ -113,3 +113,4 @@ export const ENCODING_CONSTANT_6 = 6;
 export const ENCODING_CONSTANT_7 = 7;
 export const ENCODING_CONSTANT_8 = 8;
 export const ENCODING_CONSTANT_9 = 9;
+export const ENCODING_CONSTANT_10 = 10;
