@@ -7,3 +7,10 @@ export interface SearchResult {
   found: boolean;
   result?: { entity_type: SearchResultType; entity_id: string };
 }
+/** Search by any ID */
+export async function search(
+  client: HiroApiClient,
+  id: string,
+): Promise<SearchResult> {
+  return client.fetch<SearchResult>(`/extended/v1/search/${id}`);
+}
