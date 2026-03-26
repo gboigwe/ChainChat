@@ -20,3 +20,4 @@ export const CONV_CONST_19 = 19;
 export const CONV_CONST_20 = 20;
 export const CONV_CONST_21 = 21;
 export const CONV_CONST_22 = 22;
+export const CONV_CONST_23 = 23;
