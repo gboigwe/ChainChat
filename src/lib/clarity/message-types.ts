@@ -69,3 +69,10 @@ export function isValidMessageContent(content: string): boolean {
 export function isAsciiOnly(content: string): boolean {
   return /^[\x00-\x7F]*$/.test(content);
 }
+
+/** Encode message content for Clarity contract call */
+export function encodeMessageContent(content: MessageContent): string {
+  if (!isValidMessageContent(content)) throw new Error('Invalid message content length');
+  if (!isAsciiOnly(content)) throw new Error('Message content must be ASCII only');
+  return content;
+}
