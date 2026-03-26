@@ -10,3 +10,8 @@ export interface NetworkInfoState {
   isMainnet: boolean;
   loading: boolean;
 }
+/** Hook to get current network information */
+export function useNetworkInfo(network: 'mainnet' | 'testnet' = 'mainnet'): NetworkInfoState {
+  const apiUrl = network === 'mainnet' ? 'https://api.hiro.so' : 'https://api.testnet.hiro.so';
+  const [blockHeight, setBlockHeight] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
