@@ -19,3 +19,5 @@ export interface ListCV extends ClarityValue { type: 'list'; list: ClarityValue[
 export interface TupleCV extends ClarityValue { type: 'tuple'; data: Record<string, ClarityValue>; }
 /** Clarity standard principal value */
 export interface StandardPrincipalCV extends ClarityValue { type: 'principal'; address: string; }
+/** Clarity contract principal value */
+export interface ContractPrincipalCV extends ClarityValue { type: 'contract'; address: string; contractName: string; }
