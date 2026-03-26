@@ -12,3 +12,6 @@ export interface FTTransferTxOptions {
   network: string;
   anchorMode: 'on-chain-only' | 'off-chain-only' | 'any';
 }
+/** FT transfer builder */
+export class FTTransferBuilder {
+  private options: Partial<FTTransferTxOptions> = {};
