@@ -116,3 +116,8 @@ export type AuthEvent = 'sign-in' | 'sign-out' | 'session-updated';
 export type AuthEventListener = (event: AuthEvent, data?: UserSessionData) => void;
 /** Auth event bus */
 const authListeners = new Set<AuthEventListener>();
+/** Subscribe to auth events */
+export function onAuthEvent(listener: AuthEventListener): () => void {
+  authListeners.add(listener);
+  return () => authListeners.delete(listener);
+}
