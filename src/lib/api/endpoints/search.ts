@@ -22,3 +22,7 @@ export async function searchByTxid(client: HiroApiClient, txid: string): Promise
 export async function searchByAddress(client: HiroApiClient, address: string): Promise<SearchResult> {
   return search(client, address);
 }
+/** Search by block hash */
+export async function searchByBlock(client: HiroApiClient, blockHash: string): Promise<SearchResult> {
+  return search(client, blockHash);
+}
