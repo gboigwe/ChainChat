@@ -81,3 +81,4 @@ export const ACCOUNT_CONST_8 = 8;
 export const ACCOUNT_CONST_9 = 9;
 export const ACCOUNT_CONST_10 = 10;
 export const ACCOUNT_CONST_11 = 11;
+export const ACCOUNT_CONST_12 = 12;
