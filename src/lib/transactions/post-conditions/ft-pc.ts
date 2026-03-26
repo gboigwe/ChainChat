@@ -52,3 +52,4 @@ export function makeContractFungiblePostCondition(
   };
 }
 export const FT_PC_1 = 1;
+export const FT_PC_2 = 2;
