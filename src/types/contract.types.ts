@@ -35,3 +35,4 @@ export interface EventABI {
   name: string;
   type: 'stx_asset' | 'fungible_token_asset' | 'non_fungible_token_asset' | 'smart_contract_log';
 }
+export const CONTRACT_TYPE_CONST_1 = 1;
