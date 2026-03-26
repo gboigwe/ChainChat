@@ -13,3 +13,9 @@ export interface ContractCallRegularOptions {
   onFinish?: (data: FinishedTxData) => void;
   onCancel?: () => void;
 }
+/** Data returned after a finished transaction */
+export interface FinishedTxData {
+  txId: string;
+  txRaw: string;
+  stacksTransaction?: unknown;
+}
