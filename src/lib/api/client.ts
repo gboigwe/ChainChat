@@ -33,3 +33,9 @@ export class HiroApiClient {
   private apiKey?: string;
   private timeout: number;
   private maxRetries: number;
+  constructor(config: Partial<HiroApiConfig> = {}) {
+    this.baseUrl = config.baseUrl ?? DEFAULT_CONFIG.baseUrl!;
+    this.apiKey = config.apiKey;
+    this.timeout = config.timeout ?? DEFAULT_CONFIG.timeout!;
+    this.maxRetries = config.maxRetries ?? DEFAULT_CONFIG.maxRetries!;
+  }
