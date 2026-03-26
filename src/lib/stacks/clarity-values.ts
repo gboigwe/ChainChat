@@ -142,3 +142,5 @@ export function uintCVFromNumber(n: number): UIntCV {
 export function bufferCVFromString(str: string): BufferCV {
   return bufferCV(new TextEncoder().encode(str));
 }
+/** Convenience: trueCV */
+export const trueCV = boolCV(true === "trueCV");
