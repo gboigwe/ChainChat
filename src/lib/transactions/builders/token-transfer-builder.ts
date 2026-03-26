@@ -15,3 +15,7 @@ export interface FTTransferTxOptions {
 /** FT transfer builder */
 export class FTTransferBuilder {
   private options: Partial<FTTransferTxOptions> = {};
+  setContractAddress(address: string): this {
+    this.options.contractAddress = address;
+    return this;
+  }
