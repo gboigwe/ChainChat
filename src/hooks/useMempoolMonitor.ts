@@ -33,3 +33,6 @@ export function useMempoolMonitor(
     const id = setInterval(() => void refresh(), refreshInterval);
     return () => clearInterval(id);
   }, [refresh, refreshInterval]);
+  const hasTx = (txId: string) => pending.some((tx: any) => tx.tx_id === txId);
+  return { pending, count: pending.length, loading, error, hasTx, refresh };
+}
