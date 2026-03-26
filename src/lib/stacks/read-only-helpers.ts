@@ -43,3 +43,7 @@ export const READ_ONLY_FUNCTIONS = {
 export const READ_ONLY_TIMEOUT_MS = 15_000;
 /** Max args for read-only calls */
 export const MAX_READ_ONLY_ARGS = 10;
+/** Check if function is a read-only function */
+export function isReadOnlyFunction(name: string): boolean {
+  return Object.values(READ_ONLY_FUNCTIONS).includes(name as never);
+}
