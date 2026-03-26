@@ -5,3 +5,4 @@ export * from './endpoints/accounts';
 export * from './endpoints/transactions';
 export * from './endpoints/contracts';
 export * from './endpoints/blocks';
+export * from './endpoints/search';
