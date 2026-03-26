@@ -129,3 +129,13 @@ export interface TokenLock {
 }
 /** Active token locks map */
 export const tokenLockMap = new Map<string, TokenLock>();
+/** Lock tokens until release block */
+export function lockTokens(
+  owner: string,
+  amount: bigint,
+  releaseBlock: bigint,
+): void {
+  if (!hasSufficientBalance(owner, amount)) throw new Error('Insufficient balance');
+  setBalance(owner, getBalance(owner) - amount);
+  tokenLockMap.set(owner, { owner, amount, releaseBlock });
+}
