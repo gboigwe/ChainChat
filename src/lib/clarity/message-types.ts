@@ -149,3 +149,11 @@ export function deduplicateMessages(messages: ClarityMessage[]): ClarityMessage[
     return true;
   });
 }
+
+/** Find a message by ID in a list */
+export function findMessageById(
+  messages: ClarityMessage[],
+  id: MessageId,
+): ClarityMessage | undefined {
+  return messages.find(m => m.id === id);
+}
