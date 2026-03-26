@@ -10,3 +10,6 @@ export interface STXTransferTxOptions {
   network: string;
   senderKey?: string;
 }
+/** STX transfer builder */
+export class STXTransferBuilder {
+  private options: Partial<STXTransferTxOptions> = {};
