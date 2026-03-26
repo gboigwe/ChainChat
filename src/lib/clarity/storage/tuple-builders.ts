@@ -87,3 +87,7 @@ export function getMsgReactions(t: MessageStorageTuple): bigint { return t.react
 export function incrementReactions(t: MessageStorageTuple): MessageStorageTuple {
   return { ...t, reactions: t.reactions + 1n };
 }
+/** Update member post count */
+export function incrementPostCount(t: MemberStorageTuple): MemberStorageTuple {
+  return { ...t, 'post-count': t['post-count'] + 1n };
+}
