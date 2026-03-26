@@ -19,3 +19,12 @@ export interface FinishedTxData {
   txRaw: string;
   stacksTransaction?: unknown;
 }
+/** Validate contract call args before opening */
+export function validateContractCallArgs(options: Partial<ContractCallRegularOptions>): string[] {
+  const errors: string[] = [];
+  if (!options.contractAddress) errors.push('contractAddress is required');
+  if (!options.contractName) errors.push('contractName is required');
+  if (!options.functionName) errors.push('functionName is required');
+  if (!Array.isArray(options.functionArgs)) errors.push('functionArgs must be an array');
+  return errors;
+}
