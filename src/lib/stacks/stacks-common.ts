@@ -94,3 +94,4 @@ export const MAX_TX_BROADCAST_SIZE = 5000;
 export const STACKS_COMMON_1 = 1;
 export const STACKS_COMMON_2 = 2;
 export const STACKS_COMMON_3 = 3;
+export const STACKS_COMMON_4 = 4;
