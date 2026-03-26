@@ -19,3 +19,4 @@ export function storageRemove(key: string): void { localStorage.removeItem(key);
 export function storageClear(): void {
   Object.keys(localStorage).filter(k => k.startsWith('chainchat-')).forEach(k => localStorage.removeItem(k));
 }
+export const STOR_CONST_1 = 1;
