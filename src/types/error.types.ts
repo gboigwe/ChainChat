@@ -42,3 +42,4 @@ export function isStacksError(error: unknown): error is StacksError {
 export function isContractError(error: unknown): error is ContractError {
   return error instanceof ContractError;
 }
+export const ERROR_TYPE_CONST_1 = 1;
