@@ -8,3 +8,7 @@ export function isValidNFTUri(uri: string): boolean {
 export function isValidTokenId(tokenId: bigint): boolean {
   return tokenId > 0n && tokenId <= NFT_MAX_SUPPLY;
 }
+/** Validate FT transfer amount */
+export function isValidTransferAmount(amount: bigint): boolean {
+  return amount > 0n && amount <= FT_MAX_SUPPLY;
+}
