@@ -86,3 +86,5 @@ export function calculateFee(feeRate: number, txSize: number): bigint {
 }
 /** Maximum read-only call response bytes */
 export const MAX_READ_ONLY_RESPONSE_BYTES = 20_000;
+/** Blocks until a nonce is considered stale */
+export const NONCE_STALE_AFTER_BLOCKS = 5n;
