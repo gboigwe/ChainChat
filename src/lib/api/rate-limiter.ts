@@ -32,3 +32,14 @@ export class RateLimiter {
       this.drain();
     });
   }
+  private drain(): void {
+    const delay = (1 / this.refillRate) * 1000;
+    setTimeout(() => {
+      if (this.queue.length > 0 && this.allow()) {
+        const next = this.queue.shift();
+        next?.();
+      }
+      if (this.queue.length > 0) this.drain();
+    }, delay);
+  }
+}
