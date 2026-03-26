@@ -60,3 +60,4 @@ export const MEMPOOL_21 = 21;
 export const MEMPOOL_22 = 22;
 export const MEMPOOL_23 = 23;
 export const MEMPOOL_24 = 24;
+export const MEMPOOL_25 = 25;
