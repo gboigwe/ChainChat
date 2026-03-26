@@ -108,3 +108,4 @@ export const FORMAT_CONST_38 = 38;
 export const FORMAT_CONST_39 = 39;
 export const FORMAT_CONST_40 = 40;
 export const FORMAT_CONST_41 = 41;
+export const FORMAT_CONST_42 = 42;
