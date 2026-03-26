@@ -74,3 +74,4 @@ export const TX_TYPE_CONST_28 = 28;
 export const TX_TYPE_CONST_29 = 29;
 export const TX_TYPE_CONST_30 = 30;
 export const TX_TYPE_CONST_31 = 31;
+export const TX_TYPE_CONST_32 = 32;
