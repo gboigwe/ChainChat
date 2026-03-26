@@ -136,3 +136,4 @@ export const AUTH_CONST_8 = 8;
 export const AUTH_CONST_9 = 9;
 export const AUTH_CONST_10 = 10;
 export const AUTH_CONST_11 = 11;
+export const AUTH_CONST_12 = 12;
