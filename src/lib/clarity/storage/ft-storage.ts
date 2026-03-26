@@ -75,3 +75,10 @@ export function totalSupply(): TokenBalance {
   for (const balance of ftBalanceMap.values()) total += balance;
   return total;
 }
+/** Get top N holders by balance */
+export function getTopHolders(n: number): Array<{ principal: string; balance: bigint }> {
+  return Array.from(ftBalanceMap.entries())
+    .map(([principal, balance]) => ({ principal, balance }))
+    .sort((a, b) => Number(b.balance - a.balance))
+    .slice(0, n);
+}
