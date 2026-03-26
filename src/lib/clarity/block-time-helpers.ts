@@ -176,3 +176,7 @@ export function isPastBlock(blockHeight: bigint, currentBlock: bigint): boolean 
 export function weekBlockRange(currentBlock: bigint): { start: bigint; end: bigint } {
   return blockRangeForDays(currentBlock, 7);
 }
+/** Monthly block range */
+export function monthBlockRange(currentBlock: bigint): { start: bigint; end: bigint } {
+  return blockRangeForDays(currentBlock, 30);
+}
