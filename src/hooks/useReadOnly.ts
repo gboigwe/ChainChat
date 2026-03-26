@@ -47,3 +47,4 @@ export function useReadOnly<T = unknown>(options: UseReadOnlyOptions): UseReadOn
   }, [options]);
   return { data, loading, error, call, refetch: call };
 }
+export const READ_ONLY_1 = 1;
