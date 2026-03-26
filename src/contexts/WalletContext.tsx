@@ -77,3 +77,7 @@ export function selectTruncatedAddress(state: WalletContextState): string {
   if (!addr) return '';
   return `${addr.slice(0, 8)}...${addr.slice(-4)}`;
 }
+/** Selector: is wallet loading */
+export function selectIsLoading(state: WalletContextState): boolean {
+  return state.isConnecting;
+}
