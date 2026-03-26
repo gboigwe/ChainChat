@@ -63,3 +63,5 @@ export function burnNFT(tokenId: NFTTokenId, owner: string): void {
   nftOwnerMap.delete(tokenId);
   nftMetadataMap.delete(tokenId);
 }
+/** NFT badge types for ChainChat */
+export type BadgeType = 'early-adopter' | 'power-user' | 'moderator' | 'vip';
