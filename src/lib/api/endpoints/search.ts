@@ -47,3 +47,4 @@ export const SEARCH_CONST_14 = 14;
 export const SEARCH_CONST_15 = 15;
 export const SEARCH_CONST_16 = 16;
 export const SEARCH_CONST_17 = 17;
+export const SEARCH_CONST_18 = 18;
