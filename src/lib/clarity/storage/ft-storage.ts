@@ -178,3 +178,9 @@ export function getLockedBalance(principal: string): bigint {
 export function getTotalBalance(principal: string): bigint {
   return getBalance(principal) + getLockedBalance(principal);
 }
+/** Check if a lock is expired */
+export function isLockExpired(owner: string, currentBlock: bigint): boolean {
+  const lock = tokenLockMap.get(owner);
+  if (!lock) return false;
+  return currentBlock >= lock.releaseBlock;
+}
