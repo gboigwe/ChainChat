@@ -8,3 +8,11 @@ export interface StandardFTPostCondition {
   amount: bigint;
   assetInfo: { contractAddress: string; contractName: string; assetName: string };
 }
+/** Contract FT post-condition */
+export interface ContractFTPostCondition {
+  type: 'ft';
+  principal: { type: 'contract'; address: string; contractName: string };
+  conditionCode: FungibleConditionCode;
+  amount: bigint;
+  assetInfo: { contractAddress: string; contractName: string; assetName: string };
+}
