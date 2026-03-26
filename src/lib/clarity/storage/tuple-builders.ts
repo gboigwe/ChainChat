@@ -18,3 +18,12 @@ export function buildMessageTuple(
 ): MessageStorageTuple {
   return { sender, content, 'channel-id': channelId, 'created-at': createdAt, 'reply-to': replyTo, reactions: 0n };
 }
+/** Channel storage tuple */
+export interface ChannelStorageTuple {
+  name: string;
+  description: string;
+  owner: string;
+  'created-at': bigint;
+  visibility: bigint;
+  'member-count': bigint;
+}
