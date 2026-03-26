@@ -32,3 +32,7 @@ export class CVBuilder {
     this.args.push(listCV(values));
     return this;
   }
+  tuple(data: Record<string, ClarityValue>): this {
+    this.args.push(tupleCV(data));
+    return this;
+  }
