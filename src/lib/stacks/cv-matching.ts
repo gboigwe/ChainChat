@@ -38,3 +38,10 @@ export function matchCV<R>(cv: ClarityValue, matcher: CVMatcher<R>): R {
 export function isCVType(cv: ClarityValue, type: string): boolean {
   return cv.type === type;
 }
+/** Narrow CV to specific type or return null */
+export function narrowCVType<T extends ClarityValue>(
+  cv: ClarityValue,
+  guard: (cv: ClarityValue) => cv is T,
+): T | null {
+  return guard(cv) ? cv : null;
+}
