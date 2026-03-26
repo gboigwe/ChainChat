@@ -112,3 +112,5 @@ export function mergeProfile(
 }
 /** Auth event types */
 export type AuthEvent = 'sign-in' | 'sign-out' | 'session-updated';
+/** Auth event listener type */
+export type AuthEventListener = (event: AuthEvent, data?: UserSessionData) => void;
