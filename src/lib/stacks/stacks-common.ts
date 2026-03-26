@@ -45,3 +45,7 @@ export const DEFAULT_ANCHOR_MODE = 'any';
 export const TX_VERSION_MAINNET = 0;
 /** Transaction version for testnet */
 export const TX_VERSION_TESTNET = 128;
+/** Get transaction version for network */
+export function getTxVersion(network: StacksNetwork): number {
+  return network === 'mainnet' ? TX_VERSION_MAINNET : TX_VERSION_TESTNET;
+}
