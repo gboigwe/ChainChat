@@ -39,3 +39,8 @@ export function timestampToBlockHeight(
 export function blockHeightToDate(blockHeight: bigint): Date {
   return new Date(blockHeightToTimestamp(blockHeight) * 1000);
 }
+
+/** Format block height as a locale date string */
+export function formatBlockDate(blockHeight: bigint, locale = 'en-US'): string {
+  return blockHeightToDate(blockHeight).toLocaleDateString(locale);
+}
