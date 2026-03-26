@@ -20,3 +20,6 @@ export type ReactionCount = bigint;
 
 /** Clarity optional message reference for threading */
 export type OptionalMessageRef = MessageId | null;
+
+/** Maximum allowed length for string-ascii content */
+export const MAX_MESSAGE_LENGTH = 500;
