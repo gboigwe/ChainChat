@@ -16,3 +16,5 @@ export interface WalletSessionActions {
   refresh: () => void;
   setNetwork: (n: 'mainnet' | 'testnet') => void;
 }
+/** Combined return type */
+export type UseWalletSessionReturn = WalletSessionState & WalletSessionActions;
