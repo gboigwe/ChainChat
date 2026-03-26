@@ -119,3 +119,4 @@ export const ENCODING_CONSTANT_12 = 12;
 export const ENCODING_CONSTANT_13 = 13;
 export const ENCODING_CONSTANT_14 = 14;
 export const ENCODING_CONSTANT_15 = 15;
+export const ENCODING_CONSTANT_16 = 16;
