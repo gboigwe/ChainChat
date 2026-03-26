@@ -50,3 +50,5 @@ export function useWalletSession(): UseWalletSessionReturn {
     setProfile(null);
   }, []);
   useEffect(() => { refresh(); }, [refresh]);
+  return { isConnected, address, profile, isConnecting, error, network, connect, disconnect, refresh, setNetwork };
+}
