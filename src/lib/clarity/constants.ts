@@ -25,3 +25,4 @@ export const TX_BROADCAST_MAX_RETRIES = 5;
 export const WEBSOCKET_RECONNECT_DELAY_MS = 5_000;
 export const MAX_PENDING_TXS = 10;
 export const PRICE_REFRESH_INTERVAL_MS = 60_000;
+export const DEFAULT_PAGE_SIZE = 20;
