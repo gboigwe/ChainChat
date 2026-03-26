@@ -46,3 +46,4 @@ export const ERROR_TYPE_CONST_1 = 1;
 export const ERROR_TYPE_CONST_2 = 2;
 export const ERROR_TYPE_CONST_3 = 3;
 export const ERROR_TYPE_CONST_4 = 4;
+export const ERROR_TYPE_CONST_5 = 5;
