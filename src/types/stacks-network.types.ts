@@ -43,3 +43,4 @@ export const NETWORK_TYPE_19 = 19;
 export const NETWORK_TYPE_20 = 20;
 export const NETWORK_TYPE_21 = 21;
 export const NETWORK_TYPE_22 = 22;
+export const NETWORK_TYPE_23 = 23;
