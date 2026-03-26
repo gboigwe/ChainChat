@@ -66,3 +66,4 @@ export function stxTransfer(): STXTransferBuilder {
   return new STXTransferBuilder();
 }
 export const STX_BUILDER_CONST_1 = 1;
+export const STX_BUILDER_CONST_2 = 2;
