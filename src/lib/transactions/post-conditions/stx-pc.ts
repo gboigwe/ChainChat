@@ -21,3 +21,11 @@ export interface ContractSTXPostCondition {
   conditionCode: FungibleConditionCode;
   amount: bigint;
 }
+/** Make a standard STX post-condition */
+export function makeStandardSTXPostCondition(
+  address: string,
+  conditionCode: FungibleConditionCode,
+  amount: bigint,
+): StandardSTXPostCondition {
+  return { type: 'stx', principal: { type: 'standard', address }, conditionCode, amount };
+}
