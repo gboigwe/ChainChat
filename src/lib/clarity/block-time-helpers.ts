@@ -17,3 +17,11 @@ export const BLOCKS_PER_MONTH = 4320;
 
 /** Unix timestamp of Stacks genesis block (mainnet) */
 export const STACKS_GENESIS_TIMESTAMP = 1604956800;
+
+/** Estimate Unix timestamp from block height */
+export function blockHeightToTimestamp(
+  blockHeight: bigint,
+  genesisTimestamp = STACKS_GENESIS_TIMESTAMP,
+): number {
+  return genesisTimestamp + Number(blockHeight) * AVERAGE_BLOCK_TIME_SECONDS;
+}
