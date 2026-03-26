@@ -33,3 +33,9 @@ export class NonceTracker {
     this.incrementNonce(address);
     return nonce;
   }
+  releaseNonce(address: string, nonce: number): void {
+    const state = this.state.get(address);
+    if (state) {
+      state.pending = state.pending.filter(n => n !== nonce);
+    }
+  }
