@@ -129,3 +129,7 @@ export function principalCVToString(cv: StandardPrincipalCV | ContractPrincipalC
   if (cv.type === 'principal') return cv.address;
   return `${cv.address}.${cv.contractName}`;
 }
+/** Create optional CV (some or none based on value) */
+export function optionalCV(value: ClarityValue | null): SomeCV | NoneCV {
+  return value !== null ? someCV(value) : noneCV();
+}
