@@ -39,3 +39,8 @@ export class HiroApiClient {
     this.timeout = config.timeout ?? DEFAULT_CONFIG.timeout!;
     this.maxRetries = config.maxRetries ?? DEFAULT_CONFIG.maxRetries!;
   }
+  private buildHeaders(): HeadersInit {
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (this.apiKey) headers['x-api-key'] = this.apiKey;
+    return headers;
+  }
