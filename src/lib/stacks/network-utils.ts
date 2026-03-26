@@ -8,3 +8,11 @@ export interface NetworkConfig {
   isMainnet: boolean;
   explorerUrl: string;
 }
+/** Mainnet configuration */
+export const MAINNET_CONFIG: NetworkConfig = {
+  name: 'mainnet',
+  apiUrl: MAINNET_API_URL,
+  chainId: 1,
+  isMainnet: true,
+  explorerUrl: 'https://explorer.hiro.so',
+};
