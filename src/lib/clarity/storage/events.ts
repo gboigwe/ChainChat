@@ -19,3 +19,10 @@ export interface ChannelCreatedEvent extends StorageEvent {
   owner: string;
   name: string;
 }
+/** Member joined event */
+export interface MemberJoinedEvent extends StorageEvent {
+  type: 'member-joined';
+  channelId: bigint;
+  principal: string;
+  role: string;
+}
