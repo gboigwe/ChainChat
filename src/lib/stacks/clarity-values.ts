@@ -17,3 +17,5 @@ export interface BufferCV extends ClarityValue { type: 'buffer'; value: Uint8Arr
 export interface ListCV extends ClarityValue { type: 'list'; list: ClarityValue[]; }
 /** Clarity tuple value */
 export interface TupleCV extends ClarityValue { type: 'tuple'; data: Record<string, ClarityValue>; }
+/** Clarity standard principal value */
+export interface StandardPrincipalCV extends ClarityValue { type: 'principal'; address: string; }
