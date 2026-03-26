@@ -38,3 +38,5 @@ export function makeContractSTXPostCondition(
 ): ContractSTXPostCondition {
   return { type: 'stx', principal: { type: 'contract', address, contractName }, conditionCode, amount };
 }
+/** Condition code: exactly equal */
+export const STX_SEND_EQUAL = FungibleConditionCode.Equal;
