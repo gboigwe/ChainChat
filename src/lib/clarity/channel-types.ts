@@ -68,3 +68,8 @@ export function isValidChannelName(name: string): boolean {
 export function isValidChannelDesc(desc: string): boolean {
   return desc.length <= MAX_CHANNEL_DESC_LENGTH;
 }
+
+/** Convert ChannelVisibility to Clarity uint code */
+export function encodeVisibility(v: ChannelVisibility): bigint {
+  return VISIBILITY_CODES[v];
+}
