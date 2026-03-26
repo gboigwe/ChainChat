@@ -19,3 +19,11 @@ export type UseContractWriteReturn = UseContractWriteState & {
   execute: (options: unknown) => Promise<void>;
   reset: () => void;
 };
+/** Generic contract write hook */
+export function useContractWrite(hookOptions?: UseContractWriteOptions): UseContractWriteReturn {
+  const [txId, setTxId] = useState<string | null>(null);
+  const [txStatus, setTxStatus] = useState<string | null>(null);
+  const [isPending, setIsPending] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
