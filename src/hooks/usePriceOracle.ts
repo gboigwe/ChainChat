@@ -37,3 +37,8 @@ export function usePriceOracle(refreshInterval = 60_000): PriceOracleState & { r
       setError(e instanceof Error ? e.message : 'Failed to fetch prices');
     } finally { setLoading(false); }
   }, []);
+  useEffect(() => {
+    void refetch();
+    const id = setInterval(() => void refetch(), refreshInterval);
+    return () => clearInterval(id);
+  }, [refetch, refreshInterval]);
