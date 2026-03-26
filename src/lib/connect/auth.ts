@@ -85,3 +85,5 @@ export function getCurrentAddress(
 ): string | null {
   return getStacksAddress(userData, isMainnet ? 'mainnet' : 'testnet');
 }
+/** Session storage key */
+export const SESSION_KEY = 'blockstack-session';
