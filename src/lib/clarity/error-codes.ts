@@ -38,3 +38,6 @@ export const CONTRACT_ERROR_DESCRIPTIONS: Record<number, string> = {
 export function describeContractError(code: bigint): string {
   return CONTRACT_ERROR_DESCRIPTIONS[Number(code)] ?? `Unknown contract error: ${code}`;
 }
+
+/** Error: reply target message not found */
+export const ERR_REPLY_TARGET_NOT_FOUND = 110n;
