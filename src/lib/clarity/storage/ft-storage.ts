@@ -13,3 +13,10 @@ export function getBalance(principal: string): TokenBalance {
 export function setBalance(principal: string, amount: TokenBalance): void {
   ftBalanceMap.set(principal, amount);
 }
+/** Validate transfer: check sender has sufficient balance */
+export function validateTransfer(
+  sender: string,
+  amount: TokenBalance,
+): boolean {
+  return getBalance(sender) >= amount;
+}
