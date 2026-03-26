@@ -9,3 +9,10 @@ export interface ContractInfoResponse {
   abi: string;
   publish_height: number;
 }
+/** Get contract info */
+export async function getContractInfo(
+  client: HiroApiClient,
+  contractId: string,
+): Promise<ContractInfoResponse> {
+  return client.fetch<ContractInfoResponse>(`/extended/v1/contract/${contractId}`);
+}
