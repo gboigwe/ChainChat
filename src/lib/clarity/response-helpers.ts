@@ -133,3 +133,11 @@ export async function fromPromise<T>(
     return err(onError ? onError(e) : ERR_INVALID_INPUT);
   }
 }
+
+/** Pipe value through multiple ok-transformers */
+export function pipe<T, E>(
+  initial: ClarityResponse<T, E>,
+  ...fns: Array<(v: T) => ClarityResponse<T, E>>
+): ClarityResponse<T, E> {
+  return fns.reduce((acc, fn) => andThen(acc, fn), initial);
+}
