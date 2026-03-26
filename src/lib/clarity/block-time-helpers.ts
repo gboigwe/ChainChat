@@ -5,3 +5,6 @@ export const AVERAGE_BLOCK_TIME_SECONDS = 600;
 
 /** Blocks per hour on Stacks mainnet */
 export const BLOCKS_PER_HOUR = 6;
+
+/** Blocks per day on Stacks mainnet */
+export const BLOCKS_PER_DAY = 144;
