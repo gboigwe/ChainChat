@@ -16,3 +16,4 @@ export const VALID_CONST_14 = 14;
 export const VALID_CONST_15 = 15;
 export const VALID_CONST_16 = 16;
 export const VALID_CONST_17 = 17;
+export const VALID_CONST_18 = 18;
