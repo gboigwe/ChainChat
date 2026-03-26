@@ -19,4 +19,5 @@ export const VISIBILITY_CODES: Record<ChannelVisibility, bigint> = {
 export interface ClarityChannel {
   id: ChannelId;
   name: ChannelName;
+  description: ChannelDescription;
 }
