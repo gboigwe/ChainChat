@@ -114,3 +114,4 @@ export const TX_ENDPOINT_CONST_34 = 34;
 export const TX_ENDPOINT_CONST_35 = 35;
 export const TX_ENDPOINT_CONST_36 = 36;
 export const TX_ENDPOINT_CONST_37 = 37;
+export const TX_ENDPOINT_CONST_38 = 38;
