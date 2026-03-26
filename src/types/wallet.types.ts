@@ -36,3 +36,4 @@ export interface StructuredData {
   domain: { name: string; version: string; chainId: number };
   message: Record<string, unknown>;
 }
+export const WALLET_TYPE_CONST_1 = 1;
