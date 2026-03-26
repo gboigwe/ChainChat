@@ -23,3 +23,4 @@ export const TREASURY_ACCOUNT = 'treasury';
 export const LOCKED_TOKENS_SUFFIX = ':locked';
 export const DEFAULT_INVITE_TTL_BLOCKS = 0;
 export const DEFAULT_LOCK_DURATION_BLOCKS = 0;
+export const MAX_REACTIONS_PER_USER = 0;
