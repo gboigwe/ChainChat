@@ -67,3 +67,4 @@ export const API_RESPONSE_CONST_24 = 24;
 export const API_RESPONSE_CONST_25 = 25;
 export const API_RESPONSE_CONST_26 = 26;
 export const API_RESPONSE_CONST_27 = 27;
+export const API_RESPONSE_CONST_28 = 28;
