@@ -18,3 +18,14 @@ export async function getTransaction(
 ): Promise<TransactionResponse> {
   return client.fetch<TransactionResponse>(`/extended/v1/tx/${txId}`);
 }
+/** Broadcast a signed transaction */
+export async function broadcastTransaction(
+  client: HiroApiClient,
+  txHex: string,
+): Promise<{ txid: string } | { error: string }> {
+  return client.fetch('/v2/transactions', {
+    method: 'POST',
+    body: txHex,
+    headers: { 'Content-Type': 'application/octet-stream' },
+  });
+}
