@@ -11,3 +11,5 @@ export const ERR_ALREADY_REACTED = 103n;
 export const ERR_ALREADY_MEMBER = 104n;
 /** Error: cannot kick channel owner */
 export const ERR_CANNOT_KICK_OWNER = 105n;
+/** Error: permission denied for action */
+export const ERR_PERMISSION_DENIED = 106n;
