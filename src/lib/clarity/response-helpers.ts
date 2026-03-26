@@ -100,3 +100,12 @@ export function fromNullable<T>(
 ): ClarityResponse<T, bigint> {
   return value != null ? ok(value) : err(errorCode);
 }
+
+/** Convert a thrown error into an ErrResponse */
+export function tryCatch<T>(fn: () => T): ClarityResponse<T, string> {
+  try {
+    return ok(fn());
+  } catch (e) {
+    return err(e instanceof Error ? e.message : String(e));
+  }
+}
