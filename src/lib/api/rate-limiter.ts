@@ -25,3 +25,10 @@ export class RateLimiter {
     if (this.tokens >= 1) { this.tokens -= 1; return true; }
     return false;
   }
+  async queue(): Promise<void> {
+    if (this.allow()) return;
+    return new Promise(resolve => {
+      this.queue.push(resolve);
+      this.drain();
+    });
+  }
