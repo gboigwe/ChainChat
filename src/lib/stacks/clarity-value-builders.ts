@@ -40,3 +40,7 @@ export class CVBuilder {
     this.args.push(standardPrincipalCV(address));
     return this;
   }
+  contractPrincipal(address: string, name: string): this {
+    this.args.push(contractPrincipalCV(address, name));
+    return this;
+  }
