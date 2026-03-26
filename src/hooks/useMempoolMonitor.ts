@@ -28,3 +28,8 @@ export function useMempoolMonitor(
       setError(e instanceof Error ? e.message : 'Failed to fetch mempool');
     } finally { setLoading(false); }
   }, [address, apiUrl]);
+  useEffect(() => {
+    void refresh();
+    const id = setInterval(() => void refresh(), refreshInterval);
+    return () => clearInterval(id);
+  }, [refresh, refreshInterval]);
