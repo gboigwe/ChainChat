@@ -69,3 +69,11 @@ export function andThen<T, U, E>(
 ): ClarityResponse<U, E> {
   return isOk(res) ? fn(res.value) : res;
 }
+
+/** Standard Clarity error codes for messaging contract */
+export const ERR_NOT_FOUND       = 404n;
+export const ERR_UNAUTHORIZED    = 401n;
+export const ERR_ALREADY_EXISTS  = 409n;
+export const ERR_INVALID_INPUT   = 400n;
+export const ERR_CHANNEL_FULL    = 413n;
+export const ERR_MESSAGE_TOO_LONG = 414n;
