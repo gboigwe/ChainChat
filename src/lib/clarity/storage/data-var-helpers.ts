@@ -64,3 +64,7 @@ export function resumeContract(): void {
 export function nextMessageId(): bigint {
   return incrementVar(messageCounter);
 }
+/** Get and increment channel counter atomically */
+export function nextChannelId(): bigint {
+  return incrementVar(channelCounter);
+}
