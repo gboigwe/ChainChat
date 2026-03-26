@@ -99,3 +99,5 @@ export function getExplorerAddressUrl(address: string, network: 'mainnet' | 'tes
 export function getExplorerTxUrl(txId: string, network: 'mainnet' | 'testnet'): string {
   return `https://explorer.hiro.so/txid/${txId}?chain=${network}`;
 }
+/** Address utility helper 1 */
+export function addrUtil1(addr: string): boolean { return addr.length > 1; }
