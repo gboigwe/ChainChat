@@ -124,3 +124,7 @@ export function queryItems<T>(
   if (options.sortField) result = sortByStringField(result, options.sortField, options.sortOrder);
   return buildQueryResult(result, options.page ?? 0, options.pageSize ?? 20);
 }
+/** Flatten nested arrays of items */
+export function flattenQueryResults<T>(results: QueryResult<T>[]): T[] {
+  return results.flatMap(r => r.items);
+}
