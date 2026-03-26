@@ -35,3 +35,8 @@ export function useAccountBalance(
     }
   }, [address, apiUrl]);
   useEffect(() => { void fetchBalance(); }, [fetchBalance]);
+  const available = balance - locked;
+  const total = balance;
+  const formatted = `${(balance / 1_000_000n).toString()}.${(balance % 1_000_000n).toString().padStart(6, '0')} STX`;
+  return { balance, locked, available, total, formatted, loading, error, refetch: fetchBalance };
+}
