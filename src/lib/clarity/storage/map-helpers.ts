@@ -1,0 +1,230 @@
+// Clarity v4 define-map pattern helpers
+/** Generic map key type */
+export type MapKey = Record<string, unknown>;
+/** Generic map value type */
+export type MapValue = Record<string, unknown>;
+/** Map entry tuple */
+export interface MapEntry<K extends MapKey, V extends MapValue> {
+  key: K;
+  value: V;
+}
+/** Result of a map-get? — matches Clarity optional */
+export type MapGetResult<V> = V | null;
+/** Wrap a map-get? result for type safety */
+export function mapGet<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+): MapGetResult<V> {
+  return map.get(keyStr) ?? null;
+}
+/** Set a key in a map (mirrors map-set) */
+export function mapSet<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+  value: V,
+): void {
+  map.set(keyStr, value);
+}
+/** Delete a key from map (mirrors map-delete) */
+export function mapDelete<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+): boolean {
+  return map.delete(keyStr);
+}
+/** Serialize map key to string for JS Map indexing */
+export function serializeKey(key: MapKey): string {
+  return JSON.stringify(key, (_, v) => typeof v === 'bigint' ? v.toString() : v);
+}
+/** Build a message-channel composite key */
+export function messageChannelKey(channelId: bigint, messageId: bigint): string {
+  return serializeKey({ channelId, messageId });
+}
+/** Build a member-channel composite key */
+export function memberChannelKey(channelId: bigint, principal: string): string {
+  return serializeKey({ channelId, principal });
+}
+/** Check if a key exists in the map */
+export function mapHas<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+): boolean {
+  return map.has(keyStr);
+}
+/** Get all values from a map */
+export function mapValues<V extends MapValue>(map: Map<string, V>): V[] {
+  return Array.from(map.values());
+}
+/** Get all keys from a map */
+export function mapKeys<V extends MapValue>(map: Map<string, V>): string[] {
+  return Array.from(map.keys());
+}
+/** Get or set default value pattern */
+export function mapGetOrSet<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+  defaultValue: V,
+): V {
+  if (!map.has(keyStr)) map.set(keyStr, defaultValue);
+  return map.get(keyStr)!;
+}
+/** Batch set multiple entries */
+export function mapSetBatch<V extends MapValue>(
+  map: Map<string, V>,
+  entries: Array<{ key: string; value: V }>,
+): void {
+  for (const { key, value } of entries) map.set(key, value);
+}
+/** Batch delete multiple keys */
+export function mapDeleteBatch<V extends MapValue>(
+  map: Map<string, V>,
+  keys: string[],
+): number {
+  let deleted = 0;
+  for (const key of keys) if (map.delete(key)) deleted++;
+  return deleted;
+}
+/** Filter map entries by predicate */
+export function mapFilter<V extends MapValue>(
+  map: Map<string, V>,
+  predicate: (value: V, key: string) => boolean,
+): Map<string, V> {
+  const result = new Map<string, V>();
+  for (const [k, v] of map) if (predicate(v, k)) result.set(k, v);
+  return result;
+}
+/** Transform map values */
+export function mapTransform<V extends MapValue, U extends MapValue>(
+  map: Map<string, V>,
+  fn: (value: V) => U,
+): Map<string, U> {
+  const result = new Map<string, U>();
+  for (const [k, v] of map) result.set(k, fn(v));
+  return result;
+}
+/** Get map size */
+export function mapSize<V extends MapValue>(map: Map<string, V>): number {
+  return map.size;
+}
+/** Clear all entries from map */
+export function mapClear<V extends MapValue>(map: Map<string, V>): void {
+  map.clear();
+}
+/** Convert map to array of entries */
+export function mapToArray<V extends MapValue>(
+  map: Map<string, V>,
+): Array<{ key: string; value: V }> {
+  return Array.from(map.entries()).map(([key, value]) => ({ key, value }));
+}
+/** Build reaction map key */
+export function reactionKey(messageId: bigint, reactor: string): string {
+  return serializeKey({ messageId, reactor });
+}
+/** Build invite map key */
+export function inviteKey(channelId: bigint, invitee: string): string {
+  return serializeKey({ channelId, invitee });
+}
+/** Build channel stats key */
+export function channelStatsKey(channelId: bigint): string {
+  return serializeKey({ channelId });
+}
+/** Get paginated values from map */
+export function mapPaginate<V extends MapValue>(
+  map: Map<string, V>,
+  offset: number,
+  limit: number,
+): V[] {
+  return mapValues(map).slice(offset, offset + limit);
+}
+/** Snapshot a map to a plain object */
+export function snapshotMap<V extends MapValue>(map: Map<string, V>): Record<string, V> {
+  return Object.fromEntries(map.entries());
+}
+/** Restore map from snapshot */
+export function restoreMap<V extends MapValue>(
+  map: Map<string, V>,
+  snapshot: Record<string, V>,
+): void {
+  map.clear();
+  for (const [k, v] of Object.entries(snapshot)) map.set(k, v);
+}
+/** Merge two maps, later entries win */
+export function mergeMaps<V extends MapValue>(
+  base: Map<string, V>,
+  override: Map<string, V>,
+): Map<string, V> {
+  return new Map([...base, ...override]);
+}
+/** Count entries matching predicate */
+export function mapCount<V extends MapValue>(
+  map: Map<string, V>,
+  predicate: (v: V) => boolean,
+): number {
+  let count = 0;
+  for (const v of map.values()) if (predicate(v)) count++;
+  return count;
+}
+/** Build NFT owner map key */
+export function nftOwnerKey(tokenId: bigint): string {
+  return serializeKey({ tokenId });
+}
+/** Build FT balance map key */
+export function ftBalanceKey(principal: string): string {
+  return serializeKey({ principal });
+}
+/** Build allowance map key */
+export function ftAllowanceKey(owner: string, spender: string): string {
+  return serializeKey({ owner, spender });
+}
+/** Build token lock map key */
+export function tokenLockKey(owner: string): string {
+  return serializeKey({ owner });
+}
+/** Reduce map values to a single value */
+export function mapReduce<V extends MapValue, R>(
+  map: Map<string, V>,
+  fn: (acc: R, value: V, key: string) => R,
+  initial: R,
+): R {
+  let acc = initial;
+  for (const [k, v] of map) acc = fn(acc, v, k);
+  return acc;
+}
+/** Get entries where value matches predicate */
+export function mapFind<V extends MapValue>(
+  map: Map<string, V>,
+  predicate: (v: V) => boolean,
+): V | null {
+  for (const v of map.values()) if (predicate(v)) return v;
+  return null;
+}
+
+/** Build batch operation key 1 */
+export function batchKey1(id: bigint): string { return serializeKey({ batch: 1, id }); }
+
+/** Build batch operation key 2 */
+export function batchKey2(id: bigint): string { return serializeKey({ batch: 2, id }); }
+
+/** Build batch operation key 3 */
+export function batchKey3(id: bigint): string { return serializeKey({ batch: 3, id }); }
+
+/** Build batch operation key 4 */
+export function batchKey4(id: bigint): string { return serializeKey({ batch: 4, id }); }
+
+/** Build batch operation key 5 */
+export function batchKey5(id: bigint): string { return serializeKey({ batch: 5, id }); }
+
+/** Build batch operation key 6 */
+export function batchKey6(id: bigint): string { return serializeKey({ batch: 6, id }); }
+
+/** Build batch operation key 7 */
+export function batchKey7(id: bigint): string { return serializeKey({ batch: 7, id }); }
+
+/** Build batch operation key 8 */
+export function batchKey8(id: bigint): string { return serializeKey({ batch: 8, id }); }
+
+/** Build batch operation key 9 */
+export function batchKey9(id: bigint): string { return serializeKey({ batch: 9, id }); }
+
+/** Build batch operation key 10 */
+export function batchKey10(id: bigint): string { return serializeKey({ batch: 10, id }); }

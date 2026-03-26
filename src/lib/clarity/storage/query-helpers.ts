@@ -1,0 +1,143 @@
+// Query helpers for Clarity storage maps
+import { mapValues } from './map-helpers';
+/** Sort order type */
+export type SortOrder = 'asc' | 'desc';
+/** Sort array of objects by bigint field */
+export function sortByBigintField<T>(
+  items: T[],
+  field: keyof T,
+  order: SortOrder = 'asc',
+): T[] {
+  return [...items].sort((a, b) => {
+    const va = a[field] as unknown as bigint;
+    const vb = b[field] as unknown as bigint;
+    return order === 'asc' ? (va < vb ? -1 : va > vb ? 1 : 0) : (vb < va ? -1 : vb > va ? 1 : 0);
+  });
+}
+/** Sort array of objects by string field */
+export function sortByStringField<T>(
+  items: T[],
+  field: keyof T,
+  order: SortOrder = 'asc',
+): T[] {
+  return [...items].sort((a, b) => {
+    const sa = String(a[field]);
+    const sb = String(b[field]);
+    return order === 'asc' ? sa.localeCompare(sb) : sb.localeCompare(sa);
+  });
+}
+/** Paginate array */
+export function paginate<T>(items: T[], page: number, pageSize: number): T[] {
+  return items.slice(page * pageSize, (page + 1) * pageSize);
+}
+/** Search items by string field containing query */
+export function searchByField<T>(
+  items: T[],
+  field: keyof T,
+  query: string,
+): T[] {
+  const q = query.toLowerCase();
+  return items.filter(item => String(item[field]).toLowerCase().includes(q));
+}
+/** Group array of items by a string field */
+export function groupByField<T>(
+  items: T[],
+  field: keyof T,
+): Map<string, T[]> {
+  const groups = new Map<string, T[]>();
+  for (const item of items) {
+    const key = String(item[field]);
+    const existing = groups.get(key) ?? [];
+    existing.push(item);
+    groups.set(key, existing);
+  }
+  return groups;
+}
+/** Count items by field value */
+export function countByField<T>(items: T[], field: keyof T): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const item of items) {
+    const key = String(item[field]);
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+  return counts;
+}
+/** Get unique values for a field */
+export function uniqueByField<T>(items: T[], field: keyof T): T[keyof T][] {
+  return [...new Set(items.map(i => i[field]))];
+}
+/** Sum bigint field across items */
+export function sumBigintField<T>(items: T[], field: keyof T): bigint {
+  return items.reduce((acc, item) => acc + (item[field] as unknown as bigint), 0n);
+}
+/** Max bigint field across items */
+export function maxBigintField<T>(items: T[], field: keyof T): bigint {
+  return items.reduce((max, item) => {
+    const v = item[field] as unknown as bigint;
+    return v > max ? v : max;
+  }, 0n);
+}
+/** Min bigint field across items */
+export function minBigintField<T>(items: T[], field: keyof T): bigint {
+  if (items.length === 0) return 0n;
+  return items.reduce((min, item) => {
+    const v = item[field] as unknown as bigint;
+    return v < min ? v : min;
+  }, items[0][field] as unknown as bigint);
+}
+/** Query result with pagination metadata */
+export interface QueryResult<T> {
+  items: T[];
+  total: number;
+  page: number;
+  pageSize: number;
+  hasMore: boolean;
+}
+/** Build query result from array with pagination */
+export function buildQueryResult<T>(
+  allItems: T[],
+  page: number,
+  pageSize: number,
+): QueryResult<T> {
+  const items = paginate(allItems, page, pageSize);
+  return { items, total: allItems.length, page, pageSize, hasMore: (page + 1) * pageSize < allItems.length };
+}
+/** Apply multiple filters to items */
+export function applyFilters<T>(
+  items: T[],
+  filters: Array<(item: T) => boolean>,
+): T[] {
+  return items.filter(item => filters.every(f => f(item)));
+}
+/** Apply sort, filter, and pagination in one pass */
+export function queryItems<T>(
+  items: T[],
+  options: {
+    filters?: Array<(item: T) => boolean>;
+    sortField?: keyof T;
+    sortOrder?: SortOrder;
+    page?: number;
+    pageSize?: number;
+  },
+): QueryResult<T> {
+  let result = options.filters ? applyFilters(items, options.filters) : [...items];
+  if (options.sortField) result = sortByStringField(result, options.sortField, options.sortOrder);
+  return buildQueryResult(result, options.page ?? 0, options.pageSize ?? 20);
+}
+/** Flatten nested arrays of items */
+export function flattenQueryResults<T>(results: QueryResult<T>[]): T[] {
+  return results.flatMap(r => r.items);
+}
+/** Merge two query results */
+export function mergeQueryResults<T>(a: QueryResult<T>, b: QueryResult<T>): QueryResult<T> {
+  const items = [...a.items, ...b.items];
+  return { items, total: a.total + b.total, page: 0, pageSize: items.length, hasMore: false };
+}
+/** Count total pages for items */
+export function totalPages(total: number, pageSize: number): number {
+  return Math.ceil(total / pageSize);
+}
+/** Check if current page is the last page */
+export function isLastPage(result: QueryResult<unknown>): boolean {
+  return !result.hasMore;
+}
