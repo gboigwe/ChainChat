@@ -25,3 +25,11 @@ export function mergeTuples<T extends Record<string, unknown>>(
 ): Partial<T> {
   return { ...base, ...override };
 }
+
+/** Extract a single field from a tuple */
+export function extractField<T extends Record<string, unknown>, K extends keyof T>(
+  tuple: T,
+  field: K,
+): T[K] {
+  return tuple[field];
+}
