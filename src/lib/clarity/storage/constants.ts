@@ -30,3 +30,4 @@ export const STORAGE_CONSTANT_1 = 1;
 export const STORAGE_CONSTANT_2 = 2;
 export const STORAGE_CONSTANT_3 = 3;
 export const STORAGE_CONSTANT_4 = 4;
+export const STORAGE_CONSTANT_5 = 5;
