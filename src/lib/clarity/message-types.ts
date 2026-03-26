@@ -223,3 +223,8 @@ export function getReactionEmoji(name: string): string {
 export function isReply(msg: ClarityMessage): boolean {
   return msg.replyTo !== null;
 }
+
+/** Get the top N most reacted messages */
+export function getTopReacted(messages: ClarityMessage[], n: number): ClarityMessage[] {
+  return [...messages].sort((a, b) => Number(b.reactions - a.reactions)).slice(0, n);
+}
