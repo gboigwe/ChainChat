@@ -31,3 +31,9 @@ const DEFAULT_STATE: WalletContextState = {
 };
 /** The wallet React context */
 export const WalletContext = createContext<WalletContextValue | null>(null);
+/** Hook to consume wallet context */
+export function useWalletContext(): WalletContextValue {
+  const ctx = useContext(WalletContext);
+  if (!ctx) throw new Error('useWalletContext must be used within WalletProvider');
+  return ctx;
+}
