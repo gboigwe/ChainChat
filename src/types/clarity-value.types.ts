@@ -20,3 +20,4 @@ export const CV_TYPE_CONST_5 = 5;
 export const CV_TYPE_CONST_6 = 6;
 export const CV_TYPE_CONST_7 = 7;
 export const CV_TYPE_CONST_8 = 8;
+export const CV_TYPE_CONST_9 = 9;
