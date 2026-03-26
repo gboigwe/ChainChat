@@ -12,3 +12,4 @@ export interface TypedClarityValue<T extends ClarityValueType, V> {
   type: T;
   value: V;
 }
+export const CV_TYPE_CONST_1 = 1;
