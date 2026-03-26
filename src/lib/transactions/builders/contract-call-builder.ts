@@ -58,3 +58,7 @@ export class ContractCallBuilder {
     this.options.postConditions.push(pc);
     return this;
   }
+  setNetwork(network: string): this {
+    this.options.network = network;
+    return this;
+  }
