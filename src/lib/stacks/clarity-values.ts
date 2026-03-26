@@ -106,3 +106,5 @@ export function isStringUtf8CV(cv: ClarityValue): cv is StringUtf8CV { return cv
 export function isBufferCV(cv: ClarityValue): cv is BufferCV { return cv.type === 'buffer'; }
 /** Type guard: is ListCV */
 export function isListCV(cv: ClarityValue): cv is ListCV { return cv.type === 'list'; }
+/** Type guard: is TupleCV */
+export function isTupleCV(cv: ClarityValue): cv is TupleCV { return cv.type === 'tuple'; }
