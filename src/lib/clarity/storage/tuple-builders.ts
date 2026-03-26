@@ -131,3 +131,9 @@ export function validateMessageTuple(t: unknown): t is MessageStorageTuple {
   const m = t as Record<string, unknown>;
   return typeof m['sender'] === 'string' && typeof m['content'] === 'string';
 }
+/** Validate channel storage tuple */
+export function validateChannelTuple(t: unknown): t is ChannelStorageTuple {
+  if (typeof t !== 'object' || t === null) return false;
+  const c = t as Record<string, unknown>;
+  return typeof c['name'] === 'string' && typeof c['owner'] === 'string';
+}
