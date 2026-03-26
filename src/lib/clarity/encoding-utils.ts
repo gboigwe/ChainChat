@@ -32,3 +32,7 @@ export function hexToBuffer(hex: string): Uint8Array {
 export function padHex(hex: string): string {
   return hex.replace(/^0x/, '').padStart(64, '0');
 }
+/** Check if string is valid hex */
+export function isHexString(str: string): boolean {
+  return /^(0x)?[0-9a-fA-F]*$/.test(str);
+}
