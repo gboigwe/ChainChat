@@ -39,3 +39,4 @@ export const STOR_CONST_17 = 17;
 export const STOR_CONST_18 = 18;
 export const STOR_CONST_19 = 19;
 export const STOR_CONST_20 = 20;
+export const STOR_CONST_21 = 21;
