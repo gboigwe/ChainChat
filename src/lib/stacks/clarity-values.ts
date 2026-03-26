@@ -23,3 +23,5 @@ export interface StandardPrincipalCV extends ClarityValue { type: 'principal'; a
 export interface ContractPrincipalCV extends ClarityValue { type: 'contract'; address: string; contractName: string; }
 /** Clarity none value */
 export interface NoneCV extends ClarityValue { type: 'none'; }
+/** Clarity some value */
+export interface SomeCV extends ClarityValue { type: 'some'; value: ClarityValue; }
