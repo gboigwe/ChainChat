@@ -34,3 +34,8 @@ export function executeTransfer(
 export function mintTokens(recipient: string, amount: TokenBalance): void {
   setBalance(recipient, getBalance(recipient) + amount);
 }
+/** Burn tokens from principal */
+export function burnTokens(owner: string, amount: TokenBalance): void {
+  if (!validateTransfer(owner, amount)) throw new Error('Insufficient balance to burn');
+  setBalance(owner, getBalance(owner) - amount);
+}
