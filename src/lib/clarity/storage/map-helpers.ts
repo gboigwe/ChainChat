@@ -180,3 +180,13 @@ export function ftAllowanceKey(owner: string, spender: string): string {
 export function tokenLockKey(owner: string): string {
   return serializeKey({ owner });
 }
+/** Reduce map values to a single value */
+export function mapReduce<V extends MapValue, R>(
+  map: Map<string, V>,
+  fn: (acc: R, value: V, key: string) => R,
+  initial: R,
+): R {
+  let acc = initial;
+  for (const [k, v] of map) acc = fn(acc, v, k);
+  return acc;
+}
