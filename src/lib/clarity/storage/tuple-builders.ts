@@ -143,3 +143,7 @@ export interface NFTStorageTuple {
   uri: string;
   'minted-at': bigint;
 }
+/** Build NFT storage tuple */
+export function buildNFTTuple(owner: string, uri: string, mintedAt: bigint): NFTStorageTuple {
+  return { owner, uri, 'minted-at': mintedAt };
+}
