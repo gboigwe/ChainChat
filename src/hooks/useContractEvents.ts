@@ -7,3 +7,9 @@ export interface ContractEvent {
   tx_id: string;
   contract_log?: { contract_id: string; topic: string; value: string };
 }
+/** Contract events hook state */
+export interface UseContractEventsState {
+  events: ContractEvent[];
+  loading: boolean;
+  error: string | null;
+}
