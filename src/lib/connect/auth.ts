@@ -121,3 +121,7 @@ export function onAuthEvent(listener: AuthEventListener): () => void {
   authListeners.add(listener);
   return () => authListeners.delete(listener);
 }
+/** Emit auth event to all listeners */
+export function emitAuthEvent(event: AuthEvent, data?: UserSessionData): void {
+  authListeners.forEach(l => l(event, data));
+}
