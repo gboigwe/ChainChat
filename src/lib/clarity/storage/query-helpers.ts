@@ -39,3 +39,17 @@ export function searchByField<T>(
   const q = query.toLowerCase();
   return items.filter(item => String(item[field]).toLowerCase().includes(q));
 }
+/** Group array of items by a string field */
+export function groupByField<T>(
+  items: T[],
+  field: keyof T,
+): Map<string, T[]> {
+  const groups = new Map<string, T[]>();
+  for (const item of items) {
+    const key = String(item[field]);
+    const existing = groups.get(key) ?? [];
+    existing.push(item);
+    groups.set(key, existing);
+  }
+  return groups;
+}
