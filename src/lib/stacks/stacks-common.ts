@@ -88,3 +88,4 @@ export function calculateFee(feeRate: number, txSize: number): bigint {
 export const MAX_READ_ONLY_RESPONSE_BYTES = 20_000;
 /** Blocks until a nonce is considered stale */
 export const NONCE_STALE_AFTER_BLOCKS = 5n;
+export const EVENT_POLL_INTERVAL_MS = 5000;
