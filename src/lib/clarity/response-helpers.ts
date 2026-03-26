@@ -40,3 +40,8 @@ export function unwrap<T, E>(res: ClarityResponse<T, E>): T {
   if (isOk(res)) return res.value;
   throw new Error(`Clarity err response: ${String((res as ErrResponse<E>).error)}`);
 }
+
+/** Unwrap ok value with fallback */
+export function unwrapOr<T, E>(res: ClarityResponse<T, E>, fallback: T): T {
+  return isOk(res) ? res.value : fallback;
+}
