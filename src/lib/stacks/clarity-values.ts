@@ -70,3 +70,7 @@ export function listCV(list: ClarityValue[]): ListCV {
 export function tupleCV(data: Record<string, ClarityValue>): TupleCV {
   return { type: 'tuple', data };
 }
+/** Factory: standard principal */
+export function standardPrincipalCV(address: string): StandardPrincipalCV {
+  return { type: 'principal', address };
+}
