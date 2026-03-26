@@ -4,3 +4,7 @@ import type { ClarityValue } from './clarity-values';
 /** Fluent builder for contract call args */
 export class CVBuilder {
   private args: ClarityValue[] = [];
+  uint(value: bigint | number): this {
+    this.args.push(uintCV(BigInt(value)));
+    return this;
+  }
