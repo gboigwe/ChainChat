@@ -127,3 +127,5 @@ export interface TokenLock {
   amount: bigint;
   releaseBlock: bigint;
 }
+/** Active token locks map */
+export const tokenLockMap = new Map<string, TokenLock>();
