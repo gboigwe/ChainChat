@@ -53,3 +53,4 @@ export function makeContractFungiblePostCondition(
 }
 export const FT_PC_1 = 1;
 export const FT_PC_2 = 2;
+export const FT_PC_3 = 3;
