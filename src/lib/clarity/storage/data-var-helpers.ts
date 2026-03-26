@@ -103,3 +103,5 @@ export function createObservableVar<T>(initial: T): DataVarWithSubscription<T> {
 export const feeRateVar = createDataVar<bigint>(1000n);
 /** Minimum deposit data-var */
 export const minDepositVar = createDataVar<bigint>(1_000_000n);
+/** Get current fee rate */
+export function getFeeRate(): bigint { return feeRateVar.get(); }
