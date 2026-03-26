@@ -140,3 +140,11 @@ export function mapPaginate<V extends MapValue>(
 export function snapshotMap<V extends MapValue>(map: Map<string, V>): Record<string, V> {
   return Object.fromEntries(map.entries());
 }
+/** Restore map from snapshot */
+export function restoreMap<V extends MapValue>(
+  map: Map<string, V>,
+  snapshot: Record<string, V>,
+): void {
+  map.clear();
+  for (const [k, v] of Object.entries(snapshot)) map.set(k, v);
+}
