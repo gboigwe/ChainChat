@@ -213,3 +213,8 @@ export const REACTION_EMOJI: Record<string, string> = {
   wow: '😮',
   sad: '😢',
 };
+
+/** Get emoji for a reaction code name */
+export function getReactionEmoji(name: string): string {
+  return REACTION_EMOJI[name] ?? '?';
+}
