@@ -90,3 +90,4 @@ export const CALL_CONST_6 = 6;
 export const CALL_CONST_7 = 7;
 export const CALL_CONST_8 = 8;
 export const CALL_CONST_9 = 9;
+export const CALL_CONST_10 = 10;
