@@ -107,3 +107,4 @@ export function cvDebugString(cv: ClarityValue): string {
 export const ENCODING_CONSTANT_1 = 1;
 export const ENCODING_CONSTANT_2 = 2;
 export const ENCODING_CONSTANT_3 = 3;
+export const ENCODING_CONSTANT_4 = 4;
