@@ -68,3 +68,11 @@ export interface InviteStorageTuple {
   role: bigint;
   'expiry-block': bigint;
 }
+/** Build invite storage tuple */
+export function buildInviteTuple(
+  inviter: string,
+  role: bigint,
+  expiryBlock: bigint,
+): InviteStorageTuple {
+  return { inviter, role, 'expiry-block': expiryBlock };
+}
