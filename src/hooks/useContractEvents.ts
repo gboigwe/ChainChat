@@ -42,3 +42,4 @@ export function useContractEvents(
   return { events, loading, error, refetch };
 }
 export const CONTRACT_EVENTS_1 = 1;
+export const CONTRACT_EVENTS_2 = 2;
