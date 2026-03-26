@@ -85,3 +85,4 @@ export const TRANSFER_CONST_24 = 24;
 export const TRANSFER_CONST_25 = 25;
 export const TRANSFER_CONST_26 = 26;
 export const TRANSFER_CONST_27 = 27;
+export const TRANSFER_CONST_28 = 28;
