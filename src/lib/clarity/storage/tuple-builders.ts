@@ -76,3 +76,10 @@ export function buildInviteTuple(
 ): InviteStorageTuple {
   return { inviter, role, 'expiry-block': expiryBlock };
 }
+/** Extract field from message tuple */
+export function getMsgSender(t: MessageStorageTuple): string { return t.sender; }
+export function getMsgContent(t: MessageStorageTuple): string { return t.content; }
+export function getMsgChannelId(t: MessageStorageTuple): bigint { return t['channel-id']; }
+export function getMsgCreatedAt(t: MessageStorageTuple): bigint { return t['created-at']; }
+export function getMsgReplyTo(t: MessageStorageTuple): bigint | null { return t['reply-to']; }
+export function getMsgReactions(t: MessageStorageTuple): bigint { return t.reactions; }
