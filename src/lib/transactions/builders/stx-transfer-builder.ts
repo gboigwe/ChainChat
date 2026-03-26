@@ -13,3 +13,7 @@ export interface STXTransferTxOptions {
 /** STX transfer builder */
 export class STXTransferBuilder {
   private options: Partial<STXTransferTxOptions> = {};
+  setRecipient(recipient: string): this {
+    this.options.recipient = recipient;
+    return this;
+  }
