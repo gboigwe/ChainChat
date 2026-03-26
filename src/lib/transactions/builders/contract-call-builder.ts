@@ -41,3 +41,7 @@ export class ContractCallBuilder {
     this.options.fee = fee;
     return this;
   }
+  setNonce(nonce: bigint): this {
+    this.options.nonce = nonce;
+    return this;
+  }
