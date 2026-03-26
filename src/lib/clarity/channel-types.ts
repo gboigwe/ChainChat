@@ -27,3 +27,11 @@ export interface ClarityChannel {
 
 /** Member role within a channel */
 export type MemberRole = 'admin' | 'moderator' | 'member' | 'viewer';
+
+/** Clarity uint codes for member roles */
+export const ROLE_CODES: Record<MemberRole, bigint> = {
+  admin: 1n,
+  moderator: 2n,
+  member: 3n,
+  viewer: 4n,
+};
