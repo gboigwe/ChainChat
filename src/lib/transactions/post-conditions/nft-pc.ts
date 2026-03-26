@@ -55,3 +55,4 @@ export function makeContractNonFungiblePostCondition(
     tokenId,
   };
 }
+export const NFT_PC_1 = 1;
