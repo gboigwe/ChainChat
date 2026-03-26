@@ -62,3 +62,7 @@ export function bufferCVFromHex(hex: string): BufferCV {
   for (let i = 0; i < bytes.length; i++) bytes[i] = parseInt(clean.slice(i * 2, i * 2 + 2), 16);
   return bufferCV(bytes);
 }
+/** Factory: list */
+export function listCV(list: ClarityValue[]): ListCV {
+  return { type: 'list', list };
+}
