@@ -25,3 +25,4 @@ export const CONV_CONST_24 = 24;
 export const CONV_CONST_25 = 25;
 export const CONV_CONST_26 = 26;
 export const CONV_CONST_27 = 27;
+export const CONV_CONST_28 = 28;
