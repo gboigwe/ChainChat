@@ -51,3 +51,7 @@ export function mapHas<V extends MapValue>(
 ): boolean {
   return map.has(keyStr);
 }
+/** Get all values from a map */
+export function mapValues<V extends MapValue>(map: Map<string, V>): V[] {
+  return Array.from(map.values());
+}
