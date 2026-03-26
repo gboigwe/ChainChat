@@ -29,3 +29,15 @@ describe('STX post-condition', () => {
     expect(PC_CONDITION_LT).toBe('lt');
   });
 });
+
+describe('FT post-condition', () => {
+  it('has valid FT amount', () => {
+    expect(PC_TEST_FT_AMOUNT).toBe(500n);
+  });
+  it('references correct FT contract', () => {
+    expect(PC_TEST_FT_CONTRACT).toContain('chat-token');
+  });
+  it('has valid asset name', () => {
+    expect(PC_TEST_ASSET_NAME).toBe('chat-token');
+  });
+});
