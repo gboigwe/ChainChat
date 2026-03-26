@@ -92,3 +92,11 @@ export function countTupleKeys(tuple: Record<string, unknown>): number {
 export function cloneTuple<T extends Record<string, unknown>>(tuple: T): T {
   return { ...tuple };
 }
+/** Omit a key from a tuple */
+export function omitField<T extends Record<string, unknown>, K extends keyof T>(
+  tuple: T,
+  key: K,
+): Omit<T, K> {
+  const { [key]: _, ...rest } = tuple;
+  return rest as Omit<T, K>;
+}
