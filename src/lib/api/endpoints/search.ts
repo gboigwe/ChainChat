@@ -40,3 +40,4 @@ export const SEARCH_CONST_7 = 7;
 export const SEARCH_CONST_8 = 8;
 export const SEARCH_CONST_9 = 9;
 export const SEARCH_CONST_10 = 10;
+export const SEARCH_CONST_11 = 11;
