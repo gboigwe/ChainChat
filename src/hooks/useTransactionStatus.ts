@@ -36,3 +36,12 @@ export function useTransactionStatus(
     const id = setInterval(() => void poll(), pollInterval);
     return () => clearInterval(id);
   }, [txId, isFinalized, poll, pollInterval]);
+  return {
+    status,
+    confirmations: 0,
+    isFinalized,
+    blockHeight,
+    isFailed: status === 'abort_by_response' || status === 'abort_by_post_condition',
+    loading,
+  };
+}
