@@ -21,4 +21,5 @@ export interface ClarityChannel {
   name: ChannelName;
   description: ChannelDescription;
   owner: PrincipalAddress;
+  createdAt: BlockHeight;
 }
