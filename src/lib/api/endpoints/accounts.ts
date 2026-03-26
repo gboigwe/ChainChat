@@ -22,3 +22,10 @@ export async function getAccountInfo(
 ): Promise<AccountInfoResponse> {
   return client.fetch<AccountInfoResponse>(`/v2/accounts/${address}`, undefined, { proof: 0 });
 }
+/** Get account balance */
+export async function getAccountBalance(
+  client: HiroApiClient,
+  address: string,
+): Promise<AccountBalanceResponse> {
+  return client.fetch<AccountBalanceResponse>(`/extended/v1/address/${address}/balances`);
+}
