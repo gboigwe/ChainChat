@@ -39,3 +39,7 @@ export function burnTokens(owner: string, amount: TokenBalance): void {
   if (!validateTransfer(owner, amount)) throw new Error('Insufficient balance to burn');
   setBalance(owner, getBalance(owner) - amount);
 }
+/** Build allowance key */
+function allowanceKey(owner: string, spender: string): string {
+  return `${owner}:${spender}`;
+}
