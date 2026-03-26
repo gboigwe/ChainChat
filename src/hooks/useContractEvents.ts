@@ -41,3 +41,4 @@ export function useContractEvents(
   }, [refetch, pollInterval]);
   return { events, loading, error, refetch };
 }
+export const CONTRACT_EVENTS_1 = 1;
