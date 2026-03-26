@@ -91,3 +91,7 @@ export function incrementReactions(t: MessageStorageTuple): MessageStorageTuple 
 export function incrementPostCount(t: MemberStorageTuple): MemberStorageTuple {
   return { ...t, 'post-count': t['post-count'] + 1n };
 }
+/** Update channel member count */
+export function incrementMemberCount(t: ChannelStorageTuple): ChannelStorageTuple {
+  return { ...t, 'member-count': t['member-count'] + 1n };
+}
