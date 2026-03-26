@@ -68,3 +68,4 @@ export async function getContractEvents(
 ): Promise<{ results: unknown[] }> {
   return client.fetch(`/extended/v1/contract/${contractId}/events`, undefined, { limit, offset });
 }
+export const CONTRACT_CONST_1 = 1;
