@@ -65,3 +65,4 @@ describe('contract post-condition', () => {
 export const PC_PADDING_1 = 1;
 export const PC_PADDING_2 = 2;
 export const PC_PADDING_3 = 3;
+export const PC_PADDING_4 = 4;
