@@ -52,3 +52,10 @@ export function isMainnetPrincipal(address: string): boolean {
 export function isTestnetPrincipal(address: string): boolean {
   return address.startsWith('ST');
 }
+
+/** Normalize principal: trim whitespace and validate */
+export function normalizePrincipal(raw: string): string {
+  const trimmed = raw.trim();
+  if (!isValidPrincipal(trimmed)) throw new Error(`Invalid principal: ${raw}`);
+  return trimmed;
+}
