@@ -100,3 +100,5 @@ export function isIntCV(cv: ClarityValue): cv is IntCV { return cv.type === 'int
 export function isBoolCV(cv: ClarityValue): cv is BoolCV { return cv.type === 'bool'; }
 /** Type guard: is StringAsciiCV */
 export function isStringAsciiCV(cv: ClarityValue): cv is StringAsciiCV { return cv.type === 'string-ascii'; }
+/** Type guard: is StringUtf8CV */
+export function isStringUtf8CV(cv: ClarityValue): cv is StringUtf8CV { return cv.type === 'string-utf8'; }
