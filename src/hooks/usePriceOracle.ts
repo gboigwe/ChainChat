@@ -17,3 +17,10 @@ export function stxToUsd(microStx: bigint, stxUsdPrice: number): number {
 export function formatUsd(amount: number): string {
   return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
 }
+/** Price oracle hook */
+export function usePriceOracle(refreshInterval = 60_000): PriceOracleState & { refetch: () => void } {
+  const [stxUsd, setStxUsd] = useState<number | null>(null);
+  const [btcUsd, setBtcUsd] = useState<number | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [error, setError] = useState<string | null>(null);
