@@ -90,3 +90,4 @@ export function buildInviteStructuredData(
 export const SIGN_CONST_1 = 1;
 export const SIGN_CONST_2 = 2;
 export const SIGN_CONST_3 = 3;
+export const SIGN_CONST_4 = 4;
