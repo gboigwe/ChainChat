@@ -118,3 +118,4 @@ export const FORMAT_CONST_48 = 48;
 export const FORMAT_CONST_49 = 49;
 export const FORMAT_CONST_50 = 50;
 export const FORMAT_PAD_1 = 1;
+export const FORMAT_PAD_2 = 2;
