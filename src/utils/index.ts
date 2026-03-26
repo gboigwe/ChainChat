@@ -10,3 +10,4 @@ export const UTILS_EXTRA_2 = 2;
 export const UTILS_EXTRA_3 = 3;
 export const UTILS_EXTRA_4 = 4;
 export const UTILS_EXTRA_5 = 5;
+export const UTILS_EXTRA_6 = 6;
