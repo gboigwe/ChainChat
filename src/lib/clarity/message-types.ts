@@ -14,3 +14,6 @@ export type BlockHeight = bigint;
 
 /** Channel identifier backed by Clarity uint */
 export type ChannelId = bigint;
+
+/** Clarity uint for reaction count */
+export type ReactionCount = bigint;
