@@ -118,3 +118,7 @@ export function getMaxMessageAge(): bigint { return maxMessageAgeVar.get(); }
 export const treasuryBalance = createDataVar<bigint>(0n);
 /** Get treasury balance */
 export function getTreasuryBalance(): bigint { return treasuryBalance.get(); }
+/** Deposit to treasury */
+export function depositToTreasury(amount: bigint): void {
+  incrementVar(treasuryBalance, amount);
+}
