@@ -81,3 +81,10 @@ export const CHAINCHAT_CONTRACTS = {
 export function resolveContract(name: keyof typeof CHAINCHAT_CONTRACTS): string {
   return CHAINCHAT_CONTRACTS[name];
 }
+
+/** Assert principal is valid or throw detailed error */
+export function assertValidPrincipal(address: string): void {
+  if (!isValidPrincipal(address)) {
+    throw new Error(`assertValidPrincipal failed: "${address}" is not a valid Stacks principal`);
+  }
+}
