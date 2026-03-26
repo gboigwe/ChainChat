@@ -108,3 +108,4 @@ export const TX_EXTRA_17 = 17;
 export const TX_EXTRA_18 = 18;
 export const TX_EXTRA_19 = 19;
 export const TX_EXTRA_20 = 20;
+export const TX_EXTRA_21 = 21;
