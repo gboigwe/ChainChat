@@ -43,3 +43,4 @@ export interface TxEvent {
   eventType: TxEventType;
   txId: string;
 }
+export const TX_TYPE_CONST_1 = 1;
