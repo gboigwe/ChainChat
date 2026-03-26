@@ -28,3 +28,7 @@ export function isValidPage(page: number): boolean {
 export function isValidLimit(limit: number, max = 100): boolean {
   return Number.isInteger(limit) && limit > 0 && limit <= max;
 }
+/** Validate badge type string */
+export function isValidBadgeType(type: string): boolean {
+  return ['early-adopter', 'power-user', 'moderator', 'vip'].includes(type);
+}
