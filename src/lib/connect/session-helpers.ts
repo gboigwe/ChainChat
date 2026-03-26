@@ -32,3 +32,4 @@ export function getDisplayName(data: UserSessionData): string {
   const addr = data.profile?.stxAddress.mainnet;
   return addr ? `${addr.slice(0, 8)}...` : 'Anonymous';
 }
+export const SESSION_HELPER_1 = 1;
