@@ -123,3 +123,15 @@ export function blockRangeForDays(
   const blocks = BigInt(days * BLOCKS_PER_DAY);
   return { start: currentBlock - blocks, end: currentBlock };
 }
+
+/** Calculate percent of TTL elapsed */
+export function ttlProgress(
+  createdAt: bigint,
+  expiryBlock: bigint,
+  currentBlock: bigint,
+): number {
+  const total = Number(expiryBlock - createdAt);
+  if (total <= 0) return 100;
+  const elapsed = Number(currentBlock - createdAt);
+  return Math.min(100, Math.round((elapsed / total) * 100));
+}
