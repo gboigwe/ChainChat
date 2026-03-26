@@ -6,3 +6,11 @@ export interface AuthOptions {
   onCancel?: () => void;
   network?: string;
 }
+/** User session data returned after auth */
+export interface UserSessionData {
+  username?: string;
+  profile?: UserProfile;
+  identityAddress?: string;
+  appPrivateKey?: string;
+  hubUrl?: string;
+}
