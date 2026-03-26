@@ -136,3 +136,7 @@ export function mapPaginate<V extends MapValue>(
 ): V[] {
   return mapValues(map).slice(offset, offset + limit);
 }
+/** Snapshot a map to a plain object */
+export function snapshotMap<V extends MapValue>(map: Map<string, V>): Record<string, V> {
+  return Object.fromEntries(map.entries());
+}
