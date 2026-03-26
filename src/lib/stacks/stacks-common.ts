@@ -35,3 +35,5 @@ export function formatMicroStx(microStx: bigint, decimals = 6): string {
   const frac = microStx % divisor;
   return `${whole}.${frac.toString().padStart(decimals, '0')}`;
 }
+/** Check if two addresses are equal */
+export function addressesEqual(a: string, b: string): boolean { return a === b; }
