@@ -12,3 +12,7 @@ export enum AddressVersion {
 export function isMainnetAddress(address: string): boolean {
   return address.startsWith('SP');
 }
+/** Check if address is testnet */
+export function isTestnetAddress(address: string): boolean {
+  return address.startsWith('ST');
+}
