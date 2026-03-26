@@ -41,3 +41,4 @@ export async function simulateCreateChannel(opts: CreateChannelOptions): Promise
   return { txId: '0x' + '1'.repeat(64), channelId: 1n, status: 'pending' };
 }
 export const CREATE_CHAN_CONST_1 = 1;
+export const CREATE_CHAN_CONST_2 = 2;
