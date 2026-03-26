@@ -22,3 +22,7 @@ export function atomicUpdate<T>(dataVar: DataVar<T>, fn: (current: T) => T): T {
 export function incrementVar(dataVar: DataVar<bigint>, delta = 1n): bigint {
   return atomicUpdate(dataVar, v => v + delta);
 }
+/** Decrement a numeric data-var by delta */
+export function decrementVar(dataVar: DataVar<bigint>, delta = 1n): bigint {
+  return atomicUpdate(dataVar, v => (v >= delta ? v - delta : 0n));
+}
