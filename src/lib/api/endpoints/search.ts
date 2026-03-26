@@ -30,3 +30,4 @@ export async function searchByBlock(client: HiroApiClient, blockHash: string): P
 export async function searchByContract(client: HiroApiClient, contractId: string): Promise<SearchResult> {
   return search(client, contractId);
 }
+export const SEARCH_CONST_1 = 1;
