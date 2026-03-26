@@ -114,3 +114,5 @@ export function isNoneCV(cv: ClarityValue): cv is NoneCV { return cv.type === 'n
 export function isSomeCV(cv: ClarityValue): cv is SomeCV { return cv.type === 'some'; }
 /** Type guard: is OkCV */
 export function isOkCV(cv: ClarityValue): cv is OkCV { return cv.type === 'ok'; }
+/** Type guard: is ErrCV */
+export function isErrCV(cv: ClarityValue): cv is ErrCV { return cv.type === 'err'; }
