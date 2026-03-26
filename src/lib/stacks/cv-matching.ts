@@ -63,3 +63,8 @@ export function extractOptional(cv: ClarityValue): ClarityValue | null {
   if (isNoneCV(cv)) return null;
   return null;
 }
+/** Extract tuple field by name */
+export function extractTupleField(cv: ClarityValue, field: string): ClarityValue | null {
+  if (!isTupleCV(cv)) return null;
+  return cv.data[field] ?? null;
+}
