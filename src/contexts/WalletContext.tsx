@@ -68,3 +68,6 @@ export function WalletProvider({ children }: { children: React.ReactNode }): Rea
     }
   }, [refreshSession]);
   useEffect(() => { refreshSession(); }, [refreshSession]);
+  const value: WalletContextValue = { ...state, connect, disconnect, setNetwork, refreshSession };
+  return React.createElement(WalletContext.Provider, { value }, children);
+}
