@@ -111,3 +111,13 @@ export interface FTTransferEvent {
 }
 /** FT transfer event log */
 export const ftTransferLog: FTTransferEvent[] = [];
+/** Transfer with event logging */
+export function executeTransferWithLog(
+  sender: string,
+  recipient: string,
+  amount: bigint,
+  blockHeight: bigint,
+): void {
+  executeTransfer(sender, recipient, amount);
+  ftTransferLog.push({ from: sender, to: recipient, amount, blockHeight });
+}
