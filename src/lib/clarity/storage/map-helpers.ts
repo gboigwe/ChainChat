@@ -3,3 +3,8 @@
 export type MapKey = Record<string, unknown>;
 /** Generic map value type */
 export type MapValue = Record<string, unknown>;
+/** Map entry tuple */
+export interface MapEntry<K extends MapKey, V extends MapValue> {
+  key: K;
+  value: V;
+}
