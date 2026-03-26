@@ -32,3 +32,7 @@ export interface SignatureData {
   publicKey: string;
   message?: string;
 }
+export interface StructuredData {
+  domain: { name: string; version: string; chainId: number };
+  message: Record<string, unknown>;
+}
