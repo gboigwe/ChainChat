@@ -19,3 +19,8 @@ export type ClarityResponse<T, E = bigint> = OkResponse<T> | ErrResponse<E>;
 export function ok<T>(value: T): OkResponse<T> {
   return { type: 'ok', value };
 }
+
+/** Construct an err response */
+export function err<E>(error: E): ErrResponse<E> {
+  return { type: 'err', error };
+}
