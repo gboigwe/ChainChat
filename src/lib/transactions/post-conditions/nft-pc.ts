@@ -60,3 +60,4 @@ export const NFT_PC_2 = 2;
 export const NFT_PC_3 = 3;
 export const NFT_PC_4 = 4;
 export const NFT_PC_5 = 5;
+export const NFT_PC_6 = 6;
