@@ -30,3 +30,12 @@ export function isReadOnlySuccess(result: { okay: boolean }): boolean {
 export function getReadOnlyError(result: { cause?: string }): string {
   return result.cause ?? 'Unknown error';
 }
+/** Common read-only functions for ChainChat */
+export const READ_ONLY_FUNCTIONS = {
+  getMessage: 'get-message',
+  getChannel: 'get-channel',
+  getMember: 'get-member',
+  getChannelStats: 'get-channel-stats',
+  getReactionCount: 'get-reaction-count',
+  isChannelMember: 'is-channel-member',
+} as const;
