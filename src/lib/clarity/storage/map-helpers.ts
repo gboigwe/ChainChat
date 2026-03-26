@@ -32,3 +32,7 @@ export function mapDelete<V extends MapValue>(
 ): boolean {
   return map.delete(keyStr);
 }
+/** Serialize map key to string for JS Map indexing */
+export function serializeKey(key: MapKey): string {
+  return JSON.stringify(key, (_, v) => typeof v === 'bigint' ? v.toString() : v);
+}
