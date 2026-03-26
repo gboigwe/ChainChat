@@ -107,3 +107,4 @@ export const CC_BUILDER_CONST_6 = 6;
 export const CC_BUILDER_CONST_7 = 7;
 export const CC_BUILDER_CONST_8 = 8;
 export const CC_BUILDER_CONST_9 = 9;
+export const CC_BUILDER_CONST_10 = 10;
