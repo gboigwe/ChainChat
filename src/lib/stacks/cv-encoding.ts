@@ -105,3 +105,4 @@ export function cvDebugString(cv: ClarityValue): string {
   try { return cvToString(cv); } catch { return `<${cv.type}>`; }
 }
 export const ENCODING_CONSTANT_1 = 1;
+export const ENCODING_CONSTANT_2 = 2;
