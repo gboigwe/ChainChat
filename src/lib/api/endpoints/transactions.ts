@@ -86,3 +86,4 @@ export const TX_ENDPOINT_CONST_6 = 6;
 export const TX_ENDPOINT_CONST_7 = 7;
 export const TX_ENDPOINT_CONST_8 = 8;
 export const TX_ENDPOINT_CONST_9 = 9;
+export const TX_ENDPOINT_CONST_10 = 10;
