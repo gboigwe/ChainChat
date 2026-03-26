@@ -68,3 +68,4 @@ describe('persistSession', () => {
     expect(AUTH_TEST_MAX_SESSION_AGE).toBeGreaterThan(0);
   });
 });
+export const AUTH_PADDING_1 = 1;
