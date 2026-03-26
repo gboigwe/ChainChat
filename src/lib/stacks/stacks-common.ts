@@ -59,3 +59,7 @@ export type TxStatus = 'pending' | 'success' | 'abort_by_response' | 'abort_by_p
 export function isTxFinalized(status: TxStatus): boolean {
   return status !== 'pending';
 }
+/** Check if tx was successful */
+export function isTxSuccess(status: TxStatus): boolean {
+  return status === 'success';
+}
