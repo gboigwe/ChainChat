@@ -29,3 +29,11 @@ export function makeStandardNonFungiblePostCondition(
     tokenId,
   };
 }
+/** Contract NFT post-condition */
+export interface ContractNFTPostCondition {
+  type: 'nft';
+  principal: { type: 'contract'; address: string; contractName: string };
+  conditionCode: NonFungibleConditionCode;
+  assetInfo: { contractAddress: string; contractName: string; assetName: string };
+  tokenId: unknown;
+}
