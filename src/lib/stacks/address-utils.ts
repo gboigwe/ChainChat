@@ -50,3 +50,9 @@ export function parseContractPrincipal(principal: string): { address: string; co
 export function isValidPrincipal(principal: string): boolean {
   return validateStacksAddress(principal) || validateContractPrincipal(principal);
 }
+/** Get network from address prefix */
+export function getNetworkFromAddress(address: string): 'mainnet' | 'testnet' | 'unknown' {
+  if (isMainnetAddress(address)) return 'mainnet';
+  if (isTestnetAddress(address)) return 'testnet';
+  return 'unknown';
+}
