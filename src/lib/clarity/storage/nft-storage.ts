@@ -57,3 +57,9 @@ export function getTokensByOwner(owner: string): NFTTokenId[] {
   for (const [id, o] of nftOwnerMap) if (o === owner) tokens.push(id);
   return tokens;
 }
+/** Burn (delete) an NFT */
+export function burnNFT(tokenId: NFTTokenId, owner: string): void {
+  if (!ownsNFT(tokenId, owner)) throw new Error('Only owner can burn NFT');
+  nftOwnerMap.delete(tokenId);
+  nftMetadataMap.delete(tokenId);
+}
