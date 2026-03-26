@@ -118,3 +118,5 @@ export function isOkCV(cv: ClarityValue): cv is OkCV { return cv.type === 'ok'; 
 export function isErrCV(cv: ClarityValue): cv is ErrCV { return cv.type === 'err'; }
 /** Type guard: is StandardPrincipalCV */
 export function isStandardPrincipalCV(cv: ClarityValue): cv is StandardPrincipalCV { return cv.type === 'principal'; }
+/** Type guard: is ContractPrincipalCV */
+export function isContractPrincipalCV(cv: ClarityValue): cv is ContractPrincipalCV { return cv.type === 'contract'; }
