@@ -106,3 +106,8 @@ export function parsePrincipal(raw: unknown): string {
   if (typeof raw !== 'string') throw new Error('Principal must be a string');
   return normalizePrincipal(raw);
 }
+
+/** Check if two contract principals are from the same deployer */
+export function sameDeployer(a: string, b: string): boolean {
+  return getDeployerAddress(a) === getDeployerAddress(b);
+}
