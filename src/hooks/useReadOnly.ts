@@ -15,3 +15,8 @@ export interface UseReadOnlyState<T> {
   loading: boolean;
   error: string | null;
 }
+/** Return type of useReadOnly */
+export type UseReadOnlyReturn<T> = UseReadOnlyState<T> & {
+  call: () => Promise<void>;
+  refetch: () => Promise<void>;
+};
