@@ -23,3 +23,4 @@ export const HIGH_PRIORITY_FEE_MULTIPLIER = 2;
 export const NONCE_FETCH_TIMEOUT_MS = 10_000;
 export const TX_BROADCAST_MAX_RETRIES = 5;
 export const WEBSOCKET_RECONNECT_DELAY_MS = 5_000;
+export const MAX_PENDING_TXS = 10;
