@@ -6,3 +6,10 @@ export enum WalletProvider {
   Hiro = 'hiro',
   Unknown = 'unknown',
 }
+/** Provider metadata */
+export interface ProviderInfo {
+  id: WalletProvider;
+  name: string;
+  icon: string;
+  downloadUrl: string;
+}
