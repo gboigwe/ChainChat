@@ -126,3 +126,9 @@ export function transferNFTWithLog(
   transferNFT(tokenId, from, to);
   transferEventLog.push({ tokenId, from, to, blockHeight });
 }
+/** Get count of NFTs with specific badge type */
+export function countBadgesByType(badgeType: BadgeType): number {
+  let count = 0;
+  for (const badge of badgeMap.values()) if (badge.badgeType === badgeType) count++;
+  return count;
+}
