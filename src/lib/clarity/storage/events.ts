@@ -12,3 +12,10 @@ export interface MessageCreatedEvent extends StorageEvent {
   channelId: bigint;
   sender: string;
 }
+/** Channel created event */
+export interface ChannelCreatedEvent extends StorageEvent {
+  type: 'channel-created';
+  channelId: bigint;
+  owner: string;
+  name: string;
+}
