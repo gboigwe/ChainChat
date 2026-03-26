@@ -131,3 +131,11 @@ export function filterBySender(
 ): ClarityMessage[] {
   return messages.filter(m => m.sender === sender);
 }
+
+/** Get thread replies for a given message id */
+export function getThreadReplies(
+  messages: ClarityMessage[],
+  rootId: MessageId,
+): ClarityMessage[] {
+  return messages.filter(m => m.replyTo === rootId);
+}
