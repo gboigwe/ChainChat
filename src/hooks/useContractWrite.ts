@@ -31,3 +31,19 @@ export function useContractWrite(hookOptions?: UseContractWriteOptions): UseCont
     setTxId(null); setTxStatus(null); setIsPending(false);
     setIsSuccess(false); setIsError(false); setError(null);
   }, []);
+  const execute = useCallback(async (_options: unknown) => {
+    reset();
+    setIsPending(true);
+    try {
+      // openContractCall would be called here
+      setIsSuccess(true);
+      setTxStatus('pending');
+    } catch (e) {
+      const msg = e instanceof Error ? e.message : 'Transaction failed';
+      setIsError(true);
+      setError(msg);
+      hookOptions?.onError?.(msg);
+    } finally {
+      setIsPending(false);
+    }
+  }, [reset, hookOptions]);
