@@ -61,3 +61,7 @@ export function contractExplorerUrl(
 ): string {
   return `${config.explorerUrl}/txid/${contractAddress}.${contractName}`;
 }
+/** Validate network name */
+export function isValidNetworkName(name: string): boolean {
+  return ['mainnet', 'testnet', 'devnet'].includes(name);
+}
