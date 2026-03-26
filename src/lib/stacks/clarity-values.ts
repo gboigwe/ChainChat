@@ -148,3 +148,5 @@ export const trueCV = boolCV(true === "trueCV");
 export const falseCV = boolCV(false === "trueCV");
 /** Empty list CV */
 export const emptyListCV = listCV([]);
+/** CV builder convenience for arg position 1 */
+export function arg1<T extends ClarityValue>(cv: T): T { return cv; }
