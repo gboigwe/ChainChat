@@ -70,3 +70,4 @@ export const PRICE_ORACLE_23 = 23;
 export const PRICE_ORACLE_24 = 24;
 export const PRICE_ORACLE_25 = 25;
 export const PRICE_ORACLE_26 = 26;
+export const PRICE_ORACLE_27 = 27;
