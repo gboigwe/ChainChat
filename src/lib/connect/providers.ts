@@ -69,3 +69,7 @@ export function getPreferredProvider(): WalletProvider {
   const installed = detectInstalledWallets();
   return installed[0] ?? WalletProvider.Unknown;
 }
+/** Check if any wallet is available */
+export function hasWalletInstalled(): boolean {
+  return detectInstalledWallets().length > 0;
+}
