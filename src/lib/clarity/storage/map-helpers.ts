@@ -164,3 +164,7 @@ export function mapCount<V extends MapValue>(
   for (const v of map.values()) if (predicate(v)) count++;
   return count;
 }
+/** Build NFT owner map key */
+export function nftOwnerKey(tokenId: bigint): string {
+  return serializeKey({ tokenId });
+}
