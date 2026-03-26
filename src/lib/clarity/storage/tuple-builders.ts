@@ -100,3 +100,9 @@ export function decrementMemberCount(t: ChannelStorageTuple): ChannelStorageTupl
   const count = t['member-count'] > 0n ? t['member-count'] - 1n : 0n;
   return { ...t, 'member-count': count };
 }
+/** Stats storage tuple */
+export interface StatsStorageTuple {
+  'message-count': bigint;
+  'member-count': bigint;
+  'last-activity': bigint;
+}
