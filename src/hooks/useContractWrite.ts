@@ -47,3 +47,5 @@ export function useContractWrite(hookOptions?: UseContractWriteOptions): UseCont
       setIsPending(false);
     }
   }, [reset, hookOptions]);
+  return { txId, txStatus, isPending, isSuccess, isError, error, execute, reset };
+}
