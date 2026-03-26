@@ -33,3 +33,8 @@ export const CONTRACT_ERROR_DESCRIPTIONS: Record<number, string> = {
   108: 'Invite expired',
   109: 'Channel at capacity',
 };
+
+/** Look up description for contract error code */
+export function describeContractError(code: bigint): string {
+  return CONTRACT_ERROR_DESCRIPTIONS[Number(code)] ?? `Unknown contract error: ${code}`;
+}
