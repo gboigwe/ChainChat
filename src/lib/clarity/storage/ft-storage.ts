@@ -121,3 +121,9 @@ export function executeTransferWithLog(
   executeTransfer(sender, recipient, amount);
   ftTransferLog.push({ from: sender, to: recipient, amount, blockHeight });
 }
+/** Lock tokens for a specified duration (escrow pattern) */
+export interface TokenLock {
+  owner: string;
+  amount: bigint;
+  releaseBlock: bigint;
+}
