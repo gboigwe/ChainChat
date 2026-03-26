@@ -16,3 +16,7 @@ export class CVBuilder {
     this.args.push(boolCV(value));
     return this;
   }
+  ascii(value: string): this {
+    this.args.push(stringAsciiCV(value));
+    return this;
+  }
