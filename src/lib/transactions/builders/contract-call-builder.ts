@@ -94,3 +94,7 @@ export class ContractCallBuilder {
     };
   }
 }
+/** Factory: create a new ContractCallBuilder */
+export function contractCall(): ContractCallBuilder {
+  return new ContractCallBuilder();
+}
