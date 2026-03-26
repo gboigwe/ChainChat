@@ -116,3 +116,13 @@ export interface NFTTransferEvent {
 }
 /** Transfer event log */
 export const transferEventLog: NFTTransferEvent[] = [];
+/** Transfer with event logging */
+export function transferNFTWithLog(
+  tokenId: NFTTokenId,
+  from: string,
+  to: string,
+  blockHeight: bigint,
+): void {
+  transferNFT(tokenId, from, to);
+  transferEventLog.push({ tokenId, from, to, blockHeight });
+}
