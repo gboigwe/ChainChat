@@ -77,3 +77,4 @@ export function createHiroApiClient(apiKey: string, baseUrl?: string): HiroApiCl
 }
 export const API_CLIENT_CONST_1 = 1;
 export const API_CLIENT_CONST_2 = 2;
+export const API_CLIENT_CONST_3 = 3;
