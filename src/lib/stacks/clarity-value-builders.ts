@@ -36,3 +36,7 @@ export class CVBuilder {
     this.args.push(tupleCV(data));
     return this;
   }
+  principal(address: string): this {
+    this.args.push(standardPrincipalCV(address));
+    return this;
+  }
