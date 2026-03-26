@@ -43,3 +43,7 @@ export function burnTokens(owner: string, amount: TokenBalance): void {
 function allowanceKey(owner: string, spender: string): string {
   return `${owner}:${spender}`;
 }
+/** Get allowance for spender from owner */
+export function getAllowance(owner: string, spender: string): TokenBalance {
+  return ftAllowanceMap.get(allowanceKey(owner, spender)) ?? 0n;
+}
