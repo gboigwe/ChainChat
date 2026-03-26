@@ -74,3 +74,11 @@ export function validateReactionCode(code: bigint): ValidationResult {
   if (code < 1n || code > 5n) errors.push('Reaction code must be between 1 and 5');
   return { valid: errors.length === 0, errors };
 }
+
+/** Validate block height is a positive bigint */
+export function validateBlockHeight(height: unknown): ValidationResult {
+  const errors: string[] = [];
+  if (typeof height !== 'bigint') errors.push('Block height must be a bigint');
+  else if (height < 0n) errors.push('Block height cannot be negative');
+  return { valid: errors.length === 0, errors };
+}
