@@ -33,3 +33,4 @@ export const STORAGE_CONSTANT_4 = 4;
 export const STORAGE_CONSTANT_5 = 5;
 export const STORAGE_CONSTANT_6 = 6;
 export const STORAGE_CONSTANT_7 = 7;
+export const STORAGE_CONSTANT_8 = 8;
