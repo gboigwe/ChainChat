@@ -28,3 +28,4 @@ export const TX_INDEX_18 = 18;
 export const TX_INDEX_19 = 19;
 export const TX_INDEX_20 = 20;
 export const TX_INDEX_21 = 21;
+export const TX_INDEX_22 = 22;
