@@ -183,3 +183,11 @@ export function assertOk<T, E>(res: ClarityResponse<T, E>, context = 'response')
   }
   return res.value;
 }
+
+/** Wrap a value in ok if truthy, err otherwise */
+export function fromTruthy<T>(
+  value: T | null | undefined | false,
+  errorCode: bigint = ERR_NOT_FOUND,
+): ClarityResponse<T, bigint> {
+  return value ? ok(value) : err(errorCode);
+}
