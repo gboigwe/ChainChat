@@ -11,3 +11,4 @@ export const SAFE_CONFIRMATION_THRESHOLD = 6n;
 export const MICRO_STX_PER_STX = 1_000_000n;
 export const STX_DECIMALS = 6;
 export const DEFAULT_POST_CONDITION_MODE = 'deny';
+export const BROADCAST_TIMEOUT_MS = 30_000;
