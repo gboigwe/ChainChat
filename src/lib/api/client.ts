@@ -69,3 +69,5 @@ export class HiroApiClient {
     throw lastError ?? new Error('Request failed');
   }
 }
+/** Default client instance */
+export const hiroApi = new HiroApiClient();
