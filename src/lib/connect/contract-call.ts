@@ -67,3 +67,5 @@ export function isCancelled(data: unknown): boolean {
 export function extractTxId(data: FinishedTxData): string {
   return data.txId.startsWith('0x') ? data.txId.slice(2) : data.txId;
 }
+/** Post-condition type options */
+export type PostConditionCode = 'sent-equal-to' | 'sent-less-than' | 'sent-greater-than' | 'sent-less-than-or-equal-to' | 'sent-greater-than-or-equal-to';
