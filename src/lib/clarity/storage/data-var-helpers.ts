@@ -44,3 +44,5 @@ export function swapVar<T>(dataVar: DataVar<T>, newValue: T): T {
 export const messageCounter = createDataVar<bigint>(0n);
 /** Global channel counter data-var */
 export const channelCounter = createDataVar<bigint>(0n);
+/** Contract owner data-var */
+export const contractOwner = createDataVar<string>('');
