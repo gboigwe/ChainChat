@@ -33,3 +33,4 @@ export const TX_INDEX_23 = 23;
 export const TX_INDEX_24 = 24;
 export const TX_INDEX_25 = 25;
 export const TX_INDEX_26 = 26;
+export const TX_INDEX_27 = 27;
