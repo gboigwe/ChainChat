@@ -90,3 +90,8 @@ export const WELL_KNOWN_CONTRACTS = {
 export function isSystemAddress(address: string): boolean {
   return address === 'SP000000000000000000002Q6VF78';
 }
+/** Derive explorer URL for an address */
+export function getExplorerAddressUrl(address: string, network: 'mainnet' | 'testnet'): string {
+  const base = network === 'mainnet' ? 'https://explorer.hiro.so' : 'https://explorer.hiro.so';
+  return `${base}/address/${address}?chain=${network}`;
+}
