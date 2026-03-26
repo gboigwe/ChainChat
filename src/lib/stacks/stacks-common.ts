@@ -49,3 +49,5 @@ export const TX_VERSION_TESTNET = 128;
 export function getTxVersion(network: StacksNetwork): number {
   return network === 'mainnet' ? TX_VERSION_MAINNET : TX_VERSION_TESTNET;
 }
+/** Post condition modes */
+export type PostConditionMode = 'allow' | 'deny';
