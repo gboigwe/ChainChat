@@ -14,3 +14,8 @@ export interface UseContractWriteOptions {
   onSuccess?: (txId: string) => void;
   onError?: (error: string) => void;
 }
+/** Return type of useContractWrite */
+export type UseContractWriteReturn = UseContractWriteState & {
+  execute: (options: unknown) => Promise<void>;
+  reset: () => void;
+};
