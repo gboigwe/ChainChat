@@ -86,3 +86,4 @@ export const CALL_CONST_2 = 2;
 export const CALL_CONST_3 = 3;
 export const CALL_CONST_4 = 4;
 export const CALL_CONST_5 = 5;
+export const CALL_CONST_6 = 6;
