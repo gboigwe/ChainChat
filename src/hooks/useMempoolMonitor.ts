@@ -37,3 +37,4 @@ export function useMempoolMonitor(
   return { pending, count: pending.length, loading, error, hasTx, refresh };
 }
 export const MEMPOOL_1 = 1;
+export const MEMPOOL_2 = 2;
