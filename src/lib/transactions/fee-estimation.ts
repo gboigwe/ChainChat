@@ -7,3 +7,8 @@ export const HIGH_PRIORITY_FEE_MULTIPLIER = 2;
 export const LOW_PRIORITY_FEE_MULTIPLIER = 0.5;
 /** Standard base fee rate (microSTX per byte) */
 export const BASE_FEE_RATE = 1;
+/** Estimate fee based on transaction size */
+export function estimateFee(txSizeBytes: number, feeRate = BASE_FEE_RATE): bigint {
+  const estimated = BigInt(Math.ceil(txSizeBytes * feeRate));
+  return estimated > MINIMUM_FEE ? estimated : MINIMUM_FEE;
+}
