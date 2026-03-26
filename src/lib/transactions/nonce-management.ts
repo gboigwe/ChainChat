@@ -6,3 +6,6 @@ export interface NonceTrackerState {
   nonce: number;
   pending: number[];
 }
+/** Nonce tracker class for managing transaction sequences */
+export class NonceTracker {
+  private state: Map<string, NonceTrackerState> = new Map();
