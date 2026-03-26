@@ -15,3 +15,8 @@ export function validateContent(content: string): ValidationResult {
   if (!isAsciiOnly(content)) errors.push('Content must be ASCII only');
   return { valid: errors.length === 0, errors };
 }
+
+/** Sanitize message content by trimming whitespace */
+export function sanitizeContent(content: string): string {
+  return content.trim();
+}
