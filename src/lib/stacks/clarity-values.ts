@@ -7,3 +7,5 @@ export interface UIntCV extends ClarityValue { type: 'uint'; value: bigint; }
 export interface IntCV extends ClarityValue { type: 'int'; value: bigint; }
 /** Clarity bool value */
 export interface BoolCV extends ClarityValue { type: 'bool'; value: boolean; }
+/** Clarity string-ascii value */
+export interface StringAsciiCV extends ClarityValue { type: 'string-ascii'; value: string; }
