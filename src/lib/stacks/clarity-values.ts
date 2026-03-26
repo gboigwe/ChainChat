@@ -35,3 +35,7 @@ export type AnyCV = UIntCV | IntCV | BoolCV | StringAsciiCV | StringUtf8CV | Buf
 export function uintCV(value: bigint | number): UIntCV {
   return { type: 'uint', value: BigInt(value) };
 }
+/** Factory: int */
+export function intCV(value: bigint | number): IntCV {
+  return { type: 'int', value: BigInt(value) };
+}
