@@ -61,3 +61,11 @@ export function mapErr<T, E, F>(
 ): ClarityResponse<T, F> {
   return isErr(res) ? err(fn(res.error)) : res;
 }
+
+/** Chain ok responses (flatMap) */
+export function andThen<T, U, E>(
+  res: ClarityResponse<T, E>,
+  fn: (value: T) => ClarityResponse<U, E>,
+): ClarityResponse<U, E> {
+  return isOk(res) ? fn(res.value) : res;
+}
