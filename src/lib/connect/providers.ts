@@ -77,3 +77,5 @@ export function hasWalletInstalled(): boolean {
 export function getProviderName(provider: WalletProvider): string {
   return PROVIDER_REGISTRY[provider].name;
 }
+/** Wallet connection status */
+export type WalletConnectionStatus = 'connected' | 'disconnected' | 'connecting' | 'error';
