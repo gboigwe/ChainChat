@@ -64,3 +64,8 @@ export function isClarityMessage(value: unknown): value is ClarityMessage {
 export function isValidMessageContent(content: string): boolean {
   return content.length >= MIN_MESSAGE_LENGTH && content.length <= MAX_MESSAGE_LENGTH;
 }
+
+/** Check if content contains only ASCII characters (Clarity string-ascii requirement) */
+export function isAsciiOnly(content: string): boolean {
+  return /^[\x00-\x7F]*$/.test(content);
+}
