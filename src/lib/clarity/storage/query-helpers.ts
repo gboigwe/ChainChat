@@ -77,3 +77,11 @@ export function maxBigintField<T>(items: T[], field: keyof T): bigint {
     return v > max ? v : max;
   }, 0n);
 }
+/** Min bigint field across items */
+export function minBigintField<T>(items: T[], field: keyof T): bigint {
+  if (items.length === 0) return 0n;
+  return items.reduce((min, item) => {
+    const v = item[field] as unknown as bigint;
+    return v < min ? v : min;
+  }, items[0][field] as unknown as bigint);
+}
