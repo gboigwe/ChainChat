@@ -26,3 +26,4 @@ export const NETWORK_TYPE_2 = 2;
 export const NETWORK_TYPE_3 = 3;
 export const NETWORK_TYPE_4 = 4;
 export const NETWORK_TYPE_5 = 5;
+export const NETWORK_TYPE_6 = 6;
