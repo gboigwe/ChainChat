@@ -123,3 +123,11 @@ export interface ClarityMessageWithAttachment extends ClarityMessage {
 export function sortMessagesByBlock(messages: ClarityMessage[]): ClarityMessage[] {
   return [...messages].sort((a, b) => (a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0));
 }
+
+/** Filter messages from a specific sender */
+export function filterBySender(
+  messages: ClarityMessage[],
+  sender: PrincipalAddress,
+): ClarityMessage[] {
+  return messages.filter(m => m.sender === sender);
+}
