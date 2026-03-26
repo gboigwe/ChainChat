@@ -14,3 +14,8 @@ export interface ErrResponse<E> {
 
 /** Union of ok/err — mirrors Clarity response type */
 export type ClarityResponse<T, E = bigint> = OkResponse<T> | ErrResponse<E>;
+
+/** Construct an ok response */
+export function ok<T>(value: T): OkResponse<T> {
+  return { type: 'ok', value };
+}
