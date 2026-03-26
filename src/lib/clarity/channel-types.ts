@@ -73,3 +73,10 @@ export function isValidChannelDesc(desc: string): boolean {
 export function encodeVisibility(v: ChannelVisibility): bigint {
   return VISIBILITY_CODES[v];
 }
+
+/** Decode Clarity uint code back to ChannelVisibility */
+export function decodeVisibility(code: bigint): ChannelVisibility {
+  const entry = Object.entries(VISIBILITY_CODES).find(([, v]) => v === code);
+  if (!entry) throw new Error(`Unknown visibility code: ${code}`);
+  return entry[0] as ChannelVisibility;
+}
