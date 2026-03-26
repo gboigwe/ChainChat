@@ -57,3 +57,12 @@ export async function fetchNonce(address: string, apiUrl: string): Promise<numbe
   const data = await res.json();
   return data.nonce as number;
 }
+/** Fetch and cache nonce */
+export async function fetchAndCacheNonce(
+  address: string,
+  apiUrl: string,
+): Promise<number> {
+  const nonce = await fetchNonce(address, apiUrl);
+  globalNonceTracker.setNonce(address, nonce);
+  return nonce;
+}
