@@ -108,3 +108,8 @@ export interface MessageAttachment {
 
 /** Maximum attachment size in bytes */
 export const MAX_ATTACHMENT_SIZE_BYTES = 10_000_000n;
+
+/** Check if attachment meets size constraint */
+export function isValidAttachment(att: MessageAttachment): boolean {
+  return att.sizeBytes <= MAX_ATTACHMENT_SIZE_BYTES && att.url.length > 0;
+}
