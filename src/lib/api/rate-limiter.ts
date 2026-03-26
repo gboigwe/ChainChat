@@ -8,3 +8,9 @@ export class RateLimiter {
   private refillRate: number;
   private lastRefill: number;
   private queue: Array<() => void> = [];
+  constructor(requestsPerSecond = REQUESTS_PER_SECOND) {
+    this.maxTokens = requestsPerSecond;
+    this.tokens = requestsPerSecond;
+    this.refillRate = requestsPerSecond;
+    this.lastRefill = Date.now();
+  }
