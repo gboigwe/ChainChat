@@ -58,3 +58,4 @@ export const API_RESPONSE_CONST_15 = 15;
 export const API_RESPONSE_CONST_16 = 16;
 export const API_RESPONSE_CONST_17 = 17;
 export const API_RESPONSE_CONST_18 = 18;
+export const API_RESPONSE_CONST_19 = 19;
