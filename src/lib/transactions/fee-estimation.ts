@@ -20,3 +20,8 @@ export function feeRateToFee(feeRate: number, sizeBytes: number): bigint {
 export function getHighPriorityFee(baseFee: bigint): bigint {
   return BigInt(Math.ceil(Number(baseFee) * HIGH_PRIORITY_FEE_MULTIPLIER));
 }
+/** Get low priority fee */
+export function getLowPriorityFee(baseFee: bigint): bigint {
+  const low = BigInt(Math.floor(Number(baseFee) * LOW_PRIORITY_FEE_MULTIPLIER));
+  return low > MINIMUM_FEE ? low : MINIMUM_FEE;
+}
