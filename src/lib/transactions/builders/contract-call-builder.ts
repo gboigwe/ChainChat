@@ -16,3 +16,7 @@ export interface ContractCallTxOptions {
 /** Mutable builder for ContractCallTransaction */
 export class ContractCallBuilder {
   private options: Partial<ContractCallTxOptions> = {};
+  setContractAddress(address: string): this {
+    this.options.contractAddress = address;
+    return this;
+  }
