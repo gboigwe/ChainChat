@@ -86,3 +86,4 @@ export const API_CLIENT_CONST_8 = 8;
 export const API_CLIENT_CONST_9 = 9;
 export const API_CLIENT_CONST_10 = 10;
 export const API_CLIENT_CONST_11 = 11;
+export const API_CLIENT_CONST_12 = 12;
