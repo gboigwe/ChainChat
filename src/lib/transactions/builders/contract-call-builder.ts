@@ -37,3 +37,7 @@ export class ContractCallBuilder {
     this.options.functionArgs.push(arg);
     return this;
   }
+  setFee(fee: bigint): this {
+    this.options.fee = fee;
+    return this;
+  }
