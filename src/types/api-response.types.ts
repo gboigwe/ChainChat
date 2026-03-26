@@ -10,3 +10,11 @@ export interface ApiErrorResponse {
   message?: string;
   reason?: string;
 }
+export interface AccountInfoApiResponse {
+  balance: string;
+  locked: string;
+  unlock_height: number;
+  nonce: number;
+  balance_proof: string;
+  nonce_proof: string;
+}
