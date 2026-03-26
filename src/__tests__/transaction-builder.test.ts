@@ -105,3 +105,4 @@ export const TX_PADDING_14 = 14;
 export const TX_PADDING_15 = 15;
 export const TX_EXTRA_16 = 16;
 export const TX_EXTRA_17 = 17;
+export const TX_EXTRA_18 = 18;
