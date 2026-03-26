@@ -22,3 +22,4 @@ export interface BlockInfo {
   epoch: EpochIdentifier;
 }
 export const NETWORK_TYPE_1 = 1;
+export const NETWORK_TYPE_2 = 2;
