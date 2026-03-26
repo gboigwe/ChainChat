@@ -37,3 +37,11 @@ export function buildAuthOptions(
 ): AuthOptions {
   return { appDetails: { name: appName, icon: appIcon }, onFinish, onCancel };
 }
+/** Parse user session from storage */
+export function parseUserSession(raw: string): UserSessionData | null {
+  try {
+    return JSON.parse(raw) as UserSessionData;
+  } catch {
+    return null;
+  }
+}
