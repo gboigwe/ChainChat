@@ -23,3 +23,5 @@ export class Cache<T> {
   has(key: string): boolean { return this.get(key) !== null; }
   size(): number { return this.store.size; }
 }
+/** Shared channel cache */
+export const channelCache = new Cache<unknown>(60_000);
