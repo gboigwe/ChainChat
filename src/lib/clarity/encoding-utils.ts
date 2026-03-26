@@ -11,3 +11,7 @@ export function hexToBigint(hex: string): bigint {
 export function stringToAsciiBytes(str: string): Uint8Array {
   return new TextEncoder().encode(str);
 }
+/** Decode ASCII byte array to string */
+export function asciiBytesToString(bytes: Uint8Array): string {
+  return new TextDecoder('ascii').decode(bytes);
+}
