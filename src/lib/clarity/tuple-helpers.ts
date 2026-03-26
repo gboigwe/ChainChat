@@ -82,3 +82,8 @@ export function validateTupleSchema(
   }
   return errors;
 }
+
+/** Count keys in a tuple */
+export function countTupleKeys(tuple: Record<string, unknown>): number {
+  return Object.keys(tuple).length;
+}
