@@ -125,3 +125,4 @@ export const HOOK_EXTRA_16 = 16;
 export const HOOK_EXTRA_17 = 17;
 export const HOOK_EXTRA_18 = 18;
 export const HOOK_EXTRA_19 = 19;
+export const HOOK_EXTRA_20 = 20;
