@@ -28,3 +28,12 @@ export async function getBlockList(
 ): Promise<{ results: BlockResponse[]; total: number }> {
   return client.fetch('/extended/v1/block', undefined, { limit, offset });
 }
+/** Get transactions in a block */
+export async function getBlockTransactions(
+  client: HiroApiClient,
+  blockHash: string,
+  limit = 50,
+  offset = 0,
+): Promise<{ results: unknown[]; total: number }> {
+  return client.fetch(`/extended/v1/block/${blockHash}/transactions`, undefined, { limit, offset });
+}
