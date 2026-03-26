@@ -45,3 +45,15 @@ export function balanceCacheKey(principal: string): string {
 export function invalidateChannelMessages(channelId: bigint): void {
   messageCache.clear();
 }
+/** Get or compute and cache value */
+export async function getOrCache<T>(
+  cache: Cache<T>,
+  key: string,
+  compute: () => Promise<T>,
+): Promise<T> {
+  const cached = cache.get(key);
+  if (cached !== null) return cached;
+  const value = await compute();
+  cache.set(key, value);
+  return value;
+}
