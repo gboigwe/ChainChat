@@ -93,3 +93,7 @@ export function getBadge(tokenId: NFTTokenId): BadgeNFT | null {
 export function nftTotalSupply(): number {
   return nftOwnerMap.size;
 }
+/** Check if token exists */
+export function nftExists(tokenId: NFTTokenId): boolean {
+  return nftOwnerMap.has(tokenId);
+}
