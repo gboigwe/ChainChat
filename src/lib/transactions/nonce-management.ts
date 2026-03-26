@@ -66,3 +66,13 @@ export async function fetchAndCacheNonce(
   globalNonceTracker.setNonce(address, nonce);
   return nonce;
 }
+/** Get next nonce, refreshing if stale */
+export async function getNextNonce(
+  address: string,
+  apiUrl: string,
+): Promise<bigint> {
+  if (globalNonceTracker.isStale(address)) {
+    await fetchAndCacheNonce(address, apiUrl);
+  }
+  return BigInt(globalNonceTracker.reserveNonce(address));
+}
