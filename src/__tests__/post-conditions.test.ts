@@ -87,3 +87,4 @@ export const PC_EXTRA_22 = 22;
 export const PC_EXTRA_23 = 23;
 export const PC_EXTRA_24 = 24;
 export const PC_EXTRA_25 = 25;
+export const PC_EXTRA_26 = 26;
