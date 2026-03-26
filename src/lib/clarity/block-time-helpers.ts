@@ -54,3 +54,8 @@ export function formatBlockDateTime(blockHeight: bigint, locale = 'en-US'): stri
 export function computeExpiryBlock(currentBlock: bigint, durationBlocks: bigint): bigint {
   return currentBlock + durationBlocks;
 }
+
+/** Check if a message has expired given current block */
+export function isExpired(expiryBlock: bigint, currentBlock: bigint): boolean {
+  return currentBlock >= expiryBlock;
+}
