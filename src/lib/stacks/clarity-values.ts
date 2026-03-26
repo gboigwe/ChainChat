@@ -92,3 +92,5 @@ export function okCV(value: ClarityValue): OkCV {
 export function errCV(value: ClarityValue): ErrCV {
   return { type: 'err', value };
 }
+/** Type guard: is UIntCV */
+export function isUIntCV(cv: ClarityValue): cv is UIntCV { return cv.type === 'uint'; }
