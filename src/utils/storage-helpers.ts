@@ -27,3 +27,4 @@ export const STOR_CONST_5 = 5;
 export const STOR_CONST_6 = 6;
 export const STOR_CONST_7 = 7;
 export const STOR_CONST_8 = 8;
+export const STOR_CONST_9 = 9;
