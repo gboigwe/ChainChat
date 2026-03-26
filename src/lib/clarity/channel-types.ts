@@ -153,3 +153,11 @@ export function createChannel(
 export function isInviteValid(invite: ChannelInvite, currentBlock: bigint): boolean {
   return currentBlock < invite.expiryBlock;
 }
+
+/** Filter channels by visibility */
+export function filterChannelsByVisibility(
+  channels: ClarityChannel[],
+  visibility: ChannelVisibility,
+): ClarityChannel[] {
+  return channels.filter(c => c.visibility === visibility);
+}
