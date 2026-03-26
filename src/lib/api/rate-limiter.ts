@@ -61,3 +61,4 @@ export const RATE_LIMITER_CONST_13 = 13;
 export const RATE_LIMITER_CONST_14 = 14;
 export const RATE_LIMITER_CONST_15 = 15;
 export const RATE_LIMITER_CONST_16 = 16;
+export const RATE_LIMITER_CONST_17 = 17;
