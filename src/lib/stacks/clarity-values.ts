@@ -80,3 +80,7 @@ export function contractPrincipalCV(address: string, contractName: string): Cont
 }
 /** Factory: none */
 export function noneCV(): NoneCV { return { type: 'none' }; }
+/** Factory: some */
+export function someCV(value: ClarityValue): SomeCV {
+  return { type: 'some', value };
+}
