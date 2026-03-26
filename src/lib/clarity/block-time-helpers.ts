@@ -151,3 +151,8 @@ export function roundToHour(blockHeight: bigint): bigint {
   const blocksPerHour = BigInt(BLOCKS_PER_HOUR);
   return (blockHeight / blocksPerHour) * blocksPerHour;
 }
+
+/** Convert Date object to estimated block height */
+export function dateToBlockHeight(date: Date): bigint {
+  return timestampToBlockHeight(Math.floor(date.getTime() / 1000));
+}
