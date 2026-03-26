@@ -101,3 +101,12 @@ export function isChannelFull(memberCount: bigint): boolean {
 export function computeInviteExpiry(currentBlock: bigint): bigint {
   return currentBlock + 1008n;
 }
+
+/** Invite tuple stored in Clarity map */
+export interface ChannelInvite {
+  channelId: ChannelId;
+  inviter: PrincipalAddress;
+  invitee: PrincipalAddress;
+  expiryBlock: bigint;
+  role: MemberRole;
+}
