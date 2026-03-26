@@ -23,3 +23,6 @@ export type OptionalMessageRef = MessageId | null;
 
 /** Maximum allowed length for string-ascii content */
 export const MAX_MESSAGE_LENGTH = 500;
+
+/** Minimum allowed length for string-ascii content */
+export const MIN_MESSAGE_LENGTH = 1;
