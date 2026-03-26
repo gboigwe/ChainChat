@@ -67,3 +67,5 @@ export function isTxSuccess(status: TxStatus): boolean {
 export const MAX_FUNCTION_ARGS = 10;
 /** Maximum memo bytes */
 export const MAX_MEMO_BYTES = 34;
+/** STX decimal places */
+export const STX_DECIMALS = 6;
