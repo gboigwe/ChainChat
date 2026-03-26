@@ -45,3 +45,11 @@ export function unwrap<T, E>(res: ClarityResponse<T, E>): T {
 export function unwrapOr<T, E>(res: ClarityResponse<T, E>, fallback: T): T {
   return isOk(res) ? res.value : fallback;
 }
+
+/** Map over ok value, preserving err */
+export function mapOk<T, U, E>(
+  res: ClarityResponse<T, E>,
+  fn: (value: T) => U,
+): ClarityResponse<U, E> {
+  return isOk(res) ? ok(fn(res.value)) : res;
+}
