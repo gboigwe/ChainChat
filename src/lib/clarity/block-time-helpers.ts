@@ -108,3 +108,9 @@ export function formatCountdown(blocks: bigint): string {
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
   return `${Math.floor(seconds / 86400)}d`;
 }
+
+/** Return relative age of a message as human string */
+export function messageAge(createdAt: bigint, currentBlock: bigint): string {
+  const elapsed = blocksSinceCreation(createdAt, currentBlock);
+  return blockDurationToHuman(elapsed) + ' ago';
+}
