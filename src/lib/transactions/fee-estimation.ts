@@ -12,3 +12,7 @@ export function estimateFee(txSizeBytes: number, feeRate = BASE_FEE_RATE): bigin
   const estimated = BigInt(Math.ceil(txSizeBytes * feeRate));
   return estimated > MINIMUM_FEE ? estimated : MINIMUM_FEE;
 }
+/** Convert fee rate to fee for given size */
+export function feeRateToFee(feeRate: number, sizeBytes: number): bigint {
+  return estimateFee(sizeBytes, feeRate);
+}
