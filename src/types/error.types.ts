@@ -5,3 +5,9 @@ export class StacksError extends Error {
     this.name = 'StacksError';
   }
 }
+export class ContractError extends StacksError {
+  constructor(message: string, public readonly contractErrorCode: bigint, public readonly contractId: string) {
+    super(message, 'CONTRACT_ERROR');
+    this.name = 'ContractError';
+  }
+}
