@@ -42,3 +42,4 @@ export interface ReadOnlyFunctionResponse {
 }
 export const API_RESPONSE_CONST_1 = 1;
 export const API_RESPONSE_CONST_2 = 2;
+export const API_RESPONSE_CONST_3 = 3;
