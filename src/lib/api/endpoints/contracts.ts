@@ -32,3 +32,16 @@ export async function getContractSource(
 ): Promise<{ source: string; publish_height: number }> {
   return client.fetch(`/v2/contracts/source/${contractAddress}/${contractName}`);
 }
+/** Get contract data map entry */
+export async function getContractDataMapEntry(
+  client: HiroApiClient,
+  contractAddress: string,
+  contractName: string,
+  mapName: string,
+  key: string,
+): Promise<{ data?: string }> {
+  return client.fetch(
+    `/v2/map_entry/${contractAddress}/${contractName}/${mapName}`,
+    { method: 'POST', body: key },
+  );
+}
