@@ -50,3 +50,10 @@ export class NonceTracker {
 }
 /** Global nonce tracker singleton */
 export const globalNonceTracker = new NonceTracker();
+/** Fetch nonce from API */
+export async function fetchNonce(address: string, apiUrl: string): Promise<number> {
+  const res = await fetch(`${apiUrl}/v2/accounts/${address}?proof=0`);
+  if (!res.ok) throw new Error(`Failed to fetch nonce: ${res.status}`);
+  const data = await res.json();
+  return data.nonce as number;
+}
