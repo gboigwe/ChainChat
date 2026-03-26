@@ -79,3 +79,4 @@ export const TRANSFER_CONST_18 = 18;
 export const TRANSFER_CONST_19 = 19;
 export const TRANSFER_CONST_20 = 20;
 export const TRANSFER_CONST_21 = 21;
+export const TRANSFER_CONST_22 = 22;
