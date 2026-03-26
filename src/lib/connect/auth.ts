@@ -78,3 +78,10 @@ export function getStacksAddress(
 ): string | null {
   return userData.profile?.stxAddress[network] ?? null;
 }
+/** Get current address based on network env */
+export function getCurrentAddress(
+  userData: UserSessionData,
+  isMainnet: boolean,
+): string | null {
+  return getStacksAddress(userData, isMainnet ? 'mainnet' : 'testnet');
+}
