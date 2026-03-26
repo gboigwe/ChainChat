@@ -110,3 +110,5 @@ export function setFeeRate(rate: bigint): void {
   if (rate <= 0n) throw new Error('Fee rate must be positive');
   feeRateVar.set(rate);
 }
+/** Maximum message age before archival (data-var) */
+export const maxMessageAgeVar = createDataVar<bigint>(50_400n);
