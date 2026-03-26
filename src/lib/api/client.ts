@@ -71,3 +71,7 @@ export class HiroApiClient {
 }
 /** Default client instance */
 export const hiroApi = new HiroApiClient();
+/** Create a client with API key */
+export function createHiroApiClient(apiKey: string, baseUrl?: string): HiroApiClient {
+  return new HiroApiClient({ apiKey, baseUrl });
+}
