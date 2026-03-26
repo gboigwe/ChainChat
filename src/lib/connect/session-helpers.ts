@@ -17,3 +17,7 @@ export function getIdentityAddress(data: UserSessionData): string | null {
 export function getHubUrl(data: UserSessionData): string {
   return data.hubUrl ?? 'https://hub.blockstack.org';
 }
+/** Check if session has a profile */
+export function hasProfile(data: UserSessionData): boolean {
+  return data.profile !== undefined && data.profile !== null;
+}
