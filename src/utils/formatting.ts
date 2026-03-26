@@ -111,3 +111,4 @@ export const FORMAT_CONST_41 = 41;
 export const FORMAT_CONST_42 = 42;
 export const FORMAT_CONST_43 = 43;
 export const FORMAT_CONST_44 = 44;
+export const FORMAT_CONST_45 = 45;
