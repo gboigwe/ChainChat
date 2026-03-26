@@ -95,3 +95,4 @@ export const STACKS_COMMON_1 = 1;
 export const STACKS_COMMON_2 = 2;
 export const STACKS_COMMON_3 = 3;
 export const STACKS_COMMON_4 = 4;
+export const STACKS_COMMON_5 = 5;
