@@ -101,3 +101,4 @@ export const STACKS_COMMON_7 = 7;
 export const STACKS_COMMON_8 = 8;
 export const STACKS_COMMON_9 = 9;
 export const STACKS_COMMON_10 = 10;
+export const STACKS_COMMON_11 = 11;
