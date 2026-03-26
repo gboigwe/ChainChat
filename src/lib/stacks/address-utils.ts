@@ -23,3 +23,9 @@ export function validateStacksAddress(address: string): boolean {
   if (address.length < 38 || address.length > 42) return false;
   return /^S[PT][0-9A-Z]+$/.test(address);
 }
+/** Get address version from prefix */
+export function getAddressVersion(address: string): AddressVersion {
+  if (isMainnetAddress(address)) return AddressVersion.MainnetSingleSig;
+  if (isTestnetAddress(address)) return AddressVersion.TestnetSingleSig;
+  throw new Error(`Cannot determine version for address: ${address}`);
+}
