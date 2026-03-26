@@ -70,3 +70,4 @@ export const TX_STATUS_22 = 22;
 export const TX_STATUS_23 = 23;
 export const TX_STATUS_24 = 24;
 export const TX_STATUS_25 = 25;
+export const TX_STATUS_26 = 26;
