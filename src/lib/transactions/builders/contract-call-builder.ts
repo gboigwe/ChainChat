@@ -24,3 +24,7 @@ export class ContractCallBuilder {
     this.options.contractName = name;
     return this;
   }
+  setFunctionName(name: string): this {
+    this.options.functionName = name;
+    return this;
+  }
