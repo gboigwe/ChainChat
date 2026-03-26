@@ -70,3 +70,8 @@ export function blocksUntilExpiry(expiryBlock: bigint, currentBlock: bigint): bi
 export function blockDurationToSeconds(blocks: bigint): number {
   return Number(blocks) * AVERAGE_BLOCK_TIME_SECONDS;
 }
+
+/** Convert seconds to approximate block count */
+export function secondsToBlocks(seconds: number): bigint {
+  return BigInt(Math.ceil(seconds / AVERAGE_BLOCK_TIME_SECONDS));
+}
