@@ -20,3 +20,7 @@ export class ContractCallBuilder {
     this.options.contractAddress = address;
     return this;
   }
+  setContractName(name: string): this {
+    this.options.contractName = name;
+    return this;
+  }
