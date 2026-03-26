@@ -71,3 +71,4 @@ export async function getContractEvents(
 export const CONTRACT_CONST_1 = 1;
 export const CONTRACT_CONST_2 = 2;
 export const CONTRACT_CONST_3 = 3;
+export const CONTRACT_CONST_4 = 4;
