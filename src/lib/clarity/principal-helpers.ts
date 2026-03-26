@@ -76,3 +76,8 @@ export const CHAINCHAT_CONTRACTS = {
   messaging: 'SP000000000000000000002Q6VF78.chainchat-messaging',
   channels:  'SP000000000000000000002Q6VF78.chainchat-channels',
 } as const;
+
+/** Resolve named contract to full principal */
+export function resolveContract(name: keyof typeof CHAINCHAT_CONTRACTS): string {
+  return CHAINCHAT_CONTRACTS[name];
+}
