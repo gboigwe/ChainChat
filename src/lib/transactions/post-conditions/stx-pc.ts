@@ -7,3 +7,10 @@ export enum FungibleConditionCode {
   Less = 'sent-less-than',
   LessEqual = 'sent-less-than-or-equal-to',
 }
+/** Standard STX post-condition structure */
+export interface StandardSTXPostCondition {
+  type: 'stx';
+  principal: { type: 'standard'; address: string };
+  conditionCode: FungibleConditionCode;
+  amount: bigint;
+}
