@@ -44,3 +44,12 @@ export async function getAccountNonces(
 ): Promise<{ possible_next_nonce: number; detected_missing_nonces: number[] }> {
   return client.fetch(`/extended/v1/address/${address}/nonces`);
 }
+/** Get account transaction history */
+export async function getAccountTransactions(
+  client: HiroApiClient,
+  address: string,
+  limit = 50,
+  offset = 0,
+): Promise<{ results: unknown[]; total: number }> {
+  return client.fetch(`/extended/v1/address/${address}/transactions`, undefined, { limit, offset });
+}
