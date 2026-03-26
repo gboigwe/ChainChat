@@ -47,3 +47,15 @@ export function buildContractCallOptions(
     ...overrides,
   };
 }
+/** Known function names for ChainChat contract */
+export const CHAINCHAT_FUNCTIONS = {
+  postMessage: 'post-message',
+  createChannel: 'create-channel',
+  joinChannel: 'join-channel',
+  leaveChannel: 'leave-channel',
+  inviteMember: 'invite-member',
+  kickMember: 'kick-member',
+  reactToMessage: 'react-to-message',
+  deleteMessage: 'delete-message',
+  updateChannelInfo: 'update-channel-info',
+} as const;
