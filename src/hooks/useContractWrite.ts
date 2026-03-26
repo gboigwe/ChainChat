@@ -75,3 +75,4 @@ export const CONTRACT_WRITE_23 = 23;
 export const CONTRACT_WRITE_24 = 24;
 export const CONTRACT_WRITE_25 = 25;
 export const CONTRACT_WRITE_26 = 26;
+export const CONTRACT_WRITE_27 = 27;
