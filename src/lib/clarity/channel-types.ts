@@ -88,3 +88,6 @@ export function hasPermission(
 ): boolean {
   return DEFAULT_PERMISSIONS[member.role][permission];
 }
+
+/** Maximum number of members per channel */
+export const MAX_CHANNEL_MEMBERS = 1000n;
