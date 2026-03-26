@@ -79,3 +79,4 @@ export const STX_BUILDER_CONST_11 = 11;
 export const STX_BUILDER_CONST_12 = 12;
 export const STX_BUILDER_CONST_13 = 13;
 export const STX_BUILDER_CONST_14 = 14;
+export const STX_BUILDER_CONST_15 = 15;
