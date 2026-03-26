@@ -72,3 +72,4 @@ export const TX_STATUS_24 = 24;
 export const TX_STATUS_25 = 25;
 export const TX_STATUS_26 = 26;
 export const TX_STATUS_27 = 27;
+export const TX_STATUS_28 = 28;
