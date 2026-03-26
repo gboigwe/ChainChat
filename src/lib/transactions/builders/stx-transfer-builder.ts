@@ -35,3 +35,7 @@ export class STXTransferBuilder {
     this.options.nonce = nonce;
     return this;
   }
+  setAnchorMode(mode: 'on-chain-only' | 'off-chain-only' | 'any'): this {
+    this.options.anchorMode = mode;
+    return this;
+  }
