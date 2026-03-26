@@ -27,3 +27,7 @@ export function useContractWrite(hookOptions?: UseContractWriteOptions): UseCont
   const [isSuccess, setIsSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const reset = useCallback(() => {
+    setTxId(null); setTxStatus(null); setIsPending(false);
+    setIsSuccess(false); setIsError(false); setError(null);
+  }, []);
