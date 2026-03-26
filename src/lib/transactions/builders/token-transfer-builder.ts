@@ -36,3 +36,7 @@ export class FTTransferBuilder {
     this.options.amount = amount;
     return this;
   }
+  setMemo(memo: string): this {
+    this.options.memo = memo;
+    return this;
+  }
