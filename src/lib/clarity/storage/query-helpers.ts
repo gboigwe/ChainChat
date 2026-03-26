@@ -66,3 +66,7 @@ export function countByField<T>(items: T[], field: keyof T): Map<string, number>
 export function uniqueByField<T>(items: T[], field: keyof T): T[keyof T][] {
   return [...new Set(items.map(i => i[field]))];
 }
+/** Sum bigint field across items */
+export function sumBigintField<T>(items: T[], field: keyof T): bigint {
+  return items.reduce((acc, item) => acc + (item[field] as unknown as bigint), 0n);
+}
