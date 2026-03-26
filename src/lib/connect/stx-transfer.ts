@@ -76,3 +76,4 @@ export const TRANSFER_CONST_15 = 15;
 export const TRANSFER_CONST_16 = 16;
 export const TRANSFER_CONST_17 = 17;
 export const TRANSFER_CONST_18 = 18;
+export const TRANSFER_CONST_19 = 19;
