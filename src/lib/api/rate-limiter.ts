@@ -43,3 +43,5 @@ export class RateLimiter {
     }, delay);
   }
 }
+/** Global rate limiter instance */
+export const globalRateLimiter = new RateLimiter();
