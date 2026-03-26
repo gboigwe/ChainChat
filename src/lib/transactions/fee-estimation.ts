@@ -50,3 +50,4 @@ export function formatFee(fee: bigint): string {
   const micro = fee % 1_000_000n;
   return `${stx}.${micro.toString().padStart(6, '0')} STX`;
 }
+export const FEE_CONST_1 = 1n;
