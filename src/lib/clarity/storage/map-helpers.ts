@@ -124,3 +124,7 @@ export function reactionKey(messageId: bigint, reactor: string): string {
 export function inviteKey(channelId: bigint, invitee: string): string {
   return serializeKey({ channelId, invitee });
 }
+/** Build channel stats key */
+export function channelStatsKey(channelId: bigint): string {
+  return serializeKey({ channelId });
+}
