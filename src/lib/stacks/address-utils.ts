@@ -34,3 +34,9 @@ export function truncateAddress(address: string, chars = 8): string {
   if (address.length <= chars * 2 + 3) return address;
   return `${address.slice(0, chars)}...${address.slice(-chars)}`;
 }
+/** Validate contract principal format */
+export function validateContractPrincipal(principal: string): boolean {
+  const parts = principal.split('.');
+  if (parts.length !== 2) return false;
+  return validateStacksAddress(parts[0]) && /^[a-z][a-z0-9\-]{0,39}$/.test(parts[1]);
+}
