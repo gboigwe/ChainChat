@@ -89,3 +89,13 @@ export function clampVar(
 export interface DataVarWithSubscription<T> extends DataVar<T> {
   subscribe(listener: (newValue: T, oldValue: T) => void): () => void;
 }
+/** Create data-var with change notification */
+export function createObservableVar<T>(initial: T): DataVarWithSubscription<T> {
+  let current = initial;
+  const listeners = new Set<(n: T, o: T) => void>();
+  return {
+    get: () => current,
+    set: (v: T) => { const old = current; current = v; listeners.forEach(l => l(v, old)); },
+    subscribe: (l) => { listeners.add(l); return () => listeners.delete(l); },
+  };
+}
