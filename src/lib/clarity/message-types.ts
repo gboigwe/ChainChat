@@ -8,3 +8,6 @@ export type MessageContent = string;
 
 /** Stacks principal address for message sender */
 export type PrincipalAddress = string;
+
+/** Block height when message was created */
+export type BlockHeight = bigint;
