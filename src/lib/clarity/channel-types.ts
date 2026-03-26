@@ -24,3 +24,6 @@ export interface ClarityChannel {
   createdAt: BlockHeight;
   visibility: ChannelVisibility;
 }
+
+/** Member role within a channel */
+export type MemberRole = 'admin' | 'moderator' | 'member' | 'viewer';
