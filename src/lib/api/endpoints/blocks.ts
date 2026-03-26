@@ -13,3 +13,10 @@ export interface BlockResponse {
   burn_block_height: number;
   txs: string[];
 }
+/** Get block by hash or height */
+export async function getBlock(
+  client: HiroApiClient,
+  hashOrHeight: string | number,
+): Promise<BlockResponse> {
+  return client.fetch<BlockResponse>(`/extended/v1/block/${hashOrHeight}`);
+}
