@@ -88,3 +88,7 @@ export function someCV(value: ClarityValue): SomeCV {
 export function okCV(value: ClarityValue): OkCV {
   return { type: 'ok', value };
 }
+/** Factory: err */
+export function errCV(value: ClarityValue): ErrCV {
+  return { type: 'err', value };
+}
