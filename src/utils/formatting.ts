@@ -72,3 +72,4 @@ export function formatFeeRate(fee: bigint, txSize: number): string {
 }
 export const FORMAT_CONST_4 = 4;
 export const FORMAT_CONST_5 = 5;
+export const FORMAT_CONST_6 = 6;
