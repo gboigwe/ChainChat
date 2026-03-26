@@ -79,3 +79,4 @@ export const PC_PADDING_14 = 14;
 export const PC_PADDING_15 = 15;
 export const PC_PADDING_16 = 16;
 export const PC_PADDING_17 = 17;
+export const PC_PADDING_18 = 18;
