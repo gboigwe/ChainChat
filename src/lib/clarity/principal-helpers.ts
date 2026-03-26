@@ -59,3 +59,9 @@ export function normalizePrincipal(raw: string): string {
   if (!isValidPrincipal(trimmed)) throw new Error(`Invalid principal: ${raw}`);
   return trimmed;
 }
+
+/** Truncate principal for display (SP1234...ABCD) */
+export function truncatePrincipal(address: string, chars = 6): string {
+  if (address.length <= chars * 2) return address;
+  return `${address.slice(0, chars)}...${address.slice(-chars)}`;
+}
