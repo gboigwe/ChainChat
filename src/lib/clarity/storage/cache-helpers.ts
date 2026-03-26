@@ -29,3 +29,7 @@ export const channelCache = new Cache<unknown>(60_000);
 export const messageCache = new Cache<unknown>(30_000);
 /** Shared balance cache */
 export const balanceCache = new Cache<bigint>(10_000);
+/** Cache key for channel */
+export function channelCacheKey(channelId: bigint): string {
+  return `ch:${channelId}`;
+}
