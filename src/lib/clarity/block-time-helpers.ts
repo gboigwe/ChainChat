@@ -135,3 +135,8 @@ export function ttlProgress(
   const elapsed = Number(currentBlock - createdAt);
   return Math.min(100, Math.round((elapsed / total) * 100));
 }
+
+/** Get ISO 8601 string from block height */
+export function blockHeightToISO(blockHeight: bigint): string {
+  return blockHeightToDate(blockHeight).toISOString();
+}
