@@ -55,3 +55,7 @@ export function getUserSession(): UserSessionData | null {
     return null;
   }
 }
+/** Get user data from session */
+export function getUserData(): UserSessionData | null {
+  return getUserSession();
+}
