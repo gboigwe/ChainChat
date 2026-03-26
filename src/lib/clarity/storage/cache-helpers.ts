@@ -37,3 +37,7 @@ export function channelCacheKey(channelId: bigint): string {
 export function messageCacheKey(channelId: bigint, messageId: bigint): string {
   return `msg:${channelId}:${messageId}`;
 }
+/** Cache key for balance */
+export function balanceCacheKey(principal: string): string {
+  return `bal:${principal}`;
+}
