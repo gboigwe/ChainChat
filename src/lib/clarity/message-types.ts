@@ -16,4 +16,5 @@ export interface ClarityMessage {
   sender: PrincipalAddress;
   content: MessageContent;
   channelId: ChannelId;
+  createdAt: BlockHeight;
 }
