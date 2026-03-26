@@ -67,3 +67,7 @@ export function clearSession(): void {
     // ignore
   }
 }
+/** Check if user is signed in */
+export function isSignedIn(): boolean {
+  return getUserSession() !== null;
+}
