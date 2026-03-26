@@ -39,3 +39,6 @@ export type StacksErrorType = 'CONTRACT_ERROR' | 'NETWORK_ERROR' | 'WALLET_ERROR
 export function isStacksError(error: unknown): error is StacksError {
   return error instanceof StacksError;
 }
+export function isContractError(error: unknown): error is ContractError {
+  return error instanceof ContractError;
+}
