@@ -5,3 +5,8 @@ export interface ApiPaginatedResponse<T> {
   limit: number;
   offset: number;
 }
+export interface ApiErrorResponse {
+  error: string;
+  message?: string;
+  reason?: string;
+}
