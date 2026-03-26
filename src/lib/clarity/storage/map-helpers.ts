@@ -68,3 +68,10 @@ export function mapGetOrSet<V extends MapValue>(
   if (!map.has(keyStr)) map.set(keyStr, defaultValue);
   return map.get(keyStr)!;
 }
+/** Batch set multiple entries */
+export function mapSetBatch<V extends MapValue>(
+  map: Map<string, V>,
+  entries: Array<{ key: string; value: V }>,
+): void {
+  for (const { key, value } of entries) map.set(key, value);
+}
