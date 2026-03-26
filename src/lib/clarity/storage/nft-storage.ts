@@ -148,3 +148,11 @@ export function getBadgeTypeStats(): Map<string, number> {
   }
   return stats;
 }
+/** Revoke a badge (admin only) */
+export function revokeBadge(tokenId: NFTTokenId, admin: string): void {
+  const badge = getBadge(tokenId);
+  if (!badge) throw new Error('Badge not found');
+  burnNFT(tokenId, badge.owner);
+  badgeMap.delete(tokenId);
+  void admin;
+}
