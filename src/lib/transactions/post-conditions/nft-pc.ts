@@ -70,3 +70,4 @@ export const NFT_PC_12 = 12;
 export const NFT_PC_13 = 13;
 export const NFT_PC_14 = 14;
 export const NFT_PC_15 = 15;
+export const NFT_PC_16 = 16;
