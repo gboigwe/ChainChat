@@ -96,3 +96,4 @@ export const PROVIDER_FLAG_1 = false;
 export const PROVIDER_FLAG_2 = false;
 export const PROVIDER_FLAG_3 = false;
 export const PROVIDER_FLAG_4 = false;
+export const PROVIDER_FLAG_5 = false;
