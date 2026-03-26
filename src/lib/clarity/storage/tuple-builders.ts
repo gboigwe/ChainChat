@@ -125,3 +125,9 @@ export function updateLastActivity(
 export function incrementMessageCount(t: StatsStorageTuple): StatsStorageTuple {
   return { ...t, 'message-count': t['message-count'] + 1n };
 }
+/** Validate message storage tuple has required fields */
+export function validateMessageTuple(t: unknown): t is MessageStorageTuple {
+  if (typeof t !== 'object' || t === null) return false;
+  const m = t as Record<string, unknown>;
+  return typeof m['sender'] === 'string' && typeof m['content'] === 'string';
+}
