@@ -96,3 +96,4 @@ export const CONTRACT_CONST_25 = 25;
 export const CONTRACT_CONST_26 = 26;
 export const CONTRACT_CONST_27 = 27;
 export const CONTRACT_CONST_28 = 28;
+export const CONTRACT_CONST_29 = 29;
