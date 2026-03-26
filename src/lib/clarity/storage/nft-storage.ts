@@ -47,3 +47,7 @@ export function transferNFT(
   if (owner !== from) throw new Error('Sender is not NFT owner');
   nftOwnerMap.set(tokenId, to);
 }
+/** Check if principal owns a token */
+export function ownsNFT(tokenId: NFTTokenId, principal: string): boolean {
+  return getNFTOwner(tokenId) === principal;
+}
