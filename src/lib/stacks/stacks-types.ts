@@ -35,3 +35,11 @@ export interface ContractLogEvent {
   topic: string;
   value: string;
 }
+/** NFT transfer event */
+export interface NFTTransferEvent {
+  type: 'nft_transfer';
+  asset_identifier: string;
+  sender: string;
+  recipient: string;
+  value: string;
+}
