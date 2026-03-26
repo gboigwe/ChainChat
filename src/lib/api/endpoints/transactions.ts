@@ -68,3 +68,12 @@ export async function getFeeEstimate(
     body: JSON.stringify({ transaction_payload: txPayload, estimated_len: estimatedLen }),
   });
 }
+/** Get transaction events */
+export async function getTxEvents(
+  client: HiroApiClient,
+  txId: string,
+  limit = 50,
+  offset = 0,
+): Promise<{ results: unknown[]; limit: number; offset: number }> {
+  return client.fetch(`/extended/v1/tx/${txId}/events`, undefined, { limit, offset });
+}
