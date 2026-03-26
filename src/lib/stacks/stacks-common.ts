@@ -43,3 +43,5 @@ export const MIN_TX_FEE = 180n;
 export const DEFAULT_ANCHOR_MODE = 'any';
 /** Transaction version for mainnet */
 export const TX_VERSION_MAINNET = 0;
+/** Transaction version for testnet */
+export const TX_VERSION_TESTNET = 128;
