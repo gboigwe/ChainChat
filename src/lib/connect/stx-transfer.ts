@@ -31,3 +31,13 @@ export function validateMemo(memo: string): string[] {
   if (memo.length > 34) errors.push('Memo must be 34 bytes or less');
   return errors;
 }
+/** Build STX transfer options with defaults */
+export function buildSTXTransferOptions(
+  recipient: string,
+  amount: bigint,
+  network: string,
+  memo?: string,
+  overrides?: Partial<STXTransferOptions>,
+): STXTransferOptions {
+  return { recipient, amount, memo, network, ...overrides };
+}
