@@ -162,3 +162,8 @@ export function startOfDayBlock(blockHeight: bigint): bigint {
   const blocksPerDay = BigInt(BLOCKS_PER_DAY);
   return (blockHeight / blocksPerDay) * blocksPerDay;
 }
+
+/** Check if a block is in the future relative to current */
+export function isFutureBlock(blockHeight: bigint, currentBlock: bigint): boolean {
+  return blockHeight > currentBlock;
+}
