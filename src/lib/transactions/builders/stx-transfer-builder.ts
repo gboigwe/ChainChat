@@ -17,3 +17,8 @@ export class STXTransferBuilder {
     this.options.recipient = recipient;
     return this;
   }
+  setAmount(amount: bigint): this {
+    if (amount <= 0n) throw new Error('Amount must be positive');
+    this.options.amount = amount;
+    return this;
+  }
