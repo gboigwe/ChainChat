@@ -8,3 +8,7 @@ export enum AddressVersion {
   TestnetSingleSig = 26,
   TestnetMultiSig = 21,
 }
+/** Check if address is mainnet */
+export function isMainnetAddress(address: string): boolean {
+  return address.startsWith('SP');
+}
