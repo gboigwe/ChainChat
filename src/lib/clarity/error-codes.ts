@@ -17,3 +17,5 @@ export const ERR_PERMISSION_DENIED = 106n;
 export const ERR_EMPTY_CONTENT = 107n;
 /** Error: invite has expired */
 export const ERR_INVITE_EXPIRED = 108n;
+/** Error: channel is at capacity */
+export const ERR_CHANNEL_CAPACITY = 109n;
