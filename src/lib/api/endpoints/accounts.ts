@@ -62,3 +62,11 @@ export async function getAccountAssets(
 ): Promise<{ results: unknown[]; total: number }> {
   return client.fetch(`/extended/v1/address/${address}/assets`, undefined, { limit, offset });
 }
+/** Get inbound STX transfers */
+export async function getAccountInboundSTX(
+  client: HiroApiClient,
+  address: string,
+  limit = 50,
+): Promise<{ results: unknown[]; total: number }> {
+  return client.fetch(`/extended/v1/address/${address}/stx_inbound`, undefined, { limit });
+}
