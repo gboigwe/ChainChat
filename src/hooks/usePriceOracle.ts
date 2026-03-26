@@ -8,3 +8,8 @@ export interface PriceOracleState {
   lastUpdated: Date | null;
   error: string | null;
 }
+/** Convert STX amount to USD */
+export function stxToUsd(microStx: bigint, stxUsdPrice: number): number {
+  const stx = Number(microStx) / 1_000_000;
+  return stx * stxUsdPrice;
+}
