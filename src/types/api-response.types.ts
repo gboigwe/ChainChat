@@ -47,3 +47,4 @@ export const API_RESPONSE_CONST_4 = 4;
 export const API_RESPONSE_CONST_5 = 5;
 export const API_RESPONSE_CONST_6 = 6;
 export const API_RESPONSE_CONST_7 = 7;
+export const API_RESPONSE_CONST_8 = 8;
