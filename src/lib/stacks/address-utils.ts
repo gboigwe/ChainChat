@@ -86,3 +86,7 @@ export const WELL_KNOWN_CONTRACTS = {
   pox: 'SP000000000000000000002Q6VF78.pox-4',
   bns: 'SP000000000000000000002Q6VF78.bns',
 } as const;
+/** Check if an address is a known system address */
+export function isSystemAddress(address: string): boolean {
+  return address === 'SP000000000000000000002Q6VF78';
+}
