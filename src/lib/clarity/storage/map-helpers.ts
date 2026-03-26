@@ -128,3 +128,11 @@ export function inviteKey(channelId: bigint, invitee: string): string {
 export function channelStatsKey(channelId: bigint): string {
   return serializeKey({ channelId });
 }
+/** Get paginated values from map */
+export function mapPaginate<V extends MapValue>(
+  map: Map<string, V>,
+  offset: number,
+  limit: number,
+): V[] {
+  return mapValues(map).slice(offset, offset + limit);
+}
