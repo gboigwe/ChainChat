@@ -22,3 +22,4 @@ export const TX_INDEX_12 = 12;
 export const TX_INDEX_13 = 13;
 export const TX_INDEX_14 = 14;
 export const TX_INDEX_15 = 15;
+export const TX_INDEX_16 = 16;
