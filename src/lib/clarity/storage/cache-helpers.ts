@@ -27,3 +27,5 @@ export class Cache<T> {
 export const channelCache = new Cache<unknown>(60_000);
 /** Shared message cache */
 export const messageCache = new Cache<unknown>(30_000);
+/** Shared balance cache */
+export const balanceCache = new Cache<bigint>(10_000);
