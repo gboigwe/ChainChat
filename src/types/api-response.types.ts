@@ -50,3 +50,4 @@ export const API_RESPONSE_CONST_7 = 7;
 export const API_RESPONSE_CONST_8 = 8;
 export const API_RESPONSE_CONST_9 = 9;
 export const API_RESPONSE_CONST_10 = 10;
+export const API_RESPONSE_CONST_11 = 11;
