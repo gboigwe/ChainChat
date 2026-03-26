@@ -1,2 +1,4 @@
 // Clarity v4 message type definitions
-export {};
+
+/** Unique message identifier backed by Clarity uint */
+export type MessageId = bigint;
