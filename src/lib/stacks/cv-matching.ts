@@ -53,3 +53,7 @@ export function extractUInt(cv: ClarityValue): bigint | null {
 export function extractBool(cv: ClarityValue): boolean | null {
   return isBoolCV(cv) ? cv.value : null;
 }
+/** Extract string-ascii value or null */
+export function extractStringAscii(cv: ClarityValue): string | null {
+  return isStringAsciiCV(cv) ? cv.value : null;
+}
