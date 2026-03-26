@@ -80,3 +80,7 @@ export function feePercentage(fee: bigint, amount: bigint): number {
 export function estimateTxSize(numArgs: number): number {
   return 300 + numArgs * 40;
 }
+/** Calculate fee from rate and size */
+export function calculateFee(feeRate: number, txSize: number): bigint {
+  return BigInt(Math.ceil(feeRate * txSize));
+}
