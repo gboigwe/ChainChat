@@ -9,3 +9,6 @@ export type ChannelName = string;
 
 /** Channel description, Clarity string-ascii max 256 */
 export type ChannelDescription = string;
+
+/** Max channel name length per contract constraint */
+export const MAX_CHANNEL_NAME_LENGTH = 64;
