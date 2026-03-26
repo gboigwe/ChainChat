@@ -78,3 +78,13 @@ export function extractBufferAsHex(cv: ClarityValue): string | null {
   if (!isBufferCV(cv)) return null;
   return Array.from(cv.value).map(b => b.toString(16).padStart(2, '0')).join('');
 }
+/** Recursively collect all CV types in a value */
+export function collectCVTypes(cv: ClarityValue): string[] {
+  const types: string[] = [cv.type];
+  if (isSomeCV(cv)) types.push(...collectCVTypes(cv.value));
+  if (isOkCV(cv)) types.push(...collectCVTypes(cv.value));
+  if (isErrCV(cv)) types.push(...collectCVTypes(cv.value));
+  if (isListCV(cv)) cv.list.forEach(item => types.push(...collectCVTypes(item)));
+  if (isTupleCV(cv)) Object.values(cv.data).forEach(v => types.push(...collectCVTypes(v)));
+  return types;
+}
