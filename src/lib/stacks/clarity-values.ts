@@ -102,3 +102,5 @@ export function isBoolCV(cv: ClarityValue): cv is BoolCV { return cv.type === 'b
 export function isStringAsciiCV(cv: ClarityValue): cv is StringAsciiCV { return cv.type === 'string-ascii'; }
 /** Type guard: is StringUtf8CV */
 export function isStringUtf8CV(cv: ClarityValue): cv is StringUtf8CV { return cv.type === 'string-utf8'; }
+/** Type guard: is BufferCV */
+export function isBufferCV(cv: ClarityValue): cv is BufferCV { return cv.type === 'buffer'; }
