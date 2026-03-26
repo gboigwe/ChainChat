@@ -126,3 +126,10 @@ export type ChannelSortMode = 'recent' | 'popular' | 'alphabetical';
 export function encodeRole(role: MemberRole): bigint {
   return ROLE_CODES[role];
 }
+
+/** Decode Clarity uint back to MemberRole */
+export function decodeRole(code: bigint): MemberRole {
+  const entry = Object.entries(ROLE_CODES).find(([, v]) => v === code);
+  if (!entry) throw new Error(`Unknown role code: ${code}`);
+  return entry[0] as MemberRole;
+}
