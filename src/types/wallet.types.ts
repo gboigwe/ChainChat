@@ -37,3 +37,4 @@ export interface StructuredData {
   message: Record<string, unknown>;
 }
 export const WALLET_TYPE_CONST_1 = 1;
+export const WALLET_TYPE_CONST_2 = 2;
