@@ -45,3 +45,7 @@ export function narrowCVType<T extends ClarityValue>(
 ): T | null {
   return guard(cv) ? cv : null;
 }
+/** Extract uint value or null */
+export function extractUInt(cv: ClarityValue): bigint | null {
+  return isUIntCV(cv) ? cv.value : null;
+}
