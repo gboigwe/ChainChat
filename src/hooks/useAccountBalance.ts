@@ -47,3 +47,4 @@ export const ACCOUNT_BALANCE_4 = 4;
 export const ACCOUNT_BALANCE_5 = 5;
 export const ACCOUNT_BALANCE_6 = 6;
 export const ACCOUNT_BALANCE_7 = 7;
+export const ACCOUNT_BALANCE_8 = 8;
