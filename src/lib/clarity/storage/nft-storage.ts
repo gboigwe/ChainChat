@@ -160,3 +160,5 @@ export function revokeBadge(tokenId: NFTTokenId, admin: string): void {
 export const BADGE_RARITY_1 = 1n;
 /** Badge rarity level 2 */
 export const BADGE_RARITY_2 = 2n;
+/** Badge rarity level 3 */
+export const BADGE_RARITY_3 = 3n;
