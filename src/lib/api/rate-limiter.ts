@@ -20,3 +20,8 @@ export class RateLimiter {
     this.tokens = Math.min(this.maxTokens, this.tokens + elapsed * this.refillRate);
     this.lastRefill = now;
   }
+  allow(): boolean {
+    this.refill();
+    if (this.tokens >= 1) { this.tokens -= 1; return true; }
+    return false;
+  }
