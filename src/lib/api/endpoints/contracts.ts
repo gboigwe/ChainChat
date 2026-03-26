@@ -59,3 +59,12 @@ export async function callReadOnlyFunction(
     { method: 'POST', body: JSON.stringify({ sender, arguments: args }) },
   );
 }
+/** Get contract events */
+export async function getContractEvents(
+  client: HiroApiClient,
+  contractId: string,
+  limit = 50,
+  offset = 0,
+): Promise<{ results: unknown[] }> {
+  return client.fetch(`/extended/v1/contract/${contractId}/events`, undefined, { limit, offset });
+}
