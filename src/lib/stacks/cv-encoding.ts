@@ -71,3 +71,7 @@ export function cvToHex(cv: ClarityValue): string {
   const bytes = serializeClarityValue(cv);
   return Array.from(bytes).map(b => b.toString(16).padStart(2, '0')).join('');
 }
+/** Serialize tuple data to ordered key-value pairs */
+export function serializeTupleData(data: Record<string, ClarityValue>): Array<{ key: string; value: ClarityValue }> {
+  return Object.keys(data).sort().map(key => ({ key, value: data[key] }));
+}
