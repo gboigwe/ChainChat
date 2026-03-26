@@ -33,3 +33,7 @@ export function mintNFT(
 export function getNFTOwner(tokenId: NFTTokenId): string | null {
   return nftOwnerMap.get(tokenId) ?? null;
 }
+/** Get NFT metadata */
+export function getNFTMetadata(tokenId: NFTTokenId): NFTMetadata | null {
+  return nftMetadataMap.get(tokenId) ?? null;
+}
