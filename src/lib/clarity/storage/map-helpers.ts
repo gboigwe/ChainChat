@@ -44,3 +44,10 @@ export function messageChannelKey(channelId: bigint, messageId: bigint): string 
 export function memberChannelKey(channelId: bigint, principal: string): string {
   return serializeKey({ channelId, principal });
 }
+/** Check if a key exists in the map */
+export function mapHas<V extends MapValue>(
+  map: Map<string, V>,
+  keyStr: string,
+): boolean {
+  return map.has(keyStr);
+}
