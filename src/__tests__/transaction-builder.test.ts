@@ -88,3 +88,4 @@ describe('PostConditionMode', () => {
     expect(defaultMode).toBe(0);
   });
 });
+export const TX_PADDING_1 = 1;
