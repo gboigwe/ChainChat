@@ -36,3 +36,4 @@ export interface EventABI {
   type: 'stx_asset' | 'fungible_token_asset' | 'non_fungible_token_asset' | 'smart_contract_log';
 }
 export const CONTRACT_TYPE_CONST_1 = 1;
+export const CONTRACT_TYPE_CONST_2 = 2;
