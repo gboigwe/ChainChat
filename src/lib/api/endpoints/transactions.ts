@@ -57,3 +57,14 @@ export async function getDroppedMempoolTransactions(
 ): Promise<{ results: TransactionResponse[] }> {
   return client.fetch('/extended/v1/tx/mempool/dropped', undefined, { limit });
 }
+/** Get fee estimate for transaction */
+export async function getFeeEstimate(
+  client: HiroApiClient,
+  txPayload: string,
+  estimatedLen?: number,
+): Promise<{ cost_scalar_change_by_byte: number; estimated_cost: unknown; estimated_cost_scalar: number }> {
+  return client.fetch('/v2/fees/transaction', {
+    method: 'POST',
+    body: JSON.stringify({ transaction_payload: txPayload, estimated_len: estimatedLen }),
+  });
+}
