@@ -153,3 +153,14 @@ export function getActiveHolders(): string[] {
     .filter(([, balance]) => balance > 0n)
     .map(([principal]) => principal);
 }
+/** Transfer with memo (for record keeping) */
+export function executeTransferWithMemo(
+  sender: string,
+  recipient: string,
+  amount: bigint,
+  memo: string,
+): void {
+  executeTransfer(sender, recipient, amount);
+  // memo is for off-chain record only
+  void memo;
+}
