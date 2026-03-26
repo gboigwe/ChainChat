@@ -13,3 +13,7 @@ export function getUsername(data: UserSessionData): string | null {
 export function getIdentityAddress(data: UserSessionData): string | null {
   return data.identityAddress ?? null;
 }
+/** Get hub URL from session */
+export function getHubUrl(data: UserSessionData): string {
+  return data.hubUrl ?? 'https://hub.blockstack.org';
+}
