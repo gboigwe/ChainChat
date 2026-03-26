@@ -44,3 +44,8 @@ export class HiroApiClient {
     if (this.apiKey) headers['x-api-key'] = this.apiKey;
     return headers;
   }
+  private buildUrl(path: string, params?: Record<string, string | number>): string {
+    const url = new URL(path, this.baseUrl);
+    if (params) Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, String(v)));
+    return url.toString();
+  }
