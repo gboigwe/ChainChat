@@ -56,3 +56,7 @@ export class CVBuilder {
     return [...this.args];
   }
 }
+/** Create a new CVBuilder instance */
+export function cvArgs(): CVBuilder {
+  return new CVBuilder();
+}
