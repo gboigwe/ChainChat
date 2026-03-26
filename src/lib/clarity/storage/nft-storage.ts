@@ -51,3 +51,9 @@ export function transferNFT(
 export function ownsNFT(tokenId: NFTTokenId, principal: string): boolean {
   return getNFTOwner(tokenId) === principal;
 }
+/** Get all tokens owned by principal */
+export function getTokensByOwner(owner: string): NFTTokenId[] {
+  const tokens: NFTTokenId[] = [];
+  for (const [id, o] of nftOwnerMap) if (o === owner) tokens.push(id);
+  return tokens;
+}
