@@ -156,3 +156,9 @@ export function roundToHour(blockHeight: bigint): bigint {
 export function dateToBlockHeight(date: Date): bigint {
   return timestampToBlockHeight(Math.floor(date.getTime() / 1000));
 }
+
+/** Get start of day block height */
+export function startOfDayBlock(blockHeight: bigint): bigint {
+  const blocksPerDay = BigInt(BLOCKS_PER_DAY);
+  return (blockHeight / blocksPerDay) * blocksPerDay;
+}
