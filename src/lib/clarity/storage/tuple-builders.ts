@@ -27,3 +27,13 @@ export interface ChannelStorageTuple {
   visibility: bigint;
   'member-count': bigint;
 }
+/** Build channel storage tuple */
+export function buildChannelTuple(
+  name: string,
+  description: string,
+  owner: string,
+  createdAt: bigint,
+  visibility: bigint,
+): ChannelStorageTuple {
+  return { name, description, owner, 'created-at': createdAt, visibility, 'member-count': 0n };
+}
