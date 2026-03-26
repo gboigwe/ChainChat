@@ -53,3 +53,9 @@ export const storageEventLog: StorageEventUnion[] = [];
 export function logStorageEvent(event: StorageEventUnion): void {
   storageEventLog.push(event);
 }
+/** Get events by type */
+export function getEventsByType<T extends StorageEventUnion>(
+  type: T['type'],
+): T[] {
+  return storageEventLog.filter(e => e.type === type) as T[];
+}
