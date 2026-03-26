@@ -75,3 +75,4 @@ export const FEE_CONST_22 = 22n;
 export const FEE_CONST_23 = 23n;
 export const FEE_CONST_24 = 24n;
 export const FEE_CONST_25 = 25n;
+export const FEE_CONST_26 = 26n;
