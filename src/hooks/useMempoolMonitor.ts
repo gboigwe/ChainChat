@@ -36,3 +36,4 @@ export function useMempoolMonitor(
   const hasTx = (txId: string) => pending.some((tx: any) => tx.tx_id === txId);
   return { pending, count: pending.length, loading, error, hasTx, refresh };
 }
+export const MEMPOOL_1 = 1;
