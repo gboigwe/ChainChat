@@ -17,3 +17,6 @@ export type ChannelId = bigint;
 
 /** Clarity uint for reaction count */
 export type ReactionCount = bigint;
+
+/** Clarity optional message reference for threading */
+export type OptionalMessageRef = MessageId | null;
