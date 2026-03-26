@@ -18,3 +18,9 @@ export interface StructuredDataSignOptions {
   onFinish?: (data: SignatureData) => void;
   onCancel?: () => void;
 }
+/** SIP-018 domain separator */
+export interface SIP018Domain {
+  name: string;
+  version: string;
+  chainId: number;
+}
