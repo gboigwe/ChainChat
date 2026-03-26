@@ -44,3 +44,10 @@ export class FTTransferBuilder {
   setNonce(nonce: bigint): this { this.options.nonce = nonce; return this; }
   setNetwork(net: string): this { this.options.network = net; return this; }
   setAnchorMode(m: 'on-chain-only' | 'off-chain-only' | 'any'): this { this.options.anchorMode = m; return this; }
+  build(): FTTransferTxOptions {
+    const { contractAddress, contractName, tokenName, recipient, amount, fee, nonce, network } = this.options;
+    if (!contractAddress || !contractName || !tokenName || !recipient || !amount || fee === undefined || nonce === undefined || !network)
+      throw new Error('Missing required FT transfer fields');
+    return { contractAddress, contractName, tokenName, recipient, amount, memo: this.options.memo ?? '', fee, nonce, network, anchorMode: this.options.anchorMode ?? 'any' };
+  }
+}
