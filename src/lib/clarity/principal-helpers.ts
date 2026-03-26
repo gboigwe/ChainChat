@@ -13,3 +13,8 @@ const CONTRACT_PRINCIPAL_REGEX = /^(S[TP][0-9A-Z]{38,39})\.([a-z][a-z0-9\-]{0,39
 export function isStandardPrincipal(address: string): boolean {
   return MAINNET_PRINCIPAL_REGEX.test(address) || TESTNET_PRINCIPAL_REGEX.test(address);
 }
+
+/** Check if a string is a valid contract principal */
+export function isContractPrincipal(address: string): boolean {
+  return CONTRACT_PRINCIPAL_REGEX.test(address);
+}
