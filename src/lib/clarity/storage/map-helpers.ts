@@ -84,3 +84,12 @@ export function mapDeleteBatch<V extends MapValue>(
   for (const key of keys) if (map.delete(key)) deleted++;
   return deleted;
 }
+/** Filter map entries by predicate */
+export function mapFilter<V extends MapValue>(
+  map: Map<string, V>,
+  predicate: (value: V, key: string) => boolean,
+): Map<string, V> {
+  const result = new Map<string, V>();
+  for (const [k, v] of map) if (predicate(v, k)) result.set(k, v);
+  return result;
+}
