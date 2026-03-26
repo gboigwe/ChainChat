@@ -25,3 +25,4 @@ export const DEFAULT_INVITE_TTL_BLOCKS = 0;
 export const DEFAULT_LOCK_DURATION_BLOCKS = 0;
 export const MAX_REACTIONS_PER_USER = 0;
 export const MIN_CHANNEL_NAME_LEN = 0;
+export const MAX_BADGE_DESCRIPTION_LEN = 0;
