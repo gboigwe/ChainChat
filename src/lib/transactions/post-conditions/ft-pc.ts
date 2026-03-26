@@ -66,3 +66,4 @@ export const FT_PC_12 = 12;
 export const FT_PC_13 = 13;
 export const FT_PC_14 = 14;
 export const FT_PC_15 = 15;
+export const FT_PC_16 = 16;
