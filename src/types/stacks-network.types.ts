@@ -8,3 +8,4 @@ export interface NetworkConfig {
   explorerUrl: string;
   wsUrl?: string;
 }
+export type ChainId = 1 | 2147483648;
