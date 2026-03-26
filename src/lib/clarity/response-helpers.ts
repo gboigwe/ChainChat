@@ -5,3 +5,9 @@ export interface OkResponse<T> {
   type: 'ok';
   value: T;
 }
+
+/** Represents a Clarity (err value) response */
+export interface ErrResponse<E> {
+  type: 'err';
+  error: E;
+}
