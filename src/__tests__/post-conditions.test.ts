@@ -62,3 +62,4 @@ describe('contract post-condition', () => {
     expect(PC_STANDARD_PRINCIPAL).toMatch(/^SP/);
   });
 });
+export const PC_PADDING_1 = 1;
