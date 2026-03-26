@@ -165,3 +165,8 @@ export function lockAmount(t: FTBalanceTuple, amount: bigint): FTBalanceTuple {
 export function unlockAmount(t: FTBalanceTuple, amount: bigint): FTBalanceTuple {
   return { ...t, amount: t.amount + amount, locked: t.locked - amount };
 }
+/** Allowance storage tuple */
+export interface AllowanceTuple {
+  amount: bigint;
+  'approved-at': bigint;
+}
