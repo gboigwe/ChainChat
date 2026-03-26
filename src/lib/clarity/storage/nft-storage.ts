@@ -72,3 +72,16 @@ export interface BadgeNFT extends NFTMetadata {
 }
 /** Badge NFT map */
 export const badgeMap = new Map<bigint, BadgeNFT>();
+/** Mint a badge NFT for a user */
+export function mintBadge(
+  tokenId: NFTTokenId,
+  owner: string,
+  badgeType: BadgeType,
+  blockHeight: bigint,
+  channelId?: bigint,
+): BadgeNFT {
+  const base = mintNFT(tokenId, owner, `badge:${badgeType}`, blockHeight);
+  const badge: BadgeNFT = { ...base, badgeType, channelId };
+  badgeMap.set(tokenId, badge);
+  return badge;
+}
