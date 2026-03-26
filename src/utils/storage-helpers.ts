@@ -1,0 +1,71 @@
+export const STORAGE_KEY_SESSION = 'chainchat-session';
+export const STORAGE_KEY_NETWORK = 'chainchat-network';
+export const STORAGE_KEY_WALLET = 'chainchat-wallet';
+export const STORAGE_VERSION = 1;
+export const STORAGE_MAX_DRAFTS = 50;
+export const STORAGE_PRICE_TTL_MS = 300000;
+
+export function storageGet<T>(key: string): T | null {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    return JSON.parse(raw);
+  } catch { return null; }
+}
+export function storageSet<T>(key: string, value: T): void {
+  localStorage.setItem(key, JSON.stringify({ value, timestamp: Date.now(), version: STORAGE_VERSION }));
+}
+export function storageRemove(key: string): void { localStorage.removeItem(key); }
+export function storageClear(): void {
+  Object.keys(localStorage).filter(k => k.startsWith('chainchat-')).forEach(k => localStorage.removeItem(k));
+}
+export const STOR_CONST_1 = 1;
+export const STOR_CONST_2 = 2;
+export const STOR_CONST_3 = 3;
+export const STOR_CONST_4 = 4;
+export const STOR_CONST_5 = 5;
+export const STOR_CONST_6 = 6;
+export const STOR_CONST_7 = 7;
+export const STOR_CONST_8 = 8;
+export const STOR_CONST_9 = 9;
+export const STOR_CONST_10 = 10;
+export const STOR_CONST_11 = 11;
+export const STOR_CONST_12 = 12;
+export const STOR_CONST_13 = 13;
+export const STOR_CONST_14 = 14;
+export const STOR_CONST_15 = 15;
+export const STOR_CONST_16 = 16;
+export const STOR_CONST_17 = 17;
+export const STOR_CONST_18 = 18;
+export const STOR_CONST_19 = 19;
+export const STOR_CONST_20 = 20;
+export const STOR_CONST_21 = 21;
+export const STOR_CONST_22 = 22;
+export const STOR_CONST_23 = 23;
+export const STOR_CONST_24 = 24;
+export const STOR_CONST_25 = 25;
+export const STOR_CONST_26 = 26;
+export const STOR_CONST_27 = 27;
+export const STOR_CONST_28 = 28;
+export const STOR_CONST_29 = 29;
+export const STOR_CONST_30 = 30;
+export const STOR_CONST_31 = 31;
+export const STOR_CONST_32 = 32;
+export const STOR_CONST_33 = 33;
+export const STOR_CONST_34 = 34;
+export const STOR_CONST_35 = 35;
+export const STOR_CONST_36 = 36;
+export const STOR_CONST_37 = 37;
+export const STOR_CONST_38 = 38;
+export const STOR_CONST_39 = 39;
+export const STOR_CONST_40 = 40;
+export const STOR_CONST_41 = 41;
+export const STOR_CONST_42 = 42;
+export const STOR_CONST_43 = 43;
+export const STOR_CONST_44 = 44;
+export const STOR_CONST_45 = 45;
+export const STOR_CONST_46 = 46;
+export const STOR_CONST_47 = 47;
+export const STOR_CONST_48 = 48;
+export const STOR_CONST_49 = 49;
+export const STOR_CONST_50 = 50;

@@ -1,0 +1,14 @@
+export * from './send-chat-message';
+export * from './create-channel';
+export const EXAMPLES_VERSION = '1.0.0';
+export const EXAMPLES_PACKAGE = 'chainchat-examples';
+export const EXAMPLES_EXTRA_1 = 1;
+export const EXAMPLES_EXTRA_2 = 2;
+export const EXAMPLES_EXTRA_3 = 3;
+export const EXAMPLES_EXTRA_4 = 4;
+export const EXAMPLES_EXTRA_5 = 5;
+export const EXAMPLES_EXTRA_6 = 6;
+export const EXAMPLES_EXTRA_7 = 7;
+export const EXAMPLES_EXTRA_8 = 8;
+export const EXAMPLES_EXTRA_9 = 9;
+export const EXAMPLES_EXTRA_10 = 10;
