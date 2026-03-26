@@ -23,3 +23,8 @@ export interface ClarityMessage {
 
 /** Message status tracking on-chain state */
 export type MessageStatus = 'pending' | 'confirmed' | 'deleted';
+
+/** Extended message with off-chain metadata */
+export interface MessageWithMeta extends ClarityMessage {
+  status: MessageStatus;
+}
