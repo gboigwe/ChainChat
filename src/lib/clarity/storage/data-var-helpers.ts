@@ -18,3 +18,7 @@ export function atomicUpdate<T>(dataVar: DataVar<T>, fn: (current: T) => T): T {
   dataVar.set(updated);
   return updated;
 }
+/** Increment a numeric data-var by delta */
+export function incrementVar(dataVar: DataVar<bigint>, delta = 1n): bigint {
+  return atomicUpdate(dataVar, v => v + delta);
+}
