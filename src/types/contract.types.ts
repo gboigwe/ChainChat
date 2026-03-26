@@ -28,3 +28,6 @@ export interface MapABI {
   key: string | object;
   value: string | object;
 }
+export interface TokenABI {
+  name: string;
+}
