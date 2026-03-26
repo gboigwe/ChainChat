@@ -5,3 +5,7 @@ export function isSessionExpired(data: UserSessionData): boolean {
   // No expiry in basic Stacks Connect — always valid
   return false;
 }
+/** Get username from session */
+export function getUsername(data: UserSessionData): string | null {
+  return data.username ?? null;
+}
