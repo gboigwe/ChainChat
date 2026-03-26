@@ -82,3 +82,7 @@ export function getTopHolders(n: number): Array<{ principal: string; balance: bi
     .sort((a, b) => Number(b.balance - a.balance))
     .slice(0, n);
 }
+/** Check if principal has sufficient balance */
+export function hasSufficientBalance(principal: string, amount: bigint): boolean {
+  return getBalance(principal) >= amount;
+}
