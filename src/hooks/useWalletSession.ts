@@ -68,3 +68,4 @@ export const WALLET_SESSION_13 = 13;
 export const WALLET_SESSION_14 = 14;
 export const WALLET_SESSION_15 = 15;
 export const WALLET_SESSION_16 = 16;
+export const WALLET_SESSION_17 = 17;
