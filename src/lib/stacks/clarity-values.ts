@@ -66,3 +66,7 @@ export function bufferCVFromHex(hex: string): BufferCV {
 export function listCV(list: ClarityValue[]): ListCV {
   return { type: 'list', list };
 }
+/** Factory: tuple */
+export function tupleCV(data: Record<string, ClarityValue>): TupleCV {
+  return { type: 'tuple', data };
+}
