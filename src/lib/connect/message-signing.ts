@@ -49,3 +49,11 @@ export function buildSignMessageOptions(
 ): SignMessageOptions {
   return { message, onFinish, onCancel };
 }
+/** Build structured data sign options */
+export function buildStructuredDataSignOptions(
+  domain: SIP018Domain,
+  message: Record<string, unknown>,
+  onFinish: (data: SignatureData) => void,
+): StructuredDataSignOptions {
+  return { domain, message, onFinish };
+}
