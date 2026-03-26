@@ -91,3 +91,8 @@ export function hasPermission(
 
 /** Maximum number of members per channel */
 export const MAX_CHANNEL_MEMBERS = 1000n;
+
+/** Check if channel has reached member limit */
+export function isChannelFull(memberCount: bigint): boolean {
+  return memberCount >= MAX_CHANNEL_MEMBERS;
+}
