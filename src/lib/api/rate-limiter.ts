@@ -65,3 +65,4 @@ export const RATE_LIMITER_CONST_17 = 17;
 export const RATE_LIMITER_CONST_18 = 18;
 export const RATE_LIMITER_CONST_19 = 19;
 export const RATE_LIMITER_CONST_20 = 20;
+export const RATE_LIMITER_CONST_21 = 21;
