@@ -122,3 +122,4 @@ export const FORMAT_PAD_2 = 2;
 export const FORMAT_PAD_3 = 3;
 export const FORMAT_PAD_4 = 4;
 export const FORMAT_PAD_5 = 5;
+export const FORMAT_PAD_6 = 6;
