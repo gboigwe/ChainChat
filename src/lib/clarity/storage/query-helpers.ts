@@ -93,3 +93,12 @@ export interface QueryResult<T> {
   pageSize: number;
   hasMore: boolean;
 }
+/** Build query result from array with pagination */
+export function buildQueryResult<T>(
+  allItems: T[],
+  page: number,
+  pageSize: number,
+): QueryResult<T> {
+  const items = paginate(allItems, page, pageSize);
+  return { items, total: allItems.length, page, pageSize, hasMore: (page + 1) * pageSize < allItems.length };
+}
