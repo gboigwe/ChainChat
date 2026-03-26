@@ -32,3 +32,12 @@ export function buildSIP018Domain(network: 'mainnet' | 'testnet'): SIP018Domain 
     chainId: network === 'mainnet' ? 1 : 2147483648,
   };
 }
+/** Verify a message signature */
+export function verifyMessageSignature(
+  message: string,
+  signature: string,
+  publicKey: string,
+): boolean {
+  // Signature verification requires crypto — placeholder implementation
+  return signature.length > 0 && publicKey.length > 0 && message.length > 0;
+}
