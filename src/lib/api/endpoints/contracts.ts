@@ -90,3 +90,4 @@ export const CONTRACT_CONST_19 = 19;
 export const CONTRACT_CONST_20 = 20;
 export const CONTRACT_CONST_21 = 21;
 export const CONTRACT_CONST_22 = 22;
+export const CONTRACT_CONST_23 = 23;
