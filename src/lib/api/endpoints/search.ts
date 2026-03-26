@@ -18,3 +18,7 @@ export async function search(
 export async function searchByTxid(client: HiroApiClient, txid: string): Promise<SearchResult> {
   return search(client, txid);
 }
+/** Search by address */
+export async function searchByAddress(client: HiroApiClient, address: string): Promise<SearchResult> {
+  return search(client, address);
+}
