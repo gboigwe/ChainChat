@@ -7,3 +7,5 @@ export const ERR_CHANNEL_NOT_FOUND = 101n;
 export const ERR_MESSAGE_NOT_FOUND = 102n;
 /** Error: sender has already reacted */
 export const ERR_ALREADY_REACTED = 103n;
+/** Error: principal is already a member */
+export const ERR_ALREADY_MEMBER = 104n;
