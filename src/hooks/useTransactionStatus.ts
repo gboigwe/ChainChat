@@ -30,3 +30,9 @@ export function useTransactionStatus(
       if (data.tx_status !== 'pending') setIsFinalized(true);
     } catch { } finally { setLoading(false); }
   }, [txId, apiUrl, isFinalized]);
+  useEffect(() => {
+    if (!txId || isFinalized) return;
+    void poll();
+    const id = setInterval(() => void poll(), pollInterval);
+    return () => clearInterval(id);
+  }, [txId, isFinalized, poll, pollInterval]);
