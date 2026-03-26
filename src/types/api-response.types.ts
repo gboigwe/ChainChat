@@ -35,3 +35,8 @@ export interface MempoolTransactionApiResponse {
   receipt_time: number;
   tx_status: string;
 }
+export interface ReadOnlyFunctionResponse {
+  okay: boolean;
+  result?: string;
+  cause?: string;
+}
