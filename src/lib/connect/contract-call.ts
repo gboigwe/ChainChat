@@ -63,3 +63,7 @@ export const CHAINCHAT_FUNCTIONS = {
 export function isCancelled(data: unknown): boolean {
   return data === null || data === undefined;
 }
+/** Extract txId from finished data */
+export function extractTxId(data: FinishedTxData): string {
+  return data.txId.startsWith('0x') ? data.txId.slice(2) : data.txId;
+}
