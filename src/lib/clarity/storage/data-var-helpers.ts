@@ -34,3 +34,9 @@ export function compareVar<T>(dataVar: DataVar<T>, expected: T): boolean {
 export function resetVar<T>(dataVar: DataVar<T>, initial: T): void {
   dataVar.set(initial);
 }
+/** Swap data-var value, return old value */
+export function swapVar<T>(dataVar: DataVar<T>, newValue: T): T {
+  const old = dataVar.get();
+  dataVar.set(newValue);
+  return old;
+}
