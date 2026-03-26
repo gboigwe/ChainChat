@@ -15,3 +15,4 @@ export interface TypedClarityValue<T extends ClarityValueType, V> {
 export const CV_TYPE_CONST_1 = 1;
 export const CV_TYPE_CONST_2 = 2;
 export const CV_TYPE_CONST_3 = 3;
+export const CV_TYPE_CONST_4 = 4;
