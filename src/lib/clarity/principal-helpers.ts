@@ -145,3 +145,8 @@ export function isBlockedPrincipal(address: string): boolean {
 export function principalLength(address: string): number {
   return address.length;
 }
+
+/** Check if address is a standard (non-contract) principal */
+export function isStandardAddress(address: string): boolean {
+  return !address.includes('.');
+}
