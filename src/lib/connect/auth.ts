@@ -92,3 +92,11 @@ export const CHAINCHAT_APP_DETAILS = {
   name: 'ChainChat',
   icon: '/favicon.ico',
 } as const;
+/** Persist session data to localStorage */
+export function persistSession(data: UserSessionData): void {
+  try {
+    localStorage.setItem(SESSION_KEY, JSON.stringify(data));
+  } catch {
+    // ignore storage errors
+  }
+}
