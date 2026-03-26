@@ -48,3 +48,13 @@ export function getProviderIcon(provider: WalletProvider): string {
 export function getProviderDownloadUrl(provider: WalletProvider): string {
   return PROVIDER_REGISTRY[provider].downloadUrl;
 }
+/** Check if a specific provider is installed */
+export function isProviderInstalled(provider: WalletProvider): boolean {
+  if (typeof window === 'undefined') return false;
+  switch (provider) {
+    case WalletProvider.Leather: return !!(window as any).LeatherProvider;
+    case WalletProvider.Xverse: return !!(window as any).XverseProviders;
+    case WalletProvider.Hiro: return !!(window as any).StacksProvider;
+    default: return false;
+  }
+}
