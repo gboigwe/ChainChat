@@ -99,3 +99,5 @@ export function createObservableVar<T>(initial: T): DataVarWithSubscription<T> {
     subscribe: (l) => { listeners.add(l); return () => listeners.delete(l); },
   };
 }
+/** Fee rate data-var */
+export const feeRateVar = createDataVar<bigint>(1000n);
