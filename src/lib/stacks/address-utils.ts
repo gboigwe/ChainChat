@@ -109,3 +109,5 @@ export function addrUtil3(addr: string): boolean { return addr.length > 3; }
 export function addrUtil4(addr: string): boolean { return addr.length > 4; }
 /** Address utility helper 5 */
 export function addrUtil5(addr: string): boolean { return addr.length > 5; }
+/** Address utility helper 6 */
+export function addrUtil6(addr: string): boolean { return addr.length > 6; }
