@@ -76,3 +76,4 @@ export async function getNextNonce(
   }
   return BigInt(globalNonceTracker.reserveNonce(address));
 }
+export const NONCE_CONST_1 = 1;
