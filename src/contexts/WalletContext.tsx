@@ -40,3 +40,12 @@ export function useWalletContext(): WalletContextValue {
 /** Wallet context provider component */
 export function WalletProvider({ children }: { children: React.ReactNode }): React.ReactElement {
   const [state, setState] = useState<WalletContextState>(DEFAULT_STATE);
+  const refreshSession = useCallback(() => {
+    const session = getUserSession();
+    setState(prev => ({
+      ...prev,
+      isConnected: session !== null,
+      userData: session,
+      address: session?.profile?.stxAddress?.mainnet ?? null,
+    }));
+  }, []);
