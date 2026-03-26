@@ -34,3 +34,4 @@ export function useAccountBalance(
       setLoading(false);
     }
   }, [address, apiUrl]);
+  useEffect(() => { void fetchBalance(); }, [fetchBalance]);
