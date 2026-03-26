@@ -53,3 +53,6 @@ export function WalletProvider({ children }: { children: React.ReactNode }): Rea
     clearSession();
     setState(DEFAULT_STATE);
   }, []);
+  const setNetwork = useCallback((network: 'mainnet' | 'testnet') => {
+    setState(prev => ({ ...prev, network }));
+  }, []);
