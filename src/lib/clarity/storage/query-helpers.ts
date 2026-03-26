@@ -14,3 +14,15 @@ export function sortByBigintField<T>(
     return order === 'asc' ? (va < vb ? -1 : va > vb ? 1 : 0) : (vb < va ? -1 : vb > va ? 1 : 0);
   });
 }
+/** Sort array of objects by string field */
+export function sortByStringField<T>(
+  items: T[],
+  field: keyof T,
+  order: SortOrder = 'asc',
+): T[] {
+  return [...items].sort((a, b) => {
+    const sa = String(a[field]);
+    const sb = String(b[field]);
+    return order === 'asc' ? sa.localeCompare(sb) : sb.localeCompare(sa);
+  });
+}
