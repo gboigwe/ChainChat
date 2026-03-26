@@ -138,3 +138,13 @@ export function decodeRole(code: bigint): MemberRole {
 export function isChannelOwner(channel: ClarityChannel, principal: PrincipalAddress): boolean {
   return channel.owner === principal;
 }
+
+/** Create a default public channel object */
+export function createChannel(
+  id: ChannelId,
+  name: ChannelName,
+  owner: PrincipalAddress,
+  createdAt: bigint,
+): ClarityChannel {
+  return { id, name, description: '', owner, createdAt, visibility: 'public' };
+}
