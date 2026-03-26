@@ -35,3 +35,4 @@ export class PostConditionError extends StacksError {
     this.name = 'PostConditionError';
   }
 }
+export type StacksErrorType = 'CONTRACT_ERROR' | 'NETWORK_ERROR' | 'WALLET_ERROR' | 'TRANSACTION_ERROR' | 'POST_CONDITION_ERROR';
