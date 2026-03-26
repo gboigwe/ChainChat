@@ -56,3 +56,4 @@ export const CONTRACT_EVENTS_12 = 12;
 export const CONTRACT_EVENTS_13 = 13;
 export const CONTRACT_EVENTS_14 = 14;
 export const CONTRACT_EVENTS_15 = 15;
+export const CONTRACT_EVENTS_16 = 16;
