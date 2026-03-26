@@ -70,3 +70,4 @@ export async function getAccountInboundSTX(
 ): Promise<{ results: unknown[]; total: number }> {
   return client.fetch(`/extended/v1/address/${address}/stx_inbound`, undefined, { limit });
 }
+export const ACCOUNT_CONST_1 = 1;
