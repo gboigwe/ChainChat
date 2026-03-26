@@ -172,3 +172,7 @@ export function isFutureBlock(blockHeight: bigint, currentBlock: bigint): boolea
 export function isPastBlock(blockHeight: bigint, currentBlock: bigint): boolean {
   return blockHeight < currentBlock;
 }
+/** Weekly block range */
+export function weekBlockRange(currentBlock: bigint): { start: bigint; end: bigint } {
+  return blockRangeForDays(currentBlock, 7);
+}
