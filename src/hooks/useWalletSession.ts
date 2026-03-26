@@ -43,3 +43,9 @@ export function useWalletSession(): UseWalletSessionReturn {
     catch (e) { setError(e instanceof Error ? e.message : 'Failed to connect'); }
     finally { setIsConnecting(false); }
   }, [refresh]);
+  const disconnect = useCallback(() => {
+    localStorage.removeItem('blockstack-session');
+    setIsConnected(false);
+    setAddress(null);
+    setProfile(null);
+  }, []);
