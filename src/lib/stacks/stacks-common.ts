@@ -53,3 +53,5 @@ export function getTxVersion(network: StacksNetwork): number {
 export type PostConditionMode = 'allow' | 'deny';
 /** Anchor mode options */
 export type AnchorMode = 'on-chain-only' | 'off-chain-only' | 'any';
+/** Transaction status values */
+export type TxStatus = 'pending' | 'success' | 'abort_by_response' | 'abort_by_post_condition';
