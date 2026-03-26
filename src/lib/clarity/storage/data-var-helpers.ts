@@ -26,3 +26,7 @@ export function incrementVar(dataVar: DataVar<bigint>, delta = 1n): bigint {
 export function decrementVar(dataVar: DataVar<bigint>, delta = 1n): bigint {
   return atomicUpdate(dataVar, v => (v >= delta ? v - delta : 0n));
 }
+/** Compare data-var to expected value */
+export function compareVar<T>(dataVar: DataVar<T>, expected: T): boolean {
+  return dataVar.get() === expected;
+}
