@@ -41,3 +41,6 @@ export function describeContractError(code: bigint): string {
 
 /** Error: reply target message not found */
 export const ERR_REPLY_TARGET_NOT_FOUND = 110n;
+
+/** Error: attachment too large */
+export const ERR_ATTACHMENT_TOO_LARGE = 111n;
