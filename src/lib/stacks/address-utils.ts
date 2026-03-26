@@ -40,3 +40,9 @@ export function validateContractPrincipal(principal: string): boolean {
   if (parts.length !== 2) return false;
   return validateStacksAddress(parts[0]) && /^[a-z][a-z0-9\-]{0,39}$/.test(parts[1]);
 }
+/** Parse contract principal into components */
+export function parseContractPrincipal(principal: string): { address: string; contractName: string } {
+  const [address, contractName] = principal.split('.');
+  if (!address || !contractName) throw new Error(`Invalid contract principal: ${principal}`);
+  return { address, contractName };
+}
