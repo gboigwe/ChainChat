@@ -116,3 +116,4 @@ export const TX_EXTRA_25 = 25;
 export const TX_EXTRA_26 = 26;
 export const TX_EXTRA_27 = 27;
 export const TX_EXTRA_28 = 28;
+export const TX_EXTRA_29 = 29;
