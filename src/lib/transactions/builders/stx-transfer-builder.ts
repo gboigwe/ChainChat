@@ -22,3 +22,8 @@ export class STXTransferBuilder {
     this.options.amount = amount;
     return this;
   }
+  setMemo(memo: string): this {
+    if (memo.length > 34) throw new Error('Memo too long');
+    this.options.memo = memo;
+    return this;
+  }
