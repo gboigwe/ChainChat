@@ -57,3 +57,4 @@ export function makeContractNonFungiblePostCondition(
 }
 export const NFT_PC_1 = 1;
 export const NFT_PC_2 = 2;
+export const NFT_PC_3 = 3;
