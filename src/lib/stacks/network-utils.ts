@@ -41,3 +41,7 @@ export function getNetworkConfig(name: string): NetworkConfig {
     default: throw new Error(`Unknown network: ${name}`);
   }
 }
+/** Check if running on mainnet */
+export function isMainnet(config: NetworkConfig): boolean {
+  return config.isMainnet;
+}
