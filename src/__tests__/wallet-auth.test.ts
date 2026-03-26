@@ -81,3 +81,4 @@ export const AUTH_PADDING_10 = 10;
 export const AUTH_EXTRA_11 = 11;
 export const AUTH_EXTRA_12 = 12;
 export const AUTH_EXTRA_13 = 13;
+export const AUTH_EXTRA_14 = 14;
