@@ -92,3 +92,7 @@ export function cvToJson(cv: ClarityValue): CVJson {
   }
   return base;
 }
+/** Batch serialize array of ClarityValues */
+export function serializeArgs(args: ClarityValue[]): string[] {
+  return args.map(cvToHex);
+}
