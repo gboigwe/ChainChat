@@ -109,3 +109,15 @@ export function tryCatch<T>(fn: () => T): ClarityResponse<T, string> {
     return err(e instanceof Error ? e.message : String(e));
   }
 }
+
+/** Collect multiple responses, fail fast on first err */
+export function collectOk<T, E>(
+  responses: ClarityResponse<T, E>[],
+): ClarityResponse<T[], E> {
+  const values: T[] = [];
+  for (const res of responses) {
+    if (isErr(res)) return res;
+    values.push(res.value);
+  }
+  return ok(values);
+}
