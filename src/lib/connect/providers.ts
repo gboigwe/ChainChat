@@ -44,3 +44,7 @@ export const PROVIDER_REGISTRY: Record<WalletProvider, ProviderInfo> = {
 export function getProviderIcon(provider: WalletProvider): string {
   return PROVIDER_REGISTRY[provider].icon;
 }
+/** Get provider download URL */
+export function getProviderDownloadUrl(provider: WalletProvider): string {
+  return PROVIDER_REGISTRY[provider].downloadUrl;
+}
