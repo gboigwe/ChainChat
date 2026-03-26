@@ -7,3 +7,9 @@ export interface WalletSession {
   provider: WalletProviderType;
   userData: Record<string, unknown> | null;
 }
+export interface AuthData {
+  appPrivateKey: string;
+  identityAddress: string;
+  profile: ProfileData;
+  hubUrl: string;
+}
