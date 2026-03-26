@@ -32,3 +32,12 @@ export const DEVNET_CONFIG: NetworkConfig = {
   isMainnet: false,
   explorerUrl: 'http://localhost:8000',
 };
+/** Get network config by name */
+export function getNetworkConfig(name: string): NetworkConfig {
+  switch (name) {
+    case 'mainnet': return MAINNET_CONFIG;
+    case 'testnet': return TESTNET_CONFIG;
+    case 'devnet': return DEVNET_CONFIG;
+    default: throw new Error(`Unknown network: ${name}`);
+  }
+}
