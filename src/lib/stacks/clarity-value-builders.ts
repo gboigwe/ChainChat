@@ -79,3 +79,11 @@ export function buildCreateChannelArgs(
 ): ClarityValue[] {
   return cvArgs().ascii(name).ascii(description).uint(visibility).build();
 }
+/** Build args for invite-member call */
+export function buildInviteMemberArgs(
+  channelId: bigint,
+  invitee: string,
+  role: bigint,
+): ClarityValue[] {
+  return cvArgs().uint(channelId).principal(invitee).uint(role).build();
+}
