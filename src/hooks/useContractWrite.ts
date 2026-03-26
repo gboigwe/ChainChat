@@ -9,3 +9,8 @@ export interface UseContractWriteState {
   isError: boolean;
   error: string | null;
 }
+/** Write hook options */
+export interface UseContractWriteOptions {
+  onSuccess?: (txId: string) => void;
+  onError?: (error: string) => void;
+}
