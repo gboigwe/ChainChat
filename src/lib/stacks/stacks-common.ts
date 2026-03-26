@@ -39,3 +39,5 @@ export function formatMicroStx(microStx: bigint, decimals = 6): string {
 export function addressesEqual(a: string, b: string): boolean { return a === b; }
 /** Minimum transaction fee in microSTX */
 export const MIN_TX_FEE = 180n;
+/** Default anchor mode */
+export const DEFAULT_ANCHOR_MODE = 'any';
