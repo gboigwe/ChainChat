@@ -62,3 +62,7 @@ export function countByField<T>(items: T[], field: keyof T): Map<string, number>
   }
   return counts;
 }
+/** Get unique values for a field */
+export function uniqueByField<T>(items: T[], field: keyof T): T[keyof T][] {
+  return [...new Set(items.map(i => i[field]))];
+}
