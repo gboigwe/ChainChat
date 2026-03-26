@@ -77,3 +77,7 @@ export function buildSTXPostCondition(
 ): Record<string, unknown> {
   return { type: 'stx', principal, conditionCode: code, amount: amount.toString() };
 }
+/** Check if options are ready to submit */
+export function isReadyToSubmit(options: ContractCallRegularOptions): boolean {
+  return validateContractCallArgs(options).length === 0;
+}
