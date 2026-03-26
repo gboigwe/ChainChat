@@ -241,3 +241,16 @@ export function serializeMessage(msg: ClarityMessage): Record<string, unknown> {
     reactions: msg.reactions.toString(),
   };
 }
+
+/** Deserialize a plain object back to ClarityMessage */
+export function deserializeMessage(raw: Record<string, unknown>): ClarityMessage {
+  return {
+    id: BigInt(raw['id'] as string),
+    sender: raw['sender'] as string,
+    content: raw['content'] as string,
+    channelId: BigInt(raw['channelId'] as string),
+    createdAt: BigInt(raw['createdAt'] as string),
+    replyTo: raw['replyTo'] ? BigInt(raw['replyTo'] as string) : null,
+    reactions: BigInt(raw['reactions'] as string),
+  };
+}
