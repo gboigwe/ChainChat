@@ -64,3 +64,4 @@ export const READ_ONLY_14 = 14;
 export const READ_ONLY_15 = 15;
 export const READ_ONLY_16 = 16;
 export const READ_ONLY_17 = 17;
+export const READ_ONLY_18 = 18;
