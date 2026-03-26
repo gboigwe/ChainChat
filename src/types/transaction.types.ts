@@ -57,3 +57,4 @@ export const TX_TYPE_CONST_11 = 11;
 export const TX_TYPE_CONST_12 = 12;
 export const TX_TYPE_CONST_13 = 13;
 export const TX_TYPE_CONST_14 = 14;
+export const TX_TYPE_CONST_15 = 15;
