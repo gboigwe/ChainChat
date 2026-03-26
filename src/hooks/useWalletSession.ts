@@ -9,3 +9,10 @@ export interface WalletSessionState {
   error: string | null;
   network: 'mainnet' | 'testnet';
 }
+/** Actions returned by useWalletSession */
+export interface WalletSessionActions {
+  connect: () => Promise<void>;
+  disconnect: () => void;
+  refresh: () => void;
+  setNetwork: (n: 'mainnet' | 'testnet') => void;
+}
