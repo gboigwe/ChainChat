@@ -70,3 +70,10 @@ export function getEventsInRange(
 ): StorageEventUnion[] {
   return storageEventLog.filter(e => e.blockHeight >= start && e.blockHeight <= end);
 }
+/** Message deleted event */
+export interface MessageDeletedEvent extends StorageEvent {
+  type: 'message-deleted';
+  messageId: bigint;
+  channelId: bigint;
+  deletedBy: string;
+}
