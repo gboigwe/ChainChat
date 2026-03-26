@@ -18,3 +18,10 @@ export const MAX_CHANNEL_DESC_LENGTH = 256;
 
 /** Channel visibility modes */
 export type ChannelVisibility = 'public' | 'private' | 'restricted';
+
+/** Channel visibility encoded as Clarity uint */
+export const VISIBILITY_CODES: Record<ChannelVisibility, bigint> = {
+  public: 1n,
+  private: 2n,
+  restricted: 3n,
+};
