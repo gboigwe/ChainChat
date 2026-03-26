@@ -79,3 +79,4 @@ export async function getTxEvents(
 }
 export const TX_ENDPOINT_CONST_1 = 1;
 export const TX_ENDPOINT_CONST_2 = 2;
+export const TX_ENDPOINT_CONST_3 = 3;
