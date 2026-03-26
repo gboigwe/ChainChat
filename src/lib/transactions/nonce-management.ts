@@ -79,3 +79,4 @@ export async function getNextNonce(
 export const NONCE_CONST_1 = 1;
 export const NONCE_CONST_2 = 2;
 export const NONCE_CONST_3 = 3;
+export const NONCE_CONST_4 = 4;
