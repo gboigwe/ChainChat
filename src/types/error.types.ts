@@ -64,3 +64,4 @@ export const ERROR_TYPE_CONST_19 = 19;
 export const ERROR_TYPE_CONST_20 = 20;
 export const ERROR_TYPE_CONST_21 = 21;
 export const ERROR_TYPE_CONST_22 = 22;
+export const ERROR_TYPE_CONST_23 = 23;
