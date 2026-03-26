@@ -27,3 +27,7 @@ export class FTTransferBuilder {
     this.options.tokenName = name;
     return this;
   }
+  setRecipient(recipient: string): this {
+    this.options.recipient = recipient;
+    return this;
+  }
