@@ -78,3 +78,5 @@ export function standardPrincipalCV(address: string): StandardPrincipalCV {
 export function contractPrincipalCV(address: string, contractName: string): ContractPrincipalCV {
   return { type: 'contract', address, contractName };
 }
+/** Factory: none */
+export function noneCV(): NoneCV { return { type: 'none' }; }
