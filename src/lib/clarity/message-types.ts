@@ -189,3 +189,13 @@ export function getLatestMessage(messages: ClarityMessage[]): ClarityMessage | n
     m.createdAt > latest.createdAt ? m : latest,
   );
 }
+
+/** Paginate a message array */
+export function paginateMessages(
+  messages: ClarityMessage[],
+  page: number,
+  pageSize: number,
+): ClarityMessage[] {
+  const start = page * pageSize;
+  return messages.slice(start, start + pageSize);
+}
