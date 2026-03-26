@@ -39,3 +39,7 @@ export function uintCV(value: bigint | number): UIntCV {
 export function intCV(value: bigint | number): IntCV {
   return { type: 'int', value: BigInt(value) };
 }
+/** Factory: bool */
+export function boolCV(value: boolean): BoolCV {
+  return { type: 'bool', value };
+}
