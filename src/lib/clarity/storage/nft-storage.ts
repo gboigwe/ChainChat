@@ -140,3 +140,11 @@ export function getAllNFTMetadata(): NFTMetadata[] {
 export function getNFTsMintedAfter(blockHeight: bigint): NFTMetadata[] {
   return getAllNFTMetadata().filter(m => m.mintedAt >= blockHeight);
 }
+/** Count total badge types issued */
+export function getBadgeTypeStats(): Map<string, number> {
+  const stats = new Map<string, number>();
+  for (const badge of badgeMap.values()) {
+    stats.set(badge.badgeType, (stats.get(badge.badgeType) ?? 0) + 1);
+  }
+  return stats;
+}
