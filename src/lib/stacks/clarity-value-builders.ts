@@ -8,3 +8,7 @@ export class CVBuilder {
     this.args.push(uintCV(BigInt(value)));
     return this;
   }
+  int(value: bigint | number): this {
+    this.args.push(intCV(BigInt(value)));
+    return this;
+  }
