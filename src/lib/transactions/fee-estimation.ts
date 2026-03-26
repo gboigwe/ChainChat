@@ -25,3 +25,5 @@ export function getLowPriorityFee(baseFee: bigint): bigint {
   const low = BigInt(Math.floor(Number(baseFee) * LOW_PRIORITY_FEE_MULTIPLIER));
   return low > MINIMUM_FEE ? low : MINIMUM_FEE;
 }
+/** Fee tier options */
+export type FeeTier = 'low' | 'standard' | 'high';
