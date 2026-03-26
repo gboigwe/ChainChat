@@ -33,3 +33,10 @@ export interface MemberKickedEvent extends StorageEvent {
   principal: string;
   kickedBy: string;
 }
+/** Reaction added event */
+export interface ReactionAddedEvent extends StorageEvent {
+  type: 'reaction-added';
+  messageId: bigint;
+  reactor: string;
+  reactionCode: bigint;
+}
