@@ -48,3 +48,7 @@ export class CVBuilder {
     this.args.push(noneCV());
     return this;
   }
+  some(value: ClarityValue): this {
+    this.args.push(someCV(value));
+    return this;
+  }
